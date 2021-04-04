@@ -1,10 +1,17 @@
+body{
+    font-family: 'Cardo', serif;
+    
+}
+
+.dark{
+    background-color: #484D5C;
+}
+
 .header{
-    /*background-image: url(img/sfondo-home.jpg);*/
     width: 100%;
     height: fit-content;
     padding-bottom: 100%;
 }
-
 
 #logo{
     display: block;
@@ -14,31 +21,38 @@
 }
 
 #title{
-    font-family:'Times New Roman', Times, serif;
     text-align: center;
     font-size: 3rem;
+    color: #FFCE00;
+    font-family: 'Oswald', sans-serif;
 }
 
-.search-container{
-    margin: auto;
-    width: 50%;
+/*Searchbar css, fonte https://stackoverflow.com/questions/42421361/input-button-elements-not-shrinking-in-a-flex-container */
+
+.searchbar{
+    text-indent: 20px;
+    border: 1px solid white;
+}
+
+.search-container {
     padding-top: 5rem;
+    width: 50rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
+    margin: auto;
+    }
 
-.search{
-    text-indent: 10px;
-}
+.search-container > * {  /* .search-container che ha come parente ogni elemento, ma non ho ben capito perchè così funziona, però questo serve per la spaziatura tra i due input*/
+    margin: 0 .5rem;    
+    }
 
-#searchbar{
-    order: 1;
-    flex-grow:2;
+#searchbar-primary {
     height: 3rem;
-}
+    flex: 2;
+    }
 
-#searchbar-pos{
-    order:2;
-    flex-grow: 1;
-}
+#searchbar-secondary {
+    height: 3rem;
+    flex: 1;
+    }
+
+/*Fine searchbar css */
