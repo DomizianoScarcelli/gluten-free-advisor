@@ -3,6 +3,7 @@
     <head>
         <title>Home - Ristoranti Gluten Free</title>
         <link href="style.css" rel="stylesheet">
+        <script src="script.js"></script>
         <!--Responsiveness-->
         <meta name="viewport" content="width=device-width initial-scale=1.0"/>
         <!--Bootstrap-->
@@ -16,9 +17,9 @@
     </head>
     <body class="background">
         <!--Page Logo-->
-        <div class="header">
+        <div class="head-container">
             <img src="img/logo.png" id="logo" >
-            <h1 id="title">Ristoranti Gluten Free</h1>
+            <h1 id="title"><!--Ristoranti Gluten Free--></h1>
             
             <!--Searchbars-->
             <div class="search-container">
@@ -28,15 +29,30 @@
         </div>
 
         <!--Ristoranti consigliati-->
-        <h1 class="tips-title">I nostri consigli</h1>
+        <h1 class="tips-title" id="tips-title">I nostri consigli</h1>
         <div class="restaurant-cards">  <!--Aggiungi l'onclick-->
-            <div class="card" id="lievito72">
-                <img src="img/restaurants/lievito-72-home.jpg">
-                <div class="card-body">
-                    <h5 class="card-title">Lievito 72</h5>
-                    <p class="card-text">Supplì, focacce e pizze, anche senza glutine, tra gli interni moderni di un locale dal tocco minimalista.</p>
-                </div>
-            </div>
+            <table class="card-table">
+                <tr>
+                    <td class="card-row">
+                        <div class="card" id="lievito72">
+                            <img class="card-image" src="img/restaurants/lievito-72-home.jpg">
+                            <div class="card-body">
+                                <h5 class="card-title">Lievito 72</h5>
+                                <p class="card-text">Supplì, focacce e pizze, anche senza glutine, tra gli interni moderni di un locale dal tocco minimalista.</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="card-row">
+                        <div class="card" id="lievito72">
+                            <img class="card-image" src="img/restaurants/mangiafuoco-pizza-grill-home.webp">
+                            <div class="card-body">
+                                <h5 class="card-title">Ristorante Mangiafuoco Pizza&Grill</h5>
+                                <p class="card-text">Ristorante dagli arredi essenziali con carne alla griglia e pizza e fritti senza glutine, anche da asporto.</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>
