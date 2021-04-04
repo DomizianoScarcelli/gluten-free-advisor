@@ -52,6 +52,7 @@ h1{
     background-position: center;
     border-radius: 12px;
     padding: 60px;
+    transition: height 400ms;
     }
 
 .search-container > * {  /* tutto ciò che sta dentro .search-container */
@@ -59,9 +60,15 @@ h1{
     margin: 0 .5rem;  
     }
 
+.search-container:hover{
+    height: 18rem;
+}
+
 #searchbar-primary {
     flex: 2;
     }
+
+
 
 #searchbar-secondary {
     flex: 1;
@@ -97,11 +104,19 @@ h1{
     height: 25rem;
     border-radius: 12px !important;
     width: 25rem;
-    transition: width 100ms;
+    transition: width 500ms;
     box-shadow: 5px 10px 10px #b2b4b6;
 
  }
 
  .card:hover{
      width: 30rem;
+     height: 30rem;
+ }
+
+ .card-address{
+     font-style: italic;
+     font-size: 13px;
+     position: absolute;
+     bottom:0;
  }
