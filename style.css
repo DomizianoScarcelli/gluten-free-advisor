@@ -1,17 +1,22 @@
-body{
-    font-family: 'Cardo', serif;
-    
+h1{
+    color: #41405F;
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
 }
 
-.dark{
-    background-color: #484D5C;
+.background{
+    font-family: 'Cardo', serif;
+    background-color: #EBEEF0;
 }
+
 
 .header{
+    margin: auto;
     width: 100%;
-    height: fit-content;
-    padding-bottom: 100%;
+    height: 35rem;
+    background-color: #E36A7D;
 }
+
 
 #logo{
     display: block;
@@ -21,10 +26,11 @@ body{
 }
 
 #title{
-    text-align: center;
     font-size: 3rem;
-    color: #FFCE00;
-    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+    padding-top: 30px;
+
 }
 
 /*Searchbar css, fonte https://stackoverflow.com/questions/42421361/input-button-elements-not-shrinking-in-a-flex-container */
@@ -32,27 +38,51 @@ body{
 .searchbar{
     text-indent: 20px;
     border: 1px solid white;
+    box-shadow: 5px 10px 10px #30333d;
+    border-radius: 12px;
+    outline: none;
 }
 
 .search-container {
-    padding-top: 5rem;
-    width: 50rem;
+    width: 60rem;
+    height: 15rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
+    background-image: url(img/restaurant-home-2.jpg);
+    border-radius: 12px;
+    padding: 60px;
     }
 
-.search-container > * {  /* .search-container che ha come parente ogni elemento, ma non ho ben capito perchè così funziona, però questo serve per la spaziatura tra i due input*/
-    margin: 0 .5rem;    
+.search-container > * {  /* tutto ciò che sta dentro .search-container */
+    height: 3rem;
+    margin: 0 .5rem;  
     }
 
 #searchbar-primary {
-    height: 3rem;
     flex: 2;
     }
 
 #searchbar-secondary {
-    height: 3rem;
     flex: 1;
     }
 
-/*Fine searchbar css */
+/*Restaurant card css*/
+.tips-title{
+    padding: 30px;
+}
+
+.restaurant-cards{
+    padding-bottom: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.card{
+    width: 25rem;
+    transition: width 100ms;
+ }
+
+ .card:hover{
+     width: 30rem;
+ }
