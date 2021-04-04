@@ -33,8 +33,6 @@ h1{
 
 }
 
-/*Searchbar css, fonte https://stackoverflow.com/questions/42421361/input-button-elements-not-shrinking-in-a-flex-container */
-
 .searchbar{
     text-indent: 20px;
     border: 1px solid white;
@@ -79,6 +77,10 @@ h1{
     padding-bottom: 5rem;
     padding-left: 2rem;
     padding-right: 2rem;
+}
+
+.card-table{
+    margin: auto;
 }
 
 .card-row{
