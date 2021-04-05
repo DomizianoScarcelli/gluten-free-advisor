@@ -1,0 +1,24 @@
+@media only screen and (max-width:780px){
+    .searchbar{
+        width: 100%;
+    }
+    
+    .search-container {
+        width: 100%;
+        display: block;
+        padding: 20px;
+        }
+    
+    .restaurant-cards-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .col{
+        width: 100%;
+    }
+}
