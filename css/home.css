@@ -1,38 +1,35 @@
-h1{
-    color: #41405F;
+h1 {
+    color: #41405f;
     text-align: center;
-    font-family: 'PT Sans', sans-serif;
+    font-family: "PT Sans", sans-serif;
 }
 
-.background{
-    font-family: 'Cardo', serif;
-    background-color: #EBEEF0;
-    
+.background {
+    font-family: "Cardo", serif;
+    background-color: #ebeef0;
 }
 
-.head-container{
+.head-container {
     width: 100%;
     height: 35rem;
-    background-color: #E36A7D;
+    background-color: #e36a7d;
 }
 
-
-#logo{
+#logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 10rem;
 }
 
-#title{
+#title {
     font-size: 3rem;
     text-transform: uppercase;
     padding-bottom: 30px;
     padding-top: 30px;
-
 }
 
-.searchbar{
+.searchbar {
     text-indent: 20px;
     border: 1px solid white;
     box-shadow: 5px 10px 10px #30333d;
@@ -52,32 +49,33 @@ h1{
     border-radius: 12px;
     padding: 60px;
     transition: height 400ms;
-    }
+}
 
-.search-container > * {  /* tutto ciò che sta dentro .search-container */
+.search-container>* {
+    /* tutto ciò che sta dentro .search-container */
     height: 3rem;
-    margin: 0 .5rem;  
-    }
+    margin: 0 0.5rem;
+}
 
-.search-container:hover{
+.search-container:hover {
     height: 18rem;
 }
 
 #searchbar-primary {
     flex: 2;
-    }
+}
 
 #searchbar-secondary {
     flex: 1;
-    }
+}
 
 /*Restaurant cards css*/
 
-.tips-title{
+.tips-title {
     padding: 30px;
 }
 
-.restaurant-cards-container{
+.restaurant-cards-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,31 +84,55 @@ h1{
     padding-right: 2rem;
 }
 
-.card-image{
+.card-image {
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
-
 }
-.card{
-    min-height: fit-content;
+
+.card {
     height: 25rem;
     border-radius: 12px !important;
     width: 25rem;
     transition: width 500ms;
     box-shadow: 5px 10px 10px #b2b4b6;
     cursor: pointer;
+}
 
- }
+.card-image {
+    width: auto;
+    height: auto;
+}
 
- .card:hover{
-     width: 27rem;
-     height: 27rem;
- }
+.card:hover {
+    width: 27rem;
+    height: 27rem;
+}
 
- .card-address{
-     font-style: italic;
-     font-size: 13px;
-     position: absolute;
-     bottom:0;
- }
+.card-address {
+    background-image: url(/img/icons/position.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: right;
+    background-position-y: center;
+    padding-right: 25px;
+    font-style: italic;
+    font-size: 13px;
+    position: absolute;
+    bottom: 0;
+}
 
+/*Mobile css*/
+
+@media only screen and (max-width: 780px) {
+    .searchbar {
+        width: 100%;
+    }
+    .search-container {
+        width: 100%;
+        display: block;
+        padding: 20px;
+    }
+    .col {
+        width: 100%;
+    }
+}
