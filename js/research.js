@@ -6,33 +6,12 @@ I filtri di tali ricerca sono presenti nel searchbarPrimary.addEventListener e s
 
 const restaurantsList = document.getElementById("restaurants-list");
 const searchbarPrimary = document.getElementById("searchbar-primary");
+const searchBarSecondary = document.getElementById("searchbar-secondary");
 const tipsTitle = document.getElementById("tips-title");
 const originalHTML = restaurantsList.innerHTML;
 
-searchbarPrimary.addEventListener("keyup", (e) => {
-    const searchString = e.target.value.toLowerCase();
-    const filteredRestaurants = restaurants.filter((restaurant) => {
-        return (
-            restaurant.name.toLowerCase().includes(searchString) ||
-            restaurant.location.toLowerCase().includes(searchString) ||
-            restaurant.infos.toLowerCase().includes(searchString)
-        );
-    });
-    if (searchbarPrimary.value == "") {
-        tipsTitle.textContent = "I nostri consigli";
-        restaurantsList.innerHTML = originalHTML;
-    } else {
-        tipsTitle.textContent = "Risultati della ricerca";
-        displayRestaurants(filteredRestaurants);
-
-        //location.href = "#tips-title";
-
-    }
-
-
-});
-
-async function loadRestaurants() {
+/*Carica il json contenente i ristoranti all'interno di una variabile globale*/
+var loadRestaurants = async function () {
     try {
         const res = await fetch("/restaurants.json");
         restaurants = await res.json();
@@ -41,7 +20,50 @@ async function loadRestaurants() {
     }
 }
 
-function displayRestaurants(restaurants) {
+/* Mostra il codice HTML originale quando entrambe le barre di ricerca sono vuote*/
+var clearResearch = function () {
+    if (searchbarPrimary.value == "" && searchBarSecondary.value == "") {
+        tipsTitle.textContent = "I nostri consigli";
+        restaurantsList.innerHTML = originalHTML;
+    } else {
+        tipsTitle.textContent = "Risultati ricerca";
+
+    }
+};
+
+/* Ascolta le lettere digitate sulla barra di ricerca primaria */
+searchbarPrimary.addEventListener("keyup", (e) => {
+    const searchString = e.target.value.toLowerCase();
+    const filteredRestaurants = restaurants.filter((restaurant) => {
+        return (
+            restaurant.name.toLowerCase().includes(searchString) ||
+            restaurant.infos.toLowerCase().includes(searchString)
+        );
+    });
+    clearResearch();
+    displayRestaurants(filteredRestaurants);
+
+    //location.href = "#tips-title";
+});
+
+/* Ascolta le lettere digitate sulla barra di ricerca secondaria */
+searchBarSecondary.addEventListener("keyup", (e) => {
+    const searchString = e.target.value.toLowerCase();
+    const filteredRestaurants = restaurants.filter((restaurant) => {
+        for (var tagIndex = 0; tagIndex < restaurant.areaTags.length; tagIndex++) {
+            return restaurant.areaTags[tagIndex].toLowerCase().includes(searchString);
+        }
+        return restaurant.location.toLowerCase().includes(searchString)
+    });
+    clearResearch();
+    displayRestaurants(filteredRestaurants);
+
+    //location.href = "#tips-title";
+});
+
+
+/*Modifica il codice HTML inserendo i risulati della ricerca combinata tra la prima e la seconda barra di ricerca*/
+var displayRestaurants = function (restaurants) {
     if (restaurants.length == 0) {
         restaurantsList.innerHTML = "<p>La ricerca non ha prodotto alcun risultato</p>"
     }
@@ -67,5 +89,5 @@ function displayRestaurants(restaurants) {
 
 
 }
-
+/*Chiama la prima funzione*/
 loadRestaurants();
