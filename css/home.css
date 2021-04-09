@@ -5,8 +5,6 @@ h1 {
 }
 
 .background {
-    font-family: "Cardo", serif;
-    background-color: #ebeef0;
     display: grid;
     place-items: center;
 }

@@ -1,6 +1,5 @@
 /*
  * Questo codice viene eseguito quando viene inserita almeno una lettera all'interno della searchbar. Mostra nella lista dei ristoranti i ristoranti nel json filtrati per la ricerca effettuata.
-I filtri di tali ricerca sono presenti nel searchbarPrimary.addEventListener e sono messi in OR logico tra loro. 
  */
 
 
@@ -8,7 +7,11 @@ const restaurantsList = document.getElementById("restaurants-list");
 const searchbarPrimary = document.getElementById("searchbar-primary");
 const searchBarSecondary = document.getElementById("searchbar-secondary");
 const tipsTitle = document.getElementById("tips-title");
+const searchContainer = document.getElementById("search-container");
+const originalSearchContainerHTML = searchContainer.innerHTML;
 const originalHTML = restaurantsList.innerHTML;
+
+
 
 /*Carica il json contenente i ristoranti all'interno di una variabile globale*/
 var loadRestaurants = async function () {
@@ -25,11 +28,22 @@ var clearResearch = function () {
     if (searchbarPrimary.value == "" && searchBarSecondary.value == "") {
         tipsTitle.textContent = "I nostri consigli";
         restaurantsList.innerHTML = originalHTML;
+        searchContainer.innerHTML = originalSearchContainerHTML;
     } else {
         tipsTitle.textContent = "Risultati ricerca";
 
     }
 };
+
+///Dovrebbe mostrare il bottone per la ricerca
+var displaySearchButton = function () {
+    const StringHMTL = `
+        <input type = "text" class="searchbar" id = "searchbar-primary" placeholder = "Cosa vorresti mangiare?" >
+        <input type="text" class="searchbar" id="searchbar-secondary" placeholder="Località">
+        <button class="btn btn-primary">Cerca</button>
+        `;
+    searchContainer.innerHTML = StringHMTL;
+}
 
 /* Ascolta le lettere digitate sulla barra di ricerca primaria */
 searchbarPrimary.addEventListener("keyup", (e) => {
