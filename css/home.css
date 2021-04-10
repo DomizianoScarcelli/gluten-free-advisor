@@ -67,6 +67,21 @@ h1 {
     flex: 1;
 }
 
+.btn {
+    border-radius: 12px !important;
+    background-color: #e36a7d !important;
+    border-color: #e36a7d !important;
+    color: white !important;
+    border-radius: 12px !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:hover {
+    background-color: white !important;
+    color: #e36a7d !important;
+}
+
 /*Restaurant cards css*/
 
 .tips-title {
