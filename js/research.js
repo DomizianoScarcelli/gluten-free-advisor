@@ -1,6 +1,5 @@
 /*
  * Questo codice viene eseguito quando viene inserita almeno una lettera all'interno della searchbar. Mostra nella lista dei ristoranti i ristoranti nel json filtrati per la ricerca effettuata.
-I filtri di tali ricerca sono presenti nel searchbarPrimary.addEventListener e sono messi in OR logico tra loro. 
  */
 
 
@@ -8,7 +7,10 @@ const restaurantsList = document.getElementById("restaurants-list");
 const searchbarPrimary = document.getElementById("searchbar-primary");
 const searchBarSecondary = document.getElementById("searchbar-secondary");
 const tipsTitle = document.getElementById("tips-title");
+const searchContainer = document.getElementById("search-container");
 const originalHTML = restaurantsList.innerHTML;
+
+
 
 /*Carica il json contenente i ristoranti all'interno di una variabile globale*/
 var loadRestaurants = async function () {
@@ -26,10 +28,19 @@ var clearResearch = function () {
         tipsTitle.textContent = "I nostri consigli";
         restaurantsList.innerHTML = originalHTML;
     } else {
-        tipsTitle.textContent = "Risultati ricerca";
+        tipsTitle.textContent = "Risultati ricerca rapida";
 
     }
 };
+
+///Dovrebbe mostrare il bottone per la ricerca
+var displaySearchButton = function () {
+    const buttonString = '<button class="btn btn-primary">Cerca</button>';
+    if (!searchContainer.innerHTML.includes(buttonString)) {
+        searchContainer.innerHTML += (buttonString);
+    }
+
+}
 
 /* Ascolta le lettere digitate sulla barra di ricerca primaria */
 searchbarPrimary.addEventListener("keyup", (e) => {
@@ -40,10 +51,8 @@ searchbarPrimary.addEventListener("keyup", (e) => {
             restaurant.infos.toLowerCase().includes(searchString)
         );
     });
-    clearResearch();
     displayRestaurants(filteredRestaurants);
-
-    //location.href = "#tips-title";
+    clearResearch();
 });
 
 /* Ascolta le lettere digitate sulla barra di ricerca secondaria */
@@ -55,13 +64,9 @@ searchBarSecondary.addEventListener("keyup", (e) => {
         }
         return restaurant.location.toLowerCase().includes(searchString)
     });
-    clearResearch();
     displayRestaurants(filteredRestaurants);
-
-    //location.href = "#tips-title";
+    clearResearch();
 });
-
-
 /*Modifica il codice HTML inserendo i risulati della ricerca combinata tra la prima e la seconda barra di ricerca*/
 var displayRestaurants = function (restaurants) {
     if (restaurants.length == 0) {
