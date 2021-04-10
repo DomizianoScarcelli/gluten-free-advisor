@@ -5,7 +5,7 @@
 
 const restaurantsList = document.getElementById("restaurants-list");
 const searchbarPrimary = document.getElementById("searchbar-primary");
-const searchBarSecondary = document.getElementById("searchbar-secondary");
+const searchbarSecondary = document.getElementById("searchbar-secondary");
 const tipsTitle = document.getElementById("tips-title");
 const searchContainer = document.getElementById("search-container");
 const originalHTML = restaurantsList.innerHTML;
@@ -24,7 +24,7 @@ var loadRestaurants = async function () {
 
 /* Mostra il codice HTML originale quando entrambe le barre di ricerca sono vuote*/
 var clearResearch = function () {
-    if (searchbarPrimary.value == "" && searchBarSecondary.value == "") {
+    if (searchbarPrimary.value == "" && searchbarSecondary.value == "") {
         tipsTitle.textContent = "I nostri consigli";
         restaurantsList.innerHTML = originalHTML;
     } else {
@@ -56,7 +56,7 @@ searchbarPrimary.addEventListener("keyup", (e) => {
 });
 
 /* Ascolta le lettere digitate sulla barra di ricerca secondaria */
-searchBarSecondary.addEventListener("keyup", (e) => {
+searchbarSecondary.addEventListener("keyup", (e) => {
     const searchString = e.target.value.toLowerCase();
     const filteredRestaurants = restaurants.filter((restaurant) => {
         for (var tagIndex = 0; tagIndex < restaurant.areaTags.length; tagIndex++) {
