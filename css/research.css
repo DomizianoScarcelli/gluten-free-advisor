@@ -1,3 +1,8 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+
 .background {
     font-family: "Cardo", serif;
     background-color: #ebeef0
@@ -5,6 +10,7 @@
 
 .sidebar-outside-container {
     padding: 1rem;
+    min-width: fit-content;
 }
 
 .sidebar {
@@ -35,4 +41,17 @@
 
 .checkbox {
     display: block;
+}
+
+.cards-container {
+    padding: 1rem;
+}
+
+.card {
+    width: 50rem;
+}
+
+.card-img {
+    height: 100%;
+    width: 100%;
 }
