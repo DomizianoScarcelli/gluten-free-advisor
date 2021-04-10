@@ -28,7 +28,7 @@ var clearResearch = function () {
         tipsTitle.textContent = "I nostri consigli";
         restaurantsList.innerHTML = originalHTML;
     } else {
-        tipsTitle.textContent = "Risultati ricerca";
+        tipsTitle.textContent = "Risultati ricerca rapida";
 
     }
 };
