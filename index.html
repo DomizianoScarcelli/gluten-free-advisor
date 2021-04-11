@@ -3,11 +3,11 @@
 
 <head>
     <title>Home - Ristoranti Gluten Free</title>
-    <link href="css/home.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/searchbars.css">
+    <link rel="stylesheet" href="css/mobile/home.css">
     <!--Javascript-->
     <script src="js/research.js" defer></script>
-
-
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--Bootstrap-->
@@ -37,48 +37,46 @@
 
         <!--Searchbars-->
         <div class="search-container" id="search-container">
-            <input type="text" class="searchbar" id="searchbar-primary" placeholder="Cosa vorresti mangiare?">
-            <input type="text" class="searchbar" id="searchbar-secondary" placeholder="Località">
-            <button class="btn" onclick="location.href = 'research.html'">Ricerca Avanzata</button>
+            <input type="search" class="searchbar" id="searchbar-primary" placeholder="Cosa vorresti mangiare?">
+            <input type="search" class="searchbar" id="searchbar-secondary" placeholder="Località">
+            <button class="btn" onclick="location.href = 'search-page.html'">Ricerca Avanzata</button>
         </div>
     </div>
 
     <!--Ristoranti consigliati-->
     <h1 class="tips-title" id="tips-title">I nostri consigli</h1>
     <!--Per la responsiveness, vengono usate le Grid Cards di Bootstrap-->
-    <div class="bottom-container" id="bottom-container">
-        <div id="restaurants-list" class="row row-cols-auto g-4 restaurant-cards-container">
-            <div class="col">
-                <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
-                    <img class="card-image" src="img/restaurants/lievito-72-home.jpg">
-                    <div class="card-body">
-                        <h5 class="card-title">Lievito 72</h5>
-                        <p class="card-text">Supplì, focacce e pizze, anche senza glutine, tra gli interni moderni di un
-                            locale dal tocco minimalista.</p>
-                        <p class="card-address">Via del Forte Braschi, 82/A, 00167 Roma RM</p>
-                    </div>
+    <div id="restaurants-list" class="row row-cols-auto g-4 restaurant-cards-container">
+        <div class="col">
+            <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
+                <img class="card-image" src="img/home-restaurants/lievito-72-home.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">Lievito 72</h5>
+                    <p class="card-text">Supplì, focacce e pizze, anche senza glutine, tra gli interni moderni di un
+                        locale dal tocco minimalista.</p>
+                    <p class="card-address">Via del Forte Braschi, 82/A, 00167 Roma RM</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="card" id="ristorante-mangiafuoco">
-                    <img class="card-image" src="img/restaurants/mangiafuoco-pizza-grill-home.webp">
-                    <div class="card-body">
-                        <h5 class="card-title">Ristorante Mangiafuoco Pizza&Grill</h5>
-                        <p class="card-text">Ristorante dagli arredi essenziali con carne alla griglia e pizza e fritti
-                            senza glutine, anche da asporto.</p>
-                        <p class="card-address">Via Chiana, 37, 00198 Roma RM</p>
-                    </div>
+        </div>
+        <div class="col">
+            <div class="card" id="ristorante-mangiafuoco">
+                <img class="card-image" src="img/home-restaurants/mangiafuoco-pizza-grill-home.webp">
+                <div class="card-body">
+                    <h5 class="card-title">Ristorante Mangiafuoco Pizza&Grill</h5>
+                    <p class="card-text">Ristorante dagli arredi essenziali con carne alla griglia e pizza e fritti
+                        senza glutine, anche da asporto.</p>
+                    <p class="card-address">Via Chiana, 37, 00198 Roma RM</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="card" id="mama-eat-roma">
-                    <img class="card-image" src="img/restaurants/mama-eat-roma-home.jpg">
-                    <div class="card-body">
-                        <h5 class="card-title">Mama Eat Roma</h5>
-                        <p class="card-text">Ristorante-pizzeria con piatti italiani, anche senza glutine, in uno spazio
-                            dal design moderno e colorato.</p>
-                        <p class="card-address">Via di S. Cosimato, 7/9, 00153 Roma RM</p>
-                    </div>
+        </div>
+        <div class="col">
+            <div class="card" id="mama-eat-roma">
+                <img class="card-image" src="img/home-restaurants/mama-eat-roma-home.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">Mama Eat Roma</h5>
+                    <p class="card-text">Ristorante-pizzeria con piatti italiani, anche senza glutine, in uno spazio
+                        dal design moderno e colorato.</p>
+                    <p class="card-address">Via di S. Cosimato, 7/9, 00153 Roma RM</p>
                 </div>
             </div>
         </div>
