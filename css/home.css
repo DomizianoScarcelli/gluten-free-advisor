@@ -30,50 +30,6 @@ h1 {
     padding-top: 30px;
 }
 
-.searchbar {
-    text-indent: 35px;
-    border: 1px solid white;
-    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-    border-radius: 12px;
-    outline: none;
-    background-image: url(../img/icons/search.png);
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position-y: center;
-    background-position-x: 10px;
-}
-
-.search-container {
-    width: 60rem;
-    height: 15rem;
-    display: flex;
-    margin: auto;
-    place-items: center;
-    background-image: url(../img/search-bakrgound.jpg);
-    background-position: center;
-    border-radius: 12px;
-    padding: 60px;
-    transition: height 400ms;
-}
-
-.search-container>* {
-    /* tutto ciò che sta dentro .search-container */
-    height: 3rem;
-    margin: 0 0.5rem;
-}
-
-.search-container:hover {
-    height: 18rem;
-}
-
-#searchbar-primary {
-    flex: 2;
-}
-
-#searchbar-secondary {
-    flex: 1;
-}
-
 .btn {
     border-radius: 12px !important;
     background-color: #e36a7d !important;
@@ -137,26 +93,3 @@ h1 {
 }
 
 /*Mobile css*/
-
-@media only screen and (max-width: 730px) {
-    .head-container {
-        padding: 0 2rem 0 2rem;
-    }
-    .searchbar {
-        width: 100%;
-    }
-    .search-container {
-        width: 100%;
-        display: grid;
-    }
-    .col {
-        width: 100%;
-    }
-    .row {
-        display: grid !important;
-    }
-    .card:hover {
-        width: 25rem !important;
-        height: 25rem !important;
-    }
-}
