@@ -1,14 +1,7 @@
-h1 {
-    color: #41405f;
-    text-align: center;
-    font-family: "PT Sans", sans-serif;
-}
-
 .background {
     display: grid;
-    place-items: center;
     font-family: "Cardo", serif !important;
-    background-color: #ebeef0
+    background-color: #ebeef0;
 }
 
 .head-container {
@@ -47,13 +40,38 @@ h1 {
 
 /*Restaurant cards css*/
 
+.section-container {
+    background-color: #EBEEF0;
+    padding: 2rem;
+}
+
+.section {
+    border-radius: 5px;
+    border: solid 1px 1px 0 1px;
+    border-color: #e0e0e0;
+    background-color: white;
+    margin: auto;
+    width: 60rem;
+    padding: 2rem;
+    transition: overflow-x 400ms;
+    overflow: hidden;
+}
+
+.section:hover {
+    overflow-x: scroll !important;
+}
+
 .tips-title {
-    padding: 30px;
+    font-size: 2rem;
+    color: #41405f;
+    font-family: "PT Sans", sans-serif;
+    padding: 30px 30px 10px 10px;
 }
 
 .restaurant-cards-container {
-    padding: 0 2rem 5rem 2rem;
-    width: 100%;
+    width: 70rem;
+    display: flex;
+    flex-direction: row;
 }
 
 .row {
@@ -66,25 +84,19 @@ h1 {
 }
 
 .card {
-    height: 25rem;
+    height: 15rem;
     border-radius: 12px !important;
-    width: 25rem;
-    transition: width 500ms;
+    width: 15rem;
+    transition: background-color 500ms;
     box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
     cursor: pointer;
 }
 
 .card:hover {
-    width: 27rem;
-    height: 27rem;
+    background-color: #ebd6d6;
 }
 
 .card-address {
-    background-image: url(../img/icons/position.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position-x: right;
-    background-position-y: center;
     padding-right: 25px;
     font-style: italic;
     font-size: 13px;
