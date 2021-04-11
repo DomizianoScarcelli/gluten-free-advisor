@@ -1,0 +1,22 @@
+@media only screen and (max-width: 730px) {
+    .head-container {
+        padding: 0 2rem 0 2rem;
+    }
+    .searchbar {
+        width: 100%;
+    }
+    .search-container {
+        width: 100%;
+        display: grid;
+    }
+    .col {
+        width: 100%;
+    }
+    .row {
+        display: grid !important;
+    }
+    .card:hover {
+        width: 25rem !important;
+        height: 25rem !important;
+    }
+}
