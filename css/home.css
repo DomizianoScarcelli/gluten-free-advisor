@@ -8,13 +8,13 @@ h1 {
     display: grid;
     place-items: center;
     font-family: "Cardo", serif !important;
-    background-color: #ebeef0
+    background-color: #fefae0;
 }
 
 .head-container {
     width: 100%;
     height: 35rem;
-    background-color: #e36a7d;
+    background-color: #ccd5ae;
 }
 
 #logo {
@@ -32,8 +32,8 @@ h1 {
 
 .btn {
     border-radius: 12px !important;
-    background-color: #e36a7d !important;
-    border-color: #e36a7d !important;
+    background-color: #ccd5ae !important;
+    border-color: #ccd5ae !important;
     color: white !important;
     border-radius: 12px !important;
     outline: none !important;
@@ -42,7 +42,7 @@ h1 {
 
 .btn:hover {
     background-color: white !important;
-    color: #e36a7d !important;
+    color: #ccd5ae !important;
 }
 
 /*Restaurant cards css*/
@@ -65,18 +65,22 @@ h1 {
     border-top-left-radius: 12px;
 }
 
+.card>* {
+    transition: color 500ms;
+}
+
 .card {
     height: 25rem;
     border-radius: 12px !important;
     width: 25rem;
-    transition: width 500ms;
+    transition: background-color 500ms, border-color 500ms;
     box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
     cursor: pointer;
 }
 
 .card:hover {
-    width: 27rem;
-    height: 27rem;
+    background-color: #FAEDCD;
+    border-color: white;
 }
 
 .card-address {
