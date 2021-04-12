@@ -43,7 +43,7 @@
 .section {
     margin: auto;
     width: 90rem;
-    padding: 2rem;
+    padding: 2rem 0 2rem 0;
 }
 
 .tips-title {
@@ -64,24 +64,38 @@
 }
 
 .tips-nearby-title {
+    padding-left: 6.5rem;
+    padding-top: 4rem;
+}
+
+.tips-nearby-description {
+    font-size: 1.3rem;
+    color: #787794;
+    font-family: "PT Sans", sans-serif;
+}
+
+.tips-nearby-container {
+    display: flex;
+    width: 80rem;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tips-nearby-title-container {
+    width: 18rem;
+    padding-right: 15px;
+}
+
+.tips-nearby-title {
     font-size: 2rem;
     color: #41405f;
     font-family: "PT Sans", sans-serif;
 }
 
-.tips-nearby {
-    width: 80rem;
-}
-
 .top-restaurants-nearby {
-    width: 80rem;
-    margin: auto;
-    display: block;
-}
-
-.row {
-    justify-content: center;
-    margin: auto;
+    width: 60rem;
 }
 
 .card-image {
