@@ -14,7 +14,7 @@
     .btn {
         width: 100%;
     }
-    .suggestions-main-container {
+    #suggestions-main-container {
         display: inline-block;
         padding: 0;
         width: 100%;
