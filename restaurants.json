@@ -30,10 +30,10 @@
         "city": "Roma"
     },
     {
-        "name": "Ristorante di prova 1",
-        "location": "Posizione di prova 1",
-        "imgSrc": "img/home-restaurants/mama-eat-roma-home.jpg",
-        "infos": "PROVA PROVA PROVA PROVA",
+        "name": "Cajo & Gajo",
+        "location": "Piazza San Callisto, 10, 00153 Roma",
+        "imgSrc": "img/home-restaurants/cajo-&-gajo.png",
+        "infos": "Cucina romana, pizze e vini in un'osteria rustica con mattoni a vista, lampade rétro e dehors su una piazza.",
         "areaTags": [
             "Trastevere"
         ],
