@@ -50,7 +50,7 @@
     font-size: 2rem;
     color: #41405f;
     font-family: "PT Sans", sans-serif;
-    padding: 10px 30px 10px 90px;
+    padding: 1rem 2rem 0 6.5rem;
 }
 
 .restaurant-cards-container {
@@ -60,7 +60,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding-left: 40px;
+    padding: 1rem 0 0 1rem;
 }
 
 .tips-nearby-title {
@@ -75,6 +75,7 @@
 }
 
 .tips-nearby-container {
+    padding-top: 1rem;
     display: flex;
     width: 80rem;
     margin: auto;
