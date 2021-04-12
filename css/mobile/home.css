@@ -1,5 +1,6 @@
 @media only screen and (max-width: 730px) {
     .head-container {
+        width: 100%;
         padding: 0 2rem 0 2rem;
     }
     .searchbar {
@@ -9,14 +10,72 @@
         width: 100%;
         display: grid;
     }
+    .section {
+        display: inline-block;
+        padding: 0;
+        width: 100%;
+    }
+    .tips-title {
+        padding: 0;
+        width: fit-content;
+    }
+    .tips-nearby {
+        display: inline-block;
+        width: 100%;
+    }
+    .restaurant-cards-container {
+        margin: 0;
+        display: inline-block;
+        width: fit-content;
+    }
+    .tips-nearby-title {
+        width: 100%;
+        padding: 2rem 0 0 0;
+    }
+    .tips-nearby-container {
+        margin: 0;
+        display: inline-block;
+        width: 100%;
+    }
+    .tips-nearby-title-container {
+        padding: 0;
+        width: 100%;
+    }
+    .tips-nearby-description {
+        width: 100%;
+    }
+    .top-restaurants-nearby {
+        width: 100%;
+        display: inline-block;
+        margin: 0;
+        padding: 1rem 0 0 1rem;
+    }
     .col {
+        padding-top: 2rem;
         width: 100%;
     }
     .row {
         display: grid !important;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-columns: 50% 50%;
     }
-    .card:hover {
-        width: 25rem !important;
-        height: 25rem !important;
+}
+
+@media only screen and (max-width: 580px) {
+    .col {
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+    }
+    .row {
+        display: grid !important;
+        width: 100%;
+        margin: 0 auto !important;
+        grid-template-columns: 100%;
+    }
+    .card {
+        height: 25rem;
+        width: 25rem;
     }
 }
