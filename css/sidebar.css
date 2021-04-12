@@ -41,3 +41,7 @@
 .checkbox-label {
     cursor: pointer;
 }
+
+.checkbox-label:hover {
+    text-decoration: underline;
+}

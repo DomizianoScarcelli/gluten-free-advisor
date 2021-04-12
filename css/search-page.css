@@ -10,6 +10,7 @@
     padding-right: 3rem;
     width: auto;
     height: 7rem;
+    cursor: pointer;
 }
 
 .searchbar {
@@ -25,7 +26,7 @@
 
 .background {
     font-family: "Cardo", serif;
-    background-color: #FAEDCD
+    background-color: white;
 }
 
 .cards-container {
