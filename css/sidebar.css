@@ -27,6 +27,11 @@
     padding: 16px;
     border: solid #e0e0e0;
     border-width: 0 0 1px 0;
+    transition: background-color 500ms;
+}
+
+.sidebar-inside-container:hover {
+    background-color: #e9edc9;
 }
 
 .checkbox {
@@ -35,4 +40,8 @@
 
 .checkbox-label {
     cursor: pointer;
+}
+
+.checkbox-label:hover {
+    text-decoration: underline;
 }

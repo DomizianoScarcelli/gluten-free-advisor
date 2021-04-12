@@ -1,22 +1,16 @@
-.header-container {
-    padding: 1rem
-}
-
 .header {
     display: flex;
+    background-color: #ccd5ae;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    background-color: white;
     height: 7rem;
-    border: solid #e0e0e0;
-    border-width: 1px;
 }
 
 .header-logo {
     padding-right: 3rem;
     width: auto;
     height: 7rem;
+    cursor: pointer;
 }
 
 .searchbar {
@@ -32,7 +26,7 @@
 
 .background {
     font-family: "Cardo", serif;
-    background-color: #FAEDCD
+    background-color: white;
 }
 
 .cards-container {
@@ -42,6 +36,12 @@
 .card {
     max-height: 15rem;
     width: 50rem;
+    transition: background-color 500ms;
+}
+
+.card:hover {
+    background-color: #e9edc9;
+    cursor: pointer;
 }
 
 .card-img-container {
