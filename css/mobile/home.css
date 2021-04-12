@@ -14,43 +14,43 @@
     .btn {
         width: 100%;
     }
-    .section {
+    .suggestions-main-container {
         display: inline-block;
         padding: 0;
         width: 100%;
     }
-    .tips-title {
+    #our-suggestions {
         text-align: center;
         padding: 1rem 0 0 2rem;
     }
-    .tips-nearby {
+    #nearby-suggestions-card-list-temp {
         display: inline-block;
         width: 100%;
     }
-    .restaurant-cards-container {
+    #our-suggestions-card-list {
         margin: 0;
         display: inline-block;
         width: fit-content;
     }
-    .tips-nearby-title {
+    #nearby-suggestions {
         text-align: center;
         padding: 2rem 0 0 2rem;
     }
-    .tips-nearby-container {
+    #nearby-suggestions-container {
         margin: 0;
         display: inline-block;
         width: 100%;
     }
-    .tips-nearby-title-container {
+    #nearby-suggestions-description-container {
         text-align: center;
         padding: 0;
         width: 100%;
     }
-    .tips-nearby-description {
+    #nearby-suggestions-description {
         padding: 0 0 0 2rem;
         width: 100%;
     }
-    .top-restaurants-nearby {
+    #nearby-suggestions-card-list {
         width: 100%;
         display: inline-block;
         margin: 0;
@@ -72,10 +72,10 @@
     .search-container {
         height: 18rem;
     }
-    .tips-nearby-title {
+    #nearby-suggestions {
         padding: 2rem 2rem 0 2rem;
     }
-    .tips-nearby-description {
+    #nearby-suggestions-description {
         padding: 0 2rem 0 2rem;
         width: 100%;
     }

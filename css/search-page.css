@@ -42,6 +42,7 @@
 .card:hover {
     background-color: #e9edc9;
     cursor: pointer;
+
 }
 
 .card-img-container {
