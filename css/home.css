@@ -40,20 +40,20 @@
 
 /*Restaurant cards css*/
 
-.section {
+#suggestions-main-container {
     margin: auto;
     width: 90rem;
     padding: 2rem 0 2rem 0;
 }
 
-.tips-title {
+#our-suggestions {
     font-size: 2rem;
     color: #41405f;
     font-family: "PT Sans", sans-serif;
     padding: 1rem 2rem 0 6.5rem;
 }
 
-.restaurant-cards-container {
+#our-suggestions-card-list {
     display: flex;
     width: 80rem;
     margin: auto !important;
@@ -63,18 +63,18 @@
     padding: 1rem 0 0 1rem;
 }
 
-.tips-nearby-title {
+#nearby-suggestions {
     padding-left: 6.5rem;
     padding-top: 4rem;
 }
 
-.tips-nearby-description {
+#nearby-suggestions-description {
     font-size: 1.3rem;
     color: #787794;
     font-family: "PT Sans", sans-serif;
 }
 
-.tips-nearby-container {
+#nearby-suggestions-container {
     padding-top: 1rem;
     display: flex;
     width: 80rem;
@@ -84,18 +84,18 @@
     justify-content: center;
 }
 
-.tips-nearby-title-container {
+#nearby-suggestions-description-container {
     width: 18rem;
     padding-right: 15px;
 }
 
-.tips-nearby-title {
+#nearby-suggestions {
     font-size: 2rem;
     color: #41405f;
     font-family: "PT Sans", sans-serif;
 }
 
-.top-restaurants-nearby {
+#nearby-suggestions-card-list {
     width: 60rem;
 }
 
