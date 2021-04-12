@@ -1,22 +1,97 @@
 @media only screen and (max-width: 730px) {
     .head-container {
+        width: 100%;
         padding: 0 2rem 0 2rem;
     }
     .searchbar {
         width: 100%;
     }
     .search-container {
+        height: 18rem;
         width: 100%;
         display: grid;
     }
+    .btn {
+        width: 100%;
+    }
+    .section {
+        display: inline-block;
+        padding: 0;
+        width: 100%;
+    }
+    .tips-title {
+        text-align: center;
+        padding: 1rem 0 0 2rem;
+    }
+    .tips-nearby {
+        display: inline-block;
+        width: 100%;
+    }
+    .restaurant-cards-container {
+        margin: 0;
+        display: inline-block;
+        width: fit-content;
+    }
+    .tips-nearby-title {
+        text-align: center;
+        padding: 2rem 0 0 2rem;
+    }
+    .tips-nearby-container {
+        margin: 0;
+        display: inline-block;
+        width: 100%;
+    }
+    .tips-nearby-title-container {
+        text-align: center;
+        padding: 0;
+        width: 100%;
+    }
+    .tips-nearby-description {
+        padding: 0 0 0 2rem;
+        width: 100%;
+    }
+    .top-restaurants-nearby {
+        width: 100%;
+        display: inline-block;
+        margin: 0;
+        padding: 1rem 0 0 1rem;
+    }
     .col {
+        padding-top: 2rem;
         width: 100%;
     }
     .row {
         display: grid !important;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-columns: 50% 50%;
     }
-    .card:hover {
-        width: 25rem !important;
-        height: 25rem !important;
+}
+
+@media only screen and (max-width: 580px) {
+    .search-container {
+        height: 18rem;
+    }
+    .tips-nearby-title {
+        padding: 2rem 2rem 0 2rem;
+    }
+    .tips-nearby-description {
+        padding: 0 2rem 0 2rem;
+        width: 100%;
+    }
+    .col {
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+    }
+    .row {
+        display: grid !important;
+        width: 100%;
+        margin: 0 auto !important;
+        grid-template-columns: 100%;
+    }
+    .card {
+        height: 25rem;
+        width: 25rem;
     }
 }

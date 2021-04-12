@@ -81,7 +81,6 @@ var displayRestaurants = function (restaurants) {
                     <img class="card-image" src="${restaurant.imgSrc}">
                     <div class="card-body">
                         <h5 class="card-title">${restaurant.name}</h5>
-                        <p class="card-text">${restaurant.infos}</p>
                         <p class="card-address">${restaurant.location}</p>
                     </div>
                 </div>
