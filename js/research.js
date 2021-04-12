@@ -6,7 +6,7 @@
 const restaurantsList = document.getElementById("restaurants-list");
 const searchbarPrimary = document.getElementById("searchbar-primary");
 const searchbarSecondary = document.getElementById("searchbar-secondary");
-const tipsTitle = document.getElementById("tips-title");
+const tipsTitle = document.getElementById("our-suggestions");
 const searchContainer = document.getElementById("search-container");
 const originalHTML = restaurantsList.innerHTML;
 
