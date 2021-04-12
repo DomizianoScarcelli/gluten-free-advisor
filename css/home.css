@@ -1,12 +1,5 @@
-h1 {
-    color: #41405f;
-    text-align: center;
-    font-family: "PT Sans", sans-serif;
-}
-
 .background {
     display: grid;
-    place-items: center;
     font-family: "Cardo", serif !important;
     background-color: white;
 }
@@ -47,17 +40,63 @@ h1 {
 
 /*Restaurant cards css*/
 
+.section {
+    margin: auto;
+    width: 90rem;
+    padding: 2rem 0 2rem 0;
+}
+
 .tips-title {
-    padding: 30px;
+    font-size: 2rem;
+    color: #41405f;
+    font-family: "PT Sans", sans-serif;
+    padding: 1rem 2rem 0 6.5rem;
 }
 
 .restaurant-cards-container {
-    padding: 0 2rem 5rem 2rem;
-    width: 100%;
+    display: flex;
+    width: 80rem;
+    margin: auto !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0 0 1rem;
 }
 
-.row {
+.tips-nearby-title {
+    padding-left: 6.5rem;
+    padding-top: 4rem;
+}
+
+.tips-nearby-description {
+    font-size: 1.3rem;
+    color: #787794;
+    font-family: "PT Sans", sans-serif;
+}
+
+.tips-nearby-container {
+    padding-top: 1rem;
+    display: flex;
+    width: 80rem;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+}
+
+.tips-nearby-title-container {
+    width: 18rem;
+    padding-right: 15px;
+}
+
+.tips-nearby-title {
+    font-size: 2rem;
+    color: #41405f;
+    font-family: "PT Sans", sans-serif;
+}
+
+.top-restaurants-nearby {
+    width: 60rem;
 }
 
 .card-image {
@@ -70,25 +109,19 @@ h1 {
 }
 
 .card {
-    height: 25rem;
+    height: 17rem;
     border-radius: 12px !important;
-    width: 25rem;
-    transition: background-color 500ms, border-color 500ms;
+    width: 17rem;
+    transition: background-color 500ms;
     box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
     cursor: pointer;
 }
 
 .card:hover {
     background-color: #e9edc9;
-    border-color: white;
 }
 
 .card-address {
-    background-image: url(../img/icons/position.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position-x: right;
-    background-position-y: center;
     padding-right: 25px;
     font-style: italic;
     font-size: 13px;
