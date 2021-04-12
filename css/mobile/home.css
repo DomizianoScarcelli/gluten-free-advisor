@@ -23,10 +23,6 @@
         text-align: center;
         padding: 1rem 0 0 2rem;
     }
-    #nearby-suggestions-card-list-temp {
-        display: inline-block;
-        width: 100%;
-    }
     #our-suggestions-card-list {
         margin: 0;
         display: inline-block;
