@@ -15,7 +15,7 @@ const originalHTML = restaurantsList.innerHTML;
 /*Carica il json contenente i ristoranti all'interno di una variabile globale*/
 var loadRestaurants = async function () {
     try {
-        const res = await fetch("/restaurants.json");
+        const res = await fetch("restaurants.json");
         restaurants = await res.json();
     } catch (err) {
         console.error(err);

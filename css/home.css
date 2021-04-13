@@ -115,6 +115,10 @@
     background-color: #e9edc9;
 }
 
+.card-image {
+    max-height: 12rem;
+}
+
 .card-address {
     padding-right: 25px;
     font-style: italic;

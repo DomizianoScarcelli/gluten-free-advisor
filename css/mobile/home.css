@@ -90,4 +90,7 @@
         height: 25rem;
         width: 25rem;
     }
+    .card-image {
+        max-height: 20rem;
+    }
 }
