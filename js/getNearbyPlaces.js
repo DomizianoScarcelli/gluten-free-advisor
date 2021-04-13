@@ -14,11 +14,10 @@ var map;
 
 function initMap() {
     var request = {
-        location: new google.maps.LatLng(41.90975298437715, 12.349982799999998),
+        location: new google.maps.LatLng(41.90975298437715, 12.349982799999998), //inserisci le variabili per le vere coordinate
         radius: '10000',
         type: ['restaurant'],
-        keyword: "gelato senza glutine"
-
+        keyword: "senza glutine"
     };
 
     service = new google.maps.places.PlacesService(document.createElement('div'));
@@ -37,9 +36,6 @@ function initMap() {
                 displayNearbyPlaces(results)
                 console.log(results)
             })
-
-
-
         }
     })
 }
