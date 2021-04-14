@@ -3,19 +3,20 @@
  */
 
 
-const restaurantsList = document.getElementById("restaurants-list");
+const ourSuggestionCardList = document.getElementById("our-suggestions-card-list");
+console.log(ourSuggestionCardList)
 const searchbarPrimary = document.getElementById("searchbar-primary");
 const searchbarSecondary = document.getElementById("searchbar-secondary");
-const tipsTitle = document.getElementById("our-suggestions");
+const ourSuggestionsTitle = document.getElementById("our-suggestions");
 const searchContainer = document.getElementById("search-container");
-const originalHTML = restaurantsList.innerHTML;
+const originalHTML = ourSuggestionCardList.innerHTML;
 
 
 
 /*Carica il json contenente i ristoranti all'interno di una variabile globale*/
 var loadRestaurants = async function () {
     try {
-        const res = await fetch("/restaurants.json");
+        const res = await fetch("restaurants.json");
         restaurants = await res.json();
     } catch (err) {
         console.error(err);
@@ -25,10 +26,10 @@ var loadRestaurants = async function () {
 /* Mostra il codice HTML originale quando entrambe le barre di ricerca sono vuote*/
 var clearResearch = function () {
     if (searchbarPrimary.value == "" && searchbarSecondary.value == "") {
-        tipsTitle.textContent = "I nostri consigli";
-        restaurantsList.innerHTML = originalHTML;
+        ourSuggestionsTitle.textContent = "I nostri consigli";
+        ourSuggestionCardList.innerHTML = originalHTML;
     } else {
-        tipsTitle.textContent = "Risultati ricerca rapida";
+        ourSuggestionsTitle.textContent = "Risultati ricerca rapida";
 
     }
 };
@@ -70,7 +71,7 @@ searchbarSecondary.addEventListener("keyup", (e) => {
 /*Modifica il codice HTML inserendo i risulati della ricerca combinata tra la prima e la seconda barra di ricerca*/
 var displayRestaurants = function (restaurants) {
     if (restaurants.length == 0) {
-        restaurantsList.innerHTML = "<p>La ricerca non ha prodotto alcun risultato</p>"
+        ourSuggestionCardList.innerHTML = "<p>La ricerca non ha prodotto alcun risultato</p>"
     }
     else {
         const htmlString = restaurants
@@ -88,7 +89,7 @@ var displayRestaurants = function (restaurants) {
         `;
             })
             .join("");
-        restaurantsList.innerHTML = htmlString;
+        ourSuggestionCardList.innerHTML = htmlString;
     }
 
 
