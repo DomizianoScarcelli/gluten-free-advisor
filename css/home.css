@@ -56,7 +56,8 @@
 
 #suggestions-main-container {
     margin: auto;
-    width: 90rem;
+    width: 90%;
+    max-width: 90rem;
     padding: 2rem 0 2rem 0;
 }
 
@@ -70,22 +71,23 @@
     margin: auto !important;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1rem 0 0 1rem;
 }
 
 #nearby-suggestions {
-    padding-left: 6.5rem;
+    padding-left: 7.5%;
     padding-top: 4rem;
+    width: 90%;
 }
 
 #nearby-suggestions-container {
     padding-top: 1rem;
     display: flex;
-    width: 80rem;
+    width: 90%;
     margin: auto;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 
@@ -101,7 +103,11 @@
 }
 
 #nearby-suggestions-card-list {
-    width: 60rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 60rem;
 }
 
 .card>* {
