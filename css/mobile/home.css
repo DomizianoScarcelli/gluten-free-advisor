@@ -1,4 +1,4 @@
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 900px) {
     .head-container {
         width: 100%;
         padding: 0 2rem 0 2rem;
@@ -43,14 +43,14 @@
         width: 100%;
     }
     #nearby-suggestions-description {
-        padding: 0 0 0 2rem;
+        padding: 0 4rem 0 4rem;
         width: 100%;
     }
     #nearby-suggestions-card-list {
-        width: 100%;
+        margin: auto;
         display: inline-block;
-        margin: 0;
-        padding: 1rem 0 0 1rem;
+        width: fit-content;
+        padding: 0 0 0 1rem;
     }
     .col {
         padding-top: 2rem;
@@ -59,12 +59,11 @@
     .row {
         display: grid !important;
         width: 100%;
-        margin: 0 auto;
         grid-template-columns: 50% 50%;
     }
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 650px) {
     .search-container {
         height: 18rem;
     }

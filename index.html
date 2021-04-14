@@ -9,7 +9,6 @@
     <!--Javascript-->
     <script src="js/home.js" defer></script>
     <script src="js/mobileResponsiveness.js" defer></script>
-    <script src="js/getNearbyPlaces.js"></script>
     <script src="js/research.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
@@ -30,11 +29,6 @@
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
-    <!--Google Places API-->
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk&libraries=places&callback=initMap"> //si ok lo so che sta cosa non è sicura ma vabbè per ora va così
-        </script>
-
 </head>
 
 <body class="background">
@@ -57,7 +51,7 @@
     <!--Ristoranti consigliati-->
     <div id="suggestions-main-container">
         <h1 class="primary-text" id="our-suggestions">I nostri consigli</h1>
-        <div id="our-suggestions-card-list" class="row g-4 row-cols-auto">
+        <div id="our-suggestions-card-list" class="row-cols-auto row g-4 ">
             <div class="col">
                 <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
                     <img class="card-image" src="img/home-restaurants/lievito-72-home.jpg">
@@ -102,69 +96,67 @@
         <h1 class="primary-text" id="nearby-suggestions">I migliori ristoranti vicino a te</h1>
         <div id="nearby-suggestions-container">
             <div id="nearby-suggestions-description-container">
-
-                <p class="secondary-text" id="nearby-suggestions-description">Questi sono i migliori ristoranti senza
+                <p class="secondary-text" id="nearby-suggestions-description">Questi sono i migliori ristoranti
+                    senza
                     glutine che abbiamo
                     trovato
                     nella tua zona!</p>
             </div>
             <div class="row row-cols-auto g-4" id="nearby-suggestions-card-list">
-                <div class="row row-cols-3 row-cols-md-3 g-4" id="nearby-suggestions-card-list">
-                    <div class="col" id="item-1">
-                        <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
-                            <img class="card-image" src="img/home-restaurants/lievito-72-home.jpg">
-                            <div class="card-body">
-                                <h5 class="card-title">Lievito 72</h5>
-                                <p class="card-address">Via del Forte Braschi, 82/A, 00167 Roma RM</p>
-                            </div>
+                <div class="col" id="item-1">
+                    <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
+                        <img class="card-image" src="img/home-restaurants/lievito-72-home.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Lievito 72</h5>
+                            <p class="card-address">Via del Forte Braschi, 82/A, 00167 Roma RM</p>
                         </div>
                     </div>
-                    <div class="col" id="item-2">
-                        <div class="card" id="ristorante-mangiafuoco">
-                            <img class="card-image" src="img/home-restaurants/mangiafuoco-pizza-grill-home.webp">
-                            <div class="card-body">
-                                <h5 class="card-title">Ristorante Mangiafuoco Pizza&Grill</h5>
-                                <p class="card-address">Via Chiana, 37, 00198 Roma RM</p>
-                            </div>
+                </div>
+                <div class="col" id="item-2">
+                    <div class="card" id="ristorante-mangiafuoco">
+                        <img class="card-image" src="img/home-restaurants/mangiafuoco-pizza-grill-home.webp">
+                        <div class="card-body">
+                            <h5 class="card-title">Ristorante Mangiafuoco Pizza&Grill</h5>
+                            <p class="card-address">Via Chiana, 37, 00198 Roma RM</p>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card" id="mama-eat-roma">
-                            <img class="card-image" src="img/home-restaurants/mama-eat-roma-home.jpg">
-                            <div class="card-body">
-                                <h5 class="card-title">Mama Eat Roma</h5>
+                </div>
+                <div class="col">
+                    <div class="card" id="mama-eat-roma">
+                        <img class="card-image" src="img/home-restaurants/mama-eat-roma-home.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Mama Eat Roma</h5>
 
-                                <p class="card-address">Via di S. Cosimato, 7/9, 00153 Roma RM</p>
-                            </div>
+                            <p class="card-address">Via di S. Cosimato, 7/9, 00153 Roma RM</p>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card" id="mama-eat-roma">
-                            <img class="card-image" src="img/home-restaurants/mama-eat-roma-home.jpg">
-                            <div class="card-body">
-                                <h5 class="card-title">Mama Eat Roma</h5>
+                </div>
+                <div class="col">
+                    <div class="card" id="mama-eat-roma">
+                        <img class="card-image" src="img/home-restaurants/mama-eat-roma-home.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Mama Eat Roma</h5>
 
-                                <p class="card-address">Via di S. Cosimato, 7/9, 00153 Roma RM</p>
-                            </div>
+                            <p class="card-address">Via di S. Cosimato, 7/9, 00153 Roma RM</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col">
-                        <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
-                            <img class="card-image" src="img/home-restaurants/lievito-72-home.jpg">
-                            <div class="card-body">
-                                <h5 class="card-title">Lievito 72</h5>
-                                <p class="card-address">Via del Forte Braschi, 82/A, 00167 Roma RM</p>
-                            </div>
+                <div class="col">
+                    <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
+                        <img class="card-image" src="img/home-restaurants/lievito-72-home.jpg">
+                        <div class="card-body">
+                            <h5 class="card-title">Lievito 72</h5>
+                            <p class="card-address">Via del Forte Braschi, 82/A, 00167 Roma RM</p>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card" id="ristorante-mangiafuoco">
-                            <img class="card-image" src="img/home-restaurants/mangiafuoco-pizza-grill-home.webp">
-                            <div class="card-body">
-                                <h5 class="card-title">Ristorante Mangiafuoco Pizza&Grill</h5>
-                                <p class="card-address">Via Chiana, 37, 00198 Roma RM</p>
-                            </div>
+                </div>
+                <div class="col">
+                    <div class="card" id="ristorante-mangiafuoco">
+                        <img class="card-image" src="img/home-restaurants/mangiafuoco-pizza-grill-home.webp">
+                        <div class="card-body">
+                            <h5 class="card-title">Ristorante Mangiafuoco Pizza&Grill</h5>
+                            <p class="card-address">Via Chiana, 37, 00198 Roma RM</p>
                         </div>
                     </div>
                 </div>
