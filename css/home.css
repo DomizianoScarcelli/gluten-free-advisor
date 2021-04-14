@@ -71,7 +71,7 @@
     margin: auto !important;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 1rem 0 0 1rem;
 }
 
@@ -104,10 +104,11 @@
 
 #nearby-suggestions-card-list {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100%;
     max-width: 60rem;
+    min-width: 40rem;
 }
 
 .card>* {
