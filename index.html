@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 
 <head>
     <title>Home - Ristoranti Gluten Free</title>
@@ -9,7 +9,7 @@
     <!--Javascript-->
     <script src="js/mobileResponsiveness.js" defer></script>
     <script src="js/getNearbyPlaces.js"></script>
-    <!--<script src="js/research.js" defer></script>-->
+    <script src="js/research.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Responsiveness-->
@@ -49,13 +49,13 @@
         <div class="search-container" id="search-container">
             <input type="search" class="searchbar" id="searchbar-primary" placeholder="Cosa vorresti mangiare?">
             <input type="search" class="searchbar" id="searchbar-secondary" placeholder="Località">
-            <button class="btn" onclick="location.href = 'search-page.html'">Ricerca Avanzata</button>
+            <button class="btn" onclick="setQueryString()">Ricerca Avanzata</button>
         </div>
     </div>
 
     <!--Ristoranti consigliati-->
     <div id="suggestions-main-container">
-        <h1 id="our-suggestions">I nostri consigli</h1>
+        <h1 class="primary-text" id="our-suggestions">I nostri consigli</h1>
         <div id="our-suggestions-card-list" class="row">
             <div class="col">
                 <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
@@ -98,11 +98,12 @@
         </div>
 
         <!--I migliori ristoranti vicino a te-->
-        <h1 id="nearby-suggestions">I migliori ristoranti vicino a te</h1>
+        <h1 class="primary-text" id="nearby-suggestions">I migliori ristoranti vicino a te</h1>
         <div id="nearby-suggestions-container">
             <div id="nearby-suggestions-description-container">
 
-                <p id="nearby-suggestions-description">Questi sono i migliori ristoranti senza glutine che abbiamo
+                <p class="secondary-text" id="nearby-suggestions-description">Questi sono i migliori ristoranti senza
+                    glutine che abbiamo
                     trovato
                     nella tua zona!</p>
             </div>
@@ -112,6 +113,14 @@
                 <!--Le cards vengono aggiunte tramite javascript e Google Places API-->
             </div>
         </div>
+    </div>
+    <div id="add-restaurant-button-container">
+        <div id="add-restaurant-button">
+            <h1 class="primary-text light-text">Conosci un ristorante con opzioni senza glutine?</h1>
+            <p class="secondary-text light-text">Compila questo piccolo form così che anche gli altri possano
+                trovarlo!</p>
+        </div>
+    </div>
 
 
 
