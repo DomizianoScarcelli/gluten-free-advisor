@@ -1,0 +1,30 @@
+#form-main-container {
+    margin: auto;
+    width: fit-content;
+    background-color: #ccd5ae;
+    height: fit-content;
+    padding: 3rem;
+    border-radius: 2rem;
+}
+
+#form {
+    display: grid;
+    padding-bottom: 1rem;
+}
+
+input {
+    width: 25rem;
+    text-indent: 1rem;
+    border: 1px solid white;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 12px;
+    outline: none;
+    height: 3rem;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #41405f;
+    font-family: "PT Sans", sans-serif;
+}

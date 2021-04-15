@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/add-restaurant.css">
     <title>Aggiungi un ristorante - Ristoranti Senza Glutine</title>
 </head>
 
 <body>
     <div id="form-main-container">
-        <form action="post" id="form" onsubmit="formToJson()">
-            <input type="text" id="restaurant-name">
-            <label for="restaurant-name"></label>
-            <input type="text" id="restaurant-address">
-            <label for="restaurant-address"></label>
+        <form action="" id="form" onsubmit="">
+            <p class="label">Nome del ristorante</p>
+            <input type="text" id="restaurant-name" placeholder="es. Ristorante da Pino"><br>
+            <p class="label">Città</p>
+            <input type="text" id="restaurant-city" placeholder="es. Roma">
+            <input type="submit" value="Invia">
         </form>
     </div>
 </body>
