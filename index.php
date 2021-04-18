@@ -11,6 +11,7 @@
     <script src="js/addRestaurant.js" defer></script>
     <script src="js/mobileResponsiveness.js" defer></script>
     <script src="js/homeSearch.js" defer></script>
+    <script src="js/addressTOCoordinates.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Responsiveness-->
