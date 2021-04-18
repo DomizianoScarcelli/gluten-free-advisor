@@ -1,5 +1,9 @@
-const addRestaurantButton = document.getElementById("add-restaurant-button");
+const submitRestaurantButton = document.getElementById("submit-restaurant-button");
+const restaurantName = document.getElementById("restaurant-name");
+const restaurantCity = document.getElementById("restaurant-city");
 
-addRestaurantButton.addEventListener("click", () => {
-    location.pathname = "/add-restaurant.html";
+submitRestaurantButton.addEventListener("click", () => {
+    console.log(`Nome: ${restaurantName.value}, Città: ${restaurantCity.value}`);
 })
+
+

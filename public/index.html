@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/mobile/home.css">
+    <link rel="stylesheet" href="css/add-restaurant.css">
     <!--Javascript-->
     <script src="js/home.js" defer></script>
     <script src="js/mobileResponsiveness.js" defer></script>
@@ -168,10 +169,34 @@
     </div>
     <!--Pulsante per il form per aggiungere ristoranti-->
     <div id="add-restaurant-button-container">
-        <div id="add-restaurant-button">
+        <div id="add-restaurant-button" data-toggle="modal" data-target="#exampleModal">
             <h1 class="primary-text light-text">Conosci un ristorante con opzioni senza glutine?</h1>
             <p class="secondary-text light-text">Compila questo piccolo form così che anche gli altri possano
                 trovarlo!</p>
+        </div>
+    </div>
+    <!-- Modal (AGGIUNGI MESSAGGIO DI CORRETTA SEGNALAZIONE DEL RISTORANTE DOPO IL CLICK SULL'INVIA)-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Aggiungi un ristorante</h5>
+                    <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="form">
+                        <p class="label">Nome del ristorante</p>
+                        <input type="text" id="restaurant-name" placeholder="es. Ristorante da Pino"><br>
+                        <p class="label">Città</p>
+                        <input type="text" id="restaurant-city" placeholder="es. Roma">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="submit-restaurant-button">Invia</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>

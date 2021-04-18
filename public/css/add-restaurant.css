@@ -10,10 +10,17 @@
 #form {
     display: grid;
     padding-bottom: 1rem;
+    place-items: center;
+}
+
+.label {
+    padding-left: 2rem;
+    width: 100%;
+    text-align: left;
 }
 
 input {
-    width: 25rem;
+    width: 85%;
     text-indent: 1rem;
     border: 1px solid white;
     box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
@@ -22,9 +29,18 @@ input {
     height: 3rem;
 }
 
-.label {
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: #41405f;
-    font-family: "PT Sans", sans-serif;
+.modal-header {
+    padding: 1rem 2rem !important;
+}
+
+.modal-content {
+    border: 0px !important;
+}
+
+.modal-footer {
+    justify-content: center !important;
+}
+
+#submit-restaurant-button {
+    width: 85%;
 }
