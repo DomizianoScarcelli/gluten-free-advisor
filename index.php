@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/mobile/home.css">
-    <link rel="stylesheet" href="css/add-restaurant.css">
+    <link rel="stylesheet" href="css/modal-form.css">
     <!--Javascript-->
     <script src="js/addRestaurant.js" defer></script>
     <script src="js/mobileResponsiveness.js" defer></script>
