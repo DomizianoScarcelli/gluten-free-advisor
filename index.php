@@ -29,15 +29,10 @@
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
-    <!--Google Places API-->
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk&libraries=places&callback=initMap"> //si ok lo so che sta cosa non è sicura ma vabbè per ora va così
-        </script>
 
 </head>
 
 <body class="background">
-    <div id="map"></div>
     <!--Page Logo-->
     <div class="head-container">
         <img src="img/logo.png" id="logo">
