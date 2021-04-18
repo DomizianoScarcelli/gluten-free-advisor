@@ -10,6 +10,7 @@
     <!--Javascript-->
     <script src="js/addRestaurant.js" defer></script>
     <script src="js/mobileResponsiveness.js" defer></script>
+    <script src="js/homeSearch.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Responsiveness-->
@@ -41,8 +42,8 @@
         </h1>
         <!--Searchbars-->
         <div class="search-container" id="search-container">
-            <input type="search" class="searchbar" id="searchbar-primary" placeholder="Cosa vorresti mangiare?">
-            <button class="btn" onclick="setQueryString()">Ricerca</button>
+            <input type="search" class="searchbar" id="searchbar" placeholder="Cosa vorresti mangiare?">
+            <button class="btn" id="searchButton">Ricerca</button>
         </div>
     </div>
 
