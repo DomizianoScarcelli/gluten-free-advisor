@@ -5,10 +5,12 @@ Visto che l'applicazione sfrutta PHP nell'index per caricare in maniera dinamica
 Per avviare il server da VSCODE bisogna installare l'estensione PHP Server, fare click destro nel corpo di "Index.php" e cliccare su "PHP Server: Serve project".
 
 Contenuto dei vari file:
--Index.php è il file indice in cui è presente l'home page.
--search-page.php è la pagina in cui vengono mostrati i risultati della ricerca. 
 
-In 'assets' si trovano i vari elementi che vengono caricati poi nelle altre pagine tramite php. Assets presenta delle sottocartelle che indicano in che pagina quel contenuto viene caricato.
+**index.php** è il file indice in cui è presente l'home page.
+
+**search-page.php** è la pagina in cui vengono mostrati i risultati della ricerca. 
+
+In **assets** si trovano i vari elementi che vengono caricati poi nelle altre pagine tramite php. **Assets** presenta delle sottocartelle che indicano in che pagina quel contenuto viene caricato.
 
 In css si trovano i fogli di stili delle varie pagine, con dei nomi abbastanza autoesplicativi. Nella sottocartella /mobile si trovano i css destinati ai dispositivi mobile in modo da aumentare la responsiveness del sito.
 
