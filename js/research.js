@@ -2,6 +2,8 @@
  * Questo codice viene eseguito quando viene inserita almeno una lettera all'interno della searchbar. Mostra nella lista dei ristoranti i ristoranti nel json filtrati per la ricerca effettuata.
  */
 
+//ATTUALMENTE NON VIENE USATO PERCHÈ NON È IMPLEMENTABILE IN CASO SI FACCIA UNA RICERCA NEL DATABASE
+
 
 const ourSuggestionCardList = document.getElementById("our-suggestions-card-list");
 console.log(ourSuggestionCardList)

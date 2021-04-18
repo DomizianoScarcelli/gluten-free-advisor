@@ -44,7 +44,7 @@ function submit() {
 }
 
 function reset() {
-    //Attende un po' prima di resettare i valori così non si vede nulla
+    //Attende un po' prima di resettare i valori così non si vedono i cambiamenti nell'interfaccia
     setTimeout(() => {
         submitRestaurantButton.value = "";
         submitRestaurantButton.innerHTML = "Invia";
