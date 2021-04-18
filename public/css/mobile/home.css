@@ -3,13 +3,13 @@
         width: 100%;
         padding: 0 2rem 0 2rem;
     }
-    .searchbar {
-        width: 100%;
-    }
     .search-container {
         height: 18rem;
         width: 100%;
         display: grid;
+    }
+    #searchbar-primary {
+        width: 30rem;
     }
     .btn {
         width: 100%;
@@ -66,6 +66,9 @@
 @media only screen and (max-width: 650px) {
     .search-container {
         height: 18rem;
+    }
+    #searchbar-primary {
+        width: 25rem;
     }
     #nearby-suggestions {
         padding: 2rem 2rem 0 2rem;
