@@ -1,4 +1,5 @@
 @media only screen and (max-width: 900px) {
+    /* || Head and search containers*/
     .head-container {
         width: 100%;
         padding: 0 2rem 0 2rem;
@@ -14,6 +15,7 @@
     .btn {
         width: 100%;
     }
+    /*|| I nostri consigli*/
     #suggestions-main-container {
         display: inline-block;
         padding: 0;
@@ -28,6 +30,7 @@
         display: inline-block;
         width: fit-content;
     }
+    /*|| I migliori ristoranti vicino a te*/
     #nearby-suggestions {
         text-align: center;
         padding: 2rem 0 0 2rem;

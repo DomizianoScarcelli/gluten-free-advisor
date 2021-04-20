@@ -52,7 +52,7 @@
     color: #ccd5ae !important;
 }
 
-/*Restaurant cards css*/
+/* || I nostri consigli */
 
 #suggestions-main-container {
     margin: auto;
@@ -74,6 +74,8 @@
     justify-content: space-evenly;
     padding: 1rem 0 0 1rem;
 }
+
+/* || I migliori ristoranti vicino a te */
 
 #nearby-suggestions {
     padding-left: 7.5%;
@@ -138,6 +140,8 @@
     position: absolute;
     bottom: 0;
 }
+
+/* || Aggiungi un ristorante */
 
 #add-restaurant-button-container {
     padding: 2.5rem;
