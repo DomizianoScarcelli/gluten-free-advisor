@@ -58,8 +58,29 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 
 /* || I nostri consigli */
 
+.card-text-container {
+    width: 100%;
+}
+
+#filter-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card.filter-card {
+    width: 12rem;
+    height: 6rem;
+}
+
 #suggestions-main-container {
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 90%;
     max-width: 90rem;
     padding: 2rem 0 2rem 0;

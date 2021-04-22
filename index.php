@@ -48,6 +48,35 @@
 
     <!--Ristoranti consigliati-->
     <div id="suggestions-main-container">
+        <div id="filter-container">
+
+            <div class="filter-card card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+            <div class="filter-card card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+            <div class="filter-card card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+            <div class="filter-card card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+            <div class="filter-card card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                </div>
+            </div>
+
+        </div>
         <!--I nostri consigli-->
         <?php include "assets/home/restaurant-suggestions.html"; ?>
 
