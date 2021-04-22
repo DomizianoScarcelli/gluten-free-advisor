@@ -49,32 +49,20 @@
     <!--Ristoranti consigliati-->
     <div id="suggestions-main-container">
         <div id="filter-container">
+            <!--Filtri veloci-->
 
-            <div class="filter-card card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="filter-card card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="filter-card card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="filter-card card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="filter-card card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
+            <?php
+            $array = array('Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Risotto', 'Gelato');
+            foreach ($array as $value) {
+                echo
+                "
+                <div class='filter-card card'>
+                    <div class='card-body'>
+                        <h5 class='primary-text card-title'> {$value} </h5>
+                    </div>
+                </div>";
+            }
+            ?>
 
         </div>
         <!--I nostri consigli-->

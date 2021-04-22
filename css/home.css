@@ -63,7 +63,7 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 }
 
 #filter-container {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -71,8 +71,12 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 }
 
 .card.filter-card {
-    width: 12rem;
-    height: 6rem;
+    width: 10rem;
+    height: 5rem;
+}
+
+.card-title.primary-text {
+    font-size: 1.25rem;
 }
 
 #suggestions-main-container {
