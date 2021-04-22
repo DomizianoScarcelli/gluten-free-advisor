@@ -1,3 +1,8 @@
+/**
+ * Tutto il codice che riguarda il pulsante nella home page relativo all'aggiunta di un nuovo ristorante. 
+ * (L'interazione con il databse viuene effettuata nel file dbManager/dbAddPendingRestaurant.php)
+ */
+
 const submitRestaurantButton = document.getElementById("submit-restaurant-button");
 const restaurantName = document.getElementById("restaurant-name");
 const restaurantCity = document.getElementById("restaurant-city");
