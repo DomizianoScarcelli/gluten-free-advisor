@@ -1,3 +1,9 @@
+/**
+ * Codice che, tramite le api di google maps, trasforma un indirizzo nelle coordinate geografiche. 
+ * Ancora non utilizzato nel sito ma può essere utile per ordinare i ristoranti per distanza dalla posizione attuale.
+ */
+
+
 // Create the script tag, set the appropriate attributes
 var script = document.createElement('script');
 script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk&callback=initMap';

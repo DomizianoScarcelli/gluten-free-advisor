@@ -1,3 +1,8 @@
+/*
+CSS che viene eseguito quando il dispositivo (o la finestra) hanno una larghezza minore di un tot di pixel.
+Questo serve in modo da mantenere la responsiveness.
+*/
+
 @media only screen and (max-width: 900px) {
     /* || Head and search containers*/
     .head-container {

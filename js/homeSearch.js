@@ -1,3 +1,8 @@
+/**
+ * Codice per effettuare la ricerca dei ristoranti. Le parole chiave vengono inserite nella searchbare nella home e, tramite una querystring, vengono 
+ * condivise nella search-page, viene effettuata una query al database e vengono mostrati nella search-page i risulati.
+ */
+
 const searchbar = document.getElementById("searchbar");
 const searchButton = document.getElementById("searchButton");
 

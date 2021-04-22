@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Codice per la connessione al database phpMyAdmin in localhost
+ */
 $dbServername = 'localhost';
 $dbUsername = 'root';
 $dbPassword = '';
