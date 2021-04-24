@@ -12,6 +12,7 @@
     <script src="js/mobileResponsiveness.js" defer></script>
     <script src="js/homeSearch.js" defer></script>
     <script src="js/addressTOCoordinates.js" defer></script>
+    <script src="js\quickHomeFilters.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Responsiveness-->
@@ -56,9 +57,10 @@
             foreach ($array as $value) {
                 echo
                 "
-                <div class='filter-card card'>
-                    <div class='card-body'>
-                        <h5 class='primary-text card-title'> {$value} </h5>
+                <div class='filter-card card' id='{$value}'>
+                    <div class='card-body' id='{$value}-body'>
+                        <h5 class='card-title'> {$value} </h5>
+                        <img class='card-icon' id='{$value}-icon' src='img/icons/home-filters/black/$value.png'>
                     </div>
                 </div>";
             }

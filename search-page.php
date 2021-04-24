@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="css/search-page.css">
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/sidebar.css">
-
+    <!--Javascript-->
+    <script src="js/sidebarFilters.js" defer></script>
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--Bootstrap-->
@@ -28,55 +29,41 @@
 
     <div class="body-container">
         <!--Sidebar-->
-        <?php include "assets/search-page/sidebar.html"; ?>
+        <?php include "assets/search-page/sidebar.php"; ?>
         <!--Carte dei ristoranti cercati-->
-        <div class="cards-container">
-            <div class="card mb-3" style="max-width: 50rem;">
-                <div class="row g-0">
-                    <div class="col-md-4 card-img-container">
-                        <img class="card-img" src="img/home-restaurants/lievito-72-home.jpg">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rem
-                                quos
-                                cumque soluta modi rerum nobis minus asperiores quia fuga consequuntur nam quas dolor
-                                dolore
-                                quo qui saepe ullam, unde amet ipsa est ut quae. Laborum molestiae quia dolor nihil
-                                ratione
-                                consequatur optio aliquid dicta odio obcaecati, asperiores nemo eligendi maxime non
-                                atque
-                                quidem.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class='cards-container'>
+
+            <?php
+            for ($i = 0; $i < 7; $i++) {
+                echo "
+                    <div class='card mb-3' style='max-width: 50rem;'>
+                        <div class='row g-0'>
+                            <div class='col-md-4 card-img-container'>
+                                <img class='card-img' src='img/home-restaurants/lievito-72-home.jpg'>
+                            </div>
+                            <div class='col-md-8'>
+                                <div class='card-body'>
+                                    <h5 class='card-title'>Ristorante {$i}</h5>
+                                    <p class='card-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rem
+                                        quos
+                                        cumque soluta modi rerum nobis minus asperiores quia fuga consequuntur nam quas dolor
+                                        dolore
+                                        quo qui saepe ullam, unde amet ipsa est ut quae. Laborum molestiae quia dolor nihil
+                                        ratione
+                                        consequatur optio aliquid dicta odio obcaecati, asperiores nemo eligendi maxime non
+                                        atque
+                                        quidem.</p>
+                                    <p class='card-text'><small class='text-muted'>Via di San Patrizio 98, 00166, Roma</small></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="card mb-3" style="max-width: 50rem;">
-                <div class="row g-0">
-                    <div class="col-md-4 card-img-container">
-                        <img class="card-img" src="img/home-restaurants/mama-eat-roma-home.jpg">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rem
-                                quos
-                                cumque soluta modi rerum nobis minus asperiores quia fuga consequuntur nam quas dolor
-                                dolore
-                                quo qui saepe ullam, unde amet ipsa est ut quae. Laborum molestiae quia dolor nihil
-                                ratione
-                                consequatur optio aliquid dicta odio obcaecati, asperiores nemo eligendi maxime non
-                                atque
-                                quidem.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            ";
+            }
+            ?>
         </div>
-    </div>
+
+
 
 </body>
 
