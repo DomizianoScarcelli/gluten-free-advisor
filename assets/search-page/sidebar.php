@@ -36,34 +36,23 @@
                 <label for="raffinato" class="checkbox-label">Raffinato</label> <br>
             </div>
         </div>
+
         <div class="sidebar-inside-container">
             <p class="sidebar-element-title">Piatti</p>
-            <div class="checkbox">
-                <input type="checkbox" name="servizi-ristorante" id="pizza">
-                <label for="pizza" class="checkbox-label">Pizza</label> <br>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" name="servizi-ristorante" id="pasta">
-                <label for="pasta" class="checkbox-label">Pasta</label> <br>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" name="servizi-ristorante" id="hamburger">
-                <label for="hamburger" class="checkbox-label">Hamburger</label> <br>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" name="servizi-ristorante" id="panini">
-                <label for="panini" class="checkbox-label">Panini</label> <br>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" name="servizi-ristorante" id="gelato">
-                <label for="gelato" class="checkbox-label">Gelato</label> <br>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" name="servizi-ristorante" id="desserts">
-                <label for="desserts" class="checkbox-label">Desserts</label> <br>
-            </div>
-
+            <?php
+            $array = array('Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Risotto', 'Gelato');
+            foreach ($array as $value) {
+                echo
+                "
+                <div class='checkbox'>
+                    <input type='checkbox' name='servizi-ristorante' id='{$value}'>
+                    <label for='{$value}' class='checkbox-label'>{$value}</label> <br>
+                </div>
+                ";
+            }
+            ?>
         </div>
+
         <div class="sidebar-inside-container">
             <p class="sidebar-element-title">Restrizioni alimentari</p>
             <div class="checkbox">
