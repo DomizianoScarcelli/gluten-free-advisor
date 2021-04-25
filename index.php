@@ -28,6 +28,8 @@
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
 
 
@@ -43,7 +45,7 @@
         <!--Searchbars-->
         <div class="search-container" id="search-container">
             <input type="search" class="searchbar" id="searchbar" placeholder="Cosa vorresti mangiare?">
-            <button class="btn" id="searchButton">Ricerca</button>
+            <button class="btn search-btn" id="searchButton">Ricerca</button>
         </div>
     </div>
 

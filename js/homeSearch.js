@@ -22,8 +22,8 @@ function search() {
     //Genera querystring
     urlParams.append('query', searchbar.value);
     //Reindirizza in search-page.php/querystring
-    window.history.replaceState({}, '', `/search-page.php?${urlParams}`);
-    location.reload()
+    let url = new URL(location.origin + '/search-page.php?' + urlParams);
+    location.href = url
     //Ottieni dati dalla querystring
     //Effettua una query al database per prendere i ristoranti con quei dati
     //Mostra i ristoranti nella pagina

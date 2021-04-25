@@ -5,20 +5,21 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 .primary-text {
     font-size: 2rem;
     color: #41405f;
-    font-family: "PT Sans", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     transition: color 500ms;
+    font-weight: bold;
 }
 
 .secondary-text {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #787794;
-    font-family: "PT Sans", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     transition: color 500ms;
 }
 
 .background {
     display: grid;
-    font-family: "Cardo", serif !important;
+    font-family: "Cardo", serif;
     background-color: white;
 }
 
@@ -41,21 +42,6 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
     padding-top: 30px;
 }
 
-.btn {
-    border-radius: 12px !important;
-    background-color: #ccd5ae !important;
-    border-color: #ccd5ae !important;
-    color: white !important;
-    border-radius: 12px !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-.btn:hover {
-    background-color: white !important;
-    color: #ccd5ae !important;
-}
-
 /* || I nostri consigli */
 
 .card-text-container {
@@ -63,10 +49,10 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 }
 
 #filter-container {
-    width: 90%;
+    width: 87%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -126,7 +112,6 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 1rem 0 0 1rem;
 }
 
 /* || I migliori ristoranti vicino a te */
@@ -134,7 +119,7 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 #nearby-suggestions {
     padding-left: 7.5%;
     padding-top: 4rem;
-    width: 90%;
+    width: 100%;
 }
 
 #nearby-suggestions-container {
@@ -149,18 +134,12 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 
 #nearby-suggestions-description-container {
     width: 18rem;
-    padding-right: 15px;
-}
-
-#nearby-suggestions {
-    font-size: 2rem;
-    color: #41405f;
-    font-family: "PT Sans", sans-serif;
+    padding-right: 0.75rem;
 }
 
 #nearby-suggestions-card-list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
     max-width: 60rem;

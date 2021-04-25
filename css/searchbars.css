@@ -44,6 +44,17 @@
     height: 18rem;
 }
 
-#searchbar-primary {
-    width: 60%;
+.btn.search-btn {
+    border-radius: 12px;
+    background-color: #ccd5ae;
+    border-color: #ccd5ae;
+    color: white;
+    border-radius: 12px;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn.search-btn:hover {
+    background-color: white;
+    color: #ccd5ae;
 }
