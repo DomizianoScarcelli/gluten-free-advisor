@@ -34,17 +34,24 @@
     transition: height 400ms;
 }
 
-.search-container>* {
-    /* tutto ciò che sta dentro .search-container */
-    height: 3rem;
-    margin: 0 0.5rem;
-}
-
 .search-container:hover {
     height: 18rem;
 }
 
+.btn.search-btn.invert-btn {
+    background-color: white;
+    color: #ccd5ae;
+}
+
+.btn.search-btn.invert-btn:hover {
+    background-color: #ccd5ae;
+    border-color: white;
+    color: white;
+}
+
 .btn.search-btn {
+    height: 3rem;
+    margin: 0 1rem;
     border-radius: 12px;
     background-color: #ccd5ae;
     border-color: #ccd5ae;

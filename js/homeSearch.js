@@ -4,7 +4,7 @@
  */
 
 const searchbar = document.getElementById("searchbar");
-const searchButton = document.getElementById("searchButton");
+
 var urlParams = new URLSearchParams(location.search)
 
 searchbar.addEventListener("keypress", (event) => {
@@ -13,9 +13,15 @@ searchbar.addEventListener("keypress", (event) => {
     }
 })
 
-searchButton.addEventListener('click', () => {
-    search();
-})
+
+
+
+// if (document.getElementById("search-button")) {
+//     document.getElementById("search-button").addEventListener('click', () => {
+//         search();
+//     })
+// }
+
 
 
 function search() {
@@ -27,4 +33,7 @@ function search() {
     //Ottieni dati dalla querystring
     //Effettua una query al database per prendere i ristoranti con quei dati
     //Mostra i ristoranti nella pagina
+
+
 }
+

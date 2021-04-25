@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <!--Javascript-->
     <script src="js/sidebarFilters.js" defer></script>
+    <script src="js/searchbar.js" defer></script>
+    <script src="js/searchpageSearch.js" defer></script>
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
