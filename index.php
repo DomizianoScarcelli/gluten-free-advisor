@@ -10,9 +10,9 @@
     <!--Javascript-->
     <script src="js/addRestaurant.js" defer></script>
     <script src="js/mobileResponsiveness.js" defer></script>
-    <script src="js/homeSearch.js" defer></script>
-    <script src="js/addressTOCoordinates.js" defer></script>
-    <script src="js\quickHomeFilters.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/addressToCoordinates.js" defer></script>
+    <script src="js/quickHomeFilters.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Responsiveness-->
@@ -45,13 +45,13 @@
         <!--Searchbars-->
         <div class="search-container" id="search-container">
             <input type="search" class="searchbar" id="searchbar" placeholder="Cosa vorresti mangiare?">
-            <button class="btn search-btn" id="searchButton">Ricerca</button>
+            <!--Qui viene aggiunto il bottone per la ricerca tramite javascript-->
         </div>
     </div>
 
     <!--Ristoranti consigliati-->
     <div id="suggestions-main-container">
-        <div id="filter-container">
+        <div class='flex-row' id="filter-container">
             <!--Filtri veloci-->
 
             <?php
@@ -60,7 +60,7 @@
                 echo
                 "
                 <div class='filter-card card' id='{$value}'>
-                    <div class='card-body' id='{$value}-body'>
+                    <div class='card-body flex-row' id='{$value}-body'>
                         <h5 class='card-title'> {$value} </h5>
                         <img class='card-icon' id='{$value}-icon' src='img/icons/home-filters/black/$value.png'>
                     </div>

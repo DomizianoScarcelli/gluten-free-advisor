@@ -17,6 +17,6 @@ In css si trovano i fogli di stili delle varie pagine, con dei nomi abbastanza a
 In js si trovano gli script Javascript:
 
 - **addRestaurant.js**: è lo script che viene eseguito quando l'utente compila il form per aggiungere un nuovo ristorante;
-- **homeSearch.js**: è lo script che viene eseguito quando viene effettuata una ricerca nella homepage;
+- **search.js**: è lo script che viene eseguito quando viene effettuata una ricerca nella homepage;
 - **mobileResponsiveness.js**: è lo script che viene eseguito per rendere alcuni elementi responsive quando ci si trova su dispositivi mobile (ciò che non si può fare con solo il css);
 - **research.js**: è stato scritto per effettuare la ricerca rapida all'interno della home page ma non viene utilizzato in quanto non sarebbe implementabile se gli elementi verrebbero ricercati all'interno di un database, come dovrebbe avvenire.
