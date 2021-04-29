@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <!--Javascript-->
     <script src="js/sidebarFilters.js" defer></script>
-    <script src="js/searchbar.js" defer></script>
-    <script src="js/searchpageSearch.js" defer></script>
+    <script src="js/search.js" defer></script>
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->

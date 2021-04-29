@@ -23,6 +23,12 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
     background-color: white;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .head-container {
     width: 100%;
     height: 35rem;
@@ -50,10 +56,7 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 
 #filter-container {
     width: 87%;
-    display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    flex-wrap: wrap;
 }
 
 .card.filter-card {
@@ -76,8 +79,6 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 .card-body {
     margin: auto;
     width: 90%;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -106,11 +107,8 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 }
 
 #our-suggestions-card-list {
-    display: flex;
     width: 90%;
-    margin: auto !important;
-    flex-direction: row;
-    flex-wrap: wrap;
+    margin: auto;
     justify-content: space-evenly;
 }
 
@@ -123,12 +121,10 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 }
 
 #nearby-suggestions-container {
+    flex-wrap: nowrap;
     padding-top: 1rem;
-    display: flex;
     width: 90%;
     margin: auto;
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: center;
 }
 
@@ -138,9 +134,7 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 }
 
 #nearby-suggestions-card-list {
-    display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     width: 100%;
     max-width: 60rem;
     min-width: 40rem;

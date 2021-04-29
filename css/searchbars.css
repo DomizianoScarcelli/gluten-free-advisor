@@ -34,10 +34,6 @@
     transition: height 400ms;
 }
 
-.search-container:hover {
-    height: 18rem;
-}
-
 .btn.search-btn.invert-btn {
     background-color: white;
     color: #ccd5ae;
@@ -57,7 +53,7 @@
     border-color: #ccd5ae;
     color: white;
     border-radius: 12px;
-    outline: none;
+    outline-color: white !important;
     box-shadow: none;
 }
 
