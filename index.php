@@ -5,7 +5,6 @@
     <title>Home - Ristoranti Gluten Free</title>
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/searchbars.css">
-    <link rel="stylesheet" href="css/mobile/home.css">
     <link rel="stylesheet" href="css/modal-form.css">
     <!--Javascript-->
     <script src="js/addRestaurant.js" defer></script>
@@ -50,21 +49,23 @@
     </div>
 
     <!--Ristoranti consigliati-->
-    <div id="suggestions-main-container">
-        <div class='flex-row' id="filter-container">
+    <div class='container' id="suggestions-main-container">
+        <div class='row g-4' id="filter-container">
             <!--Filtri veloci-->
-
             <?php
-            $array = array('Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Risotto', 'Gelato');
+            $array = array('Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato');
             foreach ($array as $value) {
                 echo
                 "
                 <div class='filter-card card' id='{$value}'>
-                    <div class='card-body flex-row' id='{$value}-body'>
-                        <h5 class='card-title'> {$value} </h5>
-                        <img class='card-icon' id='{$value}-icon' src='img/icons/home-filters/black/$value.png'>
+                    <div class='cols'>
+                        <div class='card-body flex-row no-wrap' id='{$value}-body'>
+                            <h5 class='card-title'> {$value} </h5>
+                            <img class='card-icon' id='{$value}-icon' src='img/icons/home-filters/black/$value.png'>
+                        </div>
                     </div>
-                </div>";
+                </div>
+                ";
             }
             ?>
 
