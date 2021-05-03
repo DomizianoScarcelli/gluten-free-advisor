@@ -9,6 +9,7 @@
     <!--Javascript-->
     <script src="js/sidebarFilters.js" defer></script>
     <script src="js/search.js" defer></script>
+    <script src="js/searchPageMobileReponsiveness.js"></script>
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->
@@ -51,11 +52,8 @@
                                         quos
                                         cumque soluta modi rerum nobis minus asperiores quia fuga consequuntur nam quas dolor
                                         dolore
-                                        quo qui saepe ullam, unde amet ipsa est ut quae. Laborum molestiae quia dolor nihil
-                                        ratione
-                                        consequatur optio aliquid dicta odio obcaecati, asperiores nemo eligendi maxime non
-                                        atque
-                                        quidem.</p>
+                                        quo qui saepe ullam, unde amet ipsa est ut quae. Laborum molestiae quia dolor nihil.
+                                        </p>
                                     <p class='card-text'><small class='text-muted'>Via di San Patrizio 98, 00166, Roma</small></p>
                                 </div>
                             </div>

@@ -1,9 +1,13 @@
 .sidebar-outside-container {
+    display: flex;
+    flex-direction: row;
     padding: 1rem;
-    min-width: fit-content;
+    
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     border: solid #e0e0e0;
     border-width: 1px;
@@ -22,6 +26,8 @@
 }
 
 .sidebar-inside-container {
+    display: flex;
+    flex-direction: column;
     font-family: "Cardo", serif;
     background-color: white;
     padding: 16px;
@@ -41,3 +47,4 @@
 .checkbox-label:hover {
     text-decoration: underline;
 }
+

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/modal-form.css">
     <!--Javascript-->
     <script src="js/addRestaurant.js" defer></script>
-    <script src="js/mobileResponsiveness.js" defer></script>
+    <script src="js/indexMobileResponsiveness.js" defer></script>
     <script src="js/search.js" defer></script>
     <script src="js/addressToCoordinates.js" defer></script>
     <script src="js/quickHomeFilters.js" defer></script>

@@ -36,7 +36,7 @@
         <div class="sidebar-inside-container">
             <p class="sidebar-element-title">Piatti</p>
             <?php
-            $array = array('Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Risotto', 'Gelato');
+            $array = array('Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato');
             foreach ($array as $value) {
                 echo
                 "

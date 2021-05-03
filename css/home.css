@@ -134,11 +134,13 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 }
 
 #nearby-suggestions-description-container {
+    padding-top: 1rem;
     width: 18rem;
     padding-right: 0.75rem;
 }
 
 #nearby-suggestions-card-list {
+    padding-top: 1rem;
     justify-content: space-around;
     width: 100%;
     max-width: 60rem;
