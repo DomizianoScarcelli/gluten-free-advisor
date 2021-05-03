@@ -35,7 +35,7 @@
 
 .card {
     max-height: 15rem;
-    width: 50rem;
+    width: fit-content;
     transition: background-color 500ms;
 }
 

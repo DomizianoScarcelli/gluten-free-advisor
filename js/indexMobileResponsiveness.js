@@ -1,10 +1,7 @@
-/*Rimuove la classe row-cols-3 dal top-restaurants-nearby se la larghezza della finestra è minore di 580 pixel in quanto creava un bug */
 $(window).on('resize', () => {
     var win = $(this); //this = window
     if (win.width() < 980) {
-        // $('#nearby-suggestions-card-list').removeClass('row-cols-3');
-
-        //Rendi la larghezza dell'header e del suo contenuto 100% e responsive
+                //Rendi la larghezza dell'header e del suo contenuto 100% e responsive
 
         //Reponsiveness per i filtri
         if (!$('#filter-container-after').length) {
@@ -23,6 +20,13 @@ $(window).on('resize', () => {
         $('#nearby-suggestions-card-list').addClass('row-cols-auto');
         $('.col.last').css('padding-top', '');
 
+        //Se è stato generato il bottone per la ricerca, allora modifica la sua larghezza in modo
+        //da prendere l'intero schermo. 
+        if ($('#searchButton').length){
+            $('#search-container').css('flex-direction', 'column');
+            $('#search-container').css('justify-content', 'space-evenly');
+            $('#searchButton').css('width', '85%');
+        }
     }
 
     //Reset fitri
@@ -43,6 +47,11 @@ $(window).on('resize', () => {
         $('#nearby-suggestions-card-list').addClass('row-cols-3');
         $('.col.last').css('padding-top', '2rem');
 
+        if ($('#searchButton').length){
+            $('#search-container').css('flex-direction', 'row');
+            $('#search-container').css('justify-content', 'center');
+            $('#searchButton').css('width', '');
+        }
     }
 
 });
