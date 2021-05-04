@@ -12,7 +12,7 @@ for (var i = 0; i < piatti.length; i++) {
 //Definisce gli array per i vari checkbox nelle sidebar
 arrayServizi = ['Consegna a domicilio', 'Da asporto', 'Consumazione sul posto', 'Cucina separata'];
 arrayPrezzo = ['Economico', 'Nella media', 'Raffinato'];
-arrayPiatti = ['Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Risotto', 'Gelato'];
+arrayPiatti = ['Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato'];
 arrayRestrizioni = ['Per vegetariani', 'Per vegani']
 
 //Mappa gli array nelle categorie
