@@ -31,7 +31,9 @@
     <?php include "assets/search-page/header.html"; ?>
 
     <div class="body-container">
-        <?php include 'dbManager\dbSearchFromQuery.php';?>
+        <!--Includere la search nel database-->
+        
+        
         <!--Sidebar-->
         <?php include "assets/search-page/sidebar.php"; ?>
         <!--Carte dei ristoranti cercati-->
