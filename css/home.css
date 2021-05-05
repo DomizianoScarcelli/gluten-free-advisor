@@ -59,13 +59,13 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
     width: 100%;
 }
 
-#filter-container {
-    width: 87%;
+.filter-container {
+    width: 90%;
     justify-content: space-around;
 }
 
 .card.filter-card {
-    width: 10rem;
+    max-width: 10rem;
     height: 5rem;
     border: solid 1px black;
     border-radius: 1rem;
@@ -108,34 +108,27 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 }
 
 #our-suggestions {
-    padding: 1rem 2rem 0 6.5rem;
+    padding: 3rem 0 1rem 0;
 }
 
-#our-suggestions-card-list {
+.card-list {
     width: 90%;
     margin: auto;
-    justify-content: space-evenly;
-}
+    }
 
 
 /* || I migliori ristoranti vicino a te */
 
 #nearby-suggestions {
-    padding-left: 6rem;
-    padding-top: 4rem;
+    padding-top: 3rem;
     width: 100%;
 }
 
-#nearby-suggestions-container {
-    flex-wrap: nowrap;
-    width: 90%;
-    margin: auto;
-    justify-content: center;
-}
 
 #nearby-suggestions-description-container {
+    width: 100%;
     padding-top: 1rem;
-    width: 18rem;
+    max-width: 18rem;
     padding-right: 0.75rem;
 }
 
@@ -157,7 +150,11 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 
 .card {
     height: 17rem;
-    width: 17rem;
+    /* width: 17rem; */
+    
+    max-width: 17rem;
+    
+    width: auto;
     transition: background-color 500ms;
     box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
     cursor: pointer;

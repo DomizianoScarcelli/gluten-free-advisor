@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/modal-form.css">
     <!--Javascript-->
     <script src="js/addRestaurant.js" defer></script>
-    <script src="js/indexMobileResponsiveness.js" defer></script>
+    <!-- <script src="js/indexMobileResponsiveness.js" defer></script> -->
     <script src="js/search.js" defer></script>
     <script src="js/addressToCoordinates.js" defer></script>
     <script src="js/quickHomeFilters.js" defer></script>
@@ -50,31 +50,27 @@
 
     <!--Ristoranti consigliati-->
     <div class='container' id="suggestions-main-container">
-        <div class='row g-4' id="filter-container">
+    <div class="row row-cols-6 card-list filter-container">
             <!--Filtri veloci-->
             <?php
             $array = array('Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato');
             foreach ($array as $value) {
                 echo
                 "
-                <div class='filter-card card' id='{$value}'>
-                    <div class='cols'>
+                <div class='col filter-card card' id='{$value}'>
                         <div class='card-body flex-row no-wrap' id='{$value}-body'>
                             <h5 class='card-title'> {$value} </h5>
                             <img class='card-icon' id='{$value}-icon' src='img/icons/home-filters/black/$value.png'>
                         </div>
-                    </div>
                 </div>
                 ";
             }
             ?>
 
         </div>
-        <!--I nostri consigli-->
-        <?php include "assets/home/restaurant-suggestions.html"; ?>
 
-        <!--I migliori ristoranti vicino a te-->
-        <?php include "assets/home/nearby-restaurants.html"; ?>
+        <?php include "assets/home/restaurant-grid.htm"; ?>
+        
 
     </div>
     <!--Pulsante per il form per aggiungere ristoranti-->

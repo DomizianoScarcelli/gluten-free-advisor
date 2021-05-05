@@ -9,7 +9,6 @@
     <!--Javascript-->
     <script src="js/sidebarFilters.js" defer></script>
     <script src="js/search.js" defer></script>
-    <script src="js/searchPageMobileReponsiveness.js"></script>
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->
@@ -32,6 +31,7 @@
     <?php include "assets/search-page/header.html"; ?>
 
     <div class="body-container">
+        <?php include 'dbManager\dbSearchFromQuery.php';?>
         <!--Sidebar-->
         <?php include "assets/search-page/sidebar.php"; ?>
         <!--Carte dei ristoranti cercati-->
