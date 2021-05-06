@@ -1,54 +1,61 @@
 .header {
-    display: flex;
-    background-color: #ccd5ae;
-    justify-content: center;
-    align-items: center;
-    height: 7rem;
+	display: flex;
+	background-color: #ccd5ae;
+	justify-content: center;
+	align-items: center;
+	height: 7rem;
+}
+.primary-text {
+	font-size: 1.5rem;
+	color: #41405f;
+	font-family: 'Noto Sans', sans-serif;
+	transition: color 500ms;
+	font-weight: bold;
 }
 
 .header-logo {
-    padding-right: 3rem;
-    width: auto;
-    height: 7rem;
-    cursor: pointer;
+	padding-right: 3rem;
+	width: auto;
+	height: 7rem;
+	cursor: pointer;
 }
 
 .searchbar {
-    height: 3rem;
-    width: 25rem;
+	height: 3rem;
+	width: 25rem;
 }
 
 .body-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .background {
-    font-family: "Cardo", serif;
-    background-color: white;
+	font-family: 'Cardo', serif;
+	background-color: white;
 }
 
 .cards-container {
-    padding: 1rem;
+	padding: 1rem;
 }
 
 .card {
-    max-height: 15rem;
-    width: fit-content;
-    transition: background-color 500ms;
+	max-height: 15rem;
+	width: fit-content;
+	transition: background-color 500ms;
 }
 
 .card:hover {
-    background-color: #e9edc9;
-    cursor: pointer;
+	background-color: #e9edc9;
+	cursor: pointer;
 }
 
 .card-img-container {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .card-img {
-    width: auto !important;
-    height: 15rem;
+	width: auto !important;
+	height: 15rem;
 }

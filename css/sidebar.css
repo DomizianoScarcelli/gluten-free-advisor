@@ -1,50 +1,49 @@
+* {
+  user-select: none;
+}
+
 .sidebar-outside-container {
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-    
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
 }
 
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border: solid #e0e0e0;
-    border-width: 1px;
-    padding: 1rem;
-    width: fit-content;
-    height: 60rem;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: solid #e0e0e0;
+  border-width: 1px;
+  padding: 1rem;
+  width: fit-content;
+  height: 60rem;
+  border-radius: 5px;
+  min-width: fit-content;
 }
 
 .sidebar-element-title {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "Cardo", serif;
-    padding-left: 10px;
-    padding-right: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Cardo", serif;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .sidebar-inside-container {
-    display: flex;
-    flex-direction: column;
-    font-family: "Cardo", serif;
-    background-color: white;
-    padding: 16px;
-    border: solid #e0e0e0;
-    border-width: 0 0 1px 0;
-    transition: background-color 500ms;
-}
-
-.checkbox {
-    display: block;
+  display: flex;
+  flex-direction: column;
+  font-family: "Cardo", serif;
+  background-color: white;
+  padding: 16px;
+  border: solid #e0e0e0;
+  border-width: 0 0 1px 0;
+  transition: background-color 500ms;
 }
 
 .checkbox-label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .checkbox-label:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-

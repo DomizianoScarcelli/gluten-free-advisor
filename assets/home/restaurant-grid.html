@@ -1,6 +1,6 @@
 <!--Codice HTML delle carte con i "nostri suggerimenti" mostrata nella homepage.-->
-<div class='row' id="our-suggestions">
-    <h1 class="primary-text" >I nostri consigli</h1>
+<div class="row card-list-title">
+    <h1 class="primary-text">I nostri consigli</h1> 
 </div>
 <div class="row row-cols-4 card-list">
     <div class="col">
@@ -40,17 +40,20 @@
         </div>
     </div>
 </div>
-
-<div class='row'>
-    <h1 class="primary-text" id="nearby-suggestions">Ristoranti vicino a te</h1>
+<div class="row card-list-title">
+    <h1 class="primary-text">Ristoranti vicino a te</h1>
 </div>
-<div class='row cols-2 card-list'>
-    <div class='col' id="nearby-suggestions-description-container">
-        <p class="secondary-text" id="nearby-suggestions-description">Questi sono alcuni ristoranti senza glutine che
-            abbiamo trovato nella tua zona! </p>
+
+<!--Codice HTML delle carte con i 'Ristoranti nella tua zona' mostrata nella homepage.-->
+<div class="row cols-2 card-list">
+    <div class="col" id="nearby-suggestions-description-container">
+        <p class="secondary-text" id="nearby-suggestions-description">
+            Questi sono alcuni ristoranti senza glutine che
+            abbiamo trovato nella tua zona!
+        </p>
     </div>
-    <div class='col'>
-        <div class="row row-cols-3 " id="nearby-suggestions-card-list">
+    <div class="col">
+        <div class="row row-cols-3 g-4 " id="nearby-suggestions-card-list">
             <div class="col">
                 <div class="card" id="lievito-72" onclick="location.href='restaurants/lievito-72.html'">
                     <img class="card-image" src="img/home-restaurants/lievito-72-home.jpg">

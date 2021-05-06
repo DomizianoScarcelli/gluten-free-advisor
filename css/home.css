@@ -107,41 +107,30 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
     padding: 2rem 0 2rem 0;
 }
 
-#our-suggestions {
+.card-list-title {
     padding: 3rem 0 1rem 0;
 }
 
 .card-list {
     width: 90%;
     margin: auto;
-    }
+}
 
 
 /* || I migliori ristoranti vicino a te */
 
-#nearby-suggestions {
-    padding-top: 3rem;
-    width: 100%;
-}
-
 
 #nearby-suggestions-description-container {
     width: 100%;
-    padding-top: 1rem;
     max-width: 18rem;
     padding-right: 0.75rem;
 }
 
 #nearby-suggestions-card-list {
-    padding-top: 1rem;
     justify-content: space-around;
     width: 100%;
     max-width: 60rem;
     min-width: 40rem;
-}
-
-.col.last {
-    padding-top: 2rem;
 }
 
 .card>* {
@@ -150,11 +139,7 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 
 .card {
     height: 17rem;
-    /* width: 17rem; */
-    
     max-width: 17rem;
-    
-    width: auto;
     transition: background-color 500ms;
     box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
     cursor: pointer;
@@ -175,7 +160,6 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
     position: absolute;
     bottom: 0;
 }
-
 
 /* || Aggiungi un ristorante */
 
