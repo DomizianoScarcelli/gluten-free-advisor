@@ -69,7 +69,9 @@
 
         </div>
 
+
         <?php include "assets/home/restaurant-grid.html"; ?>
+
         
 
     </div>
