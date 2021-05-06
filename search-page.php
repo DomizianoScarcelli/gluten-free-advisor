@@ -9,6 +9,8 @@
     <!--Javascript-->
     <script src="js/sidebarFilters.js" defer></script>
     <script src="js/search.js" defer></script>
+    <script src="js\getPlacePhotos.js" defer></script>
+
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->
@@ -31,37 +33,17 @@
     <?php include "assets/search-page/header.html"; ?>
 
     <div class="body-container">
+
         <?php include 'dbManager\dbSearchFromQuery.php';?>
+
         <!--Sidebar-->
         <?php include "assets/search-page/sidebar.php"; ?>
         <!--Carte dei ristoranti cercati-->
         <div class='cards-container'>
-
-            <?php
-            for ($i = 0; $i < 7; $i++) {
-                echo "
-                    <div class='card mb-3' style='max-width: 50rem;'>
-                        <div class='row g-0'>
-                            <div class='col-md-4 card-img-container'>
-                                <img class='card-img' src='img/home-restaurants/lievito-72-home.jpg'>
-                            </div>
-                            <div class='col-md-8'>
-                                <div class='card-body'>
-                                    <h5 class='card-title'>Ristorante {$i}</h5>
-                                    <p class='card-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rem
-                                        quos
-                                        cumque soluta modi rerum nobis minus asperiores quia fuga consequuntur nam quas dolor
-                                        dolore
-                                        quo qui saepe ullam, unde amet ipsa est ut quae. Laborum molestiae quia dolor nihil.
-                                        </p>
-                                    <p class='card-text'><small class='text-muted'>Via di San Patrizio 98, 00166, Roma</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            ";
-            }
-            ?>
+        <!--Genera le cards con i valori cercati all'interno del database a seconda della query effettuata-->
+            <?php include "dbManager/dbSearchFromQuery.php"; ?>
+            
+        
         </div>
 
 
