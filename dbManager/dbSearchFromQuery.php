@@ -6,14 +6,14 @@
  * 
  * TODO: manca da implementare la ricerca tramite filtri (quelli rapidi nella homepage e quelli della sidebar nella search-page)
  */
-include 'dbConnect.php';
-if (!$conn) {
-  echo "<p class='primary-text'>Connessione al database locale fallita</p>";
-} else {
 
 
-  if ($_GET) {
-    if ($_GET['query'] != '') {
+if ($_GET) {
+  include 'dbConnect.php';
+  if ($_GET['query'] != '') {
+    if (!$conn) {
+      echo "<p class='primary-text'>Connessione al database locale fallita</p>";
+    } else {
       $nome = $_GET['query'];
       //Select all rows that contains the $name inside the name value. 
       $sql = "SELECT * FROM dati_ristoranti WHERE nome LIKE '%{$nome}%'";
@@ -59,4 +59,19 @@ if (!$conn) {
       mysqli_close($conn);
     }
   }
+} else{
+  echo "<div class='card mb-3' style='width: 50rem;'>
+          <div class='row g-0'>
+              <div class='col-md-4 card-img-container'>
+                  <img class='card-img' src='img\home-restaurants\lievito-72-home.jpg'>
+              </div>
+              <div class='col-md-8'>
+                  <div class='card-body'>
+                      <h5 class='card-title'>Lievito 72</h5>
+                      <p class='card-text'>Nessuna descrizione purtroppo... </p>
+                      <p class='card-text'><small class='text-muted'>Via di marco pinello</small></p>
+                  </div>
+              </div>
+              </div>
+          </div>";
 }
