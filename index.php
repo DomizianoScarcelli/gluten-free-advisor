@@ -11,7 +11,6 @@
     <!-- <script src="js/indexMobileResponsiveness.js" defer></script> -->
     <script src="js/search.js" defer></script>
     <script src="js/addressToCoordinates.js" defer></script>
-    <script src="js/quickHomeFilters.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Responsiveness-->
@@ -25,11 +24,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <!--Fonts-->
-      <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-
+    <!--Vue.js-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="js/vueElements.js" defer></script>
 
 
 </head>
@@ -48,31 +49,65 @@
         </div>
     </div>
 
-    <!--Ristoranti consigliati-->
+
+
+
     <div class='container' id="suggestions-main-container">
-    <div class="row row-cols-6 card-list filter-container">
+        <div class="row row-cols-6 card-list filter-container" id='filter-container'>
             <!--Filtri veloci-->
-            <?php
-            $array = array('Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato');
-            foreach ($array as $value) {
-                echo
-                "
-                <div class='col filter-card card' id='{$value}'>
-                        <div class='card-body flex-row no-wrap' id='{$value}-body'>
-                            <h5 class='card-title'> {$value} </h5>
-                            <img class='card-icon' id='{$value}-icon' src='img/icons/home-filters/black/$value.png'>
-                        </div>
+            <div class='col filter-card card' v-bind:id="filter.name" v-on:click='redirect(filter)' v-for='filter in filters'>
+                <div class='card-body flex-row no-wrap' v-bind:id="filter.name + '-body'" @mouseover='whiteImage(filter)' @mouseleave='blackImage(filter)'>
+                    <h5 class='card-title'> {{filter.name}} </h5>
+                    <img class='card-icon' v-bind:id="filter.name + '-icon'" v-bind:src="'img/icons/home-filters/'+ filter.color + '/' + filter.name + '.png'">
                 </div>
-                ";
-            }
-            ?>
+            </div>
 
         </div>
 
 
-        <?php include "assets/home/restaurant-grid.html"; ?>
+        <!--I nostri consigli-->
+        <div class="row card-list-title">
+            <h1 class="primary-text">I nostri consigli</h1>
+        </div>
+        <div class="row row-cols-4 card-list" id='restaurant-suggestion'>
+            <div class="col" v-for="restaurant in restaurants">
+                <div class="card">
+                    <img class="card-image" :src="restaurant.image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{restaurant.title}}</h5>
+                        <p class="card-address">{{restaurant.address}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        
+        <!--Ristoranti nella tua zone-->
+        <div class="row card-list-title">
+            <h1 class="primary-text">Ristoranti vicino a te</h1>
+        </div>
+        <div class="row cols-2 card-list">
+            <div class="col" id="nearby-suggestions-description-container">
+                <p class="secondary-text" id="nearby-suggestions-description">
+                    Questi sono alcuni ristoranti senza glutine che
+                    abbiamo trovato nella tua zona!
+                </p>
+            </div>
+            <div class="col">
+                <div class="row row-cols-3 g-4" id="nearby-suggestions-card-list">
+                    <div class="col" v-for='restaurant in restaurants'>
+                        <div class="card">
+                            <img class="card-image" :src="restaurant.image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{restaurant.title}}</h5>
+                                <p class="card-address">{{restaurant.address}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
     </div>
     <!--Pulsante per il form per aggiungere ristoranti-->
@@ -83,8 +118,29 @@
                 trovarlo!</p>
         </div>
     </div>
-    <!--Codice PHP che inserisce il form modale modal-form.php-->
-    <?php include 'assets/home/modal-form.html'; ?>
+
+    <!-- Form modale che viene mostrato quando si preme il pulsante nella home per aggiungere un nuovo risorante-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Aggiungi un ristorante</h5>
+                    <button type="button" class="close btn-close" id="close-button" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="form">
+                        <p class="label">Nome del ristorante</p>
+                        <input type="text" id="restaurant-name" placeholder="es. Ristorante da Pino" /><br />
+                        <p class="label">Città</p>
+                        <input type="text" id="restaurant-city" placeholder="es. Roma" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn search-btn" id="submit-restaurant-button">Invia</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

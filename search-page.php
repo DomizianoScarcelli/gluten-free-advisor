@@ -10,7 +10,6 @@
     <script src="js/sidebarFilters.js" defer></script>
     <script src="js/search.js" defer></script>
     <script src="js\getPlacePhotos.js" defer></script>
-
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->
@@ -26,6 +25,7 @@
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+    
 </head>
 
 <body class="background">
