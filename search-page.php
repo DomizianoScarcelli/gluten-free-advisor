@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <!--Javascript-->
-    <script src="js/sidebarFilters.js" defer></script>
     <script src="js/search.js" defer></script>
-    <script src="js\getPlacePhotos.js" defer></script>
-
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->
@@ -26,6 +23,10 @@
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+    <!--Vue.js-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="js/vueElements.js" defer></script>
+
 </head>
 
 <body class="background">
@@ -35,13 +36,23 @@
     <div class="body-container">
 
         <!--Sidebar-->
-        <?php include "assets/search-page/sidebar.php"; ?>
+        <div class="sidebar-outside-container">
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inside-container" v-for='element in elements'>
+                    <p class="sidebar-element-title">{{element.title}}</p>
+                    <div class='checkbox' v-for='value in element.values'>
+                        <input type='checkbox' name='servizi-ristorante' v-bind:id='value.replaceAll(" ", "-")' v-on:change='redirect(element, value)'>
+                        <label v-bind:for='value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--Carte dei ristoranti cercati-->
         <div class='cards-container'>
-        <!--Genera le cards con i valori cercati all'interno del database a seconda della query effettuata-->
+            <!--Genera le cards con i valori cercati all'interno del database a seconda della query effettuata-->
             <?php include "dbManager/dbSearchFromQuery.php"; ?>
-            
-        
+
+
         </div>
 
 
