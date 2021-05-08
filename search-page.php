@@ -31,7 +31,12 @@
 
 <body class="background">
     <!--Header-->
-    <?php include "assets/search-page/header.html"; ?>
+
+    <div class="header" id="header">
+        <img src="img/tripadvisor.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.php'" />
+        <input type="search" class="searchbar" id="searchbar" />
+    </div>
+
 
     <div class="body-container">
 
