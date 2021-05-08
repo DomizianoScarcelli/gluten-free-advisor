@@ -15,7 +15,7 @@ var quickFilters = new Vue({
 	},
 	methods: {
 		redirect: (filter) => {
-			urlParams.append('piatti', filter.name);
+			urlParams.append('Piatti', filter.name);
 			//Inserisce i parametri all'interno della url e ricarica la pagina per effettuare il redirect
 			let url = new URL(location.origin + '/search-page.php?' + urlParams);
 			location.href = url;
@@ -100,5 +100,51 @@ var nearbyRestaurants = new Vue({
 				image: 'img/home-restaurants/lievito-72-home.jpg',
 			},
 		],
+	},
+});
+
+/**
+ * Vue object for the sidebar in the search page.
+ */
+var sidebar = new Vue({
+	el: '#sidebar',
+	data: {
+		elements: [
+			{
+				title: 'Servizi del ristorante',
+				values: ['Consegna a domicilio', 'Da asporto', 'Consumazione sul posto', 'Cucina separata'],
+			},
+			{
+				title: 'Prezzo',
+				values: ['Economico', 'Nella media', 'Raffinato'],
+			},
+			{
+				title: 'Piatti',
+				values: ['Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato'],
+			},
+			{
+				title: 'Restrizioni alimentari',
+				values: ['Per vegetariani', 'Per vegani'],
+			},
+		],
+	},
+	methods: {
+		redirect: (element, value) => {
+			urlParams.append(element.title, value.replaceAll(' ', '-'));
+			location.search = urlParams;
+		},
+	},
+	//Quando l'elemento è caricato, verifica quali parametri sono presenti nella querystring
+	//checka le checkbox corrispondenti.
+	mounted: () => {
+		var urlParams = new URLSearchParams(location.search);
+
+		array = ['Servizi del ristorante', 'Prezzo', 'Piatti', 'Restrizioni alimentari'];
+
+		for (let key of array) {
+			for (let servizio of urlParams.getAll(key)) {
+				document.getElementById(servizio).checked = true;
+			}
+		}
 	},
 });
