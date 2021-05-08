@@ -106,31 +106,46 @@ var nearbyRestaurants = new Vue({
 /**
  * Vue object for the sidebar in the search page.
  */
-var sidebar = new Vue({
-	el: '#sidebar',
+var filterCheckboxes = new Vue({
+	el: '#filter-checkboxes',
 	data: {
 		elements: [
 			{
 				title: 'Servizi del ristorante',
 				values: ['Consegna a domicilio', 'Da asporto', 'Consumazione sul posto', 'Cucina separata'],
+				modalFormDescription: 'Di quali servizi è dotato il ristorante?',
 			},
 			{
 				title: 'Prezzo',
 				values: ['Economico', 'Nella media', 'Raffinato'],
+				modalFormDescription: 'Come descriveresti il prezzo del ristorante?',
 			},
 			{
 				title: 'Piatti',
 				values: ['Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato'],
+				modalFormDescription: 'Che piatti offre il ristorante?',
 			},
 			{
 				title: 'Restrizioni alimentari',
 				values: ['Per vegetariani', 'Per vegani'],
+				modalFormDescription: 'Il ristorante offre delle opzioni per diete alternative?',
 			},
 		],
 	},
 	methods: {
 		redirect: (element, value) => {
-			urlParams.append(element.title, value.replaceAll(' ', '-'));
+			formattedValue = value.replaceAll(' ', '-');
+			//Se il parametro è gia stato inserito e la checkbox viene di nuovo cliccata, allora lo toglie
+			if (urlParams.getAll(element.title).includes(formattedValue)) {
+				array = urlParams.getAll(element.title).filter((el) => el != formattedValue);
+				urlParams.delete(element.title);
+				array.forEach((value) => {
+					urlParams.append(element.title, value.replaceAll(' ', '-'));
+				});
+				//Altrimenti lo inserisce
+			} else {
+				urlParams.append(element.title, formattedValue);
+			}
 			location.search = urlParams;
 		},
 	},
