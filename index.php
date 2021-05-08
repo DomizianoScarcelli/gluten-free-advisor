@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/modal-form.css">
+    <link rel="stylesheet" href="css/sidebar.css">
     <!--Javascript-->
-    <script src="js/addRestaurant.js" defer></script>
+    <script src="js/addRestaurant.js"></script>
     <!-- <script src="js/indexMobileResponsiveness.js" defer></script> -->
     <script src="js/search.js" defer></script>
     <script src="js/addressToCoordinates.js" defer></script>
@@ -44,18 +45,16 @@
         </h1>
         <!--Searchbars-->
         <div class="search-container" id="search-container">
-            <input type="search" class="searchbar" id="searchbar" placeholder="Cosa vorresti mangiare?">
+            <input type="search" class="searchbar text-input" id="searchbar" placeholder="Cosa vorresti mangiare?">
             <!--Qui viene aggiunto il bottone per la ricerca tramite javascript-->
         </div>
     </div>
 
 
-
-
     <div class='container' id="suggestions-main-container">
         <div class="row row-cols-6 card-list filter-container" id='filter-container'>
             <!--Filtri veloci-->
-            <div class='col filter-card card' v-bind:id="filter.name" v-on:click='redirect(filter)' v-for='filter in filters'>
+            <div class='col filter-card card' v-bind:id="filter.name + '-filter'" v-on:click='redirect(filter)' v-for='filter in filters'>
                 <div class='card-body flex-row no-wrap' v-bind:id="filter.name + '-body'" @mouseover='whiteImage(filter)' @mouseleave='blackImage(filter)'>
                     <h5 class='card-title'> {{filter.name}} </h5>
                     <img class='card-icon' v-bind:id="filter.name + '-icon'" v-bind:src="'img/icons/home-filters/'+ filter.color + '/' + filter.name + '.png'">
@@ -125,15 +124,45 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Aggiungi un ristorante</h5>
+                   
                     <button type="button" class="close btn-close" id="close-button" data-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form action="" id="form">
-                        <p class="label">Nome del ristorante</p>
-                        <input type="text" id="restaurant-name" placeholder="es. Ristorante da Pino" /><br />
-                        <p class="label">Città</p>
-                        <input type="text" id="restaurant-city" placeholder="es. Roma" />
-                    </form>
+                <div class="modal-body container" id='modal-body'>
+                     <p class='left-tip'>I campi contrassegnati da * sono obbligatori</p>
+                    <div class="row cols-2">
+                        <!--Colonna sinistra-->
+                        <div class="col">
+                            <form action="" id="form">
+                                <!--Nome del ristorante-->
+                                <p class="label">Nome del ristorante*</p>
+                                <input class='text-input' type="text" id="restaurant-name" placeholder="es. Ristorante da Pino" /><br />
+                                <!--Indirizzo o città-->
+                                <p class="label" id='indirizzo'>Indirizzo*</p>
+                                <input class='text-input' type="text" id="restaurant-address" placeholder="es. Via delle Pantanelle 34" />
+                                <p class="tip" id='address-tip' onclick="addressNotKnown()">Non conosci l'indirizzo?</p>
+                                <!--Immagini-->
+                                 <p class="label" id='immagini'>Immagini</p>
+                                 <input type="file" id="myFile" name="filename">
+                                <!--Descrizione-->
+                                <p class="label" id='descrizione'>Descrizione</p>
+                                <textarea form='form' cols='30' row='20' class='text-input long-text-input' id="restaurant-description" placeholder="es. Ristorante-pizzeria con piatti italiani, anche senza glutine, in uno spazio dal design moderno e colorato."></textarea>
+                        </div>
+
+                        <!--Colonna destra-->
+                        <!--Checkbox per i servizi del ristorante-->
+                        <div class="col">
+                            <div id='filter-checkboxes'>
+                                <div v-for='element in elements'>
+                                    <p class='label'> {{element.modalFormDescription}} </p>
+                                    <div class='checkbox' v-for='value in element.values'>
+                                        <input type='checkbox' name='servizi-ristorante' v-bind:id='value.replaceAll(" ", "-")'>
+                                        <label v-bind:for='value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn search-btn" id="submit-restaurant-button">Invia</button>
@@ -141,6 +170,7 @@
             </div>
         </div>
     </div>
+
 
 </body>
 

@@ -42,11 +42,11 @@
 
         <!--Sidebar-->
         <div class="sidebar-outside-container">
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar" id="filter-checkboxes">
                 <div class="sidebar-inside-container" v-for='element in elements'>
                     <p class="sidebar-element-title">{{element.title}}</p>
                     <div class='checkbox' v-for='value in element.values'>
-                        <input type='checkbox' name='servizi-ristorante' v-bind:id='value.replaceAll(" ", "-")' v-on:change='redirect(element, value)'>
+                        <input type='checkbox' name='servizi' v-bind:id='value.replaceAll(" ", "-")' v-on:change='redirect(element, value)'>
                         <label v-bind:for='value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
                     </div>
                 </div>

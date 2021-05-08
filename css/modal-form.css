@@ -1,46 +1,81 @@
+.modal-dialog {
+	max-width: 50rem !important;
+	min-width: 50rem !important;
+}
+
 #form-main-container {
-    margin: auto;
-    width: fit-content;
-    background-color: #ccd5ae;
-    height: fit-content;
-    padding: 3rem;
-    border-radius: 2rem;
+	margin: auto;
+	width: fit-content;
+	background-color: #ccd5ae;
+	height: fit-content;
+	padding: 3rem;
+	border-radius: 2rem;
 }
 
 #form {
-    display: grid;
-    padding-bottom: 1rem;
-    place-items: center;
+	display: grid;
+	padding-bottom: 1rem;
+	place-items: center;
 }
 
 .label {
-    padding-left: 2rem;
-    width: 100%;
-    text-align: left;
+	padding-top: 1rem;
+	width: 85%;
+	text-align: left;
+	font-weight: bold;
 }
 
-input {
-    width: 85%;
-    text-indent: 1rem;
-    border: 1px solid white;
-    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-    border-radius: 12px;
-    outline: none;
-    height: 3rem;
+.text-input {
+	width: 85%;
+	text-indent: 1rem;
+	border: 1px solid white;
+	box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+	border-radius: 12px;
+	outline: none;
+	height: 3rem;
+}
+
+.long-text-input {
+	height: 10rem;
+	text-indent: 0;
+	padding: 1rem;
 }
 
 .modal-header {
-    padding: 1rem 2rem !important;
+	padding: 1rem 2rem !important;
 }
 
 .modal-content {
-    border: 0px !important;
+	border: 0px !important;
 }
 
 .modal-footer {
-    justify-content: center !important;
+	justify-content: center !important;
 }
 
 #submit-restaurant-button {
-    width: 85%;
+	width: 85%;
+}
+
+.checkbox-container {
+	width: 85%;
+}
+
+.tip {
+	padding-top: 0.5rem;
+	width: 85%;
+	font-size: 14px;
+	text-align: right;
+}
+
+.left-tip {
+	padding-top: 0.5rem;
+	width: 85%;
+	font-size: 14px;
+	text-align: left;
+}
+
+.tip:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
