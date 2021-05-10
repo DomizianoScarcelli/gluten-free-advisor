@@ -2,14 +2,22 @@
  * Tutto il codice che riguarda il pulsante nella home page relativo all'aggiunta di un nuovo ristorante.
  * (L'interazione con il databse viuene effettuata nel file dbManager/dbAddPendingRestaurant.php)
  */
+var script = document.createElement('script');
+script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk&callback=initMap';
+script.async = true;
 
-//Ci sono dei bug che non fanno funzionare alcune cose.
 const submitRestaurantButton = document.getElementById('submit-restaurant-button');
 const restaurantName = document.getElementById('restaurant-name');
 const restaurantCity = document.getElementById('restaurant-address');
 const closeButton = document.getElementById('close-button');
 const modalBody = document.getElementById('modal-body');
 const originalHtml = modalBody.innerHTML;
+
+window.initMap = function () {};
+
+function checkRequired() {
+	//Controlla che i campi required siano stai effettivamente compilati
+}
 
 function addressNotKnown() {
 	$('#indirizzo').text('Città*');
@@ -67,7 +75,7 @@ function reset() {
 	}, 500);
 }
 
-function sendRestaurantData() {
+function sendPendingRestaurantData() {
 	var name = $('#restaurant-name').val();
 	var city = $('#restaurant-city').val();
 	if (!(typeof name == 'undefined' && typeof city == 'undefined')) {
@@ -81,3 +89,58 @@ function sendRestaurantData() {
 		});
 	}
 }
+
+function sendRestaurantData() {
+	var name = $('#restaurant-name').val();
+	var address = $('#restaurant-address').val();
+	var image = $('#restaurant-image').files;
+	console.log(image);
+	var description = $('#restaurant-description').val();
+	var tags = [];
+	for (checkbox of document.getElementsByClassName('modal-form-checkbox')) {
+		if (checkbox.checked) {
+			tags.push(checkbox.value);
+		}
+	}
+	//Converte indirizzo in coppia di coordinate ed effettua l'ajax
+	addressLocate(address, (searchLatLng) => {
+		//Ajax
+		$.ajax({
+			type: 'POST',
+			url: 'dbManager/dbAddRestaurant.php',
+			data: {
+				name: name,
+				address: address,
+				latitude: searchLatLng[0],
+				longitude: searchLatLng[1],
+				image: image,
+				description: description,
+				tags: tags,
+			},
+			success: (data) => {
+				alert(data);
+			},
+		});
+	});
+}
+
+function addressLocate(address, callback) {
+	axios
+		.get('https://maps.googleapis.com/maps/api/geocode/json', {
+			params: {
+				address: address,
+				key: 'AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk',
+			},
+		})
+		.then((response) => {
+			var latitude = response.data.results[0].geometry.location.lat;
+			var longitude = response.data.results[0].geometry.location.lng;
+			latLng = [latitude, longitude];
+			callback(latLng);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+}
+
+document.head.appendChild(script);

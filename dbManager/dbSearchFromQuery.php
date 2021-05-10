@@ -27,7 +27,6 @@ if ($_GET) {
 
           $photo = explode(',', $row['listaFoto'])[0]; //prende il primo id della foto nell'array (per semplicità)
 
-
           echo "
         <div class='card mb-3' style='width: 50rem;'>
           <div class='row g-0'>

@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="css/modal-form.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <!--Javascript-->
-    <script src="js/addRestaurant.js"></script>
+    <script src="js/addRestaurant.js" defer></script>
     <!-- <script src="js/indexMobileResponsiveness.js" defer></script> -->
     <script src="js/search.js" defer></script>
-    <script src="js/addressToCoordinates.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Responsiveness-->
@@ -32,7 +31,9 @@
     <!--Vue.js-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="js/vueElements.js" defer></script>
-
+    <!--Axios-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!--Google API-->
 
 </head>
 
@@ -117,32 +118,31 @@
                 trovarlo!</p>
         </div>
     </div>
-
     <!-- Form modale che viene mostrato quando si preme il pulsante nella home per aggiungere un nuovo risorante-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Aggiungi un ristorante</h5>
-                   
+
                     <button type="button" class="close btn-close" id="close-button" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body container" id='modal-body'>
-                     <p class='left-tip'>I campi contrassegnati da * sono obbligatori</p>
+                    <p class='left-tip'>I campi contrassegnati da * sono obbligatori</p>
                     <div class="row cols-2">
                         <!--Colonna sinistra-->
                         <div class="col">
                             <form action="" id="form">
                                 <!--Nome del ristorante-->
-                                <p class="label">Nome del ristorante*</p>
+                                <p class="label">Nome del ristorante<sup>*</sup></p>
                                 <input class='text-input' type="text" id="restaurant-name" placeholder="es. Ristorante da Pino" /><br />
                                 <!--Indirizzo o città-->
-                                <p class="label" id='indirizzo'>Indirizzo*</p>
+                                <p class="label" id='indirizzo'>Indirizzo<sup>*</sup></p>
                                 <input class='text-input' type="text" id="restaurant-address" placeholder="es. Via delle Pantanelle 34" />
                                 <p class="tip" id='address-tip' onclick="addressNotKnown()">Non conosci l'indirizzo?</p>
                                 <!--Immagini-->
-                                 <p class="label" id='immagini'>Immagini</p>
-                                 <input type="file" id="myFile" name="filename">
+                                <p class="label" id='immagini'>Immagini</p>
+                                <input type="file" multiple='true' name="filename" id='restaurant-image'>
                                 <!--Descrizione-->
                                 <p class="label" id='descrizione'>Descrizione</p>
                                 <textarea form='form' cols='30' row='20' class='text-input long-text-input' id="restaurant-description" placeholder="es. Ristorante-pizzeria con piatti italiani, anche senza glutine, in uno spazio dal design moderno e colorato."></textarea>
@@ -155,8 +155,8 @@
                                 <div v-for='element in elements'>
                                     <p class='label'> {{element.modalFormDescription}} </p>
                                     <div class='checkbox' v-for='value in element.values'>
-                                        <input type='checkbox' name='servizi-ristorante' v-bind:id='value.replaceAll(" ", "-")'>
-                                        <label v-bind:for='value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
+                                        <input class='modal-form-checkbox' type='checkbox' name='servizi-ristorante' v-bind:id='"restaurant-" + value.replaceAll(" ", "-")' v-bind:value='value'>
+                                        <label v-bind:for='"restaurant-" + value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
                                     </div>
                                 </div>
                             </div>
