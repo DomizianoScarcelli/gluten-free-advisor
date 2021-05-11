@@ -2,197 +2,199 @@
 CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come vengono visualizzati all'interno del codice sorgente.
 */
 
+/*
+Palette dei colori: https://coolors.co/787794-41405f-ccd5ae-faedcd-e3d2af-d4a373-3b352c
+*/
+
 .primary-text {
-    font-size: 2rem;
-    color: #41405f;
-    font-family: 'Noto Sans', sans-serif;
-    transition: color 500ms;
-    font-weight: bold;
+	font-size: 2rem;
+	color: #41405f;
+	font-family: 'Noto Sans', sans-serif;
+	transition: color 500ms;
+	font-weight: bold;
 }
 
 .secondary-text {
-    font-size: 1.2rem;
-    color: #787794;
-    font-family: 'Noto Sans', sans-serif;
-    transition: color 500ms;
+	font-size: 1.2rem;
+	color: #787794;
+	font-family: 'Noto Sans', sans-serif;
+	transition: color 500ms;
 }
 
 .background {
-    display: grid;
-    font-family: "Cardo", serif;
-    background-color: white;
+	display: grid;
+	font-family: 'Cardo', serif;
+	background-color: white;
 }
 
 .flex-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .flex-row.no-wrap {
-    flex-wrap: nowrap !important;
+	flex-wrap: nowrap !important;
 }
 
 .head-container {
-    width: 100%;
-    height: 35rem;
-    background-color: #e9edc9;
+	width: 100%;
+	height: 35rem;
+	background-color: #e9edc9;
 }
 
 #logo {
-    display: block;
-    margin: auto;
-    width: 10rem;
+	padding-top: 3rem;
+	display: block;
+	margin: auto;
+	width: 17rem;
 }
 
 #title {
-    font-size: 3rem;
-    text-transform: uppercase;
-    padding-bottom: 30px;
-    padding-top: 30px;
+	font-size: 3rem;
+	text-transform: uppercase;
+	padding-bottom: 30px;
+	padding-top: 30px;
 }
-
 
 /* || I nostri consigli */
 
 .card-text-container {
-    width: 100%;
+	width: 100%;
 }
 
 .filter-container {
-    width: 90%;
-    justify-content: space-around;
+	width: 90%;
+	justify-content: space-around;
 }
 
 .card.filter-card {
-    max-width: 10rem;
-    height: 5rem;
-    border: solid 1px black;
-    border-radius: 1rem;
-    box-shadow: none;
+	max-width: 10rem;
+	height: 5rem;
+	border: solid 1px black;
+	border-radius: 1rem;
+	box-shadow: none;
 }
 
 .card.filter-card:hover {
-    background-color: black;
+	background-color: black;
 }
 
 .card-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
 }
 
 .card-body {
-    margin: auto;
-    width: 90%;
-    justify-content: space-between;
+	margin: auto;
+	width: 90%;
+	justify-content: space-between;
 }
 
 .filter-card:hover .card-title {
-    color: white;
+	color: white;
 }
 
 .filter-card .card-title {
-    font-size: 1.3rem;
-    font-weight: bold;
+	font-size: 1.3rem;
+	font-weight: bold;
 }
 
 #suggestions-main-container {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 90rem;
-    padding: 2rem 0 2rem 0;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+	max-width: 90rem;
+	padding: 2rem 0 2rem 0;
 }
 
 .card-list-title {
-    padding: 3rem 0 1rem 0;
+	padding: 3rem 0 1rem 0;
 }
 
 .card-list {
-    width: 90%;
-    margin: auto;
+	width: 90%;
+	margin: auto;
 }
-
 
 /* || I migliori ristoranti vicino a te */
 
-
 #nearby-suggestions-description-container {
-    width: 100%;
-    max-width: 18rem;
-    padding-right: 0.75rem;
+	width: 100%;
+	max-width: 18rem;
+	padding-right: 0.75rem;
 }
 
 #nearby-suggestions-card-list {
-    justify-content: space-around;
-    width: 100%;
-    max-width: 60rem;
-    min-width: 40rem;
+	justify-content: space-around;
+	width: 100%;
+	max-width: 60rem;
+	min-width: 40rem;
 }
 
-.card>* {
-    transition: color 500ms;
+.card > * {
+	transition: color 500ms;
 }
 
 .card {
-    height: 17rem;
-    max-width: 17rem;
-    transition: background-color 500ms;
-    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-    cursor: pointer;
+	height: 17rem;
+	max-width: 17rem;
+	transition: background-color 500ms;
+	box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+	cursor: pointer;
 }
 
 .card:hover {
-    background-color: #faedcd;
+	background-color: #faedcd;
 }
 
 .card-image {
-    max-height: 12rem;
+	max-height: 12rem;
 }
 
 .card-address {
-    padding-right: 25px;
-    font-style: italic;
-    font-size: 13px;
-    position: absolute;
-    bottom: 0;
+	padding-right: 25px;
+	font-style: italic;
+	font-size: 13px;
+	position: absolute;
+	bottom: 0;
 }
 
 /* || Aggiungi un ristorante */
 
 #add-restaurant-button-container {
-    padding: 2.5rem;
+	padding: 2.5rem;
 }
 
 #add-restaurant-button {
-    display: grid;
-    margin: auto;
-    place-items: center;
-    align-items: center;
-    width: fit-content;
-    background-color: #d4a373;
-    transition: background-color 500ms;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-    cursor: pointer;
+	display: grid;
+	margin: auto;
+	place-items: center;
+	align-items: center;
+	width: fit-content;
+	background-color: #d4a373;
+	transition: background-color 500ms;
+	padding: 2rem;
+	border-radius: 1.5rem;
+	box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+	cursor: pointer;
 }
 
 #add-restaurant-button:hover {
-    background-color: #faedcd;
+	background-color: #faedcd;
 }
 
-#add-restaurant-button:hover>.primary-text {
-    color: #41405f;
+#add-restaurant-button:hover > .primary-text {
+	color: #41405f;
 }
 
-#add-restaurant-button:hover>.secondary-text {
-    color: #787794;
+#add-restaurant-button:hover > .secondary-text {
+	color: #787794;
 }
 
 .light-text {
-    color: white;
+	color: white;
 }

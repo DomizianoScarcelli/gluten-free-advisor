@@ -47,3 +47,11 @@
 .checkbox-label:hover {
 	text-decoration: underline;
 }
+
+.form-range.custom-range::-webkit-slider-thumb:active {
+	background-color: #3b352c;
+}
+
+.form-range.custom-range::-webkit-slider-thumb {
+	background: #3b352c;
+}

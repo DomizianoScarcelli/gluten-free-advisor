@@ -35,14 +35,14 @@
 }
 
 .btn.search-btn.invert-btn {
-	background-color: white;
-	color: #ccd5ae;
+	background-color: #3b352c;
+	color: #e3d2af;
 }
 
 .btn.search-btn.invert-btn:hover {
-	background-color: #ccd5ae;
-	border-color: white;
-	color: white;
+	background-color: white;
+	box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+	color: #3b352c;
 }
 
 .btn.search-btn {
@@ -59,7 +59,9 @@
 
 .btn.search-btn:hover {
 	background-color: white;
+	border-color: white;
 	color: #ccd5ae;
+	box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 }
 
 .text-input.searchbar {

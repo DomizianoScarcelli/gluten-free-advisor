@@ -44,7 +44,13 @@ if ($_GET) {
             echo "<p class='card-text'>Nessuna descrizione purtroppo... </p>";
           }
           echo "
-                      <p class='card-text'><small class='text-muted'>{$row["indirizzo"]}</small></p>
+  
+                      <div class='address-container'>
+                        <p class='card-text'><small class='text-muted'>{$row["indirizzo"]}</small></p>
+                        <p class='card-text'><small class='text-muted'>3km da te</small></p>
+                      </div>
+
+
                   </div>
               </div>
               </div>
@@ -58,7 +64,7 @@ if ($_GET) {
       mysqli_close($conn);
     }
   }
-} else{
+} else {
   echo "<div class='card mb-3' style='width: 50rem;'>
           <div class='row g-0'>
               <div class='col-md-4 card-img-container'>

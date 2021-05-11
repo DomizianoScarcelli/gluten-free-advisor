@@ -34,7 +34,7 @@
     <!--Header-->
 
     <div class="header" id="header">
-        <img src="img/tripadvisor.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.php'" />
+        <img src="img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.html'" />
         <input type="search" class="searchbar" id="searchbar" />
     </div>
 
@@ -47,7 +47,7 @@
                 <!--Range selector-->
                 <div class="sidebar-inside-container">
                     <p class="sidebar-element-title">Distanza</p>
-                    <input type='range' id='distance-slider' class='form-range' min='0' max='100' step='5' oninput="updateDistance()">
+                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='100' step='5' oninput="updateDistance()">
 
                         <p class='label' id='distance-slider-value'>50km</p>
 

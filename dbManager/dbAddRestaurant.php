@@ -31,7 +31,7 @@
 
     $price = 0;
 
-    $sql = "INSERT INTO `dati_ristoranti_form` (indirizzo, nome, latitudine, longitudine, prezzo, descrizione, listaFoto, tags) VALUES ('$name', '$address','$latitude','$longitude','$price','$description','$image','$tags')";
+    $sql = "INSERT INTO `dati_ristoranti_form` (indirizzo, nome, latitudine, longitudine, prezzo, descrizione, listaFoto, tags) VALUES ('$address', '$name','$latitude','$longitude','$price','$description','$image','$tags')";
 
     $result = mysqli_query($conn, $sql);
 
