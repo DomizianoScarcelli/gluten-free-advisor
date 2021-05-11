@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <!--Javascript-->
     <script src="js/search.js" defer></script>
+    <script src="js/distanceRange.js" defer></script>
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->
@@ -33,7 +34,7 @@
     <!--Header-->
 
     <div class="header" id="header">
-        <img src="img/tripadvisor.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.php'" />
+        <img src="img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.html'" />
         <input type="search" class="searchbar" id="searchbar" />
     </div>
 
@@ -42,11 +43,20 @@
 
         <!--Sidebar-->
         <div class="sidebar-outside-container">
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar" id='filter-checkboxes'>
+                <!--Range selector-->
+                <div class="sidebar-inside-container">
+                    <p class="sidebar-element-title">Distanza</p>
+                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='100' step='5' oninput="updateDistance()">
+
+                        <p class='label' id='distance-slider-value'>50km</p>
+
+                </div>
+                <!--Checkbox filters-->
                 <div class="sidebar-inside-container" v-for='element in elements'>
                     <p class="sidebar-element-title">{{element.title}}</p>
                     <div class='checkbox' v-for='value in element.values'>
-                        <input type='checkbox' name='servizi-ristorante' v-bind:id='value.replaceAll(" ", "-")' v-on:change='redirect(element, value)'>
+                        <input type='checkbox' name='servizi' v-bind:id='value.replaceAll(" ", "-")' v-on:change='redirect(element, value)'>
                         <label v-bind:for='value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
                     </div>
                 </div>

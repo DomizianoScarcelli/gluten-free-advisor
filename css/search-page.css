@@ -16,7 +16,7 @@
 .header-logo {
 	padding-right: 3rem;
 	width: auto;
-	height: 7rem;
+	height: 5rem;
 	cursor: pointer;
 }
 
@@ -58,4 +58,16 @@
 .card-img {
 	width: auto !important;
 	height: 15rem;
+}
+
+.horizontal-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.address-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
