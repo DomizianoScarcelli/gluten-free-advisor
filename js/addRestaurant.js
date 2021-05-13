@@ -91,7 +91,8 @@ restaurantCity.addEventListener('keypress', (event) => {
  * Viene triggerato secondo le regole di sendPendingRestaurantData().
  */
 function addPending() {
-	//sendPendingRestaurantData();
+	console.log('Pending');
+	sendPendingRestaurantData();
 	console.log(`Nome: ${restaurantName.value}, Città: ${restaurantCity.value}`);
 	modalBody.innerHTML = `
         <p style="text-align:center;" >Grazie per averci suggerito un ristorante, procederemo ad aggiungerlo dopo una rapida verifica.</p>
@@ -104,8 +105,8 @@ function addPending() {
  * Viene triggerato secondo le regole di sendRestaurantData().
  */
 function submit() {
-	//sendRestaurantData();
-	console.log(`Nome: ${restaurantName.value}, Città: ${restaurantCity.value}`);
+	console.log('Added');
+	sendRestaurantData();
 	modalBody.innerHTML = `
         <p style="text-align:center;" >Grazie per averci suggerito un ristorante, il ristorante è stato aggiunto alla lista dei ristoranti, clicca QUI per vedere la pagina!</p>
     `;
@@ -132,15 +133,57 @@ function reset() {
  */
 function sendPendingRestaurantData() {
 	//TODO questa era solo una prova, inserisci gli effettivi valori del form.
+	//TODO vedi come gestire le immagini inserite.
 	var name = $('#restaurant-name').val();
-	var city = $('#restaurant-city').val();
-	if (!(typeof name == 'undefined' && typeof city == 'undefined')) {
+	if ($('#indirizzo').attr('value') == 'citta') {
+		var citta = $('#restaurant-address').val();
+		var address = null;
+	} else {
+		var citta = null;
+		var address = $('#restaurant-address').val();
+	}
+	var image = $('#restaurant-image').files;
+	var description = $('#restaurant-description').val();
+	var tags = [];
+	for (checkbox of document.getElementsByClassName('modal-form-checkbox')) {
+		if (checkbox.checked) {
+			tags.push(checkbox.value);
+		}
+	}
+	//Converte indirizzo in coppia di coordinate ed effettua l'ajax
+	if (address) {
+		addressLocate(address, (searchLatLng) => {
+			//Ajax
+			$.ajax({
+				type: 'POST',
+				url: 'dbManager/dbAddPendingRestaurant.php',
+				data: {
+					name: name,
+					address: address,
+					latitude: searchLatLng[0],
+					longitude: searchLatLng[1],
+					image: image,
+					description: description,
+					tags: tags,
+				},
+				success: (data) => {
+					alert(data);
+				},
+			});
+		});
+	} else {
 		$.ajax({
 			type: 'POST',
 			url: 'dbManager/dbAddPendingRestaurant.php',
 			data: {
 				name: name,
-				city: city,
+				citta: citta,
+				image: image,
+				description: description,
+				tags: tags,
+			},
+			success: (data) => {
+				alert(data);
 			},
 		});
 	}
