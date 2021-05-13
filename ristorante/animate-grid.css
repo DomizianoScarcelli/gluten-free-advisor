@@ -1,0 +1,70 @@
+.animated-grid {
+    height: 55vh;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    display: grid;
+    gap: 0.75rem;
+
+    /*NOTa*/
+    /*Se si elimina il div container della griglia, i margini possono essere gestiti
+    con le proprietà margin-top, margin-bottom, margin-right e margin-left.*/
+
+    /* Explicit grid */
+    grid-template-areas:
+      'a  a  b  c'
+      'a  a  d  e';
+
+    grid-template-rows: repeat(2, 50%);
+    grid-template-columns: auto auto auto auto;
+    
+    /*Alternativamente
+    width: 100%;
+    height: 250px;
+    grid-template-areas: 
+        "a a b c"
+        "a a d e";
+    grid-template-columns:repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);*/
+  
+    --stagger-delay: 100ms;
+  }
+  
+  @keyframes cardEntrance {
+    from {
+      opacity: 0;
+      transform: scale(0.3);
+      filter: hue-rotate(180deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+      filter: hue-rotate(0deg);
+    }
+  }
+  
+  .card {
+    background-color: #3b352c;
+    animation: cardEntrance 700ms ease-out;
+    animation-fill-mode: backwards;
+  }
+  
+  .card:nth-child(1) {
+    grid-area: a;
+    animation-delay: calc(1 * var(--stagger-delay));
+  }
+  .card:nth-child(2) {
+    grid-area: b;
+    animation-delay: calc(2 * var(--stagger-delay));
+  }
+  .card:nth-child(3) {
+    grid-area: c;
+    animation-delay: calc(3 * var(--stagger-delay));
+  }
+  .card:nth-child(4) {
+    grid-area: d;
+    animation-delay: calc(4 * var(--stagger-delay));
+  }
+  .card:nth-child(5) {
+    grid-area: e;
+    animation-delay: calc(5 * var(--stagger-delay));
+  }

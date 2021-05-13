@@ -22,78 +22,184 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
         </script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="base.css" type="text/css">
-    <link rel="stylesheet" href="../css/searchbars.css" type="text/css">
-    <link rel="stylesheet" href="animate-grid.css">
+    <link rel="stylesheet" href="animate-grid.css" type="text/css">
+    <link rel="stylesheet" href="recensioni.css" type="text/css">
+
 </head>
 
 <body class="background">
-    <!--Header-->
-    <div class="header" id="header1">
 
-        <!--Navbar navbar-dark bg-dark-->
-        <nav class="navbar navbar-expand navbar-dark mynavbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="">Gluten Free Advisor</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand navbar-dark mynavbar">
+        <div class="container-fluid">
 
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../about/index.html">About</a>
-                        </li>
-                    </ul>
-                    <form>
-                        <input class="form-control" type="text" placeholder="Search">
-                    </form>
-                </div>
+            <a class="navbar-brand" href="">Gluten Free Advisor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about/index.html">About</a>
+                    </li>
+                </ul>
+                <form>
+                    <input class="form-control" type="text" placeholder="Search">
+                </form>
             </div>
-        </nav>
 
-    </div>
+        </div>
+    </nav>
 
-    <div class="container">
-        <div class="header mb-4 mt-4 border-bottom" id="header2">
-            <h3>Nome Ristorante</h3>
-            <p>Indirizzo ristorante, informazioni varie.</p>
+    <!--Intestazione Ristorante-->
+    <div class="container border-bottom mt-4">
+        <h3>Nome Ristorante</h3>
+        <div class="row mb-2">
+            <div class="col-sm">
+                <b>Indirizzo: </b>via Tizio numero Caio, Roma
+            </div>
+            <div class="col-sm text-center">
+                <b> Telefono: </b>06/12345678
+            </div>
+            <div class="col-sm">
+                <span class="myspan-right">
+                    Valutazione degli utenti:
+                    <span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </span>
+                </span>
+            </div>
         </div>
     </div>
 
-    <!--Images grid (da organizzare meglio)-->
-    <section class="animated-grid">
-        <div class="card" style="background-image:url('./img/lievito72_1.jpg')"></div>
-        <div class="card" style="background-image:url('./img/lievito72_2.jpg')"></div>
-        <div class="card" style="background-image:url('./img/lievito72_3.jpg')"></div>
-        <div class="card" style="background-image:url('./img/lievito72_4.jpg')"></div>
-        <div class="card" style="background-image:url('./img/lievito72_5.png')"></div>
-    </section>
-
-
+    <!--Images grid-->
+    <div class="container">
+        <div class="animated-grid">
+            <div class="card" style="background-image:url('./img/lievito72_1.jpg')"></div>
+            <div class="card" style="background-image:url('./img/lievito72_2.jpg')"></div>
+            <div class="card" style="background-image:url('./img/lievito72_3.jpg')"></div>
+            <div class="card" style="background-image:url('./img/lievito72_4.jpg')"></div>
+            <div class="card" style="background-image:url('./img/lievito72_5.png')"></div>
+        </div>
+    </div>
 
     <!--Recensioni-->
-    <div class="container">
-        <div class="header mb-4 mt-4 border-top" id="header3">
+    <div class="container main-container">
+        <!--Intestazione Recensioni-->
+        <div class="container border-top border-bottom">
             <h3 class="mt-3">Recensioni</h3>
             <p>Numero di recensioni per questo ristorante: 0</p>
         </div>
-        <!--Media object allineato a sinistra (media-right) per allineare a destra-->
-        <div class="media border p-3">
-            <img src="user.png" alt="user icon" class="mr-3 mt-3" style="width:60px;">
-            <div class="media-body">
-                <h4>Persona_1 <small><i>Pubblicato il: XX.YY.ZZ</i></small></h4>
-                <p>Lorem ipsum...</p>
+
+        <!--Elenco Recensioni-->
+        <div class="my-container">
+            <div class="row align-items-center">
+                <div class="col-sm-2 text-center">
+                    <img src="./img/user.png" alt="Avatar" style="width:100%;">
+                    <br>
+                    <p>nome utente</p>
+                </div>
+                <div class="col-sm-9">
+                    <h5>Titolo recensione</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt
+                        ut labore et
+                        dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam,
+                        nisi ut aliquid ex ea commodi consequatur.</p>
+                    <span class="date-left">gg.mm.aa</span>
+                    <span class="date-right">11:02</span>
+                </div>
+                <div class="col-sm-1">
+                    <!--Colonna vuota per allineamento-->
+                </div>
             </div>
         </div>
+
+        <div class="my-container alt">
+            <div class="row align-items-center">
+                <div class="col-sm-2 text-center">
+                    <img src="./img/user.png" alt="Avatar" style="width:100%;">
+                    <br>
+                    <p>nome utente</p>
+                </div>
+                <div class="col-sm-9">
+                    <h5>Titolo recensione</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et
+                        dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam,
+                        nisi ut aliquid ex ea commodi consequatur.</p>
+                    <span class="date-left"><i>gg.mm.aa</i></span>
+                    <span class="date-right">11:02</span>
+                </div>
+                <div class="col-sm-1">
+                    <!--Colonna vuota per allineamento-->
+                </div>
+            </div>
+        </div>
+
+        <div class="my-container">
+            <div class="row align-items-center">
+                <div class="col-sm-2 text-center">
+                    <img src="./img/user.png" alt="Avatar" style="width:100%;">
+                    <br>
+                    <p>nome utente</p>
+                </div>
+                <div class="col-sm-9">
+                    <h5>Titolo recensione</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et
+                        dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam,
+                        nisi ut aliquid ex ea commodi consequatur.</p>
+                    <span class="date-left"><i>gg.mm.aa</i></span>
+                    <span class="date-right">11:02</span>
+                </div>
+                <div class="col-sm-1">
+                    <!--Colonna vuota per allineamento-->
+                </div>
+            </div>
+        </div>
+
+        <div class="my-container alt">
+            <div class="row align-items-center">
+                <div class="col-sm-2 text-center">
+                    <img src="./img/user.png" alt="Avatar" style="width:100%;">
+                    <br>
+                    <p>nome utente</p>
+                </div>
+                <div class="col-sm-9">
+                    <h5>Titolo recensione</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et
+                        dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit
+                        laboriosam,
+                        nisi ut aliquid ex ea commodi consequatur.</p>
+                    <span class="date-left"><i>gg.mm.aa</i></span>
+                    <span class="date-right">11:02</span>
+                </div>
+                <div class="col-sm-1">
+                    <!--Colonna vuota per allineamento-->
+                </div>
+            </div>
+        </div>
+
     </div>
 
-
-    <footer class="container-fluid text-center">
-        <p>Footer Text</p>
+    <footer class="container-fluid myfooter">
+        <p>Powered by Sapienza Santa Pazienza 2021</p>
     </footer>
 
 </body>

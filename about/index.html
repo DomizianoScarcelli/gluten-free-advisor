@@ -6,6 +6,7 @@
     <!--Meta tags-->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
+
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Bootstrap-->
@@ -20,42 +21,51 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
         </script>
-    <!--Mio CSS-->
-    <link rel="stylesheet" href="../ristorante/style.css" type="text/css">
+
+    <link rel="stylesheet" href="./chip.css" type="text/css">
+    <link rel="stylesheet" href="../ristorante/base.css" type="text/css">
+
+
 </head>
 
-<body>
-    <div class="header" id="header">
-        <nav class="navbar navbar-expand navbar-dark mynavbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="">Gluten Free Advisor</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="background">
 
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">About</a>
-                        </li>
-                    </ul>
-                    <form>
-                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                    </form>
-                </div>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand navbar-dark mynavbar">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="">Gluten Free Advisor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about/index.html">About</a>
+                    </li>
+                </ul>
+                <form>
+                    <input class="form-control" type="text" placeholder="Search">
+                </form>
             </div>
-        </nav>
-    </div>
 
-    <div class="container">
+        </div>
+    </nav>
+
+    <div class="container mt-4">
         <h3 class="mt-2">Informazioni sul progetto</h3>
         <p>
             Il progetto Gluten Free Advisor si propone in primis di realizzare uno strumento di facile consultazione e
-            ricerca di locali che offrano un servizio idoneo
-            alle esigenze alimentari di persone affette da celiachia e intolleranza al glutine.
+            ricerca di locali che offrano un servizio idoneo alle esigenze alimentari di persone affette da celiachia e
+            intolleranza al glutine. Nasce dalla
+            collaborazione di esercenti e clienti, che possono rispettivamente richiedere di aggiungere il proprio
+            locale
+            al sito
+            e condividere le proprie esperienze sotto forma di recensione, il tutto tramite appositi form.
         </p>
         <hr />
         <p>
@@ -68,7 +78,23 @@
             Excepteur
             sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
+
+        <h5 class="mt-4 mb-4">Contatta gli autori: </h5>
+        <div class="chip">
+            <img src="../ristorante/img/user.png" alt="Person2" width="96" height="96">
+            Domiziano Scarcelli
+        </div>
+        <div class="chip">
+            <img src="../ristorante/img/user.png" alt="Person1" width="96" height="96">
+            Cristiana Di Tullio
+        </div>
+
     </div>
+
+    <footer class="container-fluid myfooter">
+        <p>Footer Text</p>
+    </footer>
+
 </body>
 
 </html>
