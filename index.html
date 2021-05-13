@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <!--Javascript-->
     <script src="js/addRestaurant.js" defer></script>
-    <!-- <script src="js/indexMobileResponsiveness.js" defer></script> -->
     <script src="js/search.js" defer></script>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
@@ -148,7 +147,8 @@
                                 <input class='text-input' type="text" id="restaurant-name"
                                     placeholder="es. Ristorante da Pino" /><br />
                                 <!--Indirizzo o città-->
-                                <p class="label" id='indirizzo'>Indirizzo<sup>*</sup></p>
+                                <p class="label" id='indirizzo' value='indirizzo'>Indirizzo<sup>*</sup></p>
+
                                 <input class='text-input' type="text" id="restaurant-address"
                                     placeholder="es. Via delle Pantanelle 34" />
                                 <p class="tip" id='address-tip' onclick="addressNotKnown()">Non conosci l'indirizzo?</p>
@@ -170,7 +170,9 @@
                                 <div v-for='element in elements'>
                                     <p class='label'> {{element.modalFormDescription}} </p>
                                     <div class='checkbox' v-for='value in element.values'>
-                                        <input class='modal-form-checkbox' type='checkbox' name='servizi-ristorante'
+                                        <input class='modal-form-checkbox' v-bind:type='element.type'
+                                            name='servizi-ristorante'
+
                                             v-bind:id='"restaurant-" + value.replaceAll(" ", "-")' v-bind:value='value'>
                                         <label v-bind:for='"restaurant-" + value.replaceAll(" ", "-")'
                                             class='checkbox-label'>{{value}}</label> <br>
