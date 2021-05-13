@@ -6,6 +6,7 @@
     <!--Meta tags-->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
+
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <!--Bootstrap-->
@@ -20,9 +21,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
         </script>
-    <!--Mio CSS-->
-    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <link rel="stylesheet" href="base.css" type="text/css">
     <link rel="stylesheet" href="../css/searchbars.css" type="text/css">
+    <link rel="stylesheet" href="animate-grid.css">
 </head>
 
 <body class="background">
@@ -63,22 +65,15 @@
     </div>
 
     <!--Images grid (da organizzare meglio)-->
-    <div class="container">
-        <div class="row">
-            <div class="column">
-                <a href="lievito72_1.jpg">
-                    <img src="lievito72_1.jpg" alt="img1">
-                </a>
-            </div>
-            <div class="column">
-                <div class="row">
-                    <a href="lievito72_2.jpg">
-                        <img src="lievito72_2.jpg" alt="img2">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <section class="animated-grid">
+        <div class="card" style="background-image:url('./img/lievito72_1.jpg')"></div>
+        <div class="card" style="background-image:url('./img/lievito72_2.jpg')"></div>
+        <div class="card" style="background-image:url('./img/lievito72_3.jpg')"></div>
+        <div class="card" style="background-image:url('./img/lievito72_4.jpg')"></div>
+        <div class="card" style="background-image:url('./img/lievito72_5.png')"></div>
+    </section>
+
+
 
     <!--Recensioni-->
     <div class="container">
