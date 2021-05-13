@@ -1,6 +1,6 @@
 /**
  * Tutto il codice che riguarda il pulsante nella home page relativo all'aggiunta di un nuovo ristorante.
- * (L'interazione con il databse viuene effettuata nel file dbManager/dbAddPendingRestaurant.php)
+ * (L'interazione con il databse viuene effettuata nel file dbManager/dbAddPendingRestaurant.php e dbManager/dbAddRestaurant.php)
  */
 var script = document.createElement('script');
 script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk&callback=initMap';
@@ -18,20 +18,51 @@ window.initMap = function () {};
 function checkRequired() {
 	//Controlla che i campi required siano stai effettivamente compilati
 }
-
+/**
+ * Viene triggerato quando l'utente clicca il pulsante "Non conosci l'indirizzo?".
+ * In questo modo l'utente può inserire la città invece dell'indirizzo preciso.
+ * In caso il pulsante sia già stato cliccato e viene cliccato di nuovo, allora viene effettuato un reset e l'utente può di nuovo inserire l'indirizzo.
+ */
 function addressNotKnown() {
-	$('#indirizzo').text('Città*');
-	$('#address-tip').remove();
-	$('#restaurant-address').attr('placeholder', 'es. Roma');
+	//Se il pulsante è già stato premuto
+	if ($('#indirizzo').attr('value') == 'citta') {
+		$('#indirizzo').attr('value', 'indirizzo');
+		$('#indirizzo').text('Indirizzo*');
+		$('#restaurant-address').attr('placeholder', 'es. Via delle Pantanelle 34');
+		$('#address-tip').text("Non conosci l'indirizzo?");
+	} else {
+		$('#indirizzo').text('Città*');
+		$('#indirizzo').attr('value', 'citta');
+		$('#address-tip').text("Conosci l'indirizzo preciso?");
+		$('#restaurant-address').attr('placeholder', 'es. Roma');
+	}
 }
 
 submitRestaurantButton.addEventListener('click', () => {
+	//Se il pulsante è già stato premuto, allora chiudi il form modale e resetta i campi.
 	if (submitRestaurantButton.value == 'Chiudi') {
-		submitRestaurantButton.setAttribute('data-dismiss', 'modal');
-		submitRestaurantButton.setAttribute('Aria-label', 'Close');
-		reset();
+		// submitRestaurantButton.removeAttribute('data-dismiss');
+		// submitRestaurantButton.removeAttribute('Aria-label');
+		// reset();
+		location.reload();
 	} else {
-		sendRestaurantData();
+		//Altrimenti invia i dati tramite il submbit.
+		if ($('#restaurant-name').val() == '' || $('#restaurant-address').val() == '') {
+			alert('Nome ed indirizzo sono obbligatori!');
+			return;
+		}
+		if ($('#restaurant-image').val() == '') {
+			addPending();
+			submitRestaurantButton.removeAttribute('data-dismiss');
+			submitRestaurantButton.removeAttribute('Aria-label');
+			return;
+		} else {
+			if ($('#indirizzo').attr('value') == 'citta') {
+				addPending();
+				return;
+			}
+		}
+		console.log('ristorante aggiunto');
 		submit();
 		submitRestaurantButton.removeAttribute('data-dismiss');
 		submitRestaurantButton.removeAttribute('Aria-label');
@@ -39,7 +70,8 @@ submitRestaurantButton.addEventListener('click', () => {
 });
 
 closeButton.addEventListener('click', () => {
-	reset();
+	// reset();
+	location.reload();
 });
 
 restaurantName.addEventListener('keypress', (event) => {
@@ -54,8 +86,12 @@ restaurantCity.addEventListener('keypress', (event) => {
 		submit();
 	}
 });
-
-function submit() {
+/**
+ * Mostra il messaggio di conferma aggiunta del ristorante dopo una fase di verifica.
+ * Viene triggerato secondo le regole di sendPendingRestaurantData().
+ */
+function addPending() {
+	//sendPendingRestaurantData();
 	console.log(`Nome: ${restaurantName.value}, Città: ${restaurantCity.value}`);
 	modalBody.innerHTML = `
         <p style="text-align:center;" >Grazie per averci suggerito un ristorante, procederemo ad aggiungerlo dopo una rapida verifica.</p>
@@ -63,7 +99,23 @@ function submit() {
 	submitRestaurantButton.value = 'Chiudi';
 	submitRestaurantButton.innerHTML = 'Chiudi';
 }
-
+/**
+ * Mostra il messaggio di conferma aggiunta del ristorante.
+ * Viene triggerato secondo le regole di sendRestaurantData().
+ */
+function submit() {
+	//sendRestaurantData();
+	console.log(`Nome: ${restaurantName.value}, Città: ${restaurantCity.value}`);
+	modalBody.innerHTML = `
+        <p style="text-align:center;" >Grazie per averci suggerito un ristorante, il ristorante è stato aggiunto alla lista dei ristoranti, clicca QUI per vedere la pagina!</p>
+    `;
+	submitRestaurantButton.value = 'Chiudi';
+	submitRestaurantButton.innerHTML = 'Chiudi';
+}
+/**
+ * Resetta le componenti del form.
+ * Attualmente non ricarica le componenti generate da vue.js e quindi al suo posto viene effettuato un semplice reload della schermata.
+ */
 function reset() {
 	//Attende un po' prima di resettare i valori così non si vedono i cambiamenti nell'interfaccia
 	setTimeout(() => {
@@ -74,8 +126,12 @@ function reset() {
 		restaurantCity.value = '';
 	}, 500);
 }
-
+/**
+ * Viene triggerato quando non vengono aggiunte abbastanza informazioni nel form. Il ristorante viene aggiunto nel database in una tabella relativa ai ristoranti da
+ * verificare e verrà aggiunto a mano in un seguente momento.
+ */
 function sendPendingRestaurantData() {
+	//TODO questa era solo una prova, inserisci gli effettivi valori del form.
 	var name = $('#restaurant-name').val();
 	var city = $('#restaurant-city').val();
 	if (!(typeof name == 'undefined' && typeof city == 'undefined')) {
@@ -89,8 +145,12 @@ function sendPendingRestaurantData() {
 		});
 	}
 }
-
+/**
+ * Viene triggerato quando tutte le informazioni necessarie vengono inserite nel form. Tali informazioni sono: Nome e indirizzo e immagini.
+ * In questo caso il ristorante viene immediatamente inserito all'interno del database dei ristoranti.
+ */
 function sendRestaurantData() {
+	//TODO vedi come gestire le immagini inserite.
 	var name = $('#restaurant-name').val();
 	var address = $('#restaurant-address').val();
 	var image = $('#restaurant-image').files;
@@ -123,6 +183,12 @@ function sendRestaurantData() {
 		});
 	});
 }
+/**
+ * Utilizzando le google api, converte un indirizzo in una coppia di coordinate, chiama poi una funzione il cui compito è quello di eseguire delle
+ * azioni sulle coordinate restituite.
+ * @param {*} address l'indirizzo, sotto forma di stringa, da convertire.
+ * @param {*} callback la funzione che opera sulle coordinate.
+ */
 
 function addressLocate(address, callback) {
 	axios
@@ -143,4 +209,5 @@ function addressLocate(address, callback) {
 		});
 }
 
+//Inserisce lo script nell'head per far funzionare le Google API.
 document.head.appendChild(script);
