@@ -172,7 +172,6 @@
                                     <div class='checkbox' v-for='value in element.values'>
                                         <input class='modal-form-checkbox' v-bind:type='element.type'
                                             name='servizi-ristorante'
-
                                             v-bind:id='"restaurant-" + value.replaceAll(" ", "-")' v-bind:value='value'>
                                         <label v-bind:for='"restaurant-" + value.replaceAll(" ", "-")'
                                             class='checkbox-label'>{{value}}</label> <br>

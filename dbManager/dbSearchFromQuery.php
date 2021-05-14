@@ -15,8 +15,9 @@ if ($_GET) {
       echo "<p class='primary-text'>Connessione al database locale fallita</p>";
     } else {
       $nome = $_GET['query'];
+      
       //Select all rows that contains the $name inside the name value. 
-      $sql = "SELECT * FROM dati_ristoranti WHERE nome LIKE '%{$nome}%'";
+      $sql = "SELECT * FROM dati_ristoranti WHERE (nome LIKE '%{$nome}%') OR (indirizzo LIKE '%{$nome}%') OR (descrizione LIKE '%{$nome}%') " ;
 
 
       $result = mysqli_query($conn, $sql);
@@ -28,10 +29,10 @@ if ($_GET) {
           $photo = explode(',', $row['listaFoto'])[0]; //prende il primo id della foto nell'array (per semplicità)
 
           echo "
-        <div class='card mb-3' style='width: 50rem;'>
+        <div class='card mb-3' style='width: 50rem;' id='{$row["id"]}'>
           <div class='row g-0'>
               <div class='col-md-4 card-img-container'>
-                  <img class='card-img' src='https://maps.googleapis.com/maps/api/place/photo?maxwidth=10000&photoreference={$photo}&key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk'>
+                  <img class='card-img' src='../img/home-restaurants/lievito-72-home.jpg'>
               </div>
               <div class='col-md-8'>
                   <div class='card-body'>

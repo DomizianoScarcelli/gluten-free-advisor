@@ -24,14 +24,15 @@
     }
 
     if (isset($_POST['tags'])) {
-        $tags = $_POST['tags'];
+        $tags = json_encode($_POST['tags']);
+        
     } else {
-        $tags = ['niente']; //bug
+        $tags = json_encode(['niente']); //bug
     }
 
     $price = 0;
 
-    $sql = "INSERT INTO `dati_ristoranti_form` (indirizzo, nome, latitudine, longitudine, prezzo, descrizione, listaFoto, tags) VALUES ('$address', '$name','$latitude','$longitude','$price','$description','$image','$tags')";
+    $sql = "INSERT INTO `dati_ristoranti` (indirizzo, nome, latitudine, longitudine, prezzo, descrizione, listaFoto, tags, google) VALUES ('$address', '$name','$latitude','$longitude','$price','$description','$image','$tags', 0)";
 
     $result = mysqli_query($conn, $sql);
 
