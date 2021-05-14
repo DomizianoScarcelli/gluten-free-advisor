@@ -47,7 +47,7 @@
 }
 
 .card:hover {
-	background-color: #e9edc9;
+	/* background-color: #e9edc9; */
 	cursor: pointer;
 }
 
@@ -70,4 +70,30 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+.tags-container {
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.card.tag {
+	width: fit-content;
+	height: 1.5rem !important;
+	flex-wrap: nowrap;
+}
+
+.card.tag:hover {
+	background-color: #e0cfad;
+}
+
+.card.tag > * {
+	padding: 0 !important;
+	font-size: 14px;
+}
+
+.card-title {
+	font-weight: bold;
 }

@@ -72,7 +72,7 @@ if ($_GET) {
           //   $distance = vincentyGreatCircleDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000);
 
           $latLong = $row['latitudine'] . ',' . $row['longitudine'];
-
+          $tagArray = json_decode($row['tags']);
           echo "
         <div class='card mb-3' style='width: 50rem;' id='{$row["id"]}'>
           <div class='row g-0'>
@@ -95,11 +95,23 @@ if ($_GET) {
                         <p class='card-text'><small class='text-muted'>{$row["indirizzo"]}</small></p>
                         <p class='card-text distance' id='restaurant-distance' value='{$latLong}'><small class='text-muted'></small></p>
                       </div>
-
-
+                      <div class='tags-container' value='{$row['tags']}'>
+                      ";
+                      
+                      foreach($tagArray as $tag){
+                      echo"   
+                        <div class='card tag'>
+                          <div class='card-text'>{$tag}</div>
+                        </div>
+                        
+                      
+                      ";
+                      }
+                      echo"
+                    </div>
                   </div>
               </div>
-              </div>
+            </div>
           </div>
         ";
         }

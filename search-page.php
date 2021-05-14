@@ -49,7 +49,7 @@
                     <p class="sidebar-element-title">Distanza</p>
                     <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='100' step='5' oninput="updateDistance()">
 
-                        <p class='label' id='distance-slider-value'>50km</p>
+                    <p class='label' id='distance-slider-value'>50km</p>
 
                 </div>
                 <!--Checkbox filters-->
@@ -65,7 +65,11 @@
         <!--Carte dei ristoranti cercati-->
         <div class='cards-container'>
             <!--Genera le cards con i valori cercati all'interno del database a seconda della query effettuata-->
-            <?php include "dbManager/dbSearchFromQuery.php"; ?>
+            <?php include "dbManager/dbSearchFromQuery.php"; 
+            ?>
+
+
+            
 
 
         </div>
