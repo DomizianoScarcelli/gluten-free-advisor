@@ -4,6 +4,10 @@ $(document).ready(function () {
 		$('#distance-slider').val(parseInt(urlParams.get('range')));
 	}
 	$('#distance-slider-value').text($('#distance-slider').val() + 'km');
+
+	for (var element of document.getElementsByClassName('card mb-3')) {
+		displayDistance(element);
+	}
 });
 
 function updateDistance() {
@@ -65,10 +69,31 @@ function geoFindMe() {
 	let success = (position) => {
 		latitude = position.coords.latitude;
 		longitude = position.coords.longitude;
-		sendCoordinatesToServer(latitude, longitude);
+		//sendCoordinatesToServer(latitude, longitude);
 	};
 	let error = () => {
 		alert('Errore geolocalizzazione non disponibile nel tuo Browser');
 	};
+	navigator.geolocation.getCurrentPosition(success, error);
+}
+/**
+ * Calcola la distanza lato client dopo aver caricato la pagina e la mostra nelle carte.
+ * Sarebbe meglio calcolare la distanza lato server via PHP ma non riesco e quindi questo è l'unico modo.
+ * @param {*} element
+ */
+function displayDistance(element) {
+	let success = (position) => {
+		latitude = position.coords.latitude;
+		longitude = position.coords.longitude;
+		latLon = element.getElementsByClassName('card-text distance')[0].getAttribute('value').split(',');
+		lat = latLon[0];
+		lon = latLon[1];
+		distance = Math.round(getDistance(latitude, longitude, lat, lon) * 100) / 100;
+		element.getElementsByClassName('card-text distance')[0].innerHTML = `<small class='text-muted'>${distance}km da te</small>`;
+	};
+	let error = () => {
+		alert('Errore geolocalizzazione non disponibile nel tuo Browser');
+	};
+
 	navigator.geolocation.getCurrentPosition(success, error);
 }

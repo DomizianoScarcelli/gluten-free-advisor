@@ -71,6 +71,8 @@ if ($_GET) {
           //   $destLng = $row['longitudine'];
           //   $distance = vincentyGreatCircleDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000);
 
+          $latLong = $row['latitudine'] . ',' . $row['longitudine'];
+
           echo "
         <div class='card mb-3' style='width: 50rem;' id='{$row["id"]}'>
           <div class='row g-0'>
@@ -91,7 +93,7 @@ if ($_GET) {
   
                       <div class='address-container'>
                         <p class='card-text'><small class='text-muted'>{$row["indirizzo"]}</small></p>
-                        <p class='card-text'><small class='text-muted'>3km da te</small></p>
+                        <p class='card-text distance' id='restaurant-distance' value='{$latLong}'><small class='text-muted'></small></p>
                       </div>
 
 
