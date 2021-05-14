@@ -9,6 +9,7 @@
     <!--Javascript-->
     <script src="js/search.js" defer></script>
     <script src="js/distanceRange.js" defer></script>
+    <script src="js/filterResearch.js" defer></script>
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->
@@ -65,11 +66,10 @@
         <!--Carte dei ristoranti cercati-->
         <div class='cards-container'>
             <!--Genera le cards con i valori cercati all'interno del database a seconda della query effettuata-->
-            <?php include "dbManager/dbSearchFromQuery.php"; 
+            <?php include "dbManager/dbSearchFromQuery.php";
             ?>
 
 
-            
 
 
         </div>
