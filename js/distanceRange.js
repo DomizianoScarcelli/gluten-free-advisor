@@ -40,3 +40,35 @@ function getDistance(lat1, lon1, lat2, lon2) {
 function toRad(Value) {
 	return (Value * Math.PI) / 180;
 }
+/**
+ * Invia le coordinate al server in modo che possano essere usate tramite php.
+ * @param {*} latitude
+ * @param {*} longitude
+ */
+function sendCoordinatesToServer(latitude, longitude) {
+	$.ajax({
+		type: 'POST',
+		url: 'dbManager/dbSearchFromQuery.php',
+		data: {
+			latitude: latitude,
+			longitude: longitude,
+		},
+		success: function (response) {
+			console.log('Inviato corretamente ' + latitude + longitude);
+		},
+	});
+}
+/**
+ * Localizza l'utente e chiama la funzione per inviare le coordinate al server.
+ */
+function geoFindMe() {
+	let success = (position) => {
+		latitude = position.coords.latitude;
+		longitude = position.coords.longitude;
+		sendCoordinatesToServer(latitude, longitude);
+	};
+	let error = () => {
+		alert('Errore geolocalizzazione non disponibile nel tuo Browser');
+	};
+	navigator.geolocation.getCurrentPosition(success, error);
+}

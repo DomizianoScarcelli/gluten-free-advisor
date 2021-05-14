@@ -8,6 +8,41 @@
  */
 
 
+/**
+ * Calculates the great-circle distance between two points, with
+ * the Vincenty formula.
+ * @param float $latitudeFrom Latitude of start point in [deg decimal]
+ * @param float $longitudeFrom Longitude of start point in [deg decimal]
+ * @param float $latitudeTo Latitude of target point in [deg decimal]
+ * @param float $longitudeTo Longitude of target point in [deg decimal]
+ * @param float $earthRadius Mean earth radius in [m]
+ * @return float Distance between points in [m] (same as earthRadius)
+ * 
+ * Source: https://stackoverflow.com/questions/10053358/measuring-the-distance-between-two-coordinates-in-php
+ */
+function vincentyGreatCircleDistance(
+  $latitudeFrom,
+  $longitudeFrom,
+  $latitudeTo,
+  $longitudeTo,
+  $earthRadius = 6371000
+) {
+  // convert from degrees to radians
+  $latFrom = deg2rad($latitudeFrom);
+  $lonFrom = deg2rad($longitudeFrom);
+  $latTo = deg2rad($latitudeTo);
+  $lonTo = deg2rad($longitudeTo);
+
+  $lonDelta = $lonTo - $lonFrom;
+  $a = pow(cos($latTo) * sin($lonDelta), 2) +
+    pow(cos($latFrom) * sin($latTo) - sin($latFrom) * cos($latTo) * cos($lonDelta), 2);
+  $b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
+
+  $angle = atan2(sqrt($a), $b);
+  return $angle * $earthRadius;
+}
+
+
 if ($_GET) {
   include 'dbConnect.php';
   if ($_GET['query'] != '') {
@@ -15,9 +50,11 @@ if ($_GET) {
       echo "<p class='primary-text'>Connessione al database locale fallita</p>";
     } else {
       $nome = $_GET['query'];
-      
+
       //Select all rows that contains the $name inside the name value. 
-      $sql = "SELECT * FROM dati_ristoranti WHERE (nome LIKE '%{$nome}%') OR (indirizzo LIKE '%{$nome}%') OR (descrizione LIKE '%{$nome}%') " ;
+      $sql = "SELECT * FROM dati_ristoranti WHERE (nome LIKE '%{$nome}%') OR (indirizzo LIKE '%{$nome}%') OR (descrizione LIKE '%{$nome}%') ";
+
+
 
 
       $result = mysqli_query($conn, $sql);
@@ -27,6 +64,12 @@ if ($_GET) {
         while ($row = mysqli_fetch_assoc($result)) {
 
           $photo = explode(',', $row['listaFoto'])[0]; //prende il primo id della foto nell'array (per semplicità)
+
+          //  $currentLat = $_POST['latitudine'];
+          //   $currentLng = $_POST['longitudine'];
+          //   $destLat = $row['latitudine'];
+          //   $destLng = $row['longitudine'];
+          //   $distance = vincentyGreatCircleDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000);
 
           echo "
         <div class='card mb-3' style='width: 50rem;' id='{$row["id"]}'>
