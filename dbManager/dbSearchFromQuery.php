@@ -9,10 +9,18 @@ include 'dbConnect.php';
 if (!$conn) {
   echo "<p class='primary-text'>Connessione al database locale fallita</p>";
 } else {
+  $currentTags = parseQueryString($_GET);
+  
+
+  //currentTag contiene la lista di tag per cui deve valere currentTags <= restaurantTags
+
+
+
+
+
+
   if (isset($_GET['query'])) {
-
     $nome = $_GET['query'];
-
     //Select all rows that contains the $name inside the name value. 
     $sql = "SELECT * FROM dati_ristoranti WHERE (nome LIKE '%{$nome}%') OR (indirizzo LIKE '%{$nome}%') OR (descrizione LIKE '%{$nome}%') ";
     echo "<p class='primary-text'>Risultati di ricerca per: {$nome}</p>";
@@ -23,9 +31,8 @@ if (!$conn) {
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
-   
+    //Itera sulle righe risultato della query
     while ($row = mysqli_fetch_assoc($result)) {
-
       $photo = explode(',', $row['listaFoto'])[0]; //prende il primo id della foto nell'array (per semplicità)
 
       //  $currentLat = $_POST['latitudine'];
@@ -36,7 +43,8 @@ if (!$conn) {
 
       $latLong = $row['latitudine'] . ',' . $row['longitudine'];
       $tagArray = json_decode($row['tags']);
-      echo "
+      if (subset($currentTags, json_decode($row['tags']))) {
+        echo "
         <div class='card mb-3' style='width: 50rem;' id='{$row["id"]}'>
           <div class='row g-0'>
               <div class='col-md-4 card-img-container'>
@@ -47,12 +55,12 @@ if (!$conn) {
                       <h5 class='card-title'>{$row["nome"]}</h5>
                       ";
 
-      if ($row["descrizione"]) {
-        echo "<p class='card-text'> {$row["descrizione"]} </p>";
-      } else {
-        echo "<p class='card-text'>Nessuna descrizione purtroppo... </p>";
-      }
-      echo "
+        if ($row["descrizione"]) {
+          echo "<p class='card-text'> {$row["descrizione"]} </p>";
+        } else {
+          echo "<p class='card-text'>Nessuna descrizione purtroppo... </p>";
+        }
+        echo "
   
                       <div class='address-container'>
                         <p class='card-text'><small class='text-muted'>{$row["indirizzo"]}</small></p>
@@ -61,26 +69,57 @@ if (!$conn) {
                       <div class='tags-container' value='{$row['tags']}'>
                       ";
 
-      foreach ($tagArray as $tag) {
-        echo "   
+        foreach ($tagArray as $tag) {
+          echo "   
                         <div class='card tag'>
                           <div class='card-text'>{$tag}</div>
                         </div>
                         
                       
                       ";
-      }
-      echo "
+        }
+        echo "
                     </div>
                   </div>
               </div>
             </div>
           </div>
         ";
+      }
     }
   } else {
     echo "<p class='primary-text'>La ricerca non ha prodotto alcun risultato</p>";
   }
 
+
   mysqli_close($conn);
+}
+
+/**
+ * Ritorna true se array1 è incluso in array2
+ */
+function subset($array1, $array2)
+{
+  foreach ($array1 as $item1) {
+    if (!in_array($item1, $array2)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * Trasforma un array di arrays in un array monodimensionale.
+ */
+function parseQueryString($queryArray)
+{
+  $tagArray = array();
+  foreach ($queryArray as $tag => $content) {
+    if ($tag != 'query' && $tag != 'range') {
+      foreach ($content as $inner) {
+        array_push($tagArray, str_replace('-', ' ', $inner));
+      }
+    }
+  }
+  return $tagArray;
 }

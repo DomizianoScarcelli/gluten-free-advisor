@@ -15,7 +15,7 @@ var quickFilters = new Vue({
 	},
 	methods: {
 		redirect: (filter) => {
-			urlParams.append('Piatti', filter.name);
+			urlParams.append('Piatti[]', filter.name);
 			//Inserisce i parametri all'interno della url e ricarica la pagina per effettuare il redirect
 			let url = new URL(location.origin + '/search-page.php?' + urlParams);
 			location.href = url;
@@ -140,15 +140,15 @@ var filterCheckboxes = new Vue({
 		redirect: (element, value) => {
 			formattedValue = value.replaceAll(' ', '-');
 			//Se il parametro è gia stato inserito e la checkbox viene di nuovo cliccata, allora lo toglie
-			if (urlParams.getAll(element.title).includes(formattedValue)) {
-				array = urlParams.getAll(element.title).filter((el) => el != formattedValue);
-				urlParams.delete(element.title);
+			if (urlParams.getAll(element.title + '[]').includes(formattedValue)) {
+				array = urlParams.getAll(element.title + '[]').filter((el) => el != formattedValue);
+				urlParams.delete(element.title + '[]');
 				array.forEach((value) => {
-					urlParams.append(element.title, value.replaceAll(' ', '-'));
+					urlParams.append(element.title + '[]', value.replaceAll(' ', '-'));
 				});
 				//Altrimenti lo inserisce
 			} else {
-				urlParams.append(element.title, formattedValue);
+				urlParams.append(element.title + '[]', formattedValue);
 			}
 			location.search = urlParams;
 		},
@@ -161,7 +161,7 @@ var filterCheckboxes = new Vue({
 		array = ['Servizi del ristorante', 'Prezzo', 'Piatti', 'Restrizioni alimentari'];
 
 		for (let key of array) {
-			for (let servizio of urlParams.getAll(key)) {
+			for (let servizio of urlParams.getAll(key + '[]')) {
 				document.getElementById(servizio).checked = true;
 			}
 		}
