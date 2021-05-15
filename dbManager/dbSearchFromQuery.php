@@ -13,24 +13,33 @@ if (!$conn) {
   
 
   //currentTag contiene la lista di tag per cui deve valere currentTags <= restaurantTags
-
-
-
-
+  
+  $ip = get_ip_address();
+  $json = file_get_contents("http://ipinfo.io/$ip/geo");
+  $json = json_decode($json, true);
+  $coordinates = explode(',', $json["loc"]);
+  
 
 
   if (isset($_GET['query'])) {
     $nome = $_GET['query'];
-    //Select all rows that contains the $name inside the name value. 
-    $sql = "SELECT * FROM dati_ristoranti WHERE (nome LIKE '%{$nome}%') OR (indirizzo LIKE '%{$nome}%') OR (descrizione LIKE '%{$nome}%') ";
+    //Define the order by distance
+    $order = "order by pow((t.latitudine - $coordinates[0]),2) + pow((t.longitudine - $coordinates[1]),2);";
+    //Select all rows that contains the $name inside the name value.
+    $sql = "SELECT * FROM dati_ristoranti t WHERE (nome LIKE '%{$nome}%') OR (indirizzo LIKE '%{$nome}%') OR (descrizione LIKE '%{$nome}%') $order ";
     echo "<p class='primary-text'>Risultati di ricerca per: {$nome}</p>";
+    
   } else {
-    $sql = "SELECT * FROM dati_ristoranti";
+    //Define the order by distance
+    $order = "order by pow((t.latitudine - $coordinates[0]),2) + pow((t.longitudine - $coordinates[1]),2);";
+    //Select all rows
+    $sql = "SELECT * FROM dati_ristoranti t $order";
     echo "<p class='primary-text'>Risultati della ricerca</p>";
   }
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
+
     //Itera sulle righe risultato della query
     while ($row = mysqli_fetch_assoc($result)) {
       $photo = explode(',', $row['listaFoto'])[0]; //prende il primo id della foto nell'array (per semplicità)
@@ -40,7 +49,7 @@ if (!$conn) {
       //   $destLat = $row['latitudine'];
       //   $destLng = $row['longitudine'];
       //   $distance = vincentyGreatCircleDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000);
-
+      
       $latLong = $row['latitudine'] . ',' . $row['longitudine'];
       $tagArray = json_decode($row['tags']);
       if (subset($currentTags, json_decode($row['tags']))) {
@@ -123,3 +132,13 @@ function parseQueryString($queryArray)
   }
   return $tagArray;
 }
+
+
+function get_ip_address(){
+  $externalContent = file_get_contents('http://checkip.dyndns.com/');
+  preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
+  $ip = $m[1];
+  return $ip;
+}
+
+
