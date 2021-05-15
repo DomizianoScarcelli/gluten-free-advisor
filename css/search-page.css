@@ -43,7 +43,6 @@
 
 .card {
 	/* max-height: 15rem; */
-	/* width: fit-content; */
 	transition: background-color 500ms;
 }
 
@@ -78,10 +77,7 @@
 	width: fit-content;
 	height: 1.5rem !important;
 	flex-wrap: nowrap;
-}
-
-.card.tag:hover {
-	background-color: #e0cfad;
+	transition: background-color 500ms;
 }
 
 .card.tag > * {
@@ -89,6 +85,27 @@
 	font-size: 14px;
 }
 
+.card.tag:hover {
+	background-color: black;
+}
+
 .card-title {
 	font-weight: bold;
+}
+
+.card.tag .card-text:hover {
+	color: white;
+}
+
+.card-body {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.title-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }

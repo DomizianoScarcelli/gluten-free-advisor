@@ -9,7 +9,7 @@
     <!--Javascript-->
     <script src="js/search.js" defer></script>
     <script src="js/rangeSlider.js" defer></script>
-    <script src="../js/click.js" defer></script>
+    <script src="/js/click.js" defer></script>
 
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
