@@ -68,8 +68,8 @@
 	text-indent: 2rem;
 }
 
-@media screen and (max-width: 980px) {
+/* @media screen and (max-width: 980px) {
 	#searchButton {
 		width: 85%;
 	}
-}
+} */

@@ -6,6 +6,8 @@
  *  */
 
 include 'dbConnect.php';
+
+
 if (!$conn) {
   echo "<p class='primary-text'>Connessione al database locale fallita</p>";
 } else {
@@ -57,7 +59,7 @@ if (!$conn) {
       ///Se questo non si verifica, il ristorante non viene mostrato.
       if (subset($currentTags, json_decode($row['tags'])) && $distance <= $range) {
         echo "
-        <div class='card mb-3' style='width: 50rem;' id='{$row["id"]}'>
+        <div class='card mb-3' style='max-width: 50rem;' value='id' id='{$row["id"]}' value='{$row["id"]}' onclick='doEvent(this)'>
           <div class='row g-0'>
               <div class='col-md-4 card-img-container'>
                   <img class='card-img' src='../img/home-restaurants/lievito-72-home.jpg'>
@@ -76,7 +78,7 @@ if (!$conn) {
   
                       <div class='address-container'>
                         <p class='card-text'><small class='text-muted'>{$row["indirizzo"]}</small></p>
-                        <p class='card-text distance' id='restaurant-distance' value='{$latLong}'>{$roundedDistance} km da te<small class='text-muted'></small></p>
+                        <p class='card-text distance' id='restaurant-distance' value='{$latLong}'><small class='text-muted'>{$roundedDistance} km da te</small></p>
                       </div>
                       <div class='tags-container' value='{$row['tags']}'>
                       ";
