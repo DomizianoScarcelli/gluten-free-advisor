@@ -8,6 +8,7 @@
 include 'dbConnect.php';
 
 
+
 if (!$conn) {
   echo "<p class='primary-text'>Connessione al database locale fallita</p>";
 } else {
@@ -47,7 +48,8 @@ if (!$conn) {
       $roundedDistance = round($distance, 2);
       //Concatena la latitudine e la longitudine per inserirla all'interno del campo value della carta del ristorante, in caso possa servire senza effettuare una richiesta al server.
       $latLong = $row['latitudine'] . ',' . $row['longitudine'];
-      $tagArray = json_decode($row['tags']);
+      $tagArray = explode(',', str_replace('"', '', $row['tags']));
+      $photoArray = json_decode($row["listaFoto"]);
       //Se è presente il campo range nella querystring lo prende, altrimenti lo setta al valore di default 50km.
       if (isset($_GET['range'])) {
         $range = $_GET['range'];
@@ -56,7 +58,7 @@ if (!$conn) {
       }
       //Controlla che il ristorante abbia i tag selezionati e che sia all'interno della distanza selezionata. 
       ///Se questo non si verifica, il ristorante non viene mostrato.
-      if (subset($currentTags, json_decode($row['tags'])) && $distance <= $range) {
+      if (subset($currentTags, $tagArray) && $distance <= $range) {
 
         $priceSymbol = getPriceSymbol($tagArray);
 
@@ -64,7 +66,7 @@ if (!$conn) {
         <div class='card mb-3' style='max-width: 50rem;' value='id' id='{$row["id"]}' value='{$row["id"]}' onclick='doEvent(this)'>
           <div class='row g-0'>
               <div class='col-md-4 card-img-container'>
-                  <img class='card-img' src='/img/home-restaurants/lievito-72-home.jpg'>
+                  <img class='card-img' src='img/upload/{$photoArray[0]}'>
               </div>
               <div class='col-md-8'>
                   <div class='card-body'>

@@ -49,7 +49,7 @@
                 <!--Range selector-->
                 <div class="sidebar-inside-container">
                     <p class="sidebar-element-title">Distanza</p>
-                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='500' step='5' oninput="updateDistance()">
+                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='500' step='5' onchange="updateDistance()">
 
                     <p class='label' id='distance-slider-value'>50km</p>
 
