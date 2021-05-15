@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <!--Javascript-->
     <script src="js/search.js" defer></script>
-    <script src="js/distanceRange.js" defer></script>
+    <script src="js/rangeSlider.js" defer></script>
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->

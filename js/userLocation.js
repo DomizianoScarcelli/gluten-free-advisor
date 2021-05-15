@@ -1,29 +1,20 @@
-var urlParams = new URLSearchParams(location.search);
-$(document).ready(function () {
-	if (urlParams.get('range')) {
-		$('#distance-slider').val(parseInt(urlParams.get('range')));
-	}
-	$('#distance-slider-value').text($('#distance-slider').val() + 'km');
+/**
+ * Questo file .js contiene varie funzioni per la localizzazione dell'utente, il calcolo della distanza tra l'utente e il ristorante
+ * e la visualizzazione di tale distanza sulla carta del ristorante.
+ * Attualmente il sito utilizza la localizzazione server side mediante indirizzo IP in quanto non sarebbe possibile inviare le coordinate al sever prima che la
+ * pagina venga caricata, in modo da utilizzare tali coordinate all'interno del codice PHP e SQL.
+ *
+ * Questo codice viene lasciato per dimostrare la capacità degli studenti di calcolare le coordinate dell'utente client-side.
+ */
 
+/**
+ * Mostra la distanza calcolata sulla carta del ristorante
+ */
+$(document).ready(function () {
 	for (var element of document.getElementsByClassName('card mb-3')) {
 		displayDistance(element);
 	}
 });
-
-function updateDistance() {
-	$('#distance-slider-value').text($('#distance-slider').val() + 'km');
-	updateQueryString();
-	setTimeout(() => {
-		location.search = urlParams;
-	}, 3000);
-}
-
-function updateQueryString() {
-	if (urlParams.get('range')) {
-		urlParams.delete('range');
-	}
-	urlParams.append('range', $('#distance-slider').val());
-}
 
 //This function takes in latitude and longitude of two location and returns the distance between them as the crow flies (in km)
 //Source: https://stackoverflow.com/questions/18883601/function-to-calculate-distance-between-two-coordinates
@@ -44,24 +35,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
 function toRad(Value) {
 	return (Value * Math.PI) / 180;
 }
-/**
- * Invia le coordinate al server in modo che possano essere usate tramite php.
- * @param {*} latitude
- * @param {*} longitude
- */
-function sendCoordinatesToServer(latitude, longitude) {
-	$.ajax({
-		type: 'POST',
-		url: 'dbManager/dbSearchFromQuery.php',
-		data: {
-			latitude: latitude,
-			longitude: longitude,
-		},
-		success: function (response) {
-			console.log('Inviato corretamente ' + latitude + longitude);
-		},
-	});
-}
+
 /**
  * Localizza l'utente e chiama la funzione per inviare le coordinate al server.
  */
@@ -69,7 +43,7 @@ function geoFindMe() {
 	let success = (position) => {
 		latitude = position.coords.latitude;
 		longitude = position.coords.longitude;
-		//sendCoordinatesToServer(latitude, longitude);
+		console.log(latitude, longitude);
 	};
 	let error = () => {
 		alert('Errore geolocalizzazione non disponibile nel tuo Browser');
@@ -78,7 +52,6 @@ function geoFindMe() {
 }
 /**
  * Calcola la distanza lato client dopo aver caricato la pagina e la mostra nelle carte.
- * Sarebbe meglio calcolare la distanza lato server via PHP ma non riesco e quindi questo è l'unico modo.
  * @param {*} element
  */
 function displayDistance(element) {
