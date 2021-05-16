@@ -193,6 +193,7 @@ function sendPendingRestaurantData() {
  * In questo caso il ristorante viene immediatamente inserito all'interno del database dei ristoranti.
  */
 function sendRestaurantData() {
+	var formData = new FormData();
 	//TODO vedi come gestire le immagini inserite.
 	var name = $('#restaurant-name').val();
 	var address = $('#restaurant-address').val();
@@ -205,23 +206,30 @@ function sendRestaurantData() {
 			tags.push(checkbox.value);
 		}
 	}
+	//insert into formData
+	formData.append('name', name);
+	formData.append('address', address);
+	formData.append('description', description);
+	formData.append('tags', tags);
+
+	var files = $('#restaurant-image')[0].files;
+	for (file of files) {
+		formData.append('file[]', file);
+	}
+
 	//Converte indirizzo in coppia di coordinate ed effettua l'ajax
 	addressLocate(address, (searchLatLng) => {
+		formData.append('latitude', searchLatLng[0]);
+		formData.append('longitude', searchLatLng[1]);
 		//Ajax
 		$.ajax({
 			type: 'POST',
 			url: 'dbManager/dbAddRestaurant.php',
-			data: {
-				name: name,
-				address: address,
-				latitude: searchLatLng[0],
-				longitude: searchLatLng[1],
-				image: image,
-				description: description,
-				tags: tags,
-			},
+			data: formData,
+			contentType: false,
+			processData: false,
 			success: (data) => {
-				alert(data);
+				console.log(data);
 			},
 		});
 	});

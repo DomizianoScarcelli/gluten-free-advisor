@@ -15,7 +15,5 @@ function updateDistance() {
 		urlParams.delete('range');
 	}
 	urlParams.append('range', $('#distance-slider').val());
-	setTimeout(() => {
-		location.search = urlParams;
-	}, 3000);
+	location.search = urlParams;
 }
