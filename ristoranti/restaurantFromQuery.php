@@ -20,7 +20,7 @@
     else {
         $q1 = "SELECT * FROM dati_ristoranti WHERE id = $id";  //Seleziona i dati del ristorante corrente (serve per nome e indirizzo)
         $q2 = "SELECT COUNT(*) FROM recensioni WHERE id_ristorante = $id"; //Conta il numero di recensioni per il ristorante corrente
-        $q3 = "SELECT * FROM utenti JOIN recensioni ON id = id_utente WHERE id_ristorante = $id"; /*Seleziona gli utenti che hanno aggiunto una 
+        $q3 = "SELECT * FROM utenti JOIN recensioni ON id = id_utente WHERE id_ristorante = $id order by data asc"; /*Seleziona gli utenti che hanno aggiunto una 
                 recensione per il ristorante corrente*/
         echo "<p>Ecco il ristorante che cercavi:</p>";
     }
@@ -87,6 +87,10 @@
 
                     while ($row3 = mysqli_fetch_assoc($result3)) {
 
+                            $datestamp = strtotime("{$row3['data']}");
+                            $new_date = date("d-m-Y", $datestamp);
+                            //$date = date_format($datestamp, "d/m/Y H:i:s");
+
                             echo "
 
                                 <!--Restyling da fare-->
@@ -98,7 +102,7 @@
                                             Autore:
                                             <p>{$row3['nome']} {$row3['cognome']}</p>
                                             Data:
-                                            <p>data recensione</p>
+                                            <p>$new_date</p>
                                         </div>
                                     </div>
                                 </div>
