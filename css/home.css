@@ -129,7 +129,7 @@ Palette dei colori: https://coolors.co/787794-41405f-ccd5ae-faedcd-e3d2af-d4a373
 }
 
 #nearby-suggestions-card-list {
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
 	max-width: 60rem;
 	min-width: 40rem;
@@ -152,7 +152,7 @@ Palette dei colori: https://coolors.co/787794-41405f-ccd5ae-faedcd-e3d2af-d4a373
 }
 
 .card-image {
-	max-height: 12rem;
+	height: 10rem;
 }
 
 .card-address {

@@ -2,11 +2,11 @@
 
 Visto che l'applicazione sfrutta PHP nell'index per caricare in maniera dinamica alcuni elementi, per vedere correttamente il sito bisogna installare XAMPP.
 
-Per avviare il server da VSCODE bisogna installare l'estensione PHP Server, fare click destro nel corpo di "index.html" e cliccare su "PHP Server: Serve project".
+Per avviare il server da VSCODE bisogna installare l'estensione PHP Server, fare click destro nel corpo di "index.php" e cliccare su "PHP Server: Serve project".
 
 Contenuto dei vari file:
 
-**index.html** è il file indice in cui è presente l'home page.
+**index.php** è il file indice in cui è presente l'home page.
 
 **search-page.php** è la pagina in cui vengono mostrati i risultati della ricerca.
 

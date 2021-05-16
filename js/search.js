@@ -16,7 +16,7 @@ searchbar.addEventListener('keypress', (event) => {
  * Setta la querystring se in index, prende le info dalla querystring ed effettua una ricerca nel database mostrando i risultati nella search-page
  */
 function search() {
-	if (location.pathname == '/index.html' || location.pathname == '/') {
+	if (location.pathname == '/index.php' || location.pathname == '/') {
 		//Se siamo nell'index allora setta la querystring
 		//Genera querystring
 		urlParams.append('query', searchbar.value);
@@ -42,7 +42,7 @@ $('#searchbar').on('input', function (e) {
 		}, 300);
 		$('#search-container').css('height', '15rem');
 	} else if (searchbar.value != '' && !document.getElementById('searchButton')) {
-		if (location.pathname == '/index.html' || location.pathname == '/') {
+		if (location.pathname == '/index.php' || location.pathname == '/') {
 			let button = `<button class="btn search-btn" style="display:none;" id="searchButton" onclick='search()'>Ricerca</button>`;
 			$(button).appendTo(document.getElementById('search-container')).show(300);
 			$('#search-container').css('height', '18rem');

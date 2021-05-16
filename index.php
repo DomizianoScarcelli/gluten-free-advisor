@@ -12,26 +12,21 @@
     <script src="js/addRestaurant.js" defer></script>
     <script src="js/search.js" defer></script>
     <script src="js/autocompletion.js" defer></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk&libraries=places&callback=initFunction"
-        async></script>
+    <script src="js/click.js" defer></script>
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
         </script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-        </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
@@ -43,6 +38,7 @@
     <!--Axios-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!--Google API-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk&libraries=places&callback=initFunction" defer></script>
 
 
 </head>
@@ -65,13 +61,10 @@
     <div class='container' id="suggestions-main-container">
         <div class="row row-cols-6 card-list filter-container" id='filter-container'>
             <!--Filtri veloci-->
-            <div class='col filter-card card' v-bind:id="filter.name + '-filter'" v-on:click='redirect(filter)'
-                v-for='filter in filters'>
-                <div class='card-body flex-row no-wrap' v-bind:id="filter.name + '-body'"
-                    @mouseover='whiteImage(filter)' @mouseleave='blackImage(filter)'>
+            <div class='col filter-card card' v-bind:id="filter.name + '-filter'" v-on:click='redirect(filter)' v-for='filter in filters'>
+                <div class='card-body flex-row no-wrap' v-bind:id="filter.name + '-body'" @mouseover='whiteImage(filter)' @mouseleave='blackImage(filter)'>
                     <h5 class='card-title'> {{filter.name}} </h5>
-                    <img class='card-icon' v-bind:id="filter.name + '-icon'"
-                        v-bind:src="'img/icons/home-filters/'+ filter.color + '/' + filter.name + '.png'">
+                    <img class='card-icon' v-bind:id="filter.name + '-icon'" v-bind:src="'img/icons/home-filters/'+ filter.color + '/' + filter.name + '.png'">
                 </div>
             </div>
 
@@ -107,6 +100,13 @@
             </div>
             <div class="col">
                 <div class="row row-cols-3 g-4" id="nearby-suggestions-card-list">
+                    <?php include "dbManager/dbGetNearbyRestaurants.php" ?>
+                </div>
+            </div>
+        </div>
+
+        <!--
+            
                     <div class="col" v-for='restaurant in restaurants'>
                         <div class="card">
                             <img class="card-image" :src="restaurant.image">
@@ -118,7 +118,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
 
 
 
@@ -132,15 +133,13 @@
         </div>
     </div>
     <!-- Form modale che viene mostrato quando si preme il pulsante nella home per aggiungere un nuovo risorante-->
-    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Aggiungi un ristorante</h5>
 
-                    <button type="button" class="close btn-close" id="close-button" data-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="close btn-close" id="close-button" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body container ui-front" id='modal-body'>
                     <p class='left-tip'>I campi contrassegnati da * sono obbligatori</p>
@@ -150,23 +149,18 @@
                             <form action="" id="form">
                                 <!--Nome del ristorante-->
                                 <p class="label">Nome del ristorante<sup>*</sup></p>
-                                <input class='text-input' type="text" id="restaurant-name"
-                                    placeholder="es. Ristorante da Pino" /><br />
+                                <input class='text-input' type="text" id="restaurant-name" placeholder="es. Ristorante da Pino" /><br />
                                 <!--Indirizzo o città-->
                                 <p class="label" id='indirizzo' value='indirizzo'>Indirizzo<sup>*</sup></p>
 
-                                <input class='text-input' type="text" id="restaurant-address"
-                                    placeholder="es. Via delle Pantanelle 34" />
+                                <input class='text-input' type="text" id="restaurant-address" placeholder="es. Via delle Pantanelle 34" />
                                 <p class="tip" id='address-tip' onclick="addressNotKnown()">Non conosci l'indirizzo?</p>
                                 <!--Immagini-->
                                 <p class="label" id='immagini'>Immagini</p>
-                                <input type="file" multiple='true' name="filename" id='restaurant-image'
-                                    accept=".jpeg,.png,.jpg">
+                                <input type="file" multiple='true' name="filename" id='restaurant-image' accept=".jpeg,.png,.jpg">
                                 <!--Descrizione-->
                                 <p class="label" id='descrizione'>Descrizione</p>
-                                <textarea form='form' cols='30' row='20' class='text-input long-text-input'
-                                    id="restaurant-description"
-                                    placeholder="es. Ristorante-pizzeria con piatti italiani, anche senza glutine, in uno spazio dal design moderno e colorato."></textarea>
+                                <textarea form='form' cols='30' row='20' class='text-input long-text-input' id="restaurant-description" placeholder="es. Ristorante-pizzeria con piatti italiani, anche senza glutine, in uno spazio dal design moderno e colorato."></textarea>
                         </div>
 
                         <!--Colonna destra-->
@@ -176,11 +170,8 @@
                                 <div v-for='element in elements'>
                                     <p class='label'> {{element.modalFormDescription}} </p>
                                     <div class='checkbox' v-for='value in element.values'>
-                                        <input class='modal-form-checkbox' v-bind:type='element.type'
-                                            name='servizi-ristorante'
-                                            v-bind:id='"restaurant-" + value.replaceAll(" ", "-")' v-bind:value='value'>
-                                        <label v-bind:for='"restaurant-" + value.replaceAll(" ", "-")'
-                                            class='checkbox-label'>{{value}}</label> <br>
+                                        <input class='modal-form-checkbox' v-bind:type='element.type' name='servizi-ristorante' v-bind:id='"restaurant-" + value.replaceAll(" ", "-")' v-bind:value='value'>
+                                        <label v-bind:for='"restaurant-" + value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
                                     </div>
                                 </div>
                             </div>

@@ -37,7 +37,7 @@
     <!--Header-->
 
     <div class="header" id="header">
-        <img src="img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.html'" />
+        <img src="img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.php'" />
         <input type="search" class="searchbar" id="searchbar" />
     </div>
 

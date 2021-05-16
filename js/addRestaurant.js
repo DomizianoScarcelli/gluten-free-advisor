@@ -10,9 +10,6 @@ const closeButton = document.getElementById('close-button');
 const modalBody = document.getElementById('modal-body');
 const originalHtml = modalBody.innerHTML;
 
-function checkRequired() {
-	//Controlla che i campi required siano stai effettivamente compilati
-}
 /**
  * Viene triggerato quando l'utente clicca il pulsante "Non conosci l'indirizzo?".
  * In questo modo l'utente può inserire la città invece dell'indirizzo preciso.
