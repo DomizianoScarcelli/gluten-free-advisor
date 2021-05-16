@@ -5,7 +5,7 @@
     display: grid;
     gap: 0.75rem;
 
-    /*NOTa*/
+    /*MEMO*/
     /*Se si elimina il div container della griglia, i margini possono essere gestiti
     con le proprietà margin-top, margin-bottom, margin-right e margin-left.*/
 
@@ -41,30 +41,30 @@
       filter: hue-rotate(0deg);
     }
   }
-  
-  .card {
+    
+  .animated-card {
     background-color: #3b352c;
     animation: cardEntrance 700ms ease-out;
     animation-fill-mode: backwards;
   }
   
-  .card:nth-child(1) {
+  .animated-card:nth-child(1) {
     grid-area: a;
     animation-delay: calc(1 * var(--stagger-delay));
   }
-  .card:nth-child(2) {
+  .animated-card:nth-child(2) {
     grid-area: b;
     animation-delay: calc(2 * var(--stagger-delay));
   }
-  .card:nth-child(3) {
+  .animated-card:nth-child(3) {
     grid-area: c;
     animation-delay: calc(3 * var(--stagger-delay));
   }
-  .card:nth-child(4) {
+  .animated-card:nth-child(4) {
     grid-area: d;
     animation-delay: calc(4 * var(--stagger-delay));
   }
-  .card:nth-child(5) {
+  .animated-card:nth-child(5) {
     grid-area: e;
     animation-delay: calc(5 * var(--stagger-delay));
   }

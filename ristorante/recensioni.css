@@ -47,10 +47,10 @@
     color: #aaa;
 }
 
-.myspan-right {
+.span-right {
     float:right;
 }
 
-.myspan-center {
-    text-align: center;
+.span-left {
+    float: left;
 }

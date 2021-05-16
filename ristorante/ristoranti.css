@@ -7,7 +7,7 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
-.card {
+.animated-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,29 +27,20 @@ body {
     background-repeat: no-repeat;
  }
 
-.card:hover {
+.animated-card:hover {
     box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
     transform: translateY(-3px) scale(1.025);
  } 
 
 .mynavbar {
-    background: #3b352c;
-}
-
-.myfooter {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #3b352c;
-    color: white;
-    text-align: center;
+    background: #e9edc9;
+    height: 5rem;
 }
 
 .checked {
     color: orange;
 }
 
-.main-container {
-    margin-bottom: 60px;
+.risto-container {
+    padding: 1 rem;
 }
