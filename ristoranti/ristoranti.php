@@ -83,12 +83,17 @@
             <div class="card" style="width= ">
                 <form action="addReview.php" method="POST" name="formReview" onsubmit="">
                     <h4>Aggiungi una recensione</h4>
+                    Titolo:
+                    <input type="text" name="titolo-review" size="20" maxlength="20" placeholder="Aggiungi un titolo...">
                     <label for="data-visita">Data della visita:</label>
                     <input type="date" id="data-visita" name="dataVisita">
                     <br>
                     <textarea name="inputRecensione" id="textarea-recensione" cols="30" rows="5" 
                         placeholder="Scrivi qui la tua recensione..." required></textarea>
                     <br>
+                    <!--
+                    Valuta il ristorante con un punteggio da 1 a 5:
+                    <input type="text" name="valutazione" size="10" maxlength="10"> -->
                     <button class="btn btn-lg btn-primary" name="sendButton" type="submit">Invia</button>
                     <button class="btn btn-lg btn-primary" name="resetButton" type="reset">Reset</button>
                 </form>
