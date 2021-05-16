@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Home - Ristoranti Gluten Free</title>
+    <title>Ricerca - Gluten Free Advisor</title>
+    <link rel="shortcut icon" href="img\logos\favicon2.png" type="image/x-icon">
     <link rel="stylesheet" href="css/search-page.css">
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/sidebar.css">
@@ -49,7 +50,7 @@
                 <!--Range selector-->
                 <div class="sidebar-inside-container">
                     <p class="sidebar-element-title">Distanza</p>
-                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='500' step='5' onchange="updateDistance()">
+                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='500' step='5' onchange="updateQueryString()" oninput='updateShownDistance()'>
 
                     <p class='label' id='distance-slider-value'>50km</p>
 

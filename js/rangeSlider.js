@@ -9,8 +9,11 @@ $(document).ready(function () {
 /**
  * Dopo 3 secondi dall'input dell'utente, inserisce il range di distanza selezionato all'interno della querystring
  */
-function updateDistance() {
+function updateShownDistance() {
 	$('#distance-slider-value').text($('#distance-slider').val() + 'km');
+}
+
+function updateQueryString() {
 	if (urlParams.get('range')) {
 		urlParams.delete('range');
 	}
