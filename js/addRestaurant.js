@@ -2,9 +2,6 @@
  * Tutto il codice che riguarda il pulsante nella home page relativo all'aggiunta di un nuovo ristorante.
  * (L'interazione con il databse viuene effettuata nel file dbManager/dbAddPendingRestaurant.php e dbManager/dbAddRestaurant.php)
  */
-var script = document.createElement('script');
-script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBmqK5XJ_5rt1y9jHSZQdfq1h-Hm-4rLHk&callback=initMap';
-script.async = true;
 
 const submitRestaurantButton = document.getElementById('submit-restaurant-button');
 const restaurantName = document.getElementById('restaurant-name');
@@ -12,8 +9,6 @@ const restaurantCity = document.getElementById('restaurant-address');
 const closeButton = document.getElementById('close-button');
 const modalBody = document.getElementById('modal-body');
 const originalHtml = modalBody.innerHTML;
-
-window.initMap = function () {};
 
 function checkRequired() {
 	//Controlla che i campi required siano stai effettivamente compilati
@@ -259,6 +254,3 @@ function addressLocate(address, callback) {
 			console.log(error);
 		});
 }
-
-//Inserisce lo script nell'head per far funzionare le Google API.
-document.head.appendChild(script);

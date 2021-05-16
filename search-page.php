@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Home - Ristoranti Gluten Free</title>
+    <title>Ricerca - Gluten Free Advisor</title>
+    <link rel="shortcut icon" href="img\logos\favicon2.png" type="image/x-icon">
     <link rel="stylesheet" href="css/search-page.css">
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/sidebar.css">
