@@ -60,11 +60,11 @@
                 <!--Images grid-->
                 <div class='container'>
                     <div class='animated-grid'>
-                        <div class='animated-card' style='background-image:url('./img/lievito72_1.jpg')'></div>
-                        <div class='animated-card' style='background-image:url('./img/lievito72_2.jpg')'></div>
-                        <div class='animated-card' style='background-image:url('./img/lievito72_3.jpg')'></div>
-                        <div class='animated-card' style='background-image:url('./img/lievito72_4.jpg')'></div>
-                        <div class='animated-card' style='background-image:url('./img/lievito72_5.png')'></div>
+                        <div class='animated-card' style='background-image:url(./img/lievito72_1.jpg)'></div>
+                        <div class='animated-card' style='background-image:url(./img/lievito72_2.jpg)'></div>
+                        <div class='animated-card' style='background-image:url(./img/lievito72_3.jpg)'></div>
+                        <div class='animated-card' style='background-image:url(./img/lievito72_4.jpg)'></div>
+                        <div class='animated-card' style='background-image:url(./img/lievito72_5.jpg)'></div>
                     </div>
                 </div>
                 ";
