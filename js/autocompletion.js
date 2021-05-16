@@ -5,11 +5,6 @@ function initFunction() {
 		componentRestrictions: { country: ['IT'] },
 		fields: ['name'],
 	});
-
-	autocomplete.addListener('place_changed', () => {
-		var nearPlace = autocomplete.getPlace();
-		console.log(nearPlace);
-	});
 }
 
 $('#restaurant-address').on('input', () => {

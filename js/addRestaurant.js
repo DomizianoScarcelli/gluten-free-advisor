@@ -25,11 +25,13 @@ function addressNotKnown() {
 		$('#indirizzo').text('Indirizzo*');
 		$('#restaurant-address').attr('placeholder', 'es. Via delle Pantanelle 34');
 		$('#address-tip').text("Non conosci l'indirizzo?");
+		autocomplete.types = ['address'];
 	} else {
 		$('#indirizzo').text('Città*');
 		$('#indirizzo').attr('value', 'citta');
 		$('#address-tip').text("Conosci l'indirizzo preciso?");
 		$('#restaurant-address').attr('placeholder', 'es. Roma');
+		autocomplete.types = ['(cities)'];
 	}
 }
 
@@ -69,18 +71,18 @@ closeButton.addEventListener('click', () => {
 	location.reload();
 });
 
-restaurantName.addEventListener('keypress', (event) => {
-	if (event.key === 'Enter') {
-		sendRestaurantData();
-		submit();
-	}
-});
-restaurantCity.addEventListener('keypress', (event) => {
-	if (event.key === 'Enter') {
-		sendRestaurantData();
-		submit();
-	}
-});
+// restaurantName.addEventListener('keypress', (event) => {
+// 	if (event.key === 'Enter') {
+// 		sendRestaurantData();
+// 		submit();
+// 	}
+// });
+// restaurantCity.addEventListener('keypress', (event) => {
+// 	if (event.key === 'Enter') {
+// 		sendRestaurantData();
+// 		submit();
+// 	}
+// });
 /**
  * Mostra il messaggio di conferma aggiunta del ristorante dopo una fase di verifica.
  * Viene triggerato secondo le regole di sendPendingRestaurantData().

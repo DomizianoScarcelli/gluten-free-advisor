@@ -89,9 +89,13 @@
 	border: none;
 }
 
-.pag-icon {
-	background-image: none !important;
+.pac-item {
+	padding: 10px;
+	font-size: 14px;
+	cursor: pointer;
+	font-family: 'Cardo', serif;
 }
-.hdpi .pac-icon {
-	background-image: none !important;
+
+.pac-icon {
+	display: none;
 }
