@@ -43,7 +43,7 @@
   }
     
   .animated-card {
-    background-color: #3b352c;
+    background-color: #e9edc9;
     animation: cardEntrance 700ms ease-out;
     animation-fill-mode: backwards;
   }
