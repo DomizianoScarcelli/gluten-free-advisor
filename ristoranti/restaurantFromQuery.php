@@ -33,13 +33,16 @@
     if (mysqli_num_rows($result1) > 0) {
 
         while ($row1 = mysqli_fetch_assoc($result1)) {
+
+            $photoarray = json_decode($row1["listaFoto"]);
+
             echo "
                 <div class='container border-bottom'>
                     <h3>{$row1["nome"]}</h3>
                     <div class='row mb-2'>
                         <div class='col-sm'>
                             <span class='span-left'>
-                            <b>Indirizzo: </b>{$row1["indirizzo"]}
+                            <b>Indirizzo: </b><i>{$row1["indirizzo"]}</i>
                             </span>
                         </div>
                         <div class='col-sm'>
@@ -60,11 +63,11 @@
                 <!--Images grid-->
                 <div class='container'>
                     <div class='animated-grid'>
-                        <div class='animated-card' style='background-image:url(./img/lievito72_1.jpg)'></div>
-                        <div class='animated-card' style='background-image:url(./img/lievito72_2.jpg)'></div>
-                        <div class='animated-card' style='background-image:url(./img/lievito72_3.jpg)'></div>
-                        <div class='animated-card' style='background-image:url(./img/lievito72_4.jpg)'></div>
-                        <div class='animated-card' style='background-image:url(./img/lievito72_5.jpg)'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})'></div>
                     </div>
                 </div>
                 ";
@@ -129,7 +132,18 @@
                          ";
                     }
                 }
+                else {
+                    echo "
+                    <!--Intestazione Recensioni-->
+                    <div class='container border-top border-bottom'>
+                        <h3 class='mt-3'>Recensioni</h3>
+                        <p>Numero di recensioni per questo ristorante: 0</p>
+                    </div>
+                ";
+                }
         }
     }
+
+    mysqli_close($conn);
 
 ?>
