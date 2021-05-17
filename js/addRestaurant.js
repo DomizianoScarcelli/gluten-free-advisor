@@ -80,6 +80,7 @@ closeButton.addEventListener('click', () => {
 // 		submit();
 // 	}
 // });
+
 /**
  * Mostra il messaggio di conferma aggiunta del ristorante dopo una fase di verifica.
  * Viene triggerato secondo le regole di sendPendingRestaurantData().
@@ -102,7 +103,7 @@ function submit() {
 	console.log('Added');
 	sendRestaurantData();
 	modalBody.innerHTML = `
-        <p style="text-align:center;" >Grazie per averci suggerito un ristorante, il ristorante è stato aggiunto alla lista dei ristoranti, clicca QUI per vedere la pagina!</p>
+        <p style="text-align:center;" >Grazie per averci suggerito un ristorante, il ristorante è stato aggiunto alla lista dei ristoranti!</p>
     `;
 	submitRestaurantButton.value = 'Chiudi';
 	submitRestaurantButton.innerHTML = 'Chiudi';
@@ -126,61 +127,45 @@ function reset() {
  * verificare e verrà aggiunto a mano in un seguente momento.
  */
 function sendPendingRestaurantData() {
-	//TODO questa era solo una prova, inserisci gli effettivi valori del form.
-	//TODO vedi come gestire le immagini inserite.
+	var formData = new FormData();
 	var name = $('#restaurant-name').val();
-	if ($('#indirizzo').attr('value') == 'citta') {
-		var citta = $('#restaurant-address').val();
-		var address = null;
-	} else {
-		var citta = null;
-		var address = $('#restaurant-address').val();
-	}
-	var image = $('#restaurant-image').files;
+	var citta = $('#restaurant-address').val();
+	var address = $('#restaurant-address').val();
 	var description = $('#restaurant-description').val();
+	if ($('#indirizzo').attr('value') == 'citta') {
+		formData.append('citta', citta);
+		formData.append('address', null);
+	} else {
+		formData.append('citta', null);
+		formData.append('address', address);
+	}
+	var files = $('#restaurant-image')[0].files;
+	for (file of files) {
+		formData.append('file[]', file);
+	}
 	var tags = [];
 	for (checkbox of document.getElementsByClassName('modal-form-checkbox')) {
 		if (checkbox.checked) {
 			tags.push(checkbox.value);
 		}
 	}
+	formData.append('name', name);
+	formData.append('description', description);
 	//Converte indirizzo in coppia di coordinate ed effettua l'ajax
-	if (address) {
-		addressLocate(address, (searchLatLng) => {
-			//Ajax
-			$.ajax({
-				type: 'POST',
-				url: 'dbManager/dbAddPendingRestaurant.php',
-				data: {
-					name: name,
-					address: address,
-					latitude: searchLatLng[0],
-					longitude: searchLatLng[1],
-					image: image,
-					description: description,
-					tags: tags,
-				},
-				success: (data) => {
-					alert(data);
-				},
-			});
-		});
-	} else {
+	addressLocate(address, (searchLatLng) => {
+		formData.append('latitude', searchLatLng[0]);
+		formData.append('longitude', searchLatLng[1]);
 		$.ajax({
 			type: 'POST',
 			url: 'dbManager/dbAddPendingRestaurant.php',
-			data: {
-				name: name,
-				citta: citta,
-				image: image,
-				description: description,
-				tags: tags,
-			},
+			data: formData,
+			contentType: false,
+			processData: false,
 			success: (data) => {
-				alert(data);
+				console.log(data);
 			},
 		});
-	}
+	});
 }
 /**
  * Viene triggerato quando tutte le informazioni necessarie vengono inserite nel form. Tali informazioni sono: Nome e indirizzo e immagini.
@@ -191,8 +176,6 @@ function sendRestaurantData() {
 	//TODO vedi come gestire le immagini inserite.
 	var name = $('#restaurant-name').val();
 	var address = $('#restaurant-address').val();
-	var image = $('#restaurant-image').files;
-	console.log(image);
 	var description = $('#restaurant-description').val();
 	var tags = [];
 	for (checkbox of document.getElementsByClassName('modal-form-checkbox')) {

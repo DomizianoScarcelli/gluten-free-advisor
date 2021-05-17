@@ -3,10 +3,8 @@
 include 'dbConnect.php';
 include 'functions.php';
 
-$ip = get_ip_address();
-$json = file_get_contents("http://ipinfo.io/$ip/geo");
-$json = json_decode($json, true);
-$coordinates = explode(',', $json["loc"]);
+$coordinates = get_user_coordinates();
+
 
 $order = "order by pow((t.latitudine - $coordinates[0]),2) + pow((t.longitudine - $coordinates[1]),2);";
 //Select all rows

@@ -5,50 +5,19 @@
      */
     include 'dbConnect.php';
 
-    //Sposta il file nella cartella giusta
-    /* Getting file name */
-    // Count # of uploaded files in array
     $total = count($_FILES['file']['name']);
     $fileArray = array();
     // Loop through each file
-    // for ($i = 0; $i < $total; $i++) {
-    //     var_dump($_FILES);
-    //     $filename = $_FILES['file']['name'][$i];
-
-    //     /* Location */
-    //     $location = "../upload/" . $filename;
-    //     $imageFileType = pathinfo($location, PATHINFO_EXTENSION);
-    //     $imageFileType = strtolower($imageFileType);
-
-    //     $response = 0;
-    //     /* Check file extension */
-    //     if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
-    //         $response = $location;
-    //     }
-    //     array_push($fileArray, $filename);
-    // }
-
-    // $encodedFileArray = json_encode($fileArray);
-
-
-    // echo $fileArray;
-
-    // Loop through each file
     for ($i = 0; $i < $total; $i++) {
-
         //Get the temp file path
         $tmpFilePath = $_FILES['file']['tmp_name'][$i];
-
         //Make sure we have a file path
         if ($tmpFilePath != "") {
             //Setup our new file path
             $newFilePath = "../img/upload/" . $_FILES['file']['name'][$i];
-
             //Upload the file into the temp dir
             if (move_uploaded_file($tmpFilePath, $newFilePath)) {
-
                 //Handle other code here
-
             }
         }
         array_push($fileArray, $_FILES['file']['name'][$i]);
