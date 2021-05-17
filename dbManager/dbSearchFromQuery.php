@@ -16,11 +16,8 @@ if (!$conn) {
   //currentTag contiene la lista di tag per cui deve valere currentTags <= restaurantTags
   $currentTags = parseQueryString($_GET);
 
-  //Calcola l'ip dell'utente e ottiene le coordinate approssimative. 
-  $ip = get_ip_address();
-  $json = file_get_contents("http://ipinfo.io/$ip/geo");
-  $json = json_decode($json, true);
-  $coordinates = explode(',', $json["loc"]);
+  //Calcola le coordinate dell'utente tramite l'indirizzo IP
+  $coordinates = get_user_coordinates();
 
   if (isset($_GET['query'])) {
     $nome = $_GET['query'];

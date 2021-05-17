@@ -29,14 +29,17 @@ function parseQueryString($queryArray)
 }
 
 /**
- * Ritorna l'ip address dell'utente. 
+ * Calcola le coordinate dell'utente tramite l'indirizzo IP
  */
-function get_ip_address()
+function get_user_coordinates()
 {
   $externalContent = file_get_contents('http://checkip.dyndns.com/');
   preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
   $ip = $m[1];
-  return $ip;
+  $json = file_get_contents("http://ipinfo.io/$ip/geo");
+  $json = json_decode($json, true);
+  $coordinates = explode(',', $json["loc"]);
+  return $coordinates;
 }
 /**
  * Ritorna la distanza tra due coordinate in chilometri
