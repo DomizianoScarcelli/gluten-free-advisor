@@ -40,9 +40,13 @@
 
         while ($row1 = mysqli_fetch_assoc($result1)) {
 
-            $photoarray = json_decode($row1["listaFoto"]);
+            print_r($row1);
+
+            $photoarray = json_decode($row1['listaFoto']);
+            $tagsarray = explode(',', $row1['tags']);
 
             //Codice che mette a null gli ultimi elementi di photoarray se questo contiene meno di 5 foto
+            //Evita che vengano stampati errori se il ristorante ha meno d
             if (sizeof($photoarray) < 5) {
                 for ($j = sizeof($photoarray); $j < 5; $j++) {
                     $photoarray[$j] = null;
@@ -50,20 +54,21 @@
             }
 
             echo "
-                <div class='container border-bottom'>
-                    <h3>{$row1["nome"]}</h3>
+                <div class='border-bottom'id='{$row1['id']}'>
+                    <h3>{$row1['nome']}</h3>
                     <div class='row mb-2'>
                         <div class='col-sm'>
-                            <span class='span-left'>
-                            <b>Indirizzo: </b><i>{$row1["indirizzo"]}</i>
+                            <span style='float:left'>
+                            <b>Indirizzo: </b><i>{$row1['indirizzo']}</i>
                             </span>
                         </div>
                         <div class='col-sm'>
-                            <span class='span-right'>
+                            <span style='float:right'>
                                 Valutazione degli utenti:
                                 <span>
             ";
 
+            //Se il ristorante ha più di 0 recensioni
             if (mysqli_num_rows($result2) > 0 && mysqli_num_rows($result3) > 0) {
 
                 while ($row2 = mysqli_fetch_assoc($result2)) {
@@ -97,20 +102,29 @@
                         </div>
 
                         <!--Images grid-->
-                        <div class='container'>
-                            <div class='animated-grid'>
-                                <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
-                                <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})'></div>
-                                <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})'></div>
-                                <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})'></div>
-                                <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})'></div>
-                            </div>
+                        <div class='animated-grid'>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})'></div>
                         </div>
                         ";                  
                         
                         echo "
+                            <!--Servizi del ristorante-->
+                            <div class='border-top border-bottom'>
+                                <h3 class='mt-3'>Servizi</h3>";
+                        if (sizeof($tagsarray) > 0) {
+                            for ($j = 0; $j < sizeof($tagsarray); $j++) {
+                                echo "$tagsarray[$j] ";
+                                }
+                            }
+                        echo "
+                            </div>
+
                             <!--Intestazione Recensioni-->
-                            <div class='container border-top border-bottom'>
+                            <div class='border-top border-bottom'>
                                 <h3 class='mt-3'>Recensioni</h3>
                                 <p>Numero di recensioni per questo ristorante: {$row2['COUNT(*)']}</p>
                             </div>
@@ -124,22 +138,28 @@
                     //$date = date_format($datestamp, "d/m/Y H:i:s");
 
                     echo "
-
-                        <!--Restyling da fare-->
-                        <div class='my-container'>
-                            <div class='row align-items-center'>
-                                <div class='col-sm'>
-                                    <h5>\"{$row3['titolo']}\"</h5>
-                                    <p>{$row3['testo']}</p>
+                        <div class='card mb-3' style='max-width: 70rem;' id='{$row3['id_recensione']}'>
+                            <div class='row card-body'>
+                                <div class='col-md-2 user-container'>
                                     Autore:
-                                    <p>{$row3['nome']} {$row3['cognome']}</p>
-                                    Data:
-                                    <p>$new_date</p>
+                    ";
+                    if ($row3['username'] == 'anonimo') {
+                        echo "<p><i>{$row3['username']}_{$row3['id']}</i></p>";
+                    }
+                    else {
+                        echo "<p><i>{$row3['username']}</i></p>";
+                    }
+                    echo "
+                                </div>
+                                <div class='col-md-10 review-container'>
+                                    <div class='title-container'>
+                                        <h5>\"{$row3['titolo']}\"</h5>
+                                        <p class='card-text'>{$row3['testo']}</p>
+                                        <p><b>Data della visita:</b> $new_date</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
                                 <!--Recensioni vecchia versione
                                 <div class='my-container'>
                                     <div class='row align-items-center'>
@@ -161,6 +181,7 @@
                     ";
                 }
             }
+            //Se il ristorante non ha recensioni
             else {
                 for ($i = 0; $i < 5; $i++) {
                     echo "

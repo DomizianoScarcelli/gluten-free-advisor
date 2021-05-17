@@ -1,3 +1,73 @@
+.header {
+	display: flex;
+	background-color: #ccd5ae;
+	justify-content: center;
+	align-items: center;
+	height: 7rem;
+}
+.primary-text {
+	font-size: 1.5rem;
+	color: #41405f;
+	font-family: 'Noto Sans', sans-serif;
+	transition: color 500ms;
+	font-weight: bold;
+}
+
+.header-logo {
+	padding-right: 3rem;
+	width: auto;
+	height: 5rem;
+	cursor: pointer;
+}
+
+.searchbar {
+	height: 3rem;
+	width: 25rem;
+}
+
+.background {
+	font-family: 'Cardo', serif;
+	background-color: white;
+}
+
+.card {
+	transition: background-color 500ms;
+}
+
+.card:hover {
+	background-color: #e9edc9;
+	cursor: default;
+}
+
+.card-title {
+	font-weight: bold;
+}
+
+.card.tag .card-text:hover {
+	color: white;
+}
+
+.card-body {
+	display: flex;
+	height: 100%;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.title-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+/*Older version of review cards
 .my-container {
     border: 2px solid #dedede;
     background-color: #f1f1f1;
@@ -17,20 +87,6 @@
     display: table;
 }
 
-.my-container img {
-    /*float: left;*/
-    max-width: 60px;
-    width: 100%;
-    /*margin-right: 20px;*/
-    border-radius: 50%;
-}
-
-.my-container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right: 0;
-}
-
 .date-right {
     float: right;
     margin-right: 20px;
@@ -39,18 +95,10 @@
 
 .date-left {
     float: left;
-    /*margin-left: 20px;*/
+    /*margin-left: 20px;
     color: #999;
 }
 
 .data {
     color: #aaa;
-}
-
-.span-right {
-    float:right;
-}
-
-.span-left {
-    float: left;
-}
+} */

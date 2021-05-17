@@ -43,4 +43,6 @@ body {
 
 .risto-container {
     padding: 1 rem;
+    width: auto;
+    justify-content: center;
 }
