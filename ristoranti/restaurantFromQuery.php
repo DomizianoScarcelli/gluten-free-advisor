@@ -42,6 +42,13 @@
 
             $photoarray = json_decode($row1["listaFoto"]);
 
+            //Codice che mette a null gli ultimi elementi di photoarray se questo contiene meno di 5 foto
+            if (sizeof($photoarray) < 5) {
+                for ($j = sizeof($photoarray); $j < 5; $j++) {
+                    $photoarray[$j] = null;
+                }
+            }
+
             echo "
                 <div class='container border-bottom'>
                     <h3>{$row1["nome"]}</h3>
@@ -155,7 +162,31 @@
                 }
             }
             else {
+                for ($i = 0; $i < 5; $i++) {
+                    echo "
+                            <span class='fa fa-star'></span>
+                        ";
+                }
+
                 echo "
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Images grid-->
+                    <div class='container'>
+                        <div class='animated-grid'>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})'></div>
+                        </div>
+                    </div>
+                        
+
                     <!--Intestazione Recensioni-->
                     <div class='container border-top border-bottom'>
                         <h3 class='mt-3'>Recensioni</h3>
