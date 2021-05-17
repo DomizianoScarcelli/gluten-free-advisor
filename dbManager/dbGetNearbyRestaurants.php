@@ -20,7 +20,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     $count = 0;
     //Itera sulle righe risultato della query
-    while (($row = mysqli_fetch_assoc($result)) && $count <= 6) {
+    while (($row = mysqli_fetch_assoc($result)) && $count < 6) {
         $photoArray = json_decode($row["listaFoto"]);
         $distance = get_distance($coordinates[0], $coordinates[1], $row['latitudine'], $row['longitudine']);
         if ($distance < 10) {
