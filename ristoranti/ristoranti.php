@@ -65,10 +65,13 @@
                 <form action="addReview.php" method="POST" name="formReview" onsubmit="">
                     <h4>Aggiungi una recensione</h4>
                     Titolo:
-                    <input type="text" name="titolo-review" size="20" maxlength="20" placeholder="Aggiungi un titolo...">
+                    <input type="text" name="titolo-review" size="20" maxlength="20" placeholder="Aggiungi un titolo..." required>
                     <label for="data-visita">Data della visita:</label>
                     <input type="date" id="data-visita" name="dataVisita">
                     <br>
+                    <label for="nome-utente">Nome utente:</label>
+                    <input type="text" id="nome-utente" name="nomeUtente">
+                    <br>                    
                     <textarea name="inputRecensione" id="textarea-recensione" cols="30" rows="5" 
                         placeholder="Scrivi qui la tua recensione..." required></textarea>
                     <br>

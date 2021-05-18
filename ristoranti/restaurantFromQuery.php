@@ -19,9 +19,10 @@
     if (!$conn) {
         echo "<h3>Connessione al database locale fallita</h3>";
     }
+    /*
     else {
         echo "<p>Ecco il ristorante che cercavi:</p>";
-    }
+    }*/
 
     //Query che mi servono
     $q1 = "SELECT * FROM dati_ristoranti WHERE id = $id";  //Seleziona i dati del ristorante corrente (serve per nome e indirizzo)
@@ -40,10 +41,10 @@
 
         while ($row1 = mysqli_fetch_assoc($result1)) {
 
-            print_r($row1);
+            //print_r($row1);
 
             $photoarray = json_decode($row1['listaFoto']);
-            $tagsarray = explode(',', $row1['tags']);
+            $tagsarray = explode(',', str_replace(('"'), ',', $row1['tags']));
 
             //Codice che mette a null gli ultimi elementi di photoarray se questo contiene meno di 5 foto
             //Evita che vengano stampati errori se il ristorante ha meno d
@@ -126,7 +127,7 @@
                             <!--Intestazione Recensioni-->
                             <div class='border-top border-bottom'>
                                 <h3 class='mt-3'>Recensioni</h3>
-                                <p>Numero di recensioni per questo ristorante: {$row2['COUNT(*)']}</p>
+                                <p>Numero di recensioni per questo ristorante: <b>{$row2['COUNT(*)']}</b></p>
                             </div>
                         ";
                 }
@@ -140,44 +141,27 @@
                     echo "
                         <div class='card mb-3' style='max-width: 70rem;' id='{$row3['id_recensione']}'>
                             <div class='row card-body'>
-                                <div class='col-md-2 user-container'>
-                                    Autore:
-                    ";
-                    if ($row3['username'] == 'anonimo') {
-                        echo "<p><i>{$row3['username']}_{$row3['id']}</i></p>";
-                    }
-                    else {
-                        echo "<p><i>{$row3['username']}</i></p>";
-                    }
-                    echo "
-                                </div>
                                 <div class='col-md-10 review-container'>
                                     <div class='title-container'>
                                         <h5>\"{$row3['titolo']}\"</h5>
-                                        <p class='card-text'>{$row3['testo']}</p>
-                                        <p><b>Data della visita:</b> $new_date</p>
+                                        <p class='card-text'>{$row3['testo']}
+                                            <br><br>
+                                            <b>Data della visita:</b> $new_date
+                                        </p>
                                     </div>
+                                </div>
+                                <div class='col-md-2 user-container'>
+                                ";
+                    if ($row3['username'] == 'anonimo') {
+                        echo "<b>Autore:</b> <i>{$row3['username']}_{$row3['id']}</i>";
+                    }
+                    else {
+                        echo "<b>Autore:</b> <i>{$row3['username']}</i>";
+                    }
+                    echo "
                                 </div>
                             </div>
                         </div>
-                                <!--Recensioni vecchia versione
-                                <div class='my-container'>
-                                    <div class='row align-items-center'>
-                                        <div class='col-sm-2'>
-                                            Autore:
-                                            <p>nome utente</p>
-                                        </div>
-                                        <div class='col-sm-9'>
-                                            <h5>\"{$row3['titolo']}\"</h5>
-                                            <p>{$row3['testo']}</p>
-                                            <span class='date-left'>gg.mm.aa</span>
-                                            <span class='date-right'>11:02</span>
-                                        </div>
-                                        <div class='col-sm-1'>
-                                            Colonna vuota per allineamento
-                                        </div>
-                                    </div>
-                                </div> -->
                     ";
                 }
             }
@@ -211,7 +195,11 @@
                     <!--Intestazione Recensioni-->
                     <div class='container border-top border-bottom'>
                         <h3 class='mt-3'>Recensioni</h3>
-                        <p>Numero di recensioni per questo ristorante: 0</p>
+                        <p>
+                            Numero di recensioni per questo ristorante: <b>ancora nessuna</b>.
+                            <br>
+                            Aggiungi per primo una recensione compilando il form!
+                        </p>
                     </div>
                 ";
             }

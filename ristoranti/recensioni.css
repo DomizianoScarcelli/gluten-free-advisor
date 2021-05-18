@@ -35,7 +35,7 @@
 }
 
 .card:hover {
-	background-color: #e9edc9;
+	background-color: #f0f1e5;
 	cursor: default;
 }
 
@@ -66,39 +66,3 @@
     text-align: center;
     justify-content: center;
 }
-
-/*Older version of review cards
-.my-container {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-.alt {
-    border-color: rgb(194, 191, 191);
-    background-color: #e4ebd3;
-}
-
-.my-container::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.date-right {
-    float: right;
-    margin-right: 20px;
-    color: #aaa;
-}
-
-.date-left {
-    float: left;
-    /*margin-left: 20px;
-    color: #999;
-}
-
-.data {
-    color: #aaa;
-} */
