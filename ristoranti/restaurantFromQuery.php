@@ -41,8 +41,6 @@
 
         while ($row1 = mysqli_fetch_assoc($result1)) {
 
-            //print_r($row1);
-
             $photoarray = json_decode($row1['listaFoto']);
             $tagsarray = explode(',', str_replace(('"'), ',', $row1['tags']));
 
@@ -54,6 +52,7 @@
                 }
             }
 
+            //NOME E INDIRIZZO DEL RISTORANTE
             echo "
                 <div class='border-bottom'id='{$row1['id']}'>
                     <h3>{$row1['nome']}</h3>
@@ -62,8 +61,6 @@
                             <span style='float:left'>
                             <b>Indirizzo: </b><i>{$row1['indirizzo']}</i>
                             </span>
-                        </div>
-                        <div class='col-sm'>
                             <span style='float:right'>
                                 Valutazione degli utenti:
                                 <span>
@@ -74,6 +71,7 @@
 
                 while ($row2 = mysqli_fetch_assoc($result2)) {
 
+                    //STAR RATING
                     //Calcola il numero di stelle da checkare facendo la media delle valutazioni degli utenti (ognuna un numero da 1 a 5)
                     if (mysqli_num_rows($result4) > 0) {
                         while ($row4 = mysqli_fetch_assoc($result4)) {
@@ -101,7 +99,10 @@
                                 </div>
                             </div>
                         </div>
+                    ";
 
+                    //GRIGLIA DI IMMAGINI
+                    echo "
                         <!--Images grid-->
                         <div class='animated-grid'>
                             <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
@@ -111,24 +112,47 @@
                             <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})'></div>
                         </div>
                         ";                  
-                        
-                        echo "
+                    
+                    //DETTAGLI DEL RISTORANTE
+                    echo "
                             <!--Servizi del ristorante-->
                             <div class='border-top border-bottom'>
-                                <h3 class='mt-3'>Servizi</h3>";
+                                <div class='row card-body'>
+                                    <div class='col-md-6>
+                                        <h3 class='mt-3'>Dettagli</h3>
+                        ";
+                        
+                        //Checks whether description is empty or not
+                        if (empty($row1['descrizione'])) {
+                            echo "<p>Nesssuna descrizione purtroppo...</p>";
+                        }
+                        else {
+                            echo "<p>{$row1['descrizione']}</p>
+                            <p>
+                            ";
+                        }                        
+
+                        //Checks wheter tag list is empty or not
                         if (sizeof($tagsarray) > 0) {
                             for ($j = 0; $j < sizeof($tagsarray); $j++) {
                                 echo "$tagsarray[$j] ";
                                 }
                             }
                         echo "
+                                    </p>
+                                </div>
+                            <div clas='col-md-6>
                             </div>
-
-                            <!--Intestazione Recensioni-->
-                            <div class='border-top border-bottom'>
-                                <h3 class='mt-3'>Recensioni</h3>
-                                <p>Numero di recensioni per questo ristorante: <b>{$row2['COUNT(*)']}</b></p>
                             </div>
+                            ";
+                        
+                        //RECENSIONI
+                    echo "
+                        <!--Intestazione Recensioni-->
+                        <div class='border-top border-bottom text-center'>
+                            <h3 class='mt-3'>Recensioni</h3>
+                            <p>Numero di recensioni per questo ristorante: <b>{$row2['COUNT(*)']}</b></p>
+                        </div>
                         ";
                 }
 
@@ -136,14 +160,13 @@
 
                     $datestamp = strtotime("{$row3['data']}");
                     $new_date = date("d-m-Y", $datestamp);
-                    //$date = date_format($datestamp, "d/m/Y H:i:s");
 
                     echo "
                         <div class='card mb-3' style='max-width: 70rem;' id='{$row3['id_recensione']}'>
                             <div class='row card-body'>
                                 <div class='col-md-10 review-container'>
                                     <div class='title-container'>
-                                        <h5>\"{$row3['titolo']}\"</h5>
+                                        <h5>\"<b>{$row3['titolo']}</b>\"</h5>
                                         <p class='card-text'>{$row3['testo']}
                                             <br><br>
                                             <b>Data della visita:</b> $new_date
@@ -205,6 +228,21 @@
             }
         }
     }
+
+    /*
+                        <div class='row mb-2'>
+                            <div class='col-sm'>
+                                <b>Descrizione: </b> 
+                        
+                            /*if ($row1['descrizione'] == null) {
+                                echo "Non è ancora presente una descrizione.";
+                            }
+                            if ($row1['descrizione']) {
+                                echo "{$row1['descrizione']}";      
+                            }
+                    
+                                </div>
+                            </div>*/
 
     mysqli_close($conn);
 
