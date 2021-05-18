@@ -102,54 +102,109 @@
                     ";
 
                     //GRIGLIA DI IMMAGINI
+                    $num_photo = sizeof($photoarray);
+
                     echo "
+                        
                         <!--Images grid-->
                         <div class='animated-grid'>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})' onclick='openModalSlideshow();currentSlide(1)'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})' onclick='openModalSlideshow();currentSlide(2)'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})' onclick='openModalSlideshow();currentSlide(3)'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})' onclick='openModalSlideshow();currentSlide(4)'></div>
+                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})' onclick='openModalSlideshow();currentSlide(5)'></div>
                         </div>
-                        ";                  
-                    
+                    ";
+
+                    //MODAL SLIDESHOW
+                    echo "
+                        <div id='modalslides' class='modal'>
+                            <span class='close-cursor' onclick='closeModalSlideshow()'>&times;</span>
+                            <div class='modal-content'>  ";
+                            
+                                for ($k = 0; $k < $num_photo; $k++) {
+                                    $index = $k + 1;
+                                    echo "      <div class='slides'>
+                                                    <div class='numbertext'>{$index} / {$num_photo}</div>
+                                                    <img src='../img/upload/{$photoarray[$k]}' style='width:100%'>
+                                                </div>
+                                        ";               
+                                }  
+                    echo "  
+                                <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+                                <a class='next' onclick='plusSlides(1)'>&#10095;<a>
+                        ";
+                            
+                                for ($k = 0; $k < $num_photo; $k++) {
+                                    echo "      <div class='column'>
+                                                    <img class='demo' src='../img/upload/{$photoarray[$k]}' onclick='currentSlide($k)' alt='slide$k'>
+                                                </div>
+                                        ";
+                                }
+                    echo "
+                            </div>
+                        </div>
+                        ";
+                    /*
                     //DETTAGLI DEL RISTORANTE
                     echo "
                             <!--Servizi del ristorante-->
-                            <div class='border-top border-bottom'>
-                                <div class='row card-body'>
-                                    <div class='col-md-6>
-                                        <h3 class='mt-3'>Dettagli</h3>
+                            <div class='border-top border-bottom' style='max-width: 70rem;' id='{$row1['id']}'>
+                                <div class='row mt-3 mb-3 g-0 row-with-gap'>
+                                    <div class='col-md-6 mr-2 card'>
+                                        <div class='static-card-body'>
+                                            <h3>Dettagli</h3>       
                         ";
                         
-                        //Checks whether description is empty or not
+                        Checks whether description is empty or not
                         if (empty($row1['descrizione'])) {
-                            echo "<p>Nesssuna descrizione purtroppo...</p>";
+                            echo "<p>Nesssuna descrizione purtroppo...</p>
+                                        <p>
+                                        <ul>      
+                            ";
                         }
                         else {
                             echo "<p>{$row1['descrizione']}</p>
-                            <p>
+                                        <p>
+                                        <ul>
                             ";
                         }                        
 
                         //Checks wheter tag list is empty or not
                         if (sizeof($tagsarray) > 0) {
-                            for ($j = 0; $j < sizeof($tagsarray); $j++) {
-                                echo "$tagsarray[$j] ";
+                            for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                                echo "<li>$tagsarray[$j]</li>";
                                 }
                             }
                         echo "
-                                    </p>
+                                        </ul>
+                                        </p>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6 ml-2'>
+
+                                        <div class='row text-right'>
+                                            <h3>Aggiungi info</h3>
+                                        </div>
+                                        <div class='row'>
+                                            <p>
+                                            Conosci questo ristorante?
+                                            Aiutaci a completare il suo profilo aggiungendo la tua esperienza!
+                                            </p>
+                                        </div>
+                                        <div class='row'>
+                                            <button>Vai al form</button>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            <div clas='col-md-6>
                             </div>
-                            </div>
-                            ";
+                            ";      */
                         
-                        //RECENSIONI
+                    //RECENSIONI
                     echo "
                         <!--Intestazione Recensioni-->
-                        <div class='border-top border-bottom text-center'>
+                        <div class='text-center'>
                             <h3 class='mt-3'>Recensioni</h3>
                             <p>Numero di recensioni per questo ristorante: <b>{$row2['COUNT(*)']}</b></p>
                         </div>

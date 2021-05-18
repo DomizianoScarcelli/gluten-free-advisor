@@ -12,15 +12,20 @@
     <link rel="stylesheet" href="../css/searchbars.css">
     <link rel="stylesheet" href="../css/modal-form.css">
     <link rel="stylesheet" href="../css/sidebar.css">
-    <!--<link rel="stylesheet" href="../css/search-page.css">-->
 
     <link rel="stylesheet" href="ristoranti.css" type="text/css">
     <link rel="stylesheet" href="animated-grid.css" type="text/css">
     <link rel="stylesheet" href="recensioni.css" type="text/css">
+    <lick rel="stylesheet" href="description.css" type="text/css">
+
+    <lick rel="stylesheet" href="slideshow.css" type="text/css">
+    <script src="slideshow.js" defer></script>
+
 
      <!--Javascript-->
     <script src="../js/addRestaurant.js" defer></script>
     <script src="../js/search.js" defer></script>
+
 
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
@@ -49,7 +54,7 @@
 
     <!--Header-->
     <div class="header" id="header">
-        <img src="../img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.php'" />
+        <img src="../img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = '../../index.php'" />
         <input type="search" class="searchbar" id="searchbar" />
     </div>
 
