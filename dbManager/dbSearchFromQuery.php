@@ -61,8 +61,8 @@ if (!$conn) {
         $priceSymbol = getPriceSymbol($tagArray);
 
         echo "
-        <div class='card mb-3' style='max-width: 50rem;' value='id' id='{$row["id"]}' value='{$row["id"]}' onclick='doEvent(this)'>
-          <div class='row g-0'>
+        <div class='card mb-3' style='max-width: 50rem;' >
+          <div class='row g-0' id='{$row["id"]}' onclick='redirectRestaurant(this)'>
               <div class='col-md-4 card-img-container'>
                   <img class='card-img' src='img/upload/{$photoArray[0]}'>
               </div>
@@ -87,16 +87,30 @@ if (!$conn) {
                       </div>
                       <div class='tags-container' value='{$row['tags']}'>
                       ";
-
+        //Inserisce per primi i tag che sono stati selezionati
         foreach ($tagArray as $tag) {
           if (!in_array($tag, ['Economico', 'Nella media', 'Raffinato'])) {
-            echo "   
-                        <div class='card tag'>
-                          <div class='card-text' onclick='setTag(this)'>{$tag}</div>
-                        </div>
+            if (in_array($tag, $currentTags)) {
+              echo "   
+                        <button class='card tag black' id='{$tag}-card-tag' value='{$tag}' onclick='tagClick(event, this)'>
+                          <div class='card-text white' >{$tag}</div>
+                        </button>
+                      ";
+            }
+          }
+        }
+        //Inserisce dopo i tag che non sono stati selezionati
+        foreach ($tagArray as $tag) {
+          if (!in_array($tag, ['Economico', 'Nella media', 'Raffinato'])) {
+            if (!in_array($tag, $currentTags)) {
+              echo "   
+                        <button class='card tag' id='{$tag}-card-tag' value='{$tag}' onclick='tagClick(event, this)'>
+                          <div class='card-text' >{$tag}</div>
+                        </button>
                         
                       
                       ";
+            }
           }
         }
         echo "
@@ -116,4 +130,3 @@ if (!$conn) {
 
   mysqli_close($conn);
 }
-

@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
             $count++;
             echo "
                         <div class='col'>
-                            <div class='card' id='{$row['id']}' onclick='doEvent(this)'>
+                            <div class='card' id='{$row['id']}' onclick='redirectRestaurant(this)'>
                                 <img class='card-image' src='img/upload/{$photoArray[0]}'>
                                 <div class='card-body'>
                                     <h5 class='card-title'>{$row["nome"]}</h5>

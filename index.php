@@ -12,7 +12,7 @@
     <script src="js/addRestaurant.js" defer></script>
     <script src="js/search.js" defer></script>
     <script src="js/autocompletion.js" defer></script>
-    <script src="js/click.js" defer></script>
+    <script src="js/searchPage.js" defer></script>
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 

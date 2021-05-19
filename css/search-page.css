@@ -109,3 +109,11 @@
 	flex-direction: row;
 	justify-content: space-between;
 }
+
+.black {
+	background-color: black !important;
+}
+
+.white {
+	color: white !important;
+}
