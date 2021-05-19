@@ -91,42 +91,48 @@
 
                             <!--Prima colonna-->
                             <div class="col">
+                                
                                 <form action="" id="form">
-                                    <!--Username (facoltativo)-->
-                                    <p class="label">Username<br>
-                                    (se NON vuoi aggiungere uno username, la recensione verrà aggiunta in forma anonima)</p>
-                                    <input class='text-input' type="text" id="username" placeholder="..anonimo.." /><br />
 
                                     <!--Titolo della recensione-->
-                                    <p class="label" id='titolo' value='titolo'>Titolo<sup>*</sup></p>
-                                    <input class='text-input' type="text" id="titolo-recensione" placeholder="es. Splendida serata" />
+                                    <p class="label" id='titolo' value='titolo'>Titolo della tua recensione<sup>*</sup></p>
+                                    <input class='text-input' type="text" id="review-title" placeholder="es. Splendida serata" />                                  
+
+                                    <!--Testo della recensione-->
+                                    <p class="label" id='testo-recensione'>La tua recensione<sup>*</sup></p>
+                                    <textarea form='form' cols='30' row='20' class='text-input long-text-input' id="review-text" placeholder="es. Ottimo cibo, servizio rapido e personale disponibile. Lo consiglio."></textarea>
+                                    
                             </div>
 
                             <!--Seconda colonna-->
-                            <div class="col">                     
+                            <div class="col"> 
+
                                     <!--Data della visita-->
-                                    <p class="label" id='data'>Data della visita<sup>*</sup></p>
-                                    <input type="date" id='data-visita' name="data-visita" />
+                                    <p class="label" id='data'>Quando ci sei stato?<sup>*</sup></p>
+                                    <input type="date" id='review-date' name="data-visita" />
+
                                     <!--Valutazione per lo star rating (da 1 a 5)-->
                                     <p class="label" id='valutazione'>Che punteggio daresti a questo ristorante?<sup>*</sup></p>
                                     <label class="radio">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1&emsp;
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 1&emsp;
                                     </label>
                                     <label class="radio">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2&emsp;
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 2&emsp;
                                     </label>
                                     <label class="radio">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3&emsp;
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3"> 3&emsp;
                                     </label>
                                     <label class="radio">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3"> 4&emsp;
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4"> 4&emsp;
                                     </label>
                                     <label class="radio">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option3"> 5&emsp;
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5"> 5&emsp;
                                     </label>
-                                    <!--Testo della recensione-->
-                                    <p class="label" id='testo-recensione'>Testo della recensione</p>
-                                    <textarea form='form' cols='30' row='20' class='text-input long-text-input' id="review-description" placeholder="es. Ottimo cibo, servizio rapido e personale disponibile. Lo consiglio."></textarea>
+
+                                    <!--Username (facoltativo)-->
+                                    <p class="label">Il tuo username?<br>
+                                    (se NON vuoi inserire uno username, la recensione verrà aggiunta in forma anonima)</p>
+                                    <input class='text-input' type="text" id="username" placeholder="..anonimo.." /><br />
                             </div>         
                             </form>
 
