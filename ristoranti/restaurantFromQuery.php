@@ -27,9 +27,9 @@
     //Query che mi servono
     $q1 = "SELECT * FROM dati_ristoranti WHERE id = $id";  //Seleziona i dati del ristorante corrente (serve per nome e indirizzo)
     $q2 = "SELECT COUNT(*) FROM recensioni WHERE id_ristorante = $id"; //Conta il numero di recensioni per il ristorante corrente
-    $q3 = "SELECT * FROM utenti JOIN recensioni ON id = id_utente WHERE id_ristorante = $id order by data asc"; /*Seleziona
-     gli utenti che hanno aggiunto una recensione per il ristorante corrente*/
-    $q4 = "SELECT valutazione FROM recensioni WHERE id_ristorante = $id";
+    $q3 = "SELECT * FROM recensioni WHERE id_ristorante = $id order by data asc"; //Seleziona tutte le recensioni per il ristorante corrente
+    $q4 = "SELECT valutazione FROM recensioni WHERE id_ristorante = $id"; /*Faccio una query a parte solo per la valutazione in modo da
+    poter settare in modo opportuno il rating del ristorante, prima di iterare sulle recensioni*/
 
     //Esecuzione delle query sul db e memorizzazione del risultato nelle variabili $result_i
     $result1 = mysqli_query($conn, $q1);
@@ -229,14 +229,7 @@
                                     </div>
                                 </div>
                                 <div class='col-md-2 user-container'>
-                                ";
-                    if ($row3['username'] == 'anonimo') {
-                        echo "<b>Autore:</b> <i>{$row3['username']}_{$row3['id']}</i>";
-                    }
-                    else {
-                        echo "<b>Autore:</b> <i>{$row3['username']}</i>";
-                    }
-                    echo "
+                                    <b>Autore:</b> <i>{$row3['username']}</i>
                                 </div>
                             </div>
                         </div>
