@@ -62,7 +62,7 @@ if (!$conn) {
 
         echo "
         <div class='card mb-3' style='max-width: 50rem;' >
-          <div class='row g-0' id='{$row["id"]}' onclick='redirectRestaurant(this)'>
+          <div class='row g-0' id='{$row["id"]}' value='{$row["nome"]}' onclick='redirectRestaurant(this)'>
               <div class='col-md-4 card-img-container'>
                   <img class='card-img' src='img/upload/{$photoArray[0]}'>
               </div>
@@ -92,7 +92,7 @@ if (!$conn) {
           if (!in_array($tag, ['Economico', 'Nella media', 'Raffinato'])) {
             if (in_array($tag, $currentTags)) {
               echo "   
-                        <button class='card tag black' id='{$tag}-card-tag' value='{$tag}' onclick='tagClick(event, this)'>
+                        <button class='card tag black' id='{$tag}-card-tag' onclick='tagClick(event, this)'>
                           <div class='card-text white' >{$tag}</div>
                         </button>
                       ";

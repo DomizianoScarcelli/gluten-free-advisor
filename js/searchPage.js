@@ -6,6 +6,7 @@ var urlParams = new URLSearchParams(location.search);
 function redirectRestaurant(element) {
 	var emptyUrlParams = new URLSearchParams();
 	emptyUrlParams.append('id', element.id);
+	emptyUrlParams.append('name', element.getAttribute('value'));
 	let url = new URL(location.origin + '/ristoranti/ristoranti.php?' + emptyUrlParams);
 	location.href = url;
 }

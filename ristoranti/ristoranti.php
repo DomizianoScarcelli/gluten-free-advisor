@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Ristorante - pagina descrittiva</title>
+<?php echo "<title>Ristorante - {$_GET['name']}</title>"; ?> <!--Setta in maniera dinamica il titolo della pagina con il nome del ristorante-->
     <!--Meta tags-->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
