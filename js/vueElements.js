@@ -141,11 +141,7 @@ var filterCheckboxes = new Vue({
 			formattedValue = value.replaceAll(' ', '-');
 			//Se il parametro è gia stato inserito e la checkbox viene di nuovo cliccata, allora lo toglie
 			if (urlParams.getAll(element.title + '[]').includes(formattedValue)) {
-				array = urlParams.getAll(element.title + '[]').filter((el) => el != formattedValue);
-				urlParams.delete(element.title + '[]');
-				array.forEach((value) => {
-					urlParams.append(element.title + '[]', value.replaceAll(' ', '-'));
-				});
+				removeValueQuery(element.title + '[]', formattedValue);
 				//Altrimenti lo inserisce
 			} else {
 				urlParams.append(element.title + '[]', formattedValue);
@@ -157,9 +153,7 @@ var filterCheckboxes = new Vue({
 	//checka le checkbox corrispondenti.
 	mounted: () => {
 		var urlParams = new URLSearchParams(location.search);
-
 		array = ['Servizi del ristorante', 'Prezzo', 'Piatti', 'Restrizioni alimentari'];
-
 		for (let key of array) {
 			for (let servizio of urlParams.getAll(key + '[]')) {
 				document.getElementById(servizio).checked = true;
