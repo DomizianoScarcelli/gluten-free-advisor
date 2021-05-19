@@ -92,7 +92,7 @@ if (!$conn) {
           if (!in_array($tag, ['Economico', 'Nella media', 'Raffinato'])) {
             if (in_array($tag, $currentTags)) {
               echo "   
-                        <button class='card tag black' id='{$tag}-card-tag' onclick='tagClick(event, this)'>
+                        <button class='card tag black' value='{$tag}' onclick='tagClick(event, this)'>
                           <div class='card-text white' >{$tag}</div>
                         </button>
                       ";

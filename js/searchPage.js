@@ -25,7 +25,9 @@ function setTag(value) {
 		tagMap.set(element.title, element.values);
 	}
 	tagMap = reverseMap(tagMap);
+	console.log(tagMap);
 	if (urlParams.getAll(tagMap.get(value) + '[]').includes(value.replaceAll(' ', '-'))) {
+		console.log('pineto');
 		removeValueQuery(tagMap.get(value) + '[]', value.replaceAll(' ', '-'));
 	} else {
 		urlParams.append(tagMap.get(value) + '[]', value.replaceAll(' ', '-'));

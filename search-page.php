@@ -50,7 +50,7 @@
                 <!--Range selector-->
                 <div class="sidebar-inside-container">
                     <p class="sidebar-element-title">Distanza</p>
-                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='500' step='5' onchange="updateQueryString()" oninput='updateShownDistance()'>
+                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='200' step='2' onchange="updateQueryString()" oninput='updateShownDistance()'>
 
                     <p class='label' id='distance-slider-value'>50km</p>
 
