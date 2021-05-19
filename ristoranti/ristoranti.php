@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='it'>
 
 <head>
 <?php echo "<title>Ristorante - {$_GET['name']}</title>"; ?> <!--Setta in maniera dinamica il titolo della pagina con il nome del ristorante-->
@@ -22,9 +22,12 @@
     <script src="slideshow.js" defer></script>
 
 
-     <!--Javascript-->
-    <script src="../js/addRestaurant.js" defer></script>
+     <!--Javascript
+    <script src="../js/addRestaurant.js" defer></script>-->
     <script src="../js/search.js" defer></script>
+
+    <script src="addReview.js" defer></script>
+
 
 
     <!--JQuery-->
@@ -44,9 +47,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-     <!--Vue.js-->
+     <!--Vue.js
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="js/vueElements.js" defer></script>
+    <script src="js/vueElements.js" defer></script>-->
 
 </head>
 

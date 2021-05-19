@@ -27,7 +27,7 @@
     //Query che mi servono
     $q1 = "SELECT * FROM dati_ristoranti WHERE id = $id";  //Seleziona i dati del ristorante corrente (serve per nome e indirizzo)
     $q2 = "SELECT COUNT(*) FROM recensioni WHERE id_ristorante = $id"; //Conta il numero di recensioni per il ristorante corrente
-    $q3 = "SELECT * FROM recensioni WHERE id_ristorante = $id order by data asc"; //Seleziona tutte le recensioni per il ristorante corrente
+    $q3 = "SELECT * FROM recensioni WHERE id_ristorante = $id order by data_recensione asc"; //Seleziona tutte le recensioni per il ristorante corrente
     $q4 = "SELECT valutazione FROM recensioni WHERE id_ristorante = $id"; /*Faccio una query a parte solo per la valutazione in modo da
     poter settare in modo opportuno il rating del ristorante, prima di iterare sulle recensioni*/
 
@@ -54,7 +54,7 @@
 
             //NOME E INDIRIZZO DEL RISTORANTE
             echo "
-                <div class='border-bottom'id='{$row1['id']}'>
+                <div class='border-bottom' name='restaurant-div' id='{$row1['id']}'>
                     <h3>{$row1['nome']}</h3>
                     <div class='row mb-2'>
                         <div class='col-sm'>
@@ -116,7 +116,7 @@
                         </div>
                     ";
 
-                    //MODAL SLIDESHOW
+                    /*MODAL SLIDESHOW
                     echo "
                         <div id='modalslides' class='modal'>
                             <span class='close-cursor' onclick='closeModalSlideshow()'>&times;</span>
@@ -213,7 +213,7 @@
 
                 while ($row3 = mysqli_fetch_assoc($result3)) {
 
-                    $datestamp = strtotime("{$row3['data']}");
+                    $datestamp = strtotime("{$row3['data_recensione']}");
                     $new_date = date("d-m-Y", $datestamp);
 
                     echo "
