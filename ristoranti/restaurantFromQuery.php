@@ -243,7 +243,7 @@
                     ";
                 }
             }
-            //Se il ristorante non ha recensioni
+            //----------Se il ristorante non ha recensioni-----------
             else {
                 for ($i = 0; $i < 5; $i++) {
                     echo "

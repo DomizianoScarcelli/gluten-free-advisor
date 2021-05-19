@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
 
     <link rel="shortcut icon" href="..\img\logos\favicon2.png" type="image/x-icon">
-    <!--<link rel="stylesheet" href="../css/home.css">-->
+    <link rel="stylesheet" href="review-form.css">
     <link rel="stylesheet" href="../css/searchbars.css">
     <link rel="stylesheet" href="../css/modal-form.css">
     <link rel="stylesheet" href="../css/sidebar.css">
@@ -60,34 +60,86 @@
 
     <div class="container risto-container mt-3">
 
+
         <!--Caricamento dinamico dei dati relativi allo specifico ristorante-->
         <?php include "restaurantFromQuery.php";
         ?>
 
-        <!--Container con il form per aggiungere una recensione-->
-        <div id="form-container">
-            <div>
-                <form action="addReview.php" method="POST" name="formReview" onsubmit="">
-                    <h4>Aggiungi una recensione</h4>
-                    Titolo:
-                    <input type="text" name="titolo-review" size="20" maxlength="20" placeholder="Aggiungi un titolo..." required>
-                    <label for="data-visita">Data della visita:</label>
-                    <input type="date" id="data-visita" name="dataVisita">
-                    <br>
-                    <label for="nome-utente">Nome utente:</label>
-                    <input type="text" id="nome-utente" name="nomeUtente">
-                    <br>                    
-                    <textarea name="inputRecensione" id="textarea-recensione" cols="30" rows="5" 
-                        placeholder="Scrivi qui la tua recensione..." required></textarea>
-                    <br>
-                    <!--
-                    Valuta il ristorante con un punteggio da 1 a 5:
-                    <input type="text" name="valutazione" size="10" maxlength="10"> -->
-                    <button class="btn btn-lg btn-primary" name="sendButton" type="submit">Invia</button>
-                    <button class="btn btn-lg btn-primary" name="resetButton" type="reset">Reset</button>
-                </form>
+
+        <!--PULSANTE per aggiungere una recensione-->
+        <div id="add-review-button-container">
+            <div id="add-review-button" data-toggle="modal" data-target="#exampleModal">
+                <p class="secondary-text light-text">Sei stato in questo ristorante?</p>
+                <h1 class="primary-text light-text">Aggiungi la tua recensione!</h1>
+            </div> 
+        </div>
+
+        <!-- FORM per aggiungere una recensione-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <!--Modal form header-->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Aggiungi una recensione</h5>
+                        <button type="button" class="close btn-close" id="close-button" data-dismiss="modal" aria-label="Close"></button>
+                    </div>                    
+                    <!--Modal form body-->
+                    <div class="modal-body container ui-front" id='modal-body'>
+                        <p class='left-tip'>&emsp;&emsp;I campi contrassegnati da * sono obbligatori</p>
+
+                        <div class="row cols-2">
+
+                            <!--Prima colonna-->
+                            <div class="col">
+                                <form action="" id="form">
+                                    <!--Username (facoltativo)-->
+                                    <p class="label">Username<br>
+                                    (se NON vuoi aggiungere uno username, la recensione verrà aggiunta in forma anonima)</p>
+                                    <input class='text-input' type="text" id="username" placeholder="..anonimo.." /><br />
+
+                                    <!--Titolo della recensione-->
+                                    <p class="label" id='titolo' value='titolo'>Titolo<sup>*</sup></p>
+                                    <input class='text-input' type="text" id="titolo-recensione" placeholder="es. Splendida serata" />
+                            </div>
+
+                            <!--Seconda colonna-->
+                            <div class="col">                     
+                                    <!--Data della visita-->
+                                    <p class="label" id='data'>Data della visita<sup>*</sup></p>
+                                    <input type="date" id='data-visita' name="data-visita" />
+                                    <!--Valutazione per lo star rating (da 1 a 5)-->
+                                    <p class="label" id='valutazione'>Che punteggio daresti a questo ristorante?<sup>*</sup></p>
+                                    <label class="radio">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1&emsp;
+                                    </label>
+                                    <label class="radio">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2&emsp;
+                                    </label>
+                                    <label class="radio">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3&emsp;
+                                    </label>
+                                    <label class="radio">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3"> 4&emsp;
+                                    </label>
+                                    <label class="radio">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option3"> 5&emsp;
+                                    </label>
+                                    <!--Testo della recensione-->
+                                    <p class="label" id='testo-recensione'>Testo della recensione</p>
+                                    <textarea form='form' cols='30' row='20' class='text-input long-text-input' id="review-description" placeholder="es. Ottimo cibo, servizio rapido e personale disponibile. Lo consiglio."></textarea>
+                            </div>         
+                            </form>
+
+                        </div>
+                    </div>
+                    <!--Modal form submit button-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn review-btn" id="submit-review-button">Invia</button>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 
 </body>
