@@ -147,16 +147,22 @@
                         ";  */
                     
                     //DETTAGLI DEL RISTORANTE
+                    $SERVIZI_DEL_RISTORANTE = ['Consegna a domicilio', 'Da asporto', 'Consumazione sul posto', 'Cucina separata'];
+                    $PREZZO = ['Economico', 'Nella media', 'Raffinato'];
+                    $PIATTI = ['Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato'];
+                    $RESTRIZIONI_ALIMENTARI = ['Per vegetariani', 'Per vegani'];
+
                     echo "
                             <!--Servizi del ristorante-->
                             <div class='border-top border-bottom' style='max-width: 70rem;' id='{$row1['id']}'>
                                 <div class='row cols-2 details-container'>
+
                                     <div class='col-md-6 card'>
                                         <div class='row'>
-                                            <h3 class='mt-1'>Dettagli</h3>
+                                            <h3 class='mt-1'>Offerta del ristorante</h3>
                         ";
                         
-                        //CONTROLLO DESCRIZIONE
+                        //Controllo descrizione
                         if (empty($row1['descrizione'])) {
                             echo "<p>Non è ancora presente una descrizione...</p>";                                       
                            
@@ -165,61 +171,89 @@
                             echo "<p>{$row1['descrizione']}</p>";
                         }
 
-                         /*CONTROLLO LISTA DETTAGLI
-                            if (sizeof($tagsarray) > 0) {
-                                for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
-                                    echo "<li>$tagsarray[$j]</li>";
-                                    }
-                                }*/
                         
                         //APERTURA TAG CON LA LISTA DEI DETTAGLI
                         echo"           
                                         </div>
+
                                         <div class='row cols-2'> 
                                             <div class='col'>
                                                 SERVIZI
                                                 <br>
-                                                ~
+                                                <ul>";
+                        //print_r($tagsarray);
+                        for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                            if (in_array($tagsarray[$j], $SERVIZI_DEL_RISTORANTE)) {
+                                echo "<li>$tagsarray[$j]</li>";
+                            }
+                        }
+                        echo "
+                                                <!--~-->
+                                                </ul>
+                                            </div>
+                                            <div class='col'>
+                                                PIATTI
+                                                <br>
+                                                <ul>";
+                        for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                            if (in_array($tagsarray[$j], $PIATTI)) {
+                                echo "<li>$tagsarray[$j]</li>";
+                            }
+                        }
+                        echo "
+                                                    <!--~-->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class='row cols-2'>
+                                            <div class='col'>
+                                                    RESTRIZIONI ALIMENTARI
+                                                    <br>
+                                                    <ul>";
+                        for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                            if (in_array($tagsarray[$j], $RESTRIZIONI_ALIMENTARI)) {
+                                echo "<li>$tagsarray[$j]</li>";
+                            }
+                        }                   
+                        echo "
+                                                <!--~-->
+                                                </ul>
                                             </div>
                                             <div class='col'>
                                                 PREZZO
                                                 <br>
-                                                ~
-                                            </div>
+                                                <ul>";
+                    for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                        if (in_array($tagsarray[$j], $PREZZO)) {
+                            echo "<li>$tagsarray[$j]</li>";
+                        }
+                    }                       
+                        echo "
+                                            <!--~-->
+                                            </ul>
                                         </div>
-                                        <div class='row cols-2'> 
-                                            <div class='col'>
-                                                PIATTI
-                                                <br>
-                                                ~
-                                            </div>
-                                            <div class='col'>
-                                                RESTRIZIONI ALIMENTARI
-                                                <br>
-                                                ~
-                                            </div>
-                                        </div>
-
-                    
+                                    </div>                    
                                     </div>
                                     <div class='col-md-1'>
                                     </div>
-                                    <div class='col-md-5' style='text-align: right'>
 
-                                        <div class='row text-right'>
-                                            <h3>Aggiungi info</h3>
-                                        </div>
-                                        <div class='row'>
-                                            <p>
-                                            Conosci questo ristorante?
-                                            <br>
-                                            Aiutaci a completare il suo profilo aggiungendo la tua esperienza!
-                                            </p>
-                                        </div>
-                                        <div class='row'>
-                                            <button class='addinfo-button'>
-                                                <span>Vai al form</span>
-                                            </button>
+                                    <div class='col-md-5 modify-info' style='text-align: right'>
+                                        <div>
+                                            <div class='row text-right'>
+                                                <h3>Aggiungi informazioni</h3>
+                                            </div>
+                                            <div class='row'>
+                                                <p>
+                                                Conosci questo ristorante?
+                                                <br>
+                                                Aiutaci a completare il suo profilo aggiungendo la tua esperienza!
+                                                </p>
+                                            </div>
+                                            <div class='row'>
+                                                <button class='addinfo-button'>
+                                                    <span>Vai al form</span>
+                                                </button>
+                                            </div>
                                         </div>
                                        
                                     </div>
