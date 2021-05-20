@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="ristoranti.css" type="text/css">
     <link rel="stylesheet" href="animated-grid.css" type="text/css">
     <link rel="stylesheet" href="recensioni.css" type="text/css">
-    <lick rel="stylesheet" href="description.css" type="text/css">
+    <link rel="stylesheet" href="description.css" type="text/css">
 
-    <lick rel="stylesheet" href="slideshow.css" type="text/css">
+    <link rel="stylesheet" href="slideshow.css" type="text/css">
     <script src="slideshow.js" defer></script>
 
 

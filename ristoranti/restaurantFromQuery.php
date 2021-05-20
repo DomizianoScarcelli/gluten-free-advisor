@@ -144,44 +144,67 @@
                     echo "
                             </div>
                         </div>
-                        ";
-                    /*
+                        ";  */
+                    
                     //DETTAGLI DEL RISTORANTE
                     echo "
                             <!--Servizi del ristorante-->
                             <div class='border-top border-bottom' style='max-width: 70rem;' id='{$row1['id']}'>
-                                <div class='row mt-3 mb-3 g-0 row-with-gap'>
-                                    <div class='col-md-6 mr-2 card'>
-                                        <div class='static-card-body'>
-                                            <h3>Dettagli</h3>       
+                                <div class='row cols-2 details-container'>
+                                    <div class='col-md-6 card'>
+                                        <div class='row'>
+                                            <h3 class='mt-1'>Dettagli</h3>
                         ";
                         
-                        Checks whether description is empty or not
+                        //CONTROLLO DESCRIZIONE
                         if (empty($row1['descrizione'])) {
-                            echo "<p>Nesssuna descrizione purtroppo...</p>
-                                        <p>
-                                        <ul>      
-                            ";
+                            echo "<p>Non è ancora presente una descrizione...</p>";                                       
+                           
                         }
                         else {
-                            echo "<p>{$row1['descrizione']}</p>
-                                        <p>
-                                        <ul>
-                            ";
-                        }                        
+                            echo "<p>{$row1['descrizione']}</p>";
+                        }
 
-                        //Checks wheter tag list is empty or not
-                        if (sizeof($tagsarray) > 0) {
-                            for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
-                                echo "<li>$tagsarray[$j]</li>";
-                                }
-                            }
-                        echo "
-                                        </ul>
-                                        </p>
+                         /*CONTROLLO LISTA DETTAGLI
+                            if (sizeof($tagsarray) > 0) {
+                                for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                                    echo "<li>$tagsarray[$j]</li>";
+                                    }
+                                }*/
+                        
+                        //APERTURA TAG CON LA LISTA DEI DETTAGLI
+                        echo"           
                                         </div>
+                                        <div class='row cols-2'> 
+                                            <div class='col'>
+                                                SERVIZI
+                                                <br>
+                                                ~
+                                            </div>
+                                            <div class='col'>
+                                                PREZZO
+                                                <br>
+                                                ~
+                                            </div>
+                                        </div>
+                                        <div class='row cols-2'> 
+                                            <div class='col'>
+                                                PIATTI
+                                                <br>
+                                                ~
+                                            </div>
+                                            <div class='col'>
+                                                RESTRIZIONI ALIMENTARI
+                                                <br>
+                                                ~
+                                            </div>
+                                        </div>
+
+                    
                                     </div>
-                                    <div class='col-md-6 ml-2'>
+                                    <div class='col-md-1'>
+                                    </div>
+                                    <div class='col-md-5' style='text-align: right'>
 
                                         <div class='row text-right'>
                                             <h3>Aggiungi info</h3>
@@ -189,17 +212,20 @@
                                         <div class='row'>
                                             <p>
                                             Conosci questo ristorante?
+                                            <br>
                                             Aiutaci a completare il suo profilo aggiungendo la tua esperienza!
                                             </p>
                                         </div>
                                         <div class='row'>
-                                            <button>Vai al form</button>
+                                            <button class='addinfo-button'>
+                                                <span>Vai al form</span>
+                                            </button>
                                         </div>
-
+                                       
                                     </div>
                                 </div>
                             </div>
-                            ";      */
+                            ";  
                         
                     //RECENSIONI
                     echo "

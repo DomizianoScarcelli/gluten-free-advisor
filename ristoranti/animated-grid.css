@@ -1,3 +1,5 @@
+/* Codice per l'animazione delle immagini sulla pagina del ristorante */
+
 .animated-grid {
     height: 55vh;
     margin-top: 25px;
@@ -5,66 +7,70 @@
     display: grid;
     gap: 0.75rem;
 
-    /*MEMO*/
-    /*Se si elimina il div container della griglia, i margini possono essere gestiti
-    con le proprietà margin-top, margin-bottom, margin-right e margin-left.*/
+    /* MEMO */
+    /* Se si elimina il div container della griglia, i margini possono essere gestiti
+    con le proprietà margin-top, -bottom, -right, -left. */
 
     /* Explicit grid */
     grid-template-areas:
-      'a  a  b  c'
-      'a  a  d  e';
+        'a  a  b  c'
+        'a  a  d  e';
 
     grid-template-rows: repeat(2, 50%);
     grid-template-columns: auto auto auto auto;
-    
-    /*Alternativamente
+        
+    /* Alternativamente
     width: 100%;
     height: 250px;
     grid-template-areas: 
         "a a b c"
         "a a d e";
     grid-template-columns:repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);*/
-  
-    --stagger-delay: 100ms;
-  }
-  
-  @keyframes cardEntrance {
+    grid-template-rows: repeat(2, 1fr); */
+    
+    --stagger-delay: 100ms; 
+}
+
+@keyframes cardEntrance {
     from {
-      opacity: 0;
-      transform: scale(0.3);
-      filter: hue-rotate(180deg);
+        opacity: 0;
+        transform: scale(0.3);
+        filter: hue-rotate(180deg);
     }
     to {
-      opacity: 1;
-      transform: scale(1);
-      filter: hue-rotate(0deg);
+        opacity: 1;
+        transform: scale(1);
+        filter: hue-rotate(0deg);
     }
-  }
+}
     
-  .animated-card {
+.animated-card {
     background-color: #e9edc9;
     animation: cardEntrance 700ms ease-out;
     animation-fill-mode: backwards;
-  }
+}
   
-  .animated-card:nth-child(1) {
+.animated-card:nth-child(1) {
     grid-area: a;
     animation-delay: calc(1 * var(--stagger-delay));
-  }
-  .animated-card:nth-child(2) {
+}
+
+.animated-card:nth-child(2) {
     grid-area: b;
     animation-delay: calc(2 * var(--stagger-delay));
-  }
-  .animated-card:nth-child(3) {
+}
+
+.animated-card:nth-child(3) {
     grid-area: c;
     animation-delay: calc(3 * var(--stagger-delay));
-  }
-  .animated-card:nth-child(4) {
+}
+
+.animated-card:nth-child(4) {
     grid-area: d;
     animation-delay: calc(4 * var(--stagger-delay));
-  }
-  .animated-card:nth-child(5) {
+}
+
+.animated-card:nth-child(5) {
     grid-area: e;
     animation-delay: calc(5 * var(--stagger-delay));
-  }
+}

@@ -1,6 +1,52 @@
-.static-card-body {
-	display: flex;
-	height: 100%;
-	flex-direction: column;
-	justify-content: space-between;
+/* Stile del contenitore della descrizione e modifica ristoranti */
+
+.details-container {
+	padding: 1rem;
+}
+
+/* Stile del bottone di modifica del ristorante */
+
+.addinfo-button {
+	display: inline-block;
+	background-color: #ccd5ae; /* Versione arancione: #d4a373; */
+	border-radius: 20px;
+	border: 1px;
+	color: white;
+	text-align: center;
+	font-size: 28px;
+	padding: 15px;
+/*	width: 50px;*/
+	transition: all 0.5s;
+	cursor: pointer;
+	/*margin: 5px;*/
+}
+
+.addinfo-button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.addinfo-button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s
+}
+
+.addinfo-button:hover {
+	background-color: #e9edc9; /* Versione arancione: #faedcd; */
+	color: #41405f;
+}
+
+.addinfo-button:hover span {
+	padding-right: 25px;
+}
+
+.addinfo-button:hover span:after {
+	opacity: 1;
+	right: 0;
 }
