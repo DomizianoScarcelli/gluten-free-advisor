@@ -29,10 +29,10 @@
 
 
 
-    $name = $_POST['name'];
+    $name = str_replace("'", "''",$_POST['name']);
 
     if (isset($_POST['address'])) {
-        $address = $_POST['address'];
+        $address = str_replace("'", "''", $_POST['address']);
         $latitude = $_POST['latitude'];
         $longitude = $_POST['longitude'];
     } else {
@@ -42,7 +42,7 @@
     }
 
     if (isset($_POST['citta'])) {
-        $city = $_POST['citta'];
+        $city = str_replace("'", "''", $_POST['citta']);
     } else {
         $city = null;
     }
@@ -55,7 +55,7 @@
     }
 
     if (isset($_POST['description'])) {
-        $description = $_POST['description'];
+        $description = str_replace("'", "''", $_POST['description']);
     } else {
         $description = 0;
     }

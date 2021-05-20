@@ -77,7 +77,7 @@
         </div>
         <div class="row row-cols-4 card-list" id='restaurant-suggestion'>
             <div class="col" v-for="restaurant in restaurants">
-                <div class="card">
+                <div class="card" v-bind:id='restaurant.id' onclick='redirectRestaurant(this)'>
                     <img class="card-image" :src="restaurant.image">
                     <div class="card-body">
                         <h5 class="card-title">{{restaurant.title}}</h5>
@@ -104,24 +104,6 @@
                 </div>
             </div>
         </div>
-
-        <!--
-            
-                    <div class="col" v-for='restaurant in restaurants'>
-                        <div class="card">
-                            <img class="card-image" :src="restaurant.image">
-                            <div class="card-body">
-                                <h5 class="card-title">{{restaurant.title}}</h5>
-                                <p class="card-address">{{restaurant.address}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
-
 
     </div>
     <!--Pulsante per il form per aggiungere ristoranti-->

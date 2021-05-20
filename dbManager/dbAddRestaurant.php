@@ -25,8 +25,8 @@
     $encodedFileArray = json_encode($fileArray);
 
 
-    $name = $_POST['name'];
-    $address = $_POST['address'];
+    $name = str_replace("'", "''",$_POST['name']);
+    $address = str_replace("'", "''",$_POST['address']);
 
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
@@ -38,7 +38,7 @@
     }
 
     if (isset($_POST['description'])) {
-        $description = $_POST['description'];
+        $description = str_replace("'", "''", $_POST['description']);
     } else {
         $description = 0;
     }
@@ -53,6 +53,6 @@
 
     $sql = "INSERT INTO `dati_ristoranti` (indirizzo, nome, latitudine, longitudine, descrizione, listaFoto, tags, google) VALUES ('$address', '$name','$latitude','$longitude','$description','$encodedFileArray','$tags', 0)";
 
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
 
     echo $result;

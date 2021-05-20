@@ -40,23 +40,27 @@ var restaurantSuggestions = new Vue({
 		restaurants: [
 			{
 				title: 'Lievito 72',
-				address: 'Via del Forte Braschi, 82/A, 00167 Roma RM',
+				address: 'Via del Forte Braschi, 82a, Roma, RM, Italia',
 				image: 'img/home-restaurants/lievito-72-home.jpg',
+				id: 76,
 			},
 			{
-				title: 'Ristorante Mangiafuoco Pizza&Grill',
-				address: 'Via Chiana, 37, 00198 Roma RM',
-				image: 'img/home-restaurants/mangiafuoco-pizza-grill-home.webp',
+				title: 'Fratelli la Bufala',
+				address: 'Viale di Tor di Quinto, 35, 00191 Roma, RM, Italia',
+				image: 'img/upload/AF1QipMiviPmB1al2PL_Rob34-6Qh2Pwjl807ONEgn9z=s387-k-no.jpg',
+				id: 87,
 			},
 			{
 				title: 'Mama Eat Roma',
 				address: 'Via di S. Cosimato, 7/9, 00153 Roma RM',
 				image: 'img/home-restaurants/mama-eat-roma-home.jpg',
+				id: 77,
 			},
 			{
 				title: 'Cajo & Gajo',
 				address: 'Piazza San Callisto, 10, 00153 Roma',
 				image: 'img/home-restaurants/cajo-&-gajo.png',
+				id: 89,
 			},
 		],
 	},
@@ -65,43 +69,43 @@ var restaurantSuggestions = new Vue({
 /**
  * Vue object for the second restaurant list in the home page (Nearby suggestions)
  */
-var nearbyRestaurants = new Vue({
-	el: '#nearby-suggestions-card-list',
-	data: {
-		restaurants: [
-			{
-				title: 'Lievito 72',
-				address: 'Via del Forte Braschi, 82/A, 00167 Roma RM',
-				image: 'img/home-restaurants/lievito-72-home.jpg',
-			},
-			{
-				title: 'Ristorante Mangiafuoco Pizza&Grill',
-				address: 'Via Chiana, 37, 00198 Roma RM',
-				image: 'img/home-restaurants/mangiafuoco-pizza-grill-home.webp',
-			},
-			{
-				title: 'Mama Eat Roma',
-				address: 'Via di S. Cosimato, 7/9, 00153 Roma RM',
-				image: 'img/home-restaurants/mama-eat-roma-home.jpg',
-			},
-			{
-				title: 'Cajo & Gajo',
-				address: 'Piazza San Callisto, 10, 00153 Roma',
-				image: 'img/home-restaurants/cajo-&-gajo.png',
-			},
-			{
-				title: 'Mama Eat Roma',
-				address: 'Via di S. Cosimato, 7/9, 00153 Roma RM',
-				image: 'img/home-restaurants/mama-eat-roma-home.jpg',
-			},
-			{
-				title: 'Lievito 72',
-				address: 'Via del Forte Braschi, 82/A, 00167 Roma RM',
-				image: 'img/home-restaurants/lievito-72-home.jpg',
-			},
-		],
-	},
-});
+// var nearbyRestaurants = new Vue({
+// 	el: '#nearby-suggestions-card-list',
+// 	data: {
+// 		restaurants: [
+// 			{
+// 				title: 'Lievito 72',
+// 				address: 'Via del Forte Braschi, 82/A, 00167 Roma RM',
+// 				image: 'img/home-restaurants/lievito-72-home.jpg',
+// 			},
+// 			{
+// 				title: 'Ristorante Mangiafuoco Pizza&Grill',
+// 				address: 'Via Chiana, 37, 00198 Roma RM',
+// 				image: 'img/home-restaurants/mangiafuoco-pizza-grill-home.webp',
+// 			},
+// 			{
+// 				title: 'Mama Eat Roma',
+// 				address: 'Via di S. Cosimato, 7/9, 00153 Roma RM',
+// 				image: 'img/home-restaurants/mama-eat-roma-home.jpg',
+// 			},
+// 			{
+// 				title: 'Cajo & Gajo',
+// 				address: 'Piazza San Callisto, 10, 00153 Roma',
+// 				image: 'img/home-restaurants/cajo-&-gajo.png',
+// 			},
+// 			{
+// 				title: 'Mama Eat Roma',
+// 				address: 'Via di S. Cosimato, 7/9, 00153 Roma RM',
+// 				image: 'img/home-restaurants/mama-eat-roma-home.jpg',
+// 			},
+// 			{
+// 				title: 'Lievito 72',
+// 				address: 'Via del Forte Braschi, 82/A, 00167 Roma RM',
+// 				image: 'img/home-restaurants/lievito-72-home.jpg',
+// 			},
+// 		],
+// 	},
+// });
 
 /**
  * Vue object for the sidebar in the search page.
