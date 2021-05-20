@@ -4,6 +4,11 @@
 	padding: 1rem;
 }
 
+.modify-info {
+	display: flex;
+	align-items: center;
+}
+
 /* Stile del bottone di modifica del ristorante */
 
 .addinfo-button {
@@ -15,7 +20,6 @@
 	text-align: center;
 	font-size: 28px;
 	padding: 15px;
-/*	width: 50px;*/
 	transition: all 0.5s;
 	cursor: pointer;
 	/*margin: 5px;*/

@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="recensioni.css" type="text/css">
     <link rel="stylesheet" href="description.css" type="text/css">
 
+    <!--
     <link rel="stylesheet" href="slideshow.css" type="text/css">
-    <script src="slideshow.js" defer></script>
+    <script src="slideshow.js" defer></script>-->
 
 
      <!--Javascript
@@ -78,7 +79,7 @@
         </div>
 
         <!-- FORM per aggiungere una recensione-->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Modal form header-->
@@ -143,7 +144,7 @@
                     </div>
                     <!--Modal form submit button-->
                     <div class="modal-footer">
-                        <button type="button" class="btn review-btn" id="submit-review-button">Invia</button>
+                        <button type='button' class="btn review-btn" id="submit-review-button">Invia</button>
                     </div>
                 </div>
             </div>

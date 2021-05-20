@@ -96,6 +96,7 @@
 
 .btn.review-btn {
 	height: 3rem;
+	width: 100%;
 	margin: 0 1rem;
 	border-radius: 12px;
 	background-color: #d4a373;
