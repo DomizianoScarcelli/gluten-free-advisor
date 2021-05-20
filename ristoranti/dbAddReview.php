@@ -2,6 +2,8 @@
 
     /* Codice per l'aggiunta di una nuova recensione nel database */
 
+    //TODO: se l'utente non inserisce uno username, registrarlo come anonimo.
+
     include '../dbManager/dbConnect.php';
     
     $title = $_POST['title'];

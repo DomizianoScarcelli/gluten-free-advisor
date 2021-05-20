@@ -13,11 +13,17 @@ submitReviewButton.addEventListener('click', function () {
         location.reload();
     }
     else {
+
         /*Altrimenti invia i dati tramite il submit. */
         if ($('#review-title').val() == '' || $('#review-date').val() == '' || $('#review-text').val() == '') {
             alert('Titolo, data e descrizione sono obbligatori!');
             return;
         }
+
+        if ($('#username').val() == '') {
+            alert('Stai inviando la recensione in forma anonima.');
+        }
+
         console.log('recensione aggiunta');
         submit();
         submitReviewButton.removeAttribute('data-dismiss');
@@ -54,6 +60,11 @@ function sendReviewData() {
     }
     var date = $('#review-date').val();
     var username = $('#username').val();
+
+    //Setta username ad "anonimo" se l'utente non ha modificato il campo username
+    if ($('#username').val() == '') {
+        username = "anonimo";
+    }
 
     //Li inserisco dentro l'oggetto formData
     formData.append('id_ristorante', id_ristorante)
