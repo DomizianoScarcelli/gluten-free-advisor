@@ -16,7 +16,7 @@
 	border-width: 1px;
 	padding: 1rem;
 	width: fit-content;
-	height: 60rem;
+	height: fit-content;
 	border-radius: 5px;
 	min-width: fit-content;
 }

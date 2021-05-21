@@ -77,7 +77,7 @@
         </div>
         <div class="row row-cols-4 card-list" id='restaurant-suggestion'>
             <div class="col" v-for="restaurant in restaurants">
-                <div class="card" v-bind:id='restaurant.id' onclick='redirectRestaurant(this)'>
+                <div class="card" v-bind:id='restaurant.id' v-bind:value='restaurant.title' onclick='redirectRestaurant(this)'>
                     <img class="card-image" :src="restaurant.image">
                     <div class="card-body">
                         <h5 class="card-title">{{restaurant.title}}</h5>

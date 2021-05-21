@@ -86,6 +86,7 @@ Palette dei colori: https://coolors.co/787794-41405f-ccd5ae-faedcd-e3d2af-d4a373
 }
 
 .card-body {
+	min-width: fit-content;
 	margin: auto;
 	width: 90%;
 	justify-content: space-between;
