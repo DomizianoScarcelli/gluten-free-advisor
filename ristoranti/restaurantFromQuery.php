@@ -43,6 +43,7 @@
 
             $photoarray = json_decode($row1['listaFoto']);
             $tagsarray = explode(',', str_replace(('"'), ',', $row1['tags']));
+            //print($tagsarray);
 
             //Codice che mette a null gli ultimi elementi di photoarray se questo contiene meno di 5 foto
             //Evita che vengano stampati errori se il ristorante ha meno d
@@ -222,6 +223,7 @@
                             </div>
             ";
             //Pulsante (e relativo form) per la modifica di dati del ristorante
+            $tags = json_encode($tagsarray);
             echo "          
                             <!-- Colonna con il pulsante per aprire il form di modifica dati del ristorante -->
                             <div class='col-md-5 modify-info'>
@@ -284,8 +286,16 @@
                                                             <div id='filter-checkboxes'>
                                                                 <div v-for='element in elements'>
                                                                     <p class='label'> {{element.modalFormDescription}} </p>
-                                                                    <div class='checkbox' v-for='value in element.values'>
-                                                                        <input class='modal-form-checkbox' v-bind:type='element.type' name='servizi-ristorante' v-bind:id='\"restaurant-\" + value.replaceAll(\" \", \"-\")' v-bind:value='value'>
+                                                                    <div class='checkbox'>
+
+                                                                        <template v-for='value in element.values'>
+                                                                          
+                                                                                <input v-if='$tags.includes(value)' class='modal-form-checkbox' v-bind:type='element.type' name='servizi-ristorante' v-bind:id='\"restaurant-\" + value.replaceAll(\" \", \"-\")' v-bind:value='value' checked>
+                                                                           
+                                                                                <input  v-else='$tags.includes(value)' class='modal-form-checkbox' v-bind:type='element.type' name='servizi-ristorante' v-bind:id='\"restaurant-\" + value.replaceAll(\" \", \"-\")' v-bind:value='value'>
+                                                                           
+                                                                        </template>
+
                                                                         <label v-bind:for='\"restaurant-\" + value.replaceAll(\" \", \"-\")' class='checkbox-label'>{{value}}</label> <br>
                                                                     </div>
                                                                 </div>
