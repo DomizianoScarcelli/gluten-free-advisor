@@ -144,10 +144,15 @@
                                         SERVIZI
                                         <br>
                                         <ul>";
+                $temp = 0;
                 for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
                     if (in_array($tagsarray[$j], $SERVIZI_DEL_RISTORANTE)) {
                         echo "<li>$tagsarray[$j]</li>";
+                        $temp++;
                     }
+                }
+                if ($temp == 0) {
+                    echo "~";
                 }
             echo "
                                         <!--~-->
@@ -157,11 +162,16 @@
                                         PIATTI
                                         <br>
                                         <ul>";
+                $temp = 0;
                 for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
                     if (in_array($tagsarray[$j], $PIATTI)) {
                         echo "<li>$tagsarray[$j]</li>";
+                        $temp++;
                     }
                 }
+                if ($temp == 0) {
+                    echo "~";
+                } 
             echo "
                                         <!--~-->
                                         </ul>
@@ -172,11 +182,16 @@
                                         RESTRIZIONI ALIMENTARI
                                         <br>
                                         <ul>";
+                $temp = 0;
                 for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
                     if (in_array($tagsarray[$j], $RESTRIZIONI_ALIMENTARI)) {
                         echo "<li>$tagsarray[$j]</li>";
+                        $temp++;
                     }
-                }                   
+                }
+                if ($temp == 0) {
+                    echo "~";
+                }               
             echo "
                                         <!--~-->
                                         </ul>
@@ -185,11 +200,16 @@
                                         PREZZO
                                         <br>
                                         <ul>";
+                $temp = 0;
                 for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
                     if (in_array($tagsarray[$j], $PREZZO)) {
                         echo "<li>$tagsarray[$j]</li>";
+                        $temp++;
                     }
-                }                       
+                }
+                if ($temp == 0) {
+                    echo "~";
+                }                 
             echo "
                                         <!--~-->
                                         </ul>
@@ -300,63 +320,8 @@
 
             }
 
-            /*----------Se il ristorante NON ha recensioni-----------
-            else {
-                for ($i = 0; $i < 5; $i++) {
-                    echo "
-                            <span class='fa fa-star'></span>
-                        ";
-                }
-
-                echo "
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Images grid-->
-                    <div class='container'>
-                        <div class='animated-grid'>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})'></div>
-                        </div>
-                    </div>
-                        
-
-                    <!--Intestazione Recensioni-->
-                    <div class='container border-top border-bottom'>
-                        <h3 class='mt-3'>Recensioni</h3>
-                        <p>
-                            Numero di recensioni per questo ristorante: <b>ancora nessuna</b>.
-                            <br>
-                            Aggiungi per primo una recensione compilando il form!
-                        </p>
-                    </div>
-                ";
-            }
-        }
-    }  */
-
-    /*
-                        <div class='row mb-2'>
-                            <div class='col-sm'>
-                                <b>Descrizione: </b> 
-                        
-                            /*if ($row1['descrizione'] == null) {
-                                echo "Non è ancora presente una descrizione.";
-                            }
-                            if ($row1['descrizione']) {
-                                echo "{$row1['descrizione']}";      
-                            }
-                    
-                                </div>
-                            </div>*/
-
         mysqli_close($conn);
+
         }
     }
 
