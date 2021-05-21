@@ -1,12 +1,35 @@
 /* Stile del contenitore della descrizione e modifica ristoranti */
 
 .details-container {
-	padding: 1rem;
+	padding: 2rem;
 }
 
 .modify-info {
 	display: flex;
 	align-items: center;
+}
+
+.modify-h3 {
+	padding: 0.75rem;
+	margin: 0;
+}
+
+/*
+.description {
+	font-size: 17px;
+}*/
+
+ul {
+    list-style: none; /* Toglie i default bullets */
+}
+  
+ul li::before {
+    content: "\2022";  
+    color: #b9c46c; 
+    /*font-weight: bold; */
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
 }
 
 /* Stile del bottone di modifica del ristorante */

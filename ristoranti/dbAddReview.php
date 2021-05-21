@@ -5,15 +5,13 @@
     //TODO: se l'utente non inserisce uno username, registrarlo come anonimo.
 
     include '../dbManager/dbConnect.php';
-    
-    $title = $_POST['title'];
-    $text = $_POST['text'];
 
+    $title = str_replace("'", "''", $_POST['title']);
+    $text = str_replace("'", "''", $_POST['text']);
     $rating = $_POST['rating'];
     $date = $_POST['date'];
-
     $id_ristorante = $_POST['id_ristorante'];
-    $username = $_POST['username'];
+    $username = str_replace("'", "''", $_POST['username']);
     
     echo "$id_ristorante";
     echo "$title";

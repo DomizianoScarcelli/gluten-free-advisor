@@ -73,8 +73,8 @@
         <!--PULSANTE per aggiungere una recensione-->
         <div id="add-review-button-container">
             <div id="add-review-button" data-toggle="modal" data-target="#exampleModal">
-                <p class="secondary-text light-text">Sei stato in questo ristorante?</p>
-                <h1 class="primary-text light-text">Aggiungi la tua recensione!</h1>
+                <p class="secondary-text light-text">Ti è capitato di mangiare qui?</p>
+                <h1 class="primary-text light-text">Scrivi una recensione per questo ristorante!</h1>
             </div> 
         </div>
 

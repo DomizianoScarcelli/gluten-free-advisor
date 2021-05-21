@@ -47,15 +47,6 @@ body {
     justify-content: center;
 }
 
-ul {
-    list-style: none; /* Toglie i default bullets */
-}
-  
-ul li::before {
-    content: "\2022";  
-    color: #b9c46c; 
-    /*font-weight: bold; */
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
+.risto-title {
+    margin-top: 0.5em;
 }

@@ -55,66 +55,31 @@
             //NOME E INDIRIZZO DEL RISTORANTE
             echo "
                 <div class='border-bottom' name='restaurant-div' id='{$row1['id']}'>
-                    <h3>{$row1['nome']}</h3>
+                    <h3 class='risto-title'>{$row1['nome']}</h3>
                     <div class='row mb-2'>
                         <div class='col-sm'>
-                            <span style='float:left'>
+                            <span >
                             <b>Indirizzo: </b><i>{$row1['indirizzo']}</i>
                             </span>
-                            <span style='float:right'>
-                                Valutazione degli utenti:
-                                <span>
+                        </div>
+                    </div>
+                </div>                            
             ";
 
-            //Se il ristorante ha più di 0 recensioni
-            if (mysqli_num_rows($result2) > 0 && mysqli_num_rows($result3) > 0) {
 
-                while ($row2 = mysqli_fetch_assoc($result2)) {
+            //GRIGLIA DI IMMAGINI
+            $num_photo = sizeof($photoarray);
 
-                    //STAR RATING
-                    //Calcola il numero di stelle da checkare facendo la media delle valutazioni degli utenti (ognuna un numero da 1 a 5)
-                    if (mysqli_num_rows($result4) > 0) {
-                        while ($row4 = mysqli_fetch_assoc($result4)) {
-                            $val += $row4['valutazione'];
-                        }
-                    }
-                    $val = intdiv($val, $row2['COUNT(*)']);
-                
-                    //Stampa il numero giusto di stelle
-                    for ($i = 0; $i < $val; $i++) {
-                        echo "              
-                                <span class='fa fa-star checked'></span>
-                            ";
-                    }
-
-                    for (; $i < 5; $i++) {
-                        echo "
-                                <span class='fa fa-star'></span>
-                            ";
-                    }
-
-                    echo "
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    ";
-
-                    //GRIGLIA DI IMMAGINI
-                    $num_photo = sizeof($photoarray);
-
-                    echo "
-                        
-                        <!--Images grid-->
-                        <div class='animated-grid'>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})' onclick='openModalSlideshow();currentSlide(1)'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})' onclick='openModalSlideshow();currentSlide(2)'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})' onclick='openModalSlideshow();currentSlide(3)'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})' onclick='openModalSlideshow();currentSlide(4)'></div>
-                            <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})' onclick='openModalSlideshow();currentSlide(5)'></div>
-                        </div>
-                    ";
+            echo "        
+                <!--Images grid-->
+                <div class='animated-grid'>
+                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})' onclick='openModalSlideshow();currentSlide(1)'></div>
+                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})' onclick='openModalSlideshow();currentSlide(2)'></div>
+                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})' onclick='openModalSlideshow();currentSlide(3)'></div>
+                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})' onclick='openModalSlideshow();currentSlide(4)'></div>
+                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})' onclick='openModalSlideshow();currentSlide(5)'></div>
+                </div>
+            ";
 
                     /*MODAL SLIDESHOW
                     echo "
@@ -146,157 +111,196 @@
                         </div>
                         ";  */
                     
-                    //DETTAGLI DEL RISTORANTE
-                    $SERVIZI_DEL_RISTORANTE = ['Consegna a domicilio', 'Da asporto', 'Consumazione sul posto', 'Cucina separata'];
-                    $PREZZO = ['Economico', 'Nella media', 'Raffinato'];
-                    $PIATTI = ['Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato'];
-                    $RESTRIZIONI_ALIMENTARI = ['Per vegetariani', 'Per vegani'];
 
-                    echo "
-                            <!--Servizi del ristorante-->
-                            <div class='border-top border-bottom' style='max-width: 70rem;' id='{$row1['id']}'>
-                                <div class='row cols-2 details-container'>
+            //DESCRIZIONE DEL RISTORANTE
+            $SERVIZI_DEL_RISTORANTE = ['Consegna a domicilio', 'Da asporto', 'Consumazione sul posto', 'Cucina separata'];
+            $PREZZO = ['Economico', 'Nella media', 'Raffinato'];
+            $PIATTI = ['Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato'];
+            $RESTRIZIONI_ALIMENTARI = ['Per vegetariani', 'Per vegani'];
 
-                                    <div class='col-md-6 card'>
-                                        <div class='row'>
-                                            <h3 class='mt-1'>Offerta del ristorante</h3>
-                        ";
+            echo "
+                    <!--Servizi del ristorante-->
+                        <div class='border-top border-bottom' style='max-width: 70rem;' id='{$row1['id']}'>
+                        <div class='row cols-2 details-container'>
+
+                            <div class='col-md-6 card'>
+                            <div class='row'>
+                                <h3 class='modify-h3'>Offerta del ristorante</h3>
+            ";
                         
-                        //Controllo descrizione
-                        if (empty($row1['descrizione'])) {
-                            echo "<p>Non è ancora presente una descrizione...</p>";                                       
-                           
-                        }
-                        else {
-                            echo "<p>{$row1['descrizione']}</p>";
-                        }
+            //Controllo descrizione
+            if (empty($row1['descrizione'])) {
+                echo "<p>Non è ancora presente una descrizione per questo ristorante...</h3>";                                            
+            }
+            else {
+                    echo "<p>{$row1['descrizione']}</p>";
+            }
 
-                        
-                        //APERTURA TAG CON LA LISTA DEI DETTAGLI
-                        echo"           
-                                        </div>
-
-                                        <div class='row cols-2'> 
-                                            <div class='col'>
-                                                SERVIZI
-                                                <br>
-                                                <ul>";
-                        //print_r($tagsarray);
-                        for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
-                            if (in_array($tagsarray[$j], $SERVIZI_DEL_RISTORANTE)) {
-                                echo "<li>$tagsarray[$j]</li>";
-                            }
-                        }
-                        echo "
-                                                <!--~-->
-                                                </ul>
-                                            </div>
-                                            <div class='col'>
-                                                PIATTI
-                                                <br>
-                                                <ul>";
-                        for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
-                            if (in_array($tagsarray[$j], $PIATTI)) {
-                                echo "<li>$tagsarray[$j]</li>";
-                            }
-                        }
-                        echo "
-                                                    <!--~-->
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class='row cols-2'>
-                                            <div class='col'>
-                                                    RESTRIZIONI ALIMENTARI
-                                                    <br>
-                                                    <ul>";
-                        for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
-                            if (in_array($tagsarray[$j], $RESTRIZIONI_ALIMENTARI)) {
-                                echo "<li>$tagsarray[$j]</li>";
-                            }
-                        }                   
-                        echo "
-                                                <!--~-->
-                                                </ul>
-                                            </div>
-                                            <div class='col'>
-                                                PREZZO
-                                                <br>
-                                                <ul>";
-                    for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
-                        if (in_array($tagsarray[$j], $PREZZO)) {
-                            echo "<li>$tagsarray[$j]</li>";
-                        }
-                    }                       
-                        echo "
-                                            <!--~-->
-                                            </ul>
-                                        </div>
-                                    </div>                    
+            //Apertura tag con la lista delle opzioni disponibili
+            echo"           
+                                </div>
+                                <div class='row cols-2'> 
+                                    <div class='col'>
+                                        SERVIZI
+                                        <br>
+                                        <ul>";
+                for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                    if (in_array($tagsarray[$j], $SERVIZI_DEL_RISTORANTE)) {
+                        echo "<li>$tagsarray[$j]</li>";
+                    }
+                }
+            echo "
+                                        <!--~-->
+                                        </ul>
                                     </div>
-                                    <div class='col-md-1'>
-                                    </div>
-
-                                    <div class='col-md-5 modify-info' style='text-align: right'>
-                                        <div>
-                                            <div class='row text-right'>
-                                                <h3>Aggiungi informazioni</h3>
-                                            </div>
-                                            <div class='row'>
-                                                <p>
-                                                Conosci questo ristorante?
-                                                <br>
-                                                Aiutaci a completare il suo profilo aggiungendo la tua esperienza!
-                                                </p>
-                                            </div>
-                                            <div class='row'>
-                                                <button class='addinfo-button'>
-                                                    <span>Vai al form</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                       
+                                    <div class='col'>
+                                        PIATTI
+                                        <br>
+                                        <ul>";
+                for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                    if (in_array($tagsarray[$j], $PIATTI)) {
+                        echo "<li>$tagsarray[$j]</li>";
+                    }
+                }
+            echo "
+                                        <!--~-->
+                                        </ul>
                                     </div>
                                 </div>
+                                <div class='row cols-2'>
+                                    <div class='col'>
+                                        RESTRIZIONI ALIMENTARI
+                                        <br>
+                                        <ul>";
+                for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                    if (in_array($tagsarray[$j], $RESTRIZIONI_ALIMENTARI)) {
+                        echo "<li>$tagsarray[$j]</li>";
+                    }
+                }                   
+            echo "
+                                        <!--~-->
+                                        </ul>
+                                    </div>
+                                    <div class='col'>
+                                        PREZZO
+                                        <br>
+                                        <ul>";
+                for ($j = 1; $j < sizeof($tagsarray) - 1; $j++) {
+                    if (in_array($tagsarray[$j], $PREZZO)) {
+                        echo "<li>$tagsarray[$j]</li>";
+                    }
+                }                       
+            echo "
+                                        <!--~-->
+                                        </ul>
+                                    </div>
+                                </div>                    
                             </div>
-                            ";  
-                        
-                    //RECENSIONI
-                    echo "
-                        <!--Intestazione Recensioni-->
-                        <div class='text-center'>
-                            <h3 class='mt-3'>Recensioni</h3>
-                            <p>Numero di recensioni per questo ristorante: <b>{$row2['COUNT(*)']}</b></p>
-                        </div>
-                        ";
-                }
 
-                while ($row3 = mysqli_fetch_assoc($result3)) {
+                            <div class='col-md-1'>
+                            </div>
 
-                    $datestamp = strtotime("{$row3['data_recensione']}");
-                    $new_date = date("d-m-Y", $datestamp);
-
-                    echo "
-                        <div class='card mb-3' style='max-width: 70rem;' id='{$row3['id_recensione']}'>
-                            <div class='row card-body'>
-                                <div class='col-md-10 review-container'>
-                                    <div class='title-container'>
-                                        <h5>\"<b>{$row3['titolo']}</b>\"</h5>
-                                        <p class='card-text'>{$row3['testo']}
-                                            <br><br>
-                                            <b>Data della visita:</b> $new_date
+                            <div class='col-md-5 modify-info' style='text-align: right'>
+                                <div>
+                                    <div class='row text-right'>
+                                        <h3>Aggiungi informazioni</h3>
+                                    </div>
+                                    <div class='row'>
+                                        <p>
+                                        Conosci questo ristorante?
+                                        <br>
+                                        Aiutaci a completare il suo profilo aggiungendo la tua esperienza!
                                         </p>
                                     </div>
+                                    <div class='row'>
+                                        <button class='addinfo-button'>
+                                            <span>Vai al form</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class='col-md-2 user-container'>
-                                    <b>Autore:</b> <i>{$row3['username']}</i>
-                                </div>
+                                       
                             </div>
                         </div>
+                    </div>
+                ";  
+
+            //RECENSIONI
+            echo "
+                <!--Intestazione Recensioni-->
+                <div class='text-center'>
+                    <h3 class='risto-title'>Recensioni</h3>
+            ";
+
+            if (mysqli_num_rows($result2) > 0 && mysqli_num_rows($result3) > 0) {
+
+                while ($row2 = mysqli_fetch_assoc($result2)) {
+
+                    echo "
+                            <p>Numero di recensioni per questo ristorante: <b>{$row2['COUNT(*)']}</b></p>
+                        
                     ";
+
+                    /*STAR RATING
+                    //Calcola il numero di stelle da checkare facendo la media delle valutazioni degli utenti (ognuna un numero da 1 a 5)
+                    if (mysqli_num_rows($result4) > 0) {
+                        while ($row4 = mysqli_fetch_assoc($result4)) {
+                            $val += $row4['valutazione'];
+                        }
+                    }
+                    $val = intdiv($val, $row2['COUNT(*)']);
+                
+                    //Stampa il numero giusto di stelle
+                    for ($i = 0; $i < $val; $i++) {
+                        echo "              
+                                <span class='fa fa-star checked'></span>
+                            ";
+                    }
+
+                    for (; $i < 5; $i++) {
+                        echo "
+                                <span class='fa fa-star'></span>
+                            ";
+                    }*/
+
+                    echo "</div>";
+                        
+                    
+                    while ($row3 = mysqli_fetch_assoc($result3)) {
+
+                        $datestamp = strtotime("{$row3['data_recensione']}");
+                        $new_date = date("d-m-Y", $datestamp);
+
+                        echo "
+                            <div class='card mb-3' style='max-width: 70rem;' id='{$row3['id_recensione']}'>
+                                <div class='row card-body'>
+                                    <div class='col-md-10 review-container'>
+                                        <div class='title-container'>
+                                            <h5>\"<b>{$row3['titolo']}</b>\"</h5>
+                                            <p class='card-text'>{$row3['testo']}
+                                                <br><br>
+                                                <b>Data della visita:</b> $new_date
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-2 user-container'>
+                                        <b>Autore:</b> <i>{$row3['username']}</i>
+                                    </div>
+                                </div>
+                            </div>
+                        ";
+                    }
                 }
+            } 
+            else {
+                echo "
+                    <p>Non è stata ancora scritta nessuna recensione per questo ristorante...</p>
+                    ~
+                    </div>
+                ";
+
             }
-            //----------Se il ristorante non ha recensioni-----------
+
+            /*----------Se il ristorante NON ha recensioni-----------
             else {
                 for ($i = 0; $i < 5; $i++) {
                     echo "
@@ -335,7 +339,7 @@
                 ";
             }
         }
-    }
+    }  */
 
     /*
                         <div class='row mb-2'>
@@ -352,6 +356,8 @@
                                 </div>
                             </div>*/
 
-    mysqli_close($conn);
+        mysqli_close($conn);
+        }
+    }
 
 ?>
