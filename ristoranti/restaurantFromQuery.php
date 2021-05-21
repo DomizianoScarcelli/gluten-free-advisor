@@ -209,18 +209,22 @@
                 }
                 if ($temp == 0) {
                     echo "~";
-                }                 
+                }               
             echo "
                                         <!--~-->
                                         </ul>
                                     </div>
                                 </div>                    
                             </div>
-
+                     
+                            <!-- Colonna vuota per allineamento -->
                             <div class='col-md-1'>
                             </div>
-
-                            <div class='col-md-5 modify-info' style='text-align: right'>
+            ";
+            //Pulsante (e relativo form) per la modifica di dati del ristorante
+            echo "          
+                            <!-- Colonna con il pulsante per aprire il form di modifica dati del ristorante -->
+                            <div class='col-md-5 modify-info'>
                                 <div>
                                     <div class='row text-right'>
                                         <h3>Aggiungi informazioni</h3>
@@ -233,9 +237,74 @@
                                         </p>
                                     </div>
                                     <div class='row'>
-                                        <button class='addinfo-button'>
+                                        
+                                        <button class='addinfo-button' data-toggle='modal' data-target='#exampleModal-2' id='edit-info-button'>
                                             <span>Vai al form</span>
                                         </button>
+
+                                        <div class='modal fade' id='exampleModal-2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog' role='document'>
+                                            <div class='modal-content'>
+                                                <!--Modal form header-->
+                                                <div class='modal-header'>
+                                                    <h5 class='modal-title' id='exampleModalLabel-2'>Aggiungi informazioni al profilo del ristorante</h5>
+                                                    <button type='button' class='close btn-close' id='close-button-2' data-dismiss='modal' aria-label='Close'></button>
+                                                </div>                    
+                                                <!--Modal form body-->
+                                                <div class='modal-body container ui-front' id='modal-body-2'>
+
+                                                    <div class='row cols-2'>
+                            
+                                                        <!--Prima colonna-->
+                                                        <div class='col'>
+                                                            
+                                                            <form action='' id='form-2'>
+
+                                                            <!--Nome del ristorante-->
+                                                            <p class='label'>Nome del ristorante<sup>*</sup></p>
+                                                            <input class='text-input' type='text' id='restaurant-name' value='{$row1['nome']}' disabled/><br />
+                                                            <!--Indirizzo o città-->
+                                                            <p class='label' id='indirizzo' value='indirizzo'>Indirizzo<sup>*</sup></p>
+                                                            <input class='text-input' type='text' id='restaurant-address' value='{$row1['indirizzo']}' disabled/>
+
+                                                            <!--Immagini-->
+                                                            <p class='label' id='immagini'>Aggiungi le tue immagini</p>
+                                                            <input type='file' multiple='true' name='filename' id='restaurant-image' accept='.jpeg,.png,.jpg'>
+                                                            
+                                                            <!--Descrizione-->
+                                                            <p class='label' id='descrizione'>Aggiungi/Modifica la descrizione</p>
+                                                            <textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description'>{$row1['descrizione']}</textarea>
+                                                                                                                        
+                                                                
+                                                        </div>
+                            
+                                                        <!--Seconda colonna-->
+                                                        <div class='col'> 
+                                                            <div style='text-align: left'>
+                                                            <div id='filter-checkboxes'>
+                                                                <div v-for='element in elements'>
+                                                                    <p class='label'> {{element.modalFormDescription}} </p>
+                                                                    <div class='checkbox' v-for='value in element.values'>
+                                                                        <input class='modal-form-checkbox' v-bind:type='element.type' name='servizi-ristorante' v-bind:id='\"restaurant-\" + value.replaceAll(\" \", \"-\")' v-bind:value='value'>
+                                                                        <label v-bind:for='\"restaurant-\" + value.replaceAll(\" \", \"-\")' class='checkbox-label'>{{value}}</label> <br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+
+                                                        </div>         
+                                                        </form>
+                            
+                                                    </div>
+                                                </div>
+                                                <!--Modal form submit button-->
+                                                <div class='modal-footer'>
+                                                    <button type='button' class='btn review-btn' id='submit-review-button'>Invia</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     </div>
                                 </div>
                                        

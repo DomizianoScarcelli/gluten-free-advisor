@@ -48,9 +48,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-     <!--Vue.js
+     <!--Vue.js-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="js/vueElements.js" defer></script>-->
+    <script src="../js/vueElements.js" defer></script>
 
 </head>
 
