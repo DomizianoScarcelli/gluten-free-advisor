@@ -3,9 +3,9 @@ relativi al ristorante (aggiungere descrizione, immagini etc). L'interazione con
 da una opportuna pagina php.   */
 
 const submitEditsButton = document.getElementById('edit-info-button');
-const closeButton = document.getElementById('close-button-2');
-const modalBody = document.getElementById('modal-body-2');
-const originalHtml = modalBody.innerHTML;
+const closeButton2 = document.getElementById('close-button-2');
+const modalBody2 = document.getElementById('modal-body-2');
+const originalHtml2 = modalBody2.innerHTML;
 
 
 submitEditsButton.addEventListener('click', function () {
@@ -15,7 +15,7 @@ submitEditsButton.addEventListener('click', function () {
     }
     else {
 
-        /*Altrimenti invia i dati tramite il submit. 
+        /*Se viene premuto per la prima volta, invia i dati tramite il submit. 
         if ($('#review-title').val() == '' || $('#review-date').val() == '' || $('#review-text').val() == '') {
             alert('Titolo, data e descrizione sono obbligatori!');
             return;
@@ -32,6 +32,51 @@ submitEditsButton.addEventListener('click', function () {
     }
 });
 
-closeButton.addEventListener('click', () => {
+closeButton2.addEventListener('click', () => {
     location.reload();
 });
+
+function submit() {
+    console.log('Saved');
+    sendEditsData();
+    modalBody2.innerHTML = `
+        <p style="text-align:center;" >Grazie per aver aggiunto le tue informazioni, le modifiche sono state salvate!</p>
+    `;
+    submitEditsButton.value = 'Chiudi';
+    submitEditsButton.innerHTML = 'Chiudi';
+}
+
+function sendEditsData() {
+    var formData = new FormData();
+    /*
+    var name = $('#restaurant-name').val();
+    var address = $('#restaurant-address').val(); */
+    var description = $('#restaurant-description-2').val();
+    var tags = [];
+    for (checkbox of document.getElementsByClassName('modal-form-checkbox')) {
+        if (checkbox.checked) {
+            tags.push(checkbox.value);
+        }
+    }
+    //insert into formData
+    formData.append('description', description);
+    formData.append('tags', tags);
+
+    var files = $('#restaurant-image-2')[0].files;
+    for (file of files) {
+        formData.append('file[]', file);
+    }
+
+    //Faccio la post con il metodo $.ajax() di JQuery
+    $.ajax({
+        type: 'POST',
+        url: 'dbEditRestaurantInfo.php',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: (data) => {
+            console.log(data);
+        },
+    });
+
+}

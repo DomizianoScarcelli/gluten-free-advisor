@@ -222,6 +222,7 @@
                             <div class='col-md-1'>
                             </div>
             ";
+
             //Pulsante (e relativo form) per la modifica di dati del ristorante
             echo "          
                             <!-- Colonna con il pulsante per aprire il form di modifica dati del ristorante -->
@@ -239,7 +240,7 @@
                                     </div>
                                     <div class='row'>
                                         
-                                        <button class='addinfo-button' data-toggle='modal' data-target='#exampleModal-2' id='edit-info-button'>
+                                        <button class='addinfo-button' data-toggle='modal' data-target='#exampleModal-2' id='add-edits-button'>
                                             <span>Vai al form</span>
                                         </button>
 
@@ -272,15 +273,15 @@
 
                                                                 <!--Immagini-->
                                                                 <p class='label' id='immagini'>&emsp;&emsp;&emsp;Aggiungi le tue immagini</p>
-                                                                <input type='file' multiple='true' name='filename' id='restaurant-image' accept='.jpeg,.png,.jpg'>
+                                                                <input type='file' multiple='true' name='filename' id='restaurant-image-2' accept='.jpeg,.png,.jpg'>
                                                                 
                                                                 <!--Descrizione-->
                                                                 <p class='label' id='descrizione'>&emsp;&emsp;&emsp;Aggiungi/Modifica la descrizione</p>";
                                                                 if ($row1['descrizione'] == '') {
-                                                                    echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description' placeholder='Aggiungi per primo una recensione...'></textarea>";
+                                                                    echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description-2' placeholder='Aggiungi per primo una recensione...'></textarea>";
                                                                 }
                                                                 else {
-                                                                    echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description'>{$row1['descrizione']}</textarea>";
+                                                                    echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description-2'>{$row1['descrizione']}</textarea>";
                                                                 }
                                                             
                                                         echo "
@@ -484,7 +485,7 @@
                                                     </div>
                                                     <!--Modal form submit button-->
                                                     <div class='modal-footer'>
-                                                        <button type='button' class='btn review-btn' id='submit-review-button'>Invia</button>
+                                                        <button type='button' class='btn review-btn' id='edit-info-button'>Invia</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -535,7 +536,12 @@
                             ";
                     }*/
 
-                    echo "</div>";
+                    //Per ora è commentato
+                    echo " 
+                    </div>
+                    <!-- <div class='row cols-2'>
+                        <div class='col-md-8'>  -->
+                    ";
                         
                     
                     while ($row3 = mysqli_fetch_assoc($result3)) {
@@ -544,24 +550,34 @@
                         $new_date = date("d-m-Y", $datestamp);
 
                         echo "
-                            <div class='card mb-3' style='max-width: 70rem;' id='{$row3['id_recensione']}'>
-                                <div class='row card-body'>
-                                    <div class='col-md-10 review-container'>
-                                        <div class='title-container'>
-                                            <h5>\"<b>{$row3['titolo']}</b>\"</h5>
-                                            <p class='card-text'>{$row3['testo']}
-                                                <br><br>
-                                                <b>Data della visita:</b> $new_date
-                                            </p>
+                           
+                                <div class='card mb-3' style='max-width: 70rem;' id='{$row3['id_recensione']}'>
+                                    <div class='row card-body'>
+                                        <div class='col-md-10 review-container'>
+                                            <div class='title-container'>
+                                                <h5>\"<b>{$row3['titolo']}</b>\"</h5>
+                                                <p class='card-text'>{$row3['testo']}
+                                                    <br><br>
+                                                    <b>Data della visita:</b> $new_date
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class='col-md-2 user-container'>
+                                            <b>Autore:</b> <i>{$row3['username']}</i>
                                         </div>
                                     </div>
-                                    <div class='col-md-2 user-container'>
-                                        <b>Autore:</b> <i>{$row3['username']}</i>
-                                    </div>
                                 </div>
-                            </div>
                         ";
                     }
+
+                    /*
+                    echo "
+                        </div>
+                        <div class='col-md-4'>
+                        </div>
+                    </div>
+                        
+                    ";*/
                 }
             } 
             else {

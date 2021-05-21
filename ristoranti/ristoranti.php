@@ -28,7 +28,7 @@
     <script src="../js/search.js" defer></script>
 
     <script src="addReview.js" defer></script>
-
+    <script src="editRestaurantInfo.js"></script>
 
 
     <!--JQuery-->
