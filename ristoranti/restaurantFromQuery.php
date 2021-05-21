@@ -121,21 +121,21 @@
 
             echo "
                     <!--Servizi del ristorante-->
-                        <div class='border-top border-bottom' style='max-width: 70rem;' id='{$row1['id']}'>
+                    <div class='border-top border-bottom' style='max-width: 70rem;' id='{$row1['id']}'>
                         <div class='row cols-2 details-container'>
 
                             <div class='col-md-6 card'>
-                            <div class='row'>
-                                <h3 class='modify-h3'>Offerta del ristorante</h3>
+                                <div class='row'>
+                                    <h3 class='modify-h3'>Offerta del ristorante</h3>
             ";
                         
-            //Controllo descrizione
-            if (empty($row1['descrizione'])) {
-                echo "<p>Non è ancora presente una descrizione per questo ristorante...</h3>";                                            
-            }
-            else {
-                    echo "<p>{$row1['descrizione']}</p>";
-            }
+                            //Controllo descrizione
+                            if (empty($row1['descrizione'])) {
+                                echo "<p>Non è ancora presente una descrizione per questo ristorante...</h3>";                                            
+                            }
+                            else {
+                                    echo "<p>{$row1['descrizione']}</p>";
+                            }
 
             //Apertura tag con la lista delle opzioni disponibili
             echo"           
@@ -223,12 +223,11 @@
                             </div>
             ";
             //Pulsante (e relativo form) per la modifica di dati del ristorante
-            $tags = json_encode($tagsarray);
             echo "          
                             <!-- Colonna con il pulsante per aprire il form di modifica dati del ristorante -->
                             <div class='col-md-5 modify-info'>
-                                <div>
-                                    <div class='row text-right'>
+                                <div>   <!-- Serve per racchiudere scritte e pulsante nella stessa entità -->
+                                    <div class='row'>
                                         <h3>Aggiungi informazioni</h3>
                                     </div>
                                     <div class='row'>
@@ -245,82 +244,257 @@
                                         </button>
 
                                         <div class='modal fade' id='exampleModal-2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                        <div class='modal-dialog' role='document'>
-                                            <div class='modal-content'>
-                                                <!--Modal form header-->
-                                                <div class='modal-header'>
-                                                    <h5 class='modal-title' id='exampleModalLabel-2'>Aggiungi informazioni al profilo del ristorante</h5>
-                                                    <button type='button' class='close btn-close' id='close-button-2' data-dismiss='modal' aria-label='Close'></button>
-                                                </div>                    
-                                                <!--Modal form body-->
-                                                <div class='modal-body container ui-front' id='modal-body-2'>
+                                            <div class='modal-dialog' role='document'>
+                                                <div class='modal-content'>
 
-                                                    <div class='row cols-2'>
-                            
-                                                        <!--Prima colonna-->
-                                                        <div class='col'>
-                                                            
-                                                            <form action='' id='form-2'>
+                                                    <!--Modal form header-->
+                                                    <div class='modal-header'>
+                                                        <h5 class='modal-title' id='exampleModalLabel-2'>Aggiungi informazioni al profilo del ristorante</h5>
+                                                        <button type='button' class='close btn-close' id='close-button-2' data-dismiss='modal' aria-label='Close'></button>
+                                                    </div>
 
-                                                            <!--Nome del ristorante-->
-                                                            <p class='label'>Nome del ristorante<sup>*</sup></p>
-                                                            <input class='text-input' type='text' id='restaurant-name' value='{$row1['nome']}' disabled/><br />
-                                                            <!--Indirizzo o città-->
-                                                            <p class='label' id='indirizzo' value='indirizzo'>Indirizzo<sup>*</sup></p>
-                                                            <input class='text-input' type='text' id='restaurant-address' value='{$row1['indirizzo']}' disabled/>
+                                                    <!--Modal form body-->
+                                                    <div class='modal-body container ui-front' id='modal-body-2'>
 
-                                                            <!--Immagini-->
-                                                            <p class='label' id='immagini'>Aggiungi le tue immagini</p>
-                                                            <input type='file' multiple='true' name='filename' id='restaurant-image' accept='.jpeg,.png,.jpg'>
-                                                            
-                                                            <!--Descrizione-->
-                                                            <p class='label' id='descrizione'>Aggiungi/Modifica la descrizione</p>
-                                                            <textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description'>{$row1['descrizione']}</textarea>
-                                                                                                                        
+                                                        <div class='row cols-2'>
+                                
+                                                            <!--Prima colonna-->
+                                                            <div class='col'>
                                                                 
-                                                        </div>
-                            
-                                                        <!--Seconda colonna-->
-                                                        <div class='col'> 
-                                                            <div style='text-align: left'>
-                                                            <div id='filter-checkboxes'>
-                                                                <div v-for='element in elements'>
-                                                                    <p class='label'> {{element.modalFormDescription}} </p>
-                                                                    <div class='checkbox'>
+                                                                <form action='' id='form-2'>
 
-                                                                        <template v-for='value in element.values'>
-                                                                          
-                                                                                <input v-if='$tags.includes(value)' class='modal-form-checkbox' v-bind:type='element.type' name='servizi-ristorante' v-bind:id='\"restaurant-\" + value.replaceAll(\" \", \"-\")' v-bind:value='value' checked>
-                                                                           
-                                                                                <input  v-else='$tags.includes(value)' class='modal-form-checkbox' v-bind:type='element.type' name='servizi-ristorante' v-bind:id='\"restaurant-\" + value.replaceAll(\" \", \"-\")' v-bind:value='value'>
-                                                                           
-                                                                        </template>
+                                                                <!--Nome del ristorante-->
+                                                                <p class='label'>&emsp;&emsp;&emsp;Nome del ristorante<sup>*</sup></p>
+                                                                <input class='text-input' type='text' id='restaurant-name' value='{$row1['nome']}' disabled/><br />
+                                                                <!--Indirizzo o città-->
+                                                                <p class='label' id='indirizzo' value='indirizzo'>&emsp;&emsp;&emsp;Indirizzo<sup>*</sup></p>
+                                                                <input class='text-input' type='text' id='restaurant-address' value='{$row1['indirizzo']}' disabled/>
 
-                                                                        <label v-bind:for='\"restaurant-\" + value.replaceAll(\" \", \"-\")' class='checkbox-label'>{{value}}</label> <br>
+                                                                <!--Immagini-->
+                                                                <p class='label' id='immagini'>&emsp;&emsp;&emsp;Aggiungi le tue immagini</p>
+                                                                <input type='file' multiple='true' name='filename' id='restaurant-image' accept='.jpeg,.png,.jpg'>
+                                                                
+                                                                <!--Descrizione-->
+                                                                <p class='label' id='descrizione'>&emsp;&emsp;&emsp;Aggiungi/Modifica la descrizione</p>";
+                                                                if ($row1['descrizione'] == '') {
+                                                                    echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description' placeholder='Aggiungi per primo una recensione...'></textarea>";
+                                                                }
+                                                                else {
+                                                                    echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description'>{$row1['descrizione']}</textarea>";
+                                                                }
+                                                            
+                                                        echo "
+                                                                                                                            
+                                                            </div>
+
+                                                            <div class='col-md-1'>
+                                                            </div>
+                                
+                                                            <!--Terza colonna-->
+                                                            <div class='col'>
+
+                                                                <div style='text-align: left'>
+                                                                    <div id='filter-checkboxes'>
+                                                                        <div>
+                                                                            <p class='label'> Di quali servizi è dotato il ristorante? </p>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Consegna a domicilio', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Consegna-a-domicilio' class='modal-form-checkbox' value='Consegna a domicilio' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Consegna-a-domicilio' class='modal-form-checkbox' value='Consegna a domicilio'>";
+                                                                            }
+                                                                            echo "
+                                                                                <label for='restaurant-Consegna-a-domicilio' class='checkbox-label'>Consegna a domicilio</label> 
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Da asporto', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Da-asporto' class='modal-form-checkbox' value='Da asporto' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Da-asporto' class='modal-form-checkbox' value='Da asporto'>";
+
+                                                                            }
+                                                                            echo "
+                                                                                <label for='restaurant-Da-asporto' class='checkbox-label'>Da asporto</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Consumazione sul posto', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Consumazione-sul-posto' class='modal-form-checkbox' value='Consumazione sul posto' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Consumazione-sul-posto' class='modal-form-checkbox' value='Consumazione sul posto'>";
+                                                                            }
+                                                                            echo "
+                                                                                <label for='restaurant-Consumazione-sul-posto' class='checkbox-label'>Consumazione sul posto</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Cucina separata', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Cucina-separata' class='modal-form-checkbox' value='Cucina separata' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Cucina-separata' class='modal-form-checkbox' value='Cucina separata'>";
+
+                                                                            }
+                                                                            echo "                                                                               
+                                                                                <label for='restaurant-Cucina-separata' class='checkbox-label'>Cucina separata</label>
+                                                                                <br>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <p class='label'> Come descriveresti il prezzo del ristorante? </p>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Economico', $tagsarray)) {
+                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Economico' class='modal-form-checkbox' value='Eonomico' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Economico' class='modal-form-checkbox' value='Eonomico'>";
+                                                                            }
+                                                                            echo "                                                                                
+                                                                                <label for='restaurant-Economico' class='checkbox-label'>Economico</label>
+                                                                            <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Nella media', $tagsarray)) {
+                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Nella-media' class='modal-form-checkbox' value='Nella media' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Nella-media' class='modal-form-checkbox' value='Nella media'>";
+                                                                            }
+                                                                            echo "
+                                                                                <label for='restaurant-Nella-media' class='checkbox-label'>Nella media</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Raffinato', $tagsarray)) {
+                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Raffinato' class='modal-form-checkbox' value='Raffinato' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Raffinato' class='modal-form-checkbox' value='Raffinato'>";
+                                                                            }
+                                                                            echo "
+                                                                                <label for='restaurant-Raffinato' class='checkbox-label'>Raffinato</label>
+                                                                                <br>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <p class='label'> Che piatti offre il ristorante? </p>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Pizza', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Pizza' class='modal-form-checkbox' value='Pizza' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Pizza' class='modal-form-checkbox' value='Pizza'>";
+                                                                            }
+                                                                            echo "   
+                                                                                <label for='restaurant-Pizza' class='checkbox-label'>Pizza</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Pasta', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Pasta' class='modal-form-checkbox' value='Pasta' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Pasta' class='modal-form-checkbox' value='Pasta'>";
+                                                                            }
+                                                                            echo "
+                                                                                <label for='restaurant-Pasta' class='checkbox-label'>Pasta</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Panini', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Panini' class='modal-form-checkbox' value='Panini' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Panini' class='modal-form-checkbox' value='Panini'>";
+                                                                            }
+                                                                            echo "    
+                                                                                <label for='restaurant-Panini' class='checkbox-label'>Panini</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Dolci', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Dolci' class='modal-form-checkbox' value='Dolci' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Dolci' class='modal-form-checkbox' value='Dolci'>";
+                                                                            }
+                                                                            echo "    
+                                                                                <label for='restaurant-Dolci' class='checkbox-label'>Dolci</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Sushi', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Sushi' class='modal-form-checkbox' value='Sushi' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Sushi' class='modal-form-checkbox' value='Sushi'>";
+                                                                            }
+                                                                            echo " 
+                                                                                <label for='restaurant-Sushi' class='checkbox-label'>Sushi</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Gelato', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Gelato' class='modal-form-checkbox' value='Gelato' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Gelato' class='modal-form-checkbox' value='Gelato'>";
+                                                                            }
+                                                                            echo "
+                                                                                <label for='restaurant-Gelato' class='checkbox-label'>Gelato</label>
+                                                                                <br>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <p class='label'> Il ristorante offre delle opzioni per diete alternative? </p>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Per vegetariani', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Per-vegetariani' class='modal-form-checkbox' value='Per vegetariani' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Per-vegetariani' class='modal-form-checkbox' value='Per vegetariani'>";
+                                                                            }
+                                                                            echo "    
+                                                                                <label for='restaurant-Per-vegetariani' class='checkbox-label'>Per vegetariani</label>
+                                                                                <br>
+                                                                            </div>
+                                                                            <div class='checkbox'>";
+                                                                            if (in_array('Per vegani', $tagsarray)) {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Per-vegani' class='modal-form-checkbox' value='Per vegani' checked>";
+                                                                            }
+                                                                            else {
+                                                                                echo "<input type='checkbox' name='servizi-ristorante' id='restaurant-Per-vegani' class='modal-form-checkbox' value='Per vegani'>";
+                                                                            }
+                                                                            echo "
+                                                                                <label for='restaurant-Per-vegan' class='checkbox-label'>Per vegani</label>
+                                                                                <br>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            </div>
 
-                                                        </div>         
-                                                        </form>
-                            
+                                                            </div>         
+                                                            </form>
+                                
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <!--Modal form submit button-->
-                                                <div class='modal-footer'>
-                                                    <button type='button' class='btn review-btn' id='submit-review-button'>Invia</button>
+                                                    <!--Modal form submit button-->
+                                                    <div class='modal-footer'>
+                                                        <button type='button' class='btn review-btn' id='submit-review-button'>Invia</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    </div>
-                                </div>
-                                       
+                                </div>    
                             </div>
                         </div>
                     </div>
+
                 ";  
 
             //RECENSIONI
