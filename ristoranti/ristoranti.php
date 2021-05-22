@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="recensioni.css" type="text/css">
     <link rel="stylesheet" href="description.css" type="text/css">
 
+    <link rel="stylesheet" href="../css/footer.css">
+
     <!--
     <link rel="stylesheet" href="slideshow.css" type="text/css">
     <script src="slideshow.js" defer></script>-->
@@ -54,8 +56,8 @@
 
 </head>
 
-<body class="background">
-
+<body>
+    <div class="background">
     <!--Header-->
     <div class="header" id="header">
         <img src="../img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = '../../index.php'" />
@@ -151,6 +153,8 @@
         </div>
 
     </div>
+    </div>
+    <?php include '../footer.html' ?>
 
 </body>
 

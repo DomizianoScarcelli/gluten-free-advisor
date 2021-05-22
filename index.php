@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/modal-form.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/footer.css">
     <!--Javascript-->
     <script src="js/addRestaurant.js" defer></script>
     <script src="js/search.js" defer></script>
@@ -168,8 +169,7 @@
         </div>
     </div>
 
-    <a href='https://www.freepik.com/vectors/label'>Label vector created by raftel - www.freepik.com</a>
-
+    <?php include 'footer.html'?>
 
 </body>
 

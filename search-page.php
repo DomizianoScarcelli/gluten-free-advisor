@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="css/search-page.css">
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/footer.css">
     <!--Javascript-->
     <script src="js/search.js" defer></script>
     <script src="js/rangeSlider.js" defer></script>
     <script src="/js/searchPage.js" defer></script>
-
     <!--Responsiveness-->
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!--JQuery-->
@@ -33,49 +33,47 @@
 
 </head>
 
-<body class="background">
-    <!--Header-->
+<body>
+    <div class="bakcground">
+        <!--Header-->
 
-    <div class="header" id="header">
-        <img src="img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.php'" />
-        <input type="search" class="searchbar" id="searchbar" />
-    </div>
+        <div class="header" id="header">
+            <img src="img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.php'" />
+            <input type="search" class="searchbar" id="searchbar" />
+        </div>
 
 
-    <div class="body-container">
+        <div class="body-container">
 
-        <!--Sidebar-->
-        <div class="sidebar-outside-container">
-            <div class="sidebar" id='filter-checkboxes'>
-                <!--Range selector-->
-                <div class="sidebar-inside-container">
-                    <p class="sidebar-element-title">Distanza</p>
-                    <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='200' step='2' onchange="updateQueryString()" oninput='updateShownDistance()'>
+            <!--Sidebar-->
+            <div class="sidebar-outside-container">
+                <div class="sidebar" id='filter-checkboxes'>
+                    <!--Range selector-->
+                    <div class="sidebar-inside-container">
+                        <p class="sidebar-element-title">Distanza</p>
+                        <input type='range' id='distance-slider' class='form-range custom-range' min='0' max='200' step='2' onchange="updateQueryString()" oninput='updateShownDistance()'>
 
-                    <p class='label' id='distance-slider-value'>50km</p>
+                        <p class='label' id='distance-slider-value'>50km</p>
 
-                </div>
-                <!--Checkbox filters-->
-                <div class="sidebar-inside-container" v-for='element in elements'>
-                    <p class="sidebar-element-title">{{element.title}}</p>
-                    <div class='checkbox' v-for='value in element.values'>
-                        <input type='checkbox' name='servizi' v-bind:id='value.replaceAll(" ", "-")' v-on:change='redirect(element, value)'>
-                        <label v-bind:for='value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
+                    </div>
+                    <!--Checkbox filters-->
+                    <div class="sidebar-inside-container" v-for='element in elements'>
+                        <p class="sidebar-element-title">{{element.title}}</p>
+                        <div class='checkbox' v-for='value in element.values'>
+                            <input type='checkbox' name='servizi' v-bind:id='value.replaceAll(" ", "-")' v-on:change='redirect(element, value)'>
+                            <label v-bind:for='value.replaceAll(" ", "-")' class='checkbox-label'>{{value}}</label> <br>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!--Carte dei ristoranti cercati-->
+            <div class='cards-container'>
+                <!--Genera le cards con i valori cercati all'interno del database a seconda della query effettuata-->
+                <?php include "dbManager/dbSearchFromQuery.php";
+                ?>
+            </div>
         </div>
-        <!--Carte dei ristoranti cercati-->
-        <div class='cards-container'>
-            <!--Genera le cards con i valori cercati all'interno del database a seconda della query effettuata-->
-            <?php include "dbManager/dbSearchFromQuery.php";
-            ?>
-
-
-
-
-        </div>
-
+<?php include 'footer.html' ?>
 
 
 </body>
