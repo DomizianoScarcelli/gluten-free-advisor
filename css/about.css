@@ -38,14 +38,10 @@
 	width: 2.5rem;
 	height: 2.5rem;
 	cursor: pointer;
-	background-image: url(img/icons/back.svg);
+	background-image: url(../img/icons/back.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	transition: all 500ms;
-}
-
-.back-icon:hover {
-	/*mostra testo*/
 }
 
 .top-inner-container {
@@ -115,7 +111,7 @@
 	width: 10rem;
 	height: 10rem;
 	margin: auto;
-	background-image: url(img/logos/favicon2.png);
+	background-image: url(../img/logos/favicon2.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 }
@@ -149,7 +145,7 @@
 .author-icon {
 	width: 10rem;
 	height: 10rem;
-	background-image: url(img/lorem-avatar.png);
+	background-image: url(../img/lorem-avatar.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 }
