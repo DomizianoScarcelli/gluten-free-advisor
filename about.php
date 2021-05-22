@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="img\logos\favicon2.png" type="image/x-icon">
     <link rel="stylesheet" href="css/about.css">
     <!--Javascript-->
-    <script src="about.js" defer></script>
+    <script src="js/about.js" defer></script>
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
