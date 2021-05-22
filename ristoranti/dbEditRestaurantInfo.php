@@ -2,9 +2,14 @@
     
     /* Codice per l'aggiunta di informazioni e foto per il ristorante */
     
-    include 'dbConnect.php';
+    //Debugging
+    echo "arrivato fin qui";
 
+    include '../dbManager/dbConnect.php';
+
+    /*
     $total = count($_FILES['file']['name']);
+    
     $fileArray = array();
     // Loop through each file
     for ($i = 0; $i < $total; $i++) {
@@ -21,14 +26,14 @@
         }
         array_push($fileArray, $_FILES['file']['name'][$i]);
     }
-    $encodedFileArray = json_encode($fileArray);
+    $encodedFileArray = json_encode($fileArray); 
 
 
     if (isset($_POST['image'])) {
         $image = $_POST['image'];
     } else {
         $image = 0;
-    }
+    }*/
 
     if (isset($_POST['description'])) {
         $description = str_replace("'", "''", $_POST['description']);
@@ -42,8 +47,16 @@
         $tags = json_encode(['niente']);
     }
 
-    $sql = "UPDATE recensioni SET descrizione = $description, listaFoto = $encodedFileArray, tags = $tags WHERE id = id_ristorante";
+    $id_ristorante = $_POST['id_ristorante'];
 
-    $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+    //Debugging
+    echo "arrivato fin qui";
+
+    $query2 = "UPDATE dati_ristoranti SET descrizione = '$description', tags = '$tags' WHERE id = '$id_ristorante'";
+
+    //listaFoto = $encodedFileArray
+
+    $result = mysqli_query($conn, $query2) or trigger_error(mysqli_error($conn));
+    //or die (mysqli_error($conn))
 
     echo $result;

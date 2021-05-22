@@ -47,10 +47,11 @@ function submit() {
 }
 
 function sendEditsData() {
-    var formData = new FormData();
-    /*
-    var name = $('#restaurant-name').val();
-    var address = $('#restaurant-address').val(); */
+
+    var formData2 = new FormData();
+
+    var id_ristorante = document.getElementsByName('restaurant-div')[0].id;
+
     var description = $('#restaurant-description-2').val();
     var tags = [];
     for (checkbox of document.getElementsByClassName('modal-form-checkbox')) {
@@ -59,24 +60,27 @@ function sendEditsData() {
         }
     }
     //insert into formData
-    formData.append('description', description);
-    formData.append('tags', tags);
+    formData2.append('id_ristorante', id_ristorante);
+    formData2.append('description', description);
+    formData2.append('tags', tags);
 
+    /*
     var files = $('#restaurant-image-2')[0].files;
     for (file of files) {
         formData.append('file[]', file);
-    }
+    }*/
 
     //Faccio la post con il metodo $.ajax() di JQuery
     $.ajax({
         type: 'POST',
         url: 'dbEditRestaurantInfo.php',
-        data: formData,
+        data: formData2,
         contentType: false,
         processData: false,
         success: (data) => {
+            //console.log("success");
             console.log(data);
-        },
+        }
     });
 
 }
