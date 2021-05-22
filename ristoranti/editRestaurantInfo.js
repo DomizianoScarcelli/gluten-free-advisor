@@ -14,7 +14,6 @@ submitEditsButton.addEventListener('click', function () {
         location.reload();
     }
     else {
-
         /*Se viene premuto per la prima volta, invia i dati tramite il submit. 
         if ($('#review-title').val() == '' || $('#review-date').val() == '' || $('#review-text').val() == '') {
             alert('Titolo, data e descrizione sono obbligatori!');
@@ -51,7 +50,6 @@ function sendEditsData() {
     var formData2 = new FormData();
 
     var id_ristorante = document.getElementsByName('restaurant-div')[0].id;
-
     var description = $('#restaurant-description-2').val();
     var tags = [];
     for (checkbox of document.getElementsByClassName('modal-form-checkbox')) {
@@ -59,16 +57,20 @@ function sendEditsData() {
             tags.push(checkbox.value);
         }
     }
+
     //insert into formData
     formData2.append('id_ristorante', id_ristorante);
     formData2.append('description', description);
     formData2.append('tags', tags);
-
-    /*
+    //Caricamento delle immagini
     var files = $('#restaurant-image-2')[0].files;
     for (file of files) {
-        formData.append('file[]', file);
-    }*/
+        formData2.append('file[]', file);
+    }
+    //Codice per ispezionare formData2 nella console del browser
+    for (var pair of formData2.entries()) {
+        console.log(pair[0] + ', ' + pair[1]);
+    }
 
     //Faccio la post con il metodo $.ajax() di JQuery
     $.ajax({

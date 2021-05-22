@@ -70,6 +70,12 @@
 
             //GRIGLIA DI IMMAGINI
             $num_photo = sizeof($photoarray);
+            
+            /*DEBUGGING
+            print_r($row1['listaFoto']);
+            print_r($photoarray);
+            print_r(json_encode($photoarray));
+            */
 
             echo "        
                 <!--Images grid-->
