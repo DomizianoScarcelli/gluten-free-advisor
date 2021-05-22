@@ -41,8 +41,8 @@ $('#back-icon').click(() => {
 	location.href = '/';
 });
 $('#back-icon').mouseover(() => {
-	$('#back-text').show(300);
+	$('#back-text').animate({ width: 'toggle' }).show(500);
 });
 $('#back-icon').mouseout(() => {
-	$('#back-text').hide(300);
+	$('#back-text').animate({ width: 'toggle' }).hide(500);
 });

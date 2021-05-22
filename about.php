@@ -47,7 +47,7 @@
                     <div class='header-title'>
                         Il progetto Gluten Free Advisor
                     </div>
-                    <div class='header-subtitle'>
+                    <div class='header-subtitle' onclick="document.getElementById('authors').scrollIntoView()">
                         Incontra il nostro Team!
                     </div>
                     <div class='header-text'>
@@ -73,34 +73,28 @@
             <!--Sezione intermedia-->
             <div class=' row cols-3 mottos-container g-4'>
                 <div class="col motto">
-                    <div class="motto-icon"></div>
+                    <div class="motto-icon" id='gluten-free'></div>
                     <div class="motto-title">Senza Glutine</div>
-                    <div class="motto-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta
-                        voluptatem,
-                        incidunt nisi quibusdam dolorum odio nihil pariatur accusantium non iusto rem atque illum id
-                        soluta
-                        quaerat obcaecati suscipit repellendus cumque!</div>
+                    <div class="motto-text">I ristoranti presenti sul sito sono scelti accuratamente dal nostro Team e vengono continuamente aggiunti dalla community. </div>
                 </div>
                 <div class="col motto">
-                    <div class="motto-icon"></div>
-                    <div class="motto-title">Senza Problemi</div>
-                    <div class="motto-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut alias
-                        accusantium
-                        consequuntur nisi error quam inventore sed adipisci voluptatem minima, at, vel repellat sunt
-                        a id
-                        modi sit? Distinctio, eius?</div>
+                    <div class="motto-icon" id='problem-free'></div>
+                    <div class="motto-title" >Senza Problemi</div>
+                    <div class="motto-text">Se noti che un ristorante presente sul sito non offre veramente opzioni senza glutine, contattaci e, dopo una rapida verifica, se questo è vero lo rimuoveremo!</div>
                 </div>
                 <div class="col motto">
-                    <div class="motto-icon"></div>
+                    <div class="motto-icon" id='limit-free'></div>
                     <div class="motto-title">Senza Limiti</div>
-                    <div class="motto-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sapiente
-                        qui
-                        fugit suscipit commodi accusantium, veniam, aspernatur adipisci, nostrum temporibus incidunt
-                        delectus ab fugiat necessitatibus cumque animi! Porro, ipsum fugiat?</div>
+                    <div class="motto-text">Non esistono più limiti all'alimentazione, basta consultare il nostro sito per trovare velocemenete e in maniera efficente un ristorante senza glutine vicino a te, che soddisfi le tue necessità.
+                    </div>
                 </div>
             </div>
             <!--Sezione autori-->
-            <div class="row authors-container">
+            <div class="row authors-container" id='authors'>
+                <div class="authors-title">
+                    Il nostro Team
+                </div>
+            
                 <div class="col author-card ">
                     <div class="author-icon"></div>
                     <div class="author-name">Domiziano Scarcelli</div>
@@ -110,6 +104,7 @@
                     <div class="author-name">Cristiana Di Tullio</div>
                 </div>
             </div>
+            
 
             <!--Sezione form di contatto-->
             <div class="contact-form-container" id='form-container'>

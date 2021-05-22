@@ -55,13 +55,15 @@
 }
 
 .header-subtitle {
+	cursor: pointer;
 	font-size: 1.75rem;
 	font-weight: bold;
 	padding-bottom: 1rem;
 }
 
-/* .header-text {
-} */
+.header-subtitle:hover {
+	text-decoration: underline;
+}
 
 .button-container {
 	padding-top: 3rem;
@@ -105,20 +107,37 @@
 	/* flex-wrap: nowrap; */
 }
 .col.motto {
+	height: auto;
 	text-align: center;
 }
 .motto-icon {
 	width: 10rem;
 	height: 10rem;
 	margin: auto;
-	background-image: url(../img/logos/favicon2.png);
 	background-repeat: no-repeat;
 	background-size: contain;
+}
+
+#gluten-free {
+	background-image: url(../img/icons/about-us/Senza\ glutine.png);
+}
+#problem-free {
+	background-image: url(../img/icons/about-us/Senza\ problemi.png);
+}
+#limit-free {
+	background-image: url(../img/icons/about-us/Senza\ limiti.png);
 }
 
 .motto-title {
 	font-weight: bold;
 	font-size: 1.5rem;
+}
+
+.authors-title {
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 2rem;
 }
 
 .authors-container {
