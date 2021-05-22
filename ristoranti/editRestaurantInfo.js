@@ -25,7 +25,7 @@ submitEditsButton.addEventListener('click', function () {
         }*/
 
         console.log('modifiche salvate');
-        submit();
+        submit2();
         submitEditsButton.removeAttribute('data-dismiss');
         submitEditsButton.removeAttribute('Aria-label');
     }
@@ -35,7 +35,7 @@ closeButton2.addEventListener('click', () => {
     location.reload();
 });
 
-function submit() {
+function submit2() {
     console.log('Saved');
     sendEditsData();
     modalBody2.innerHTML = `
