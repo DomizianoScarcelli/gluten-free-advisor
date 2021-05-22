@@ -15,6 +15,14 @@
 	margin: 0;
 }
 
+.edits-icon {
+	display: block;
+	height: 100px;
+	width: 100px !important;
+	margin-left: auto;
+	/*float: right !important;*/
+}
+
 /*
 .description {
 	font-size: 17px;
@@ -31,6 +39,21 @@ ul li::before {
     display: inline-block; 
     width: 1em;
     margin-left: -1em;
+}
+
+.primary-text-1 {
+	font-size: 1.5rem;
+	color: #303049;
+	font-family: 'Noto Sans', sans-serif;
+	transition: color 500ms;
+	font-weight: bold;
+}
+
+.secondary-text-1 {
+	font-size: 1rem;
+	color: #787794;
+	font-family: 'Noto Sans', sans-serif;
+	transition: color 500ms;
 }
 
 /* Stile del bottone di modifica del ristorante */

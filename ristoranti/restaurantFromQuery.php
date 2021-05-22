@@ -24,18 +24,32 @@
         echo "<p>Ecco il ristorante che cercavi:</p>";
     }*/
 
-    //Query che mi servono
+    //Query che recuperano i dati del ristorante e le sue recensioni
     $q1 = "SELECT * FROM dati_ristoranti WHERE id = $id";  //Seleziona i dati del ristorante corrente (serve per nome e indirizzo)
     $q2 = "SELECT COUNT(*) FROM recensioni WHERE id_ristorante = $id"; //Conta il numero di recensioni per il ristorante corrente
     $q3 = "SELECT * FROM recensioni WHERE id_ristorante = $id order by data_recensione asc"; //Seleziona tutte le recensioni per il ristorante corrente
     $q4 = "SELECT valutazione FROM recensioni WHERE id_ristorante = $id"; /*Faccio una query a parte solo per la valutazione in modo da
     poter settare in modo opportuno il rating del ristorante, prima di iterare sulle recensioni*/
+    //Query che contano il numero di valutazioni
+    $q5 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 5)";
+    $q6 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 4)";
+    $q7 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 3)";
+    $q8 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 2)";
+    $q9 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 1)";
+
 
     //Esecuzione delle query sul db e memorizzazione del risultato nelle variabili $result_i
     $result1 = mysqli_query($conn, $q1);
     $result2 = mysqli_query($conn, $q2);
     $result3 = mysqli_query($conn, $q3);
     $result4 = mysqli_query($conn, $q4);
+
+    $result5 = mysqli_query($conn, $q5);
+    $result6 = mysqli_query($conn, $q6);
+    $result7 = mysqli_query($conn, $q7);
+    $result8 = mysqli_query($conn, $q8);
+    $result9 = mysqli_query($conn, $q9);
+
     
     if (mysqli_num_rows($result1) > 0) {
 
@@ -235,13 +249,14 @@
                             <div class='col-md-5 modify-info'>
                                 <div>   <!-- Serve per racchiudere scritte e pulsante nella stessa entità -->
                                     <div class='row'>
-                                        <h3>Aggiungi informazioni</h3>
+                                        <img src='../img/icons/edit_icon.svg' class='edits-icon'>
                                     </div>
                                     <div class='row'>
-                                        <p>
+                                        <p class='primary-text-1 mb-0'>Aggiungi informazioni</p>
+                                        <p class='secondary-text-1'>
                                         Conosci questo ristorante?
                                         <br>
-                                        Aiutaci a completare il suo profilo aggiungendo la tua esperienza!
+                                        Arricchisci il suo profilo con la tua esperienza!
                                         </p>
                                     </div>
                                     <div class='row'>
@@ -508,7 +523,7 @@
             echo "
                 <!--Intestazione Recensioni-->
                 <div class='text-center'>
-                    <h3 class='risto-title'>Recensioni</h3>
+                    <h3 class='risto-title'>Recensioni e valutazione di \"{$row1['nome']}\"</h3>
             ";
 
             if (mysqli_num_rows($result2) > 0 && mysqli_num_rows($result3) > 0) {
@@ -520,33 +535,12 @@
                         
                     ";
 
-                    /*STAR RATING
-                    //Calcola il numero di stelle da checkare facendo la media delle valutazioni degli utenti (ognuna un numero da 1 a 5)
-                    if (mysqli_num_rows($result4) > 0) {
-                        while ($row4 = mysqli_fetch_assoc($result4)) {
-                            $val += $row4['valutazione'];
-                        }
-                    }
-                    $val = intdiv($val, $row2['COUNT(*)']);
-                
-                    //Stampa il numero giusto di stelle
-                    for ($i = 0; $i < $val; $i++) {
-                        echo "              
-                                <span class='fa fa-star checked'></span>
-                            ";
-                    }
-
-                    for (; $i < 5; $i++) {
-                        echo "
-                                <span class='fa fa-star'></span>
-                            ";
-                    }*/
-
-                    //Per ora è commentato
+                    //STAR RATING
+                    
                     echo " 
                     </div>
-                    <!-- <div class='row cols-2'>
-                        <div class='col-md-8'>  -->
+                    <div class='row cols-2'>
+                        <div class='col-md-6'>
                     ";
                         
                     
@@ -576,14 +570,200 @@
                         ";
                     }
 
-                    /*
+                    
                     echo "
                         </div>
-                        <div class='col-md-4'>
+                        <div class='col-md-6'>
+                           
+                            <div class='card my-card'> 
+                                <div class='rating-container'>
+                                    <div class='rating-title'>
+                                        <div>
+                                            <h4>Opinioni degli utenti</h4>
+                                            Valutazione complessiva:
+                            ";
+
+
+                            //Calcola il numero di stelle da checkare facendo la media delle valutazioni degli utenti (ognuna un numero da 1 a 5)
+                            if (mysqli_num_rows($result4) > 0) {
+                                while ($row4 = mysqli_fetch_assoc($result4)) {
+                                    $val += $row4['valutazione'];
+                                }
+                            }
+                            $val = intdiv($val, $row2['COUNT(*)']);
+                        
+                            //Stampa il numero giusto di stelle
+                            for ($i = 0; $i < $val; $i++) {
+                                echo "              
+                                        <span class='fa fa-star star-color checked'></span>
+                                    ";
+                            }
+        
+                            for (; $i < 5; $i++) {
+                                echo "
+                                        <span class='fa fa-star'></span>
+                                    ";
+                            }
+                    
+                    echo "             
+                                        </div>
+                                    </div>
+
+                                        <div>
+
+                                            <div class='progress-group'>
+                                                <div class='progress-group-bars'>
+                                                    
+                                                    <div class='row cols-2'>
+                                                        <div class='col-sm-2 mt-1' style='text-align: right'>
+                                                            <b><i>Ottimo</i></b>
+                                                        </div>
+                                                        <div class='col-sm-8' style='padding: 1em'>
+                                                            <div class='progress' style='height: 6px; width: 100%'>
+                                                                <div class='progress-bar bg-light-yellow' style='width: 100%'></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class='col-sm-2 mt-1'>
+                                                        5 / 5
+                                                        </div>
+                                                    </div>";
+                                                    if (mysqli_num_rows($result5) >= 0) {
+                                                        while ($row5 = mysqli_fetch_assoc($result5)) {
+                                                        echo"
+                                                                <div class='row'>
+                                                                    <div class='rating-tip'>N° di recensioni: {$row5['COUNT(*)']}</div>
+                                                                </div>
+                                                            ";
+                                                        }
+                                                    }
+                    echo"
+                                                    
+                                                </div>                                            
+                                            </div>
+
+                                            <div class='progress-group'>
+                                                <div class='progress-group-bars'>
+                                                    <div class='row cols-2'>
+                                                        <div class='col-sm-2 mt-1' style='text-align: right'>
+                                                            <b><i>Buono</i></b>
+                                                        </div>
+                                                        <div class='col-sm-8' style='padding: 1em'>
+                                                            <div class='progress' style='height: 6px; width: 100%'>
+                                                                <div class='progress-bar bg-light-yellow' style='width: 80%'></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class='col-sm-2 mt-1'>
+                                                        4 / 5
+                                                        </div>
+                                                    </div>";
+                                                    if (mysqli_num_rows($result6) >= 0) {
+                                                        while ($row6 = mysqli_fetch_assoc($result6)) {
+                                                        echo"
+                                                                <div class='row'>
+                                                                    <div class='rating-tip'>N° di recensioni: {$row6['COUNT(*)']}</div>
+                                                                </div>
+                                                            ";
+                                                        }
+                                                    }
+                    echo"
+                                                </div>                                            
+                                            </div>
+
+                                            <div class='progress-group'>
+                                                <div class='progress-group-bars'>
+                                                    <div class='row cols-2'>
+                                                        <div class='col-sm-2 mt-1' style='text-align: right'>
+                                                            <b><i>Medio</i></b>
+                                                        </div>
+                                                        <div class='col-sm-8' style='padding: 1em'>
+                                                            <div class='progress' style='height: 6px; width: 100%'>
+                                                                <div class='progress-bar bg-light-yellow' style='width: 60%'></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class='col-sm-2 mt-1'>
+                                                        3 / 5
+                                                        </div>
+                                                    </div>";
+                                                    if (mysqli_num_rows($result7) >= 0) {
+                                                        while ($row7 = mysqli_fetch_assoc($result7)) {
+                                                        echo"
+                                                                <div class='row'>
+                                                                    <div class='rating-tip'>N° di recensioni: {$row7['COUNT(*)']}</div>
+                                                                </div>
+                                                            ";
+                                                        }
+                                                    }
+                    echo"
+                                                </div>                                            
+                                            </div>
+
+                                            <div class='progress-group'>
+                                                <div class='progress-group-bars'>
+                                                    <div class='row cols-2'>
+                                                        <div class='col-sm-2 mt-1' style='text-align: right'>
+                                                            <b><i>Scarso</i></b>
+                                                        </div>
+                                                        <div class='col-sm-8' style='padding: 1em'>
+                                                            <div class='progress' style='height: 6px; width: 100%'>
+                                                                <div class='progress-bar bg-light-yellow' style='width: 40%'></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class='col-sm-2 mt-1'>
+                                                        2 / 5
+                                                        </div>
+                                                    </div>";
+                                                    if (mysqli_num_rows($result8) >= 0) {
+                                                        while ($row8 = mysqli_fetch_assoc($result8)) {
+                                                        echo"
+                                                                <div class='row'>
+                                                                    <div class='rating-tip'>N° di recensioni: {$row8['COUNT(*)']}</div>
+                                                                </div>
+                                                            ";
+                                                        }
+                                                    }
+                    echo"
+                                                </div>
+                                            </div>
+
+                                            <div class='progress-group'>
+                                                <div class='progress-group-bars'>
+                                                    <div class='row cols-2'>
+                                                        <div class='col-sm-2 mt-1' style='text-align: right'>
+                                                            <b><i>Ottimo</i></b>
+                                                        </div>
+                                                        <div class='col-sm-8' style='padding: 1em'>
+                                                            <div class='progress' style='height: 6px; width: 100%'>
+                                                                <div class='progress-bar bg-light-yellow' style='width: 20%'></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class='col-sm-2 mt-1'>
+                                                        1 / 5
+                                                        </div>
+                                                    </div>";
+                                                    if (mysqli_num_rows($result9) >= 0) {
+                                                        while ($row9 = mysqli_fetch_assoc($result9)) {
+                                                        echo"
+                                                                <div class='row'>
+                                                                    <div class='rating-tip'>N° di recensioni: {$row9['COUNT(*)']}</div>
+                                                                </div>
+                                                            ";
+                                                        }
+                                                    }
+                    echo"
+                                                </div>                                            
+                                            </div>
+
+                                        </div>
+                                    </div> 
+                                
+                                       
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                         
-                    ";*/
+                    ";
                 }
             } 
             else {

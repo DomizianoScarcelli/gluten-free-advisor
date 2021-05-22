@@ -62,8 +62,8 @@
 }
 
 .title-container h5 {
-	color: #d4a373;
-	
+	/*color: #d4a373;*/
+	color: #9bc46c;
 }
 
 .user-container {
@@ -71,4 +71,39 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
+}
+
+/* CSS per il box della valutazione utenti */
+
+.rating-title {
+	text-align: center;
+}
+
+.rating-container {
+	padding: 1em;
+}
+
+
+.progress-group {
+	padding: 0.25em;
+	align-items: center;
+}
+
+.rating-tip {
+	/*padding-top: 0.5rem;*/
+	font-size: 14px;
+	text-align: center;
+}
+
+.bg-light-yellow {
+	background-color: rgb(248, 226, 100) !important;
+}
+
+.star-color {
+	color: rgb(248, 226, 100) !important;
+}
+
+.my-card {
+	display: block;
+	position: absolute;
 }
