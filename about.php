@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class='button-container'>
-                    <button class='btn btn-primary contact-us' onclick="document.getElementById('contact-us-form').scrollIntoView()">
+                    <button class='btn btn-primary contact-us' onclick="document.getElementById('form-container').scrollIntoView()">
                         Contattaci
                     </button>
                 </div>

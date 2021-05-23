@@ -18,7 +18,7 @@ function sendMail() {
 	formData.set('message', message);
 	$.ajax({
 		type: 'POST',
-		url: 'dbSendMail.php',
+		url: '../dbManager/dbSendMail.php',
 		data: formData,
 		contentType: false,
 		processData: false,
