@@ -162,11 +162,19 @@ body {
 }
 
 .author-icon {
-	width: 10rem;
-	height: 10rem;
-	background-image: url(../img/lorem-avatar.png);
+	width: 12rem;
+	height: 12rem;
+
 	background-repeat: no-repeat;
 	background-size: contain;
+}
+
+#avatar-domiziano {
+	background-image: url(../img/icons/about-us/avatar_domiziano.png);
+}
+
+#avatar-cristiana {
+	background-image: url(../img/icons/about-us/avatar_cristiana.png);
 }
 
 .contact-form-container {

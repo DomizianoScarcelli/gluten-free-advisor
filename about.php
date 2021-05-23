@@ -96,11 +96,11 @@
                 </div>
             
                 <div class="col author-card ">
-                    <div class="author-icon"></div>
+                    <div class="author-icon" id='avatar-domiziano'></div>
                     <div class="author-name">Domiziano Scarcelli</div>
                 </div>
                 <div class="col author-card ">
-                    <div class="author-icon"></div>
+                    <div class="author-icon" id='avatar-cristiana'></div>
                     <div class="author-name">Cristiana Di Tullio</div>
                 </div>
             </div>
