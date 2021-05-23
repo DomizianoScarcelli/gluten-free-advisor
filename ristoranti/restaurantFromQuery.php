@@ -249,7 +249,7 @@
                             <div class='col-md-5 modify-info'>
                                 <div>   <!-- Serve per racchiudere scritte e pulsante nella stessa entità -->
                                     <div class='row'>
-                                        <img src='../img/icons/edit_icon.svg' class='edits-icon'>
+                                        <img src='../img/icons/edit-icon.svg' class='edits-icon'>
                                     </div>
                                     <div class='row'>
                                         <p class='primary-text-1 mb-0'>Aggiungi informazioni</p>
