@@ -44,7 +44,7 @@
 
 </head>
 
-<body class="background">
+<body>
     <!--Page Logo-->
     <div class="head-container">
         <img src="img/logos/Risorsa 3.png" id="logo">

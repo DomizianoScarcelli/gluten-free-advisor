@@ -32,7 +32,7 @@
 <body>
 
 
-    <body class='background'>
+    <body>
         <!--Header-->
         <div class="back-container">
             <div class="back-inner-container">

@@ -1,9 +1,9 @@
-.background {
-	font-family: 'Cardo', serif;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+body {
+	font-family: 'Cardo', serif !important;
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	align-items: center !important;
 }
 
 .top-container {

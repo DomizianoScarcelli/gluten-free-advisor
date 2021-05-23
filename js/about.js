@@ -11,6 +11,7 @@ function sendMail() {
 
 	if (name == '' || subject == '' || email == '' || message == '') {
 		alert('Tutti i campi sono obbligatori!');
+		return false;
 	}
 	formData.set('name', name);
 	formData.set('subject', subject);

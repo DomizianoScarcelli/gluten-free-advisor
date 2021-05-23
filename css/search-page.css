@@ -1,3 +1,7 @@
+body {
+	font-family: 'Cardo', serif !important;
+	background-color: white !important;
+}
 .header {
 	display: flex;
 	background-color: #ccd5ae;
@@ -5,6 +9,7 @@
 	align-items: center;
 	height: 7rem;
 }
+
 .primary-text {
 	font-size: 1.5rem;
 	color: #41405f;
@@ -30,11 +35,6 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-}
-
-.background {
-	font-family: 'Cardo', serif;
-	background-color: white;
 }
 
 .cards-container {
