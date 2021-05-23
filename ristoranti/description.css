@@ -15,18 +15,7 @@
 	margin: 0;
 }
 
-.edits-icon {
-	display: block;
-	height: 100px;
-	width: 100px !important;
-	margin-left: auto;
-	/*float: right !important;*/
-}
-
-/*
-.description {
-	font-size: 17px;
-}*/
+/* Stile della sezione "Offerta del ristorante" */
 
 ul {
     list-style: none; /* Toglie i default bullets */
@@ -35,7 +24,6 @@ ul {
 ul li::before {
     content: "\2022";  
     color: #b9c46c; 
-    /*font-weight: bold; */
     display: inline-block; 
     width: 1em;
     margin-left: -1em;
@@ -100,4 +88,23 @@ ul li::before {
 .addinfo-button:hover span:after {
 	opacity: 1;
 	right: 0;
+}
+
+.edits-icon {
+	display: block;
+	/*height: 100px;
+	width: 100px !important;*/
+	height: 8rem;
+	width: 8rem !important;
+	margin-left: auto;
+	padding-bottom: 1em;
+}
+
+.edits-icon-1 {
+	display: block;
+	height: 12rem;
+	width: 10rem !important;
+	margin: auto;
+	padding-bottom: 2em;
+	padding-top: 2em;
 }

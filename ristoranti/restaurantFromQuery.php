@@ -59,6 +59,8 @@
             $tagsarray = explode(',', str_replace(('"'), ',', $row1['tags']));
             //print($tagsarray);
 
+            $num_photo = sizeof($photoarray);
+
             //Codice che mette a null gli ultimi elementi di photoarray se questo contiene meno di 5 foto
             //Evita che vengano stampati errori se il ristorante ha meno d
             if (sizeof($photoarray) < 5) {
@@ -83,7 +85,6 @@
 
 
             //GRIGLIA DI IMMAGINI
-            $num_photo = sizeof($photoarray);
             
             /*DEBUGGING
             print_r($row1['listaFoto']);
@@ -94,43 +95,75 @@
             echo "        
                 <!--Images grid-->
                 <div class='animated-grid'>
-                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})' onclick='openModalSlideshow();currentSlide(1)'></div>
-                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})' onclick='openModalSlideshow();currentSlide(2)'></div>
-                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})' onclick='openModalSlideshow();currentSlide(3)'></div>
-                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})' onclick='openModalSlideshow();currentSlide(4)'></div>
-                    <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})' onclick='openModalSlideshow();currentSlide(5)'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[2]})'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[3]})'></div>
+                        <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[4]})'></div>
                 </div>
             ";
 
-                    /*MODAL SLIDESHOW
-                    echo "
-                        <div id='modalslides' class='modal'>
-                            <span class='close-cursor' onclick='closeModalSlideshow()'>&times;</span>
-                            <div class='modal-content'>  ";
-                            
-                                for ($k = 0; $k < $num_photo; $k++) {
-                                    $index = $k + 1;
-                                    echo "      <div class='slides'>
-                                                    <div class='numbertext'>{$index} / {$num_photo}</div>
-                                                    <img src='../img/upload/{$photoarray[$k]}' style='width:100%'>
-                                                </div>
-                                        ";               
-                                }  
-                    echo "  
-                                <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
-                                <a class='next' onclick='plusSlides(1)'>&#10095;<a>
-                        ";
-                            
-                                for ($k = 0; $k < $num_photo; $k++) {
-                                    echo "      <div class='column'>
-                                                    <img class='demo' src='../img/upload/{$photoarray[$k]}' onclick='currentSlide($k)' alt='slide$k'>
-                                                </div>
-                                        ";
-                                }
-                    echo "
+            //SLIDESHOW
+            echo "
+                <div id='slideshow-button-container' style='text-align: center; color: black'>
+                    <div id='slideshow-button' data-toggle='modal' data-target='#ModalSlideshow'>
+                        <div class='slideshow-button-text'>
+                            <span style='float: left'><b>::</b></span>
+                            Mostra tutte le foto
+                            <span style='float: right'><b>::</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODAL CONTAINER -->
+                <div class='modal fade' id='ModalSlideshow' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    <div class='modal-dialog' role='document'>
+                        <div class='modal-content'>
+                            <div class='modal-body container ui-front' id='modal-body-1'>
+
+                    <!-- CAROUSEL -->
+                    <div id='GlutenFreeSlideshow' class='carousel slide' data-ride='carousel'>
+                        <!-- Carousel Indicators -->
+                        <div class='carousel-indicators'>
+                            <button type='button' data-bs-target='#GlutenFreeSlideshow' data-bs-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>";
+                            for ($i = 1; $i < $num_photo; $i++) {
+                                $j = $i+1;
+                                echo "
+                                <button type='button' data-bs-target='#GlutenFreeSlideshow' data-bs-slide-to='$i' aria-label='Slide {$j}'></button>";
+                            }
+            echo "                
+                        </div>
+                    
+                        <div class='carousel-inner'>
+                            <div class='carousel-item active' data-interval='3000'> 
+                                <img class='d-block w-100 img-fluid' src='../img/upload/{$photoarray[0]}' alt='Image 1'>
+                            </div>";
+                            for ($i = 1; $i < $num_photo; $i++) {
+                                $j = $i+1;
+                                echo "
+                                <div class='carousel-item' data-interval='3000'>
+                                    <img class='d-block w-100 img-fluid' src='../img/upload/{$photoarray[$i]}' alt='Image {$j}'>
+                                </div>";
+                            }
+
+            echo "
+                        </div>
+                        <a class='carousel-control-prev' href='#GlutenFreeSlideshow' role='button' data-slide='prev'>
+                            <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                            <span class='sr-only'>Previous</span>
+                        </a>
+                        <a class='carousel-control-next' href='#GlutenFreeSlideshow' role='button' data-slide='next'>
+                            <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                            <span class='sr-only'>Next</span>
+                        </a>
+                    </div>
+
                             </div>
                         </div>
-                        ";  */
+                    </div>
+                </div>
+
+            ";
                     
 
             //DESCRIZIONE DEL RISTORANTE
@@ -249,7 +282,7 @@
                             <div class='col-md-5 modify-info'>
                                 <div>   <!-- Serve per racchiudere scritte e pulsante nella stessa entità -->
                                     <div class='row'>
-                                        <img src='../img/icons/edit-icon.svg' class='edits-icon'>
+                                        <img src='../img/icons/add-file.svg' class='edits-icon'>
                                     </div>
                                     <div class='row'>
                                         <p class='primary-text-1 mb-0'>Aggiungi informazioni</p>
@@ -589,7 +622,12 @@
                     echo "
                         </div>
                         <div class='col-md-6'>
-                           
+
+                            <!-- Icona delle valutazioni
+                            <div class='row'>
+                                <img src='../img/icons/medal.svg' class='edits-icon-1'>
+                            </div>  -->
+
                             <div class='card'> 
                                 <div class='rating-container'>
                                     <div class='rating-title'>
@@ -784,7 +822,10 @@
             else {
                 echo "
                     <p>Non è stata ancora scritta nessuna recensione per questo ristorante...</p>
-                    ~
+                    <p>Sii il primo ad aggiungerne una!
+                    <div class='row'>
+                        <img src='../img/icons/not-found.svg' class='edits-icon-1'>
+                    </div>
                     </div>
                 ";
 

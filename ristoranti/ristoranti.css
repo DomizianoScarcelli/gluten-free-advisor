@@ -50,3 +50,61 @@ body {
 .risto-title {
     margin-top: 0.5em;
 }
+
+/* Stile dello slideshow */
+
+.carousel-inner{
+	width:100%;
+	max-height: 31.25em !important;
+}
+
+#slideshow-button-container {
+	padding: 0.25rem;
+    margin-bottom: 16px;
+}
+
+#slideshow-button {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 2px solid black;
+    width: 25%;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slideshow-button-text {
+    padding: 0.5em;
+}
+
+
+
+/*
+#slideshow-button {
+	display: grid;
+	margin: auto;
+	place-items: center;
+	align-items: center;
+	width: 50%;
+    background-color: #3b352c;
+    border: 2px;
+    border-color: aqua;
+	transition: background-color 500ms;
+	box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+	cursor: pointer;
+}
+*/
+
+/*
+.gallery-text {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.2rem;
+	color: white;
+	font-family: 'Noto Sans', sans-serif;
+	transition: color 500ms;
+}
+*/

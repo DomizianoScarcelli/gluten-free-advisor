@@ -81,7 +81,7 @@
         </div>
 
         <!-- FORM per aggiungere una recensione-->
-        <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <!--Modal form header-->
@@ -102,7 +102,7 @@
 
                                     <!--Titolo della recensione-->
                                     <p class="label" id='titolo' value='titolo'>Titolo della tua recensione<sup>*</sup></p>
-                                    <input class='text-input' type="text" id="review-title" placeholder="es. Splendida serata" />                                  
+                                    <input class='text-input' type="text" id="review-title" placeholder="es. Splendida serata"/>                                  
 
                                     <!--Testo della recensione-->
                                     <p class="label" id='testo-recensione'>La tua recensione<sup>*</sup></p>
@@ -155,13 +155,6 @@
     </div>
     </div>
     <?php include '../footer.html' ?>
-
-    <!-- CREDITS
-    <div>Icons made by 
-        <a href="https://www.freepik.com" title="Freepik">Freepik</a> from 
-        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-    </div>
-    -->
 
 </body>
 

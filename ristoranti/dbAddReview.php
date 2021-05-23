@@ -13,11 +13,13 @@
     $id_ristorante = $_POST['id_ristorante'];
     $username = str_replace("'", "''", $_POST['username']);
     
+    /*
     echo "$id_ristorante";
     echo "$title";
     echo "$text";
     echo "$date";
     echo "$username";
+    */
     
     $query = "INSERT INTO recensioni (id_recensione, id_ristorante, username, titolo, data_recensione, valutazione, testo) VALUES (NULL, '$id_ristorante','$username','$title','$date','$rating','$text')";
 

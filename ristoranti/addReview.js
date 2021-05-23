@@ -14,7 +14,7 @@ submitReviewButton.addEventListener('click', function () {
     }
     else {
 
-        /*Altrimenti invia i dati tramite il submit. */
+        /*Altrimenti invia i dati tramite il submit. 
         if ($('#review-title').val() == '' || $('#review-date').val() == '' || $('#review-text').val() == '') {
             alert('Titolo, data e descrizione sono obbligatori!');
             return;
@@ -22,7 +22,7 @@ submitReviewButton.addEventListener('click', function () {
 
         if ($('#username').val() == '') {
             alert('Stai inviando la recensione in forma anonima.');
-        }
+        }*/
 
         console.log('recensione aggiunta');
         submit();
