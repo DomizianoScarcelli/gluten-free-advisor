@@ -535,7 +535,6 @@
                         
                     ";
 
-                    //STAR RATING
                     
                     echo " 
                     </div>
@@ -559,6 +558,22 @@
                                                 <p class='card-text'>{$row3['testo']}
                                                     <br><br>
                                                     <b>Data della visita:</b> $new_date
+                                                    <span style='float: right'>
+                                                        <b>Valutazione: </b>";
+
+                                                        for ($i = 0; $i < $row3['valutazione']; $i++) {
+                                                            echo "              
+                                                                    <span class='fa fa-star star-color-1 checked'></span>
+                                                                ";
+                                                        }
+                                    
+                                                        for (; $i < 5; $i++) {
+                                                            echo "
+                                                                    <span class='fa fa-star'></span>
+                                                                ";
+                                                        }
+                        echo "                           
+                                                    </span>
                                                 </p>
                                             </div>
                                         </div>
@@ -575,7 +590,7 @@
                         </div>
                         <div class='col-md-6'>
                            
-                            <div class='card my-card'> 
+                            <div class='card'> 
                                 <div class='rating-container'>
                                     <div class='rating-title'>
                                         <div>
@@ -729,7 +744,7 @@
                                                 <div class='progress-group-bars'>
                                                     <div class='row cols-2'>
                                                         <div class='col-sm-2 mt-1' style='text-align: right'>
-                                                            <b><i>Ottimo</i></b>
+                                                            <b><i>Pessimo</i></b>
                                                         </div>
                                                         <div class='col-sm-8' style='padding: 1em'>
                                                             <div class='progress' style='height: 6px; width: 100%'>
