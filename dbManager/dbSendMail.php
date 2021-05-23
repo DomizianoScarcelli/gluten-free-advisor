@@ -1,5 +1,5 @@
 <?php
-include 'dbManager/dbConnect.php';
+include 'dbConnect.php';
 
 $name = htmlspecialchars ($_POST['name']);
 $subject = htmlspecialchars ($_POST['subject']);

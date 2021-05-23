@@ -6,6 +6,12 @@ CSS per gli elementi nella home. Gli elementi sono ordinati (circa) per come ven
 Palette dei colori: https://coolors.co/787794-41405f-ccd5ae-faedcd-e3d2af-d4a373-3b352c
 */
 
+body {
+	display: grid !important;
+	font-family: 'Cardo', serif !important;
+	background-color: white !important;
+}
+
 .primary-text {
 	font-size: 2rem;
 	color: #41405f;
@@ -19,12 +25,6 @@ Palette dei colori: https://coolors.co/787794-41405f-ccd5ae-faedcd-e3d2af-d4a373
 	color: #787794;
 	font-family: 'Noto Sans', sans-serif;
 	transition: color 500ms;
-}
-
-.background {
-	display: grid;
-	font-family: 'Cardo', serif;
-	background-color: white;
 }
 
 .flex-row {

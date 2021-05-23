@@ -11,6 +11,7 @@ function sendMail() {
 
 	if (name == '' || subject == '' || email == '' || message == '') {
 		alert('Tutti i campi sono obbligatori!');
+		return false;
 	}
 	formData.set('name', name);
 	formData.set('subject', subject);
@@ -18,7 +19,7 @@ function sendMail() {
 	formData.set('message', message);
 	$.ajax({
 		type: 'POST',
-		url: 'dbSendMail.php',
+		url: '../dbManager/dbSendMail.php',
 		data: formData,
 		contentType: false,
 		processData: false,
@@ -41,8 +42,8 @@ $('#back-icon').click(() => {
 	location.href = '/';
 });
 $('#back-icon').mouseover(() => {
-	$('#back-text').show(300);
+	$('#back-text').animate({ width: 'toggle' }).show(500);
 });
 $('#back-icon').mouseout(() => {
-	$('#back-text').hide(300);
+	$('#back-text').animate({ width: 'toggle' }).hide(500);
 });
