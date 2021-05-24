@@ -75,7 +75,7 @@ function sendEditsData() {
     //Faccio la post con il metodo $.ajax() di JQuery
     $.ajax({
         type: 'POST',
-        url: 'dbEditRestaurantInfo.php',
+        url: 'dbManager/dbEditRestaurantInfo.php',
         data: formData2,
         contentType: false,
         processData: false,

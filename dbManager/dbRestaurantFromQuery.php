@@ -4,7 +4,7 @@
     sul database e recuperare i dati e le recensioni del ristorante specifico. */
 
     /*Connessione al db*/
-    include "../dbManager/dbConnect.php";
+    include "dbConnect.php";
 
     //Memorizza l'id del ristorante di cui fare la query e caricare i dati
     $id = $_GET['id'];
@@ -622,12 +622,6 @@
                     echo "
                         </div>
                         <div class='col-md-6'>
-
-                            <!-- Icona delle valutazioni
-                            <div class='row'>
-                                <img src='../img/icons/medal.svg' class='edits-icon-1'>
-                            </div>  -->
-
                             <div class='card'> 
                                 <div class='rating-container'>
                                     <div class='rating-title'>
@@ -828,7 +822,6 @@
                     </div>
                     </div>
                 ";
-
             }
 
         mysqli_close($conn);

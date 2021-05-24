@@ -4,7 +4,7 @@
 
     //TODO: se l'utente non inserisce uno username, registrarlo come anonimo. **Fixed
 
-    include '../dbManager/dbConnect.php';
+    include 'dbConnect.php';
 
     $title = str_replace("'", "''", $_POST['title']);
     $text = str_replace("'", "''", $_POST['text']);

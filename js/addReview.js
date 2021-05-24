@@ -77,7 +77,7 @@ function sendReviewData() {
     //Faccio la post con il metodo $.ajax() di JQuery
     $.ajax({
         type: 'POST',
-        url: 'dbAddReview.php',
+        url: 'dbManager/dbAddReview.php',
         data: formData,
         contentType: false,
         processData: false,
