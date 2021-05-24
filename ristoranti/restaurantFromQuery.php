@@ -403,10 +403,10 @@
                                                                             <p class='label'> Come descriveresti il prezzo del ristorante? </p>
                                                                             <div class='checkbox'>";
                                                                             if (in_array('Economico', $tagsarray)) {
-                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Economico' class='modal-form-checkbox' value='Eonomico' checked>";
+                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Economico' class='modal-form-checkbox' value='Economico' checked>";
                                                                             }
                                                                             else {
-                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Economico' class='modal-form-checkbox' value='Eonomico'>";
+                                                                                echo "<input type='radio' name='servizi-ristorante' id='restaurant-Economico' class='modal-form-checkbox' value='Economico'>";
                                                                             }
                                                                             echo "                                                                                
                                                                                 <label for='restaurant-Economico' class='checkbox-label'>Economico</label>
