@@ -135,13 +135,13 @@
                         </div>
                     
                         <div class='carousel-inner'>
-                            <div class='carousel-item active' data-interval='3000'> 
+                            <div class='carousel-item active' data-interval='1500'> 
                                 <img class='d-block w-100 img-fluid' src='../img/upload/{$photoarray[0]}' alt='Image 1'>
                             </div>";
                             for ($i = 1; $i < $num_photo; $i++) {
                                 $j = $i+1;
                                 echo "
-                                <div class='carousel-item' data-interval='3000'>
+                                <div class='carousel-item' data-interval='1500'>
                                     <img class='d-block w-100 img-fluid' src='../img/upload/{$photoarray[$i]}' alt='Image {$j}'>
                                 </div>";
                             }
@@ -184,7 +184,7 @@
                         
                             //Controllo descrizione
                             if (empty($row1['descrizione'])) {
-                                echo "<p>Non è ancora presente una descrizione per questo ristorante...</h3>";                                            
+                                echo "<p><i>Non è ancora presente una descrizione per questo ristorante...</i></h3>";                                            
                             }
                             else {
                                     echo "<p>{$row1['descrizione']}</p>";
@@ -332,7 +332,7 @@
                                                                 <!--Descrizione-->
                                                                 <p class='label' id='descrizione'>&emsp;&emsp;&emsp;Aggiungi/Modifica la descrizione</p>";
                                                                 if ($row1['descrizione'] == '') {
-                                                                    echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description-2' placeholder='Aggiungi per primo una recensione...'></textarea>";
+                                                                    echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description-2' placeholder='Aggiungi per primo una descrizione...'></textarea>";
                                                                 }
                                                                 else {
                                                                     echo "<textarea form='form' cols='30' row='20' class='text-input long-text-input' id='restaurant-description-2'>{$row1['descrizione']}</textarea>";
