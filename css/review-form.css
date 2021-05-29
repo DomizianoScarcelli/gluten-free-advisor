@@ -51,7 +51,7 @@
 	padding-top: 30px;
 }
 
-/* Aggiunta di una recensione */
+/* Stile del bottone per l'aggiunta di una recensione */
 
 #add-review-button-container {
 	padding: 2.5rem;
@@ -92,7 +92,7 @@
 	color: white;
 }
 
-/* Bottone per inviare la recensione */
+/* Stile del bottone per l'invio della recensione */
 
 .btn.review-btn {
 	height: 3rem;

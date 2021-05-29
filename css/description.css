@@ -1,4 +1,4 @@
-/* Stile del contenitore della descrizione e modifica ristoranti */
+/* Stile del contenitore della descrizione e del form di modifica dei ristoranti */
 
 .details-container {
 	padding: 2rem;
@@ -44,11 +44,11 @@ ul li::before {
 	transition: color 500ms;
 }
 
-/* Stile del bottone di modifica del ristorante */
+/* Stile del bottone per andare al form di modifica del ristorante */
 
 .addinfo-button {
 	display: inline-block;
-	background-color: #ccd5ae; /* Versione arancione: #d4a373; */
+	background-color: #ccd5ae;
 	border-radius: 20px;
 	border: 1px;
 	color: white;
@@ -57,7 +57,6 @@ ul li::before {
 	padding: 15px;
 	transition: all 0.5s;
 	cursor: pointer;
-	/*margin: 5px;*/
 }
 
 .addinfo-button span {
@@ -77,7 +76,7 @@ ul li::before {
 }
 
 .addinfo-button:hover {
-	background-color: #e9edc9; /* Versione arancione: #faedcd; */
+	background-color: #e9edc9;
 	color: #41405f;
 }
 
@@ -92,8 +91,6 @@ ul li::before {
 
 .edits-icon {
 	display: block;
-	/*height: 100px;
-	width: 100px !important;*/
 	height: 8rem;
 	width: 8rem !important;
 	margin-left: auto;

@@ -1,23 +1,24 @@
 <?php
     
-    /* Codice per l'aggiunta di informazioni e foto per il ristorante */
+    /* Codice per l'aggiunta/modifica di informazioni relative al ristorante */
 
     include 'dbConnect.php';
 
     $id_ristorante = $_POST['id_ristorante'];
 
-    $fotoquery = "SELECT listaFoto FROM dati_ristoranti WHERE id = '$id_ristorante'";  //Seleziona la lista delle foto del ristorante corrente (serve per nome e indirizzo)
+    //Seleziona la lista delle foto già presenti per il ristorante corrente
+    $fotoquery = "SELECT listaFoto FROM dati_ristoranti WHERE id = '$id_ristorante'";
     $resultquery = mysqli_query($conn, $fotoquery);
     while ($row = mysqli_fetch_assoc($resultquery)) {
    
-        //print_r($row);
-        //print_r(($row['listaFoto']));
-        //Prende il valore corrispondente alla chiave listaFoto nell'oggetto risultato della query e lo converte in un array associativo di php
+        /* Prende il valore corrispondente alla chiave 'listaFoto' nell'oggetto risultato della query
+        *  e lo converte in un array associativo di php (necessario per poter fare il merge con l'array
+        *  delle eventuali nuove foto aggiunte) */
         $fotoarray = json_decode($row['listaFoto']);
 
         if (empty($_FILES)) {
 
-            /*Ramo senza caricamento di immagini*/
+            /* Se l'utente non aggiunge nuove immagini viene eseguito questo ramo */
 
             if (isset($_POST['image'])) {
                 $image = $_POST['image'];
@@ -42,7 +43,7 @@
         }
         else {
 
-            /*Ramo con caricamento di immagini*/
+            /* Se l'utente ha aggiunto nuove immagini viene eseguito questo ramo */
 
             //Loop per il corretto caricamento dei file delle immagini
             $total = count($_FILES['file']['name']);
@@ -57,11 +58,10 @@
                 }
                 array_push($fileArray, $_FILES['file']['name'][$i]);
             }
-            //print_r($fileArray);
+
+            //Merge che fa l'append dell'array delle nuove foto a quello delle foto già presenti
             $merge = array_merge($fotoarray, $fileArray);
-            //print_r($merge);
             $encodedFileArray = json_encode($merge); 
-            //print_r($encodedFileArray);      
 
             if (isset($_POST['image'])) {
                 $image = $_POST['image'];
@@ -86,8 +86,8 @@
             }
     }
 
-    $result = mysqli_query($conn, $query2) or trigger_error(mysqli_error($conn));
-            //or die (mysqli_error($conn))
+    $result = mysqli_query($conn, $query2) or die (mysqli_error($conn));
+            //or trigger_error(mysqli_error($conn))
     
     echo $result;
 

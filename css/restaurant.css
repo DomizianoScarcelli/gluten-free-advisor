@@ -1,3 +1,20 @@
+/* Stile di alcuni degli elementi della pagina del ristorante */
+
+.checked {
+    color: orange;
+}
+
+.risto-container {
+    padding: 1 rem;
+    width: auto;
+    justify-content: center;
+}
+
+.risto-title {
+    margin-top: 0.5em;
+}
+
+/* Stile delle card contenenti le immagini nella pagina del ristorante */
 
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 
@@ -25,30 +42,11 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
- }
+}
 
 .animated-card:hover {
     box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
     transform: translateY(-3px) scale(1.025);
- } 
-
-.mynavbar {
-    background: #e9edc9;
-    height: 5rem;
-}
-
-.checked {
-    color: orange;
-}
-
-.risto-container {
-    padding: 1 rem;
-    width: auto;
-    justify-content: center;
-}
-
-.risto-title {
-    margin-top: 0.5em;
 }
 
 /* Stile dello slideshow */
@@ -79,32 +77,3 @@ body {
 .slideshow-button-text {
     padding: 0.5em;
 }
-
-
-
-/*
-#slideshow-button {
-	display: grid;
-	margin: auto;
-	place-items: center;
-	align-items: center;
-	width: 50%;
-    background-color: #3b352c;
-    border: 2px;
-    border-color: aqua;
-	transition: background-color 500ms;
-	box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-	cursor: pointer;
-}
-*/
-
-/*
-.gallery-text {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    font-size: 1.2rem;
-	color: white;
-	font-family: 'Noto Sans', sans-serif;
-	transition: color 500ms;
-}
-*/

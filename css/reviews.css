@@ -1,3 +1,5 @@
+/* Stile della sezione della descrizione e delle recensioni sulla pagina del ristorante */
+
 .header {
 	display: flex;
 	background-color: #ccd5ae;
@@ -62,7 +64,6 @@
 }
 
 .title-container h5 {
-	/*color: #d4a373;*/
 	color: #9bc46c;
 }
 
@@ -73,7 +74,7 @@
     justify-content: center;
 }
 
-/* CSS per il box della valutazione utenti */
+/* Stile della scheda con i punteggi della valutazione utenti */
 
 .rating-title {
 	text-align: center;
@@ -83,14 +84,12 @@
 	padding: 1em;
 }
 
-
 .progress-group {
 	padding: 0.25em;
 	align-items: center;
 }
 
 .rating-tip {
-	/*padding-top: 0.5rem;*/
 	font-size: 14px;
 	text-align: center;
 }

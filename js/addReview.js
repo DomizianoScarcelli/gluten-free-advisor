@@ -1,6 +1,5 @@
-/*  Qui c'è il codice relativo al pulsante (e relativo form) della pagina del ristorante
-che permette l'aggiunta di una nuova recensione. L'interazione con il db verrà gestita da una
-opportuna pagina php.   */
+/* Codice relativo al pulsante e al form che permettono l'aggiunta
+*  di una nuova recensione sulla pagina del ristorante. */
 
 const submitReviewButton = document.getElementById('submit-review-button');
 const closeButton = document.getElementById('close-button');
@@ -8,13 +7,13 @@ const modalBody = document.getElementById('modal-body');
 const originalHtml = modalBody.innerHTML;
 
 submitReviewButton.addEventListener('click', function () {
-    //Se il pulsante è già stato premuto, allora chiudi il form modale e resetta i campi.
     if (submitReviewButton.value == 'Chiudi') {
+        //Se il pulsante è già stato premuto, allora chiudi il form modale e resetta i campi di input
         location.reload();
     }
     else {
-
-        /*Altrimenti invia i dati tramite il submit. 
+        /* Altrimenti invia i dati tramite il submit.
+           Alert per i campi obbligatori
         if ($('#review-title').val() == '' || $('#review-date').val() == '' || $('#review-text').val() == '') {
             alert('Titolo, data e descrizione sono obbligatori!');
             return;
@@ -23,7 +22,6 @@ submitReviewButton.addEventListener('click', function () {
         if ($('#username').val() == '') {
             alert('Stai inviando la recensione in forma anonima.');
         }*/
-
         console.log('recensione aggiunta');
         submit();
         submitReviewButton.removeAttribute('data-dismiss');
@@ -48,7 +46,7 @@ function submit() {
 function sendReviewData() {
     var formData = new FormData();
 
-    //Prendo il valore dei campi di input del form
+    //Estrae il valore dei vari campi di input del form
     var id_ristorante = document.getElementsByName('restaurant-div')[0].id;
     var title = $('#review-title').val();
     var text = $('#review-text').val();
@@ -66,7 +64,7 @@ function sendReviewData() {
         username = "anonimo";
     }
 
-    //Li inserisco dentro l'oggetto formData
+    //Inserisce i dati dentro l'oggetto formData
     formData.append('id_ristorante', id_ristorante)
     formData.append('title', title);
     formData.append('text', text);
@@ -74,7 +72,7 @@ function sendReviewData() {
     formData.append('date', date);
     formData.append('username', username);
 
-    //Faccio la post con il metodo $.ajax() di JQuery
+    //Chiama il metodo $.ajax() di JQuery inviando i dati salvati
     $.ajax({
         type: 'POST',
         url: 'dbManager/dbAddReview.php',

@@ -3,9 +3,10 @@
 
 <head>
 
-<?php echo "<title>Ristorante - {$_GET['name']}</title>"; ?> <!--Setta in maniera dinamica il titolo della pagina con il nome del ristorante-->
+<!-- Pagina del ristorante -->
+<?php echo "<title>Ristorante - {$_GET['name']}</title>"; ?> <!-- Setta in maniera dinamica il titolo della pagina con il nome del ristorante -->
 
-    <!--Meta tags-->
+    <!-- Meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <!-- Window icon -->
@@ -20,13 +21,13 @@
     <link rel="stylesheet" href="css/reviews.css">
     <link rel="stylesheet" href="css/description.css">
     <link rel="stylesheet" href="css/footer.css">
-     <!--Javascript-->
+     <!-- Javascript -->
     <script src="js/search.js" defer></script>
     <script src="js/addReview.js" defer></script>
     <script src="js/editRestaurantInfo.js" defer></script>
-    <!--JQuery-->
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    <!--Bootstrap-->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -39,7 +40,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
         </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <!--Vue.js-->
+     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="../js/vueElements.js" defer></script>
 
@@ -48,7 +49,7 @@
 <body>
 
     <div class="background">
-        <!--Header-->
+        <!-- Header con la searchbar che rimanda alla search-page -->
         <div class="header" id="header">
             <img src="img/logos/Risorsa 1.png" alt="search page logo" class="header-logo" onclick="location.href = 'index.php'" />
             <input type="search" class="searchbar" id="searchbar" />
@@ -62,14 +63,14 @@
             ?>
 
 
-            <!--PULSANTE per aggiungere una recensione-->
+            <!--Pulsante per aggiungere una recensione-->
             <div id="add-review-button-container">
                 <div id="add-review-button" data-toggle="modal" data-target="#exampleModal">
                     <p class="secondary-text light-text">Ti è capitato di mangiare qui?</p>
                     <h1 class="primary-text light-text">Scrivi una recensione per questo ristorante!</h1>
                 </div> 
             </div>
-            <!-- FORM per aggiungere una recensione-->
+            <!-- Form modale per aggiungere una recensione-->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -133,6 +134,7 @@
             </div>
         </div>
     </div>
+    <!-- Footer che rimanda alla about page -->
     <?php include 'footer.html' ?>
 
 </body>

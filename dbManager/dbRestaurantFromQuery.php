@@ -1,12 +1,11 @@
 <?php
 
-    /*Questo è il codice php che prende l'id del ristorante cercato dalla url e lo usa per fare delle query
-    sul database e recuperare i dati e le recensioni del ristorante specifico. */
+    /*Questo è il codice php che, tramite l'id del ristorante cercato, fa delle query
+    sul database e recupera i dati, le immagini e le recensioni del ristorante stesso. */
 
-    /*Connessione al db*/
     include "dbConnect.php";
 
-    //Memorizza l'id del ristorante di cui fare la query e caricare i dati
+    //Memorizza l'id del ristorante
     $id = $_GET['id'];
     $val = 0;
 
@@ -24,13 +23,13 @@
         echo "<p>Ecco il ristorante che cercavi:</p>";
     }*/
 
-    //Query che recuperano i dati del ristorante e le sue recensioni
+    //Query che estraggono i dati del ristorante e le sue recensioni
     $q1 = "SELECT * FROM dati_ristoranti WHERE id = $id";  //Seleziona i dati del ristorante corrente (serve per nome e indirizzo)
     $q2 = "SELECT COUNT(*) FROM recensioni WHERE id_ristorante = $id"; //Conta il numero di recensioni per il ristorante corrente
     $q3 = "SELECT * FROM recensioni WHERE id_ristorante = $id order by data_recensione asc"; //Seleziona tutte le recensioni per il ristorante corrente
     $q4 = "SELECT valutazione FROM recensioni WHERE id_ristorante = $id"; /*Faccio una query a parte solo per la valutazione in modo da
-    poter settare in modo opportuno il rating del ristorante, prima di iterare sulle recensioni*/
-    //Query che contano il numero di valutazioni
+    poter settare in modo opportuno la valutazione complessiva del ristorante, prima di iterare sulle recensioni*/
+    //Query che contano il numero di valutazioni che il ristorante ha ricevuto per ogni punteggio
     $q5 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 5)";
     $q6 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 4)";
     $q7 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 3)";
@@ -57,19 +56,18 @@
 
             $photoarray = json_decode($row1['listaFoto']);
             $tagsarray = explode(',', str_replace(('"'), ',', $row1['tags']));
-            //print($tagsarray);
-
             $num_photo = sizeof($photoarray);
 
-            //Codice che mette a null gli ultimi elementi di photoarray se questo contiene meno di 5 foto
-            //Evita che vengano stampati errori se il ristorante ha meno d
+            /* Codice che mette a null gli ultimi elementi di photoarray se questo non contiene
+            *  abbastanza foto per riempire la griglia (evita che vengano stampati errori se il 
+            *  ristorante ha meno di 5 foto) */
             if (sizeof($photoarray) < 5) {
                 for ($j = sizeof($photoarray); $j < 5; $j++) {
                     $photoarray[$j] = null;
                 }
             }
 
-            //NOME E INDIRIZZO DEL RISTORANTE
+            //Nome e indirizzo del ristorante
             echo "
                 <div class='border-bottom' name='restaurant-div' id='{$row1['id']}'>
                     <h3 class='risto-title'>{$row1['nome']}</h3>
@@ -83,17 +81,9 @@
                 </div>                            
             ";
 
-
-            //GRIGLIA DI IMMAGINI
-            
-            /*DEBUGGING
-            print_r($row1['listaFoto']);
-            print_r($photoarray);
-            print_r(json_encode($photoarray));
-            */
-
+            //Griglia di immagini
             echo "        
-                <!--Images grid-->
+                <!-- Images grid -->
                 <div class='animated-grid'>
                         <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[0]})'></div>
                         <div class='animated-card' style='background-image:url(../img/upload/{$photoarray[1]})'></div>
@@ -103,8 +93,9 @@
                 </div>
             ";
 
-            //SLIDESHOW
+            //Slideshow modale
             echo "
+                <!-- Slideshow button -->
                 <div id='slideshow-button-container' style='text-align: center; color: black'>
                     <div id='slideshow-button' data-toggle='modal' data-target='#ModalSlideshow'>
                         <div class='slideshow-button-text'>
@@ -115,13 +106,13 @@
                     </div>
                 </div>
 
-                <!-- MODAL CONTAINER -->
+                <!-- Modal container -->
                 <div class='modal fade' id='ModalSlideshow' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                     <div class='modal-dialog' role='document'>
                         <div class='modal-content'>
                             <div class='modal-body container ui-front' id='modal-body-1'>
 
-                    <!-- CAROUSEL -->
+                    <!-- Carousel -->
                     <div id='GlutenFreeSlideshow' class='carousel slide' data-ride='carousel'>
                         <!-- Carousel Indicators -->
                         <div class='carousel-indicators'>
@@ -164,9 +155,8 @@
                 </div>
 
             ";
-                    
 
-            //DESCRIZIONE DEL RISTORANTE
+            //Offerta del ristorante
             $SERVIZI_DEL_RISTORANTE = ['Consegna a domicilio', 'Da asporto', 'Consumazione sul posto', 'Cucina separata'];
             $PREZZO = ['Economico', 'Nella media', 'Raffinato'];
             $PIATTI = ['Pizza', 'Pasta', 'Panini', 'Dolci', 'Sushi', 'Gelato'];
@@ -182,7 +172,7 @@
                                     <h3 class='modify-h3'>Offerta del ristorante</h3>
             ";
                         
-                            //Controllo descrizione
+                            //Controllo dell'esistenza di una descrizione
                             if (empty($row1['descrizione'])) {
                                 echo "<p><i>Non è ancora presente una descrizione per questo ristorante...</i></h3>";                                            
                             }
@@ -190,7 +180,7 @@
                                     echo "<p>{$row1['descrizione']}</p>";
                             }
 
-            //Apertura tag con la lista delle opzioni disponibili
+            //Confronto e stampa dei tag corrispondenti ai vari servizi che il ristorante offre
             echo"           
                                 </div>
                                 <div class='row cols-2'> 
@@ -278,7 +268,7 @@
 
             //Pulsante (e relativo form) per la modifica di dati del ristorante
             echo "          
-                            <!-- Colonna con il pulsante per aprire il form di modifica dati del ristorante -->
+                            <!-- Colonna con il pulsante del form di modifica dati del ristorante -->
                             <div class='col-md-5 modify-info'>
                                 <div>   <!-- Serve per racchiudere scritte e pulsante nella stessa entità -->
                                     <div class='row'>
@@ -552,7 +542,7 @@
 
                 ";  
 
-            //RECENSIONI
+            //Recensioni
             echo "
                 <!--Intestazione Recensioni-->
                 <div class='text-center'>
@@ -564,6 +554,7 @@
                 while ($row2 = mysqli_fetch_assoc($result2)) {
 
                     echo "
+                            <!-- Numero totale di recensioni -->
                             <p>Numero di recensioni per questo ristorante: <b>{$row2['COUNT(*)']}</b></p>
                         
                     ";
@@ -577,7 +568,7 @@
                         
                     
                     while ($row3 = mysqli_fetch_assoc($result3)) {
-
+                        //Codice che cambia il formato della data da yyyy-mm-dd a dd-mm-yyyy
                         $datestamp = strtotime("{$row3['data_recensione']}");
                         $new_date = date("d-m-Y", $datestamp);
 
@@ -621,6 +612,10 @@
                     
                     echo "
                         </div>
+                        ";
+
+                    //Opinioni degli utenti
+                    echo "
                         <div class='col-md-6'>
                             <div class='card'> 
                                 <div class='rating-container'>
@@ -631,7 +626,7 @@
                             ";
 
 
-                            //Calcola il numero di stelle da checkare facendo la media delle valutazioni degli utenti (ognuna un numero da 1 a 5)
+                            //Calcola la valutazione complessiva facendo la media delle valutazioni singole
                             if (mysqli_num_rows($result4) > 0) {
                                 while ($row4 = mysqli_fetch_assoc($result4)) {
                                     $val += $row4['valutazione'];
@@ -639,7 +634,7 @@
                             }
                             $val = intdiv($val, $row2['COUNT(*)']);
                         
-                            //Stampa il numero giusto di stelle
+                            //Stampa il numero giusto di stelle sulla base del risultato precedente
                             for ($i = 0; $i < $val; $i++) {
                                 echo "              
                                         <span class='fa fa-star star-color checked'></span>
@@ -814,6 +809,7 @@
                 }
             } 
             else {
+                //Se non sono presenti recensioni per il ristorante viene eseguito questo ramo
                 echo "
                     <p>Non è stata ancora scritta nessuna recensione per questo ristorante...</p>
                     <p>Sii il primo ad aggiungerne una!
