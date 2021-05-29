@@ -26,8 +26,9 @@
     //Query che estraggono i dati del ristorante e le sue recensioni
     $q1 = "SELECT * FROM dati_ristoranti WHERE id = $id";  //Seleziona i dati del ristorante corrente (serve per nome e indirizzo)
     $q2 = "SELECT COUNT(*) FROM recensioni WHERE id_ristorante = $id"; //Conta il numero di recensioni per il ristorante corrente
-    $q3 = "SELECT * FROM recensioni WHERE id_ristorante = $id order by data_recensione asc"; //Seleziona tutte le recensioni per il ristorante corrente
-    $q4 = "SELECT valutazione FROM recensioni WHERE id_ristorante = $id"; /*Faccio una query a parte solo per la valutazione in modo da
+    $q3 = "SELECT * FROM recensioni WHERE id_ristorante = $id order by data_recensione asc"; /* Seleziona tutte le recensioni per il 
+    ristorante corrente e le ordina dalla meno alla più recente */
+    $q4 = "SELECT valutazione FROM recensioni WHERE id_ristorante = $id"; /* Faccio una query a parte solo per la valutazione in modo da
     poter settare in modo opportuno la valutazione complessiva del ristorante, prima di iterare sulle recensioni*/
     //Query che contano il numero di valutazioni che il ristorante ha ricevuto per ogni punteggio
     $q5 = "SELECT COUNT(*) FROM recensioni WHERE (id_ristorante = $id AND valutazione = 5)";
