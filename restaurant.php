@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="css/searchbars.css">
     <link rel="stylesheet" href="css/modal-form.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/ristoranti.css">
+    <link rel="stylesheet" href="css/restaurant.css">
     <link rel="stylesheet" href="css/animated-grid.css">
-    <link rel="stylesheet" href="css/recensioni.css">
+    <link rel="stylesheet" href="css/reviews.css">
     <link rel="stylesheet" href="css/description.css">
     <link rel="stylesheet" href="css/footer.css">
      <!--Javascript-->
