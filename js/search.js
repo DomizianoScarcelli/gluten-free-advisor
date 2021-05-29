@@ -13,7 +13,9 @@ searchbar.addEventListener('keypress', (event) => {
 });
 
 /**
- * Setta la querystring se in index, prende le info dalla querystring ed effettua una ricerca nel database mostrando i risultati nella search-page
+ * Setta la querystring se ci si trova in index,
+ * setta la querystring ed elimina i dati non utili presenti nella querystring se ci si trova nella pagina del ristorante,
+ * prende le info dalla querystring ed effettua una ricerca nel database mostrando i risultati se ci si trova nella search page.
  */
 function search() {
 	if (location.pathname == '/index.php' || location.pathname == '/') {
@@ -23,7 +25,8 @@ function search() {
 		//Reindirizza in search-page.php/querystring
 		let url = new URL(location.origin + '/search-page.php?' + urlParams);
 		location.href = url;
-	} else if (location.pathname == '/ristoranti.php') { //Fa funzionare la ricerca anche dalla pagina del ristorante
+	} else if (location.pathname == '/ristoranti.php') {
+		//Fa funzionare la ricerca anche dalla pagina del ristorante
 		urlParams.delete('id');
 		urlParams.delete('name');
 		urlParams.append('query', searchbar.value);

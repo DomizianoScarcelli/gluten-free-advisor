@@ -1,5 +1,5 @@
 /**
- *Vue object for the home filters list.
+ * Oggetto Vue per i filtri rapidi nella home page.
  */
 var quickFilters = new Vue({
 	el: '#filter-container',
@@ -14,6 +14,10 @@ var quickFilters = new Vue({
 		],
 	},
 	methods: {
+		/**
+		 * Inserisce il filtro nella querystring quando questo viene cliccato, e reinderizza l'utente nella search-page.
+		 * @param {*} filter
+		 */
 		redirect: (filter) => {
 			urlParams.append('Piatti[]', filter.name);
 			//Inserisce i parametri all'interno della url e ricarica la pagina per effettuare il redirect
@@ -32,7 +36,7 @@ var quickFilters = new Vue({
 });
 
 /**
- * Vue object for firs restaurant list in the home page (Our restaurant suggestions)
+ * Oggetto Vue per la lista dei ristoranti suggeriti nella home page.
  */
 var restaurantSuggestions = new Vue({
 	el: '#restaurant-suggestion',
@@ -67,48 +71,7 @@ var restaurantSuggestions = new Vue({
 });
 
 /**
- * Vue object for the second restaurant list in the home page (Nearby suggestions)
- */
-// var nearbyRestaurants = new Vue({
-// 	el: '#nearby-suggestions-card-list',
-// 	data: {
-// 		restaurants: [
-// 			{
-// 				title: 'Lievito 72',
-// 				address: 'Via del Forte Braschi, 82/A, 00167 Roma RM',
-// 				image: 'img/home-restaurants/lievito-72-home.jpg',
-// 			},
-// 			{
-// 				title: 'Ristorante Mangiafuoco Pizza&Grill',
-// 				address: 'Via Chiana, 37, 00198 Roma RM',
-// 				image: 'img/home-restaurants/mangiafuoco-pizza-grill-home.webp',
-// 			},
-// 			{
-// 				title: 'Mama Eat Roma',
-// 				address: 'Via di S. Cosimato, 7/9, 00153 Roma RM',
-// 				image: 'img/home-restaurants/mama-eat-roma-home.jpg',
-// 			},
-// 			{
-// 				title: 'Cajo & Gajo',
-// 				address: 'Piazza San Callisto, 10, 00153 Roma',
-// 				image: 'img/home-restaurants/cajo-&-gajo.png',
-// 			},
-// 			{
-// 				title: 'Mama Eat Roma',
-// 				address: 'Via di S. Cosimato, 7/9, 00153 Roma RM',
-// 				image: 'img/home-restaurants/mama-eat-roma-home.jpg',
-// 			},
-// 			{
-// 				title: 'Lievito 72',
-// 				address: 'Via del Forte Braschi, 82/A, 00167 Roma RM',
-// 				image: 'img/home-restaurants/lievito-72-home.jpg',
-// 			},
-// 		],
-// 	},
-// });
-
-/**
- * Vue object for the sidebar in the search page.
+ * Oggetto Vue per la sidebar presente nella searchpage. L'oggetto viene inoltre utilizzato per renderizzare i filtri asseribili nel form modale di aggiunta del ristorante.
  */
 var filterCheckboxes = new Vue({
 	el: '#filter-checkboxes',
@@ -141,6 +104,11 @@ var filterCheckboxes = new Vue({
 		],
 	},
 	methods: {
+		/**
+		 * Inserisce e rimuove dalla querystring i vari filtri.
+		 * @param {*} element
+		 * @param {*} value
+		 */
 		redirect: (element, value) => {
 			formattedValue = value.replaceAll(' ', '-');
 			//Se il parametro è gia stato inserito e la checkbox viene di nuovo cliccata, allora lo toglie
@@ -153,8 +121,11 @@ var filterCheckboxes = new Vue({
 			location.search = urlParams;
 		},
 	},
-	//Quando l'elemento è caricato, verifica quali parametri sono presenti nella querystring
-	//checka le checkbox corrispondenti.
+	/**
+	 * Quando l'elemento è caricato, verifica quali parametri sono presenti nella querystring e
+	 * checka le checkbox corrispondenti.
+	 */
+
 	mounted: () => {
 		var urlParams = new URLSearchParams(location.search);
 		array = ['Servizi del ristorante', 'Prezzo', 'Piatti', 'Restrizioni alimentari'];

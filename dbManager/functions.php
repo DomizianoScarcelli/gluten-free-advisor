@@ -54,7 +54,9 @@ function get_distance($lat1, $lon1, $lat2, $lon2)
   return ($miles * 1.609344);
 }
 
-
+/**
+ * Mappa il prezzo in un simbolo. 
+ */
 function getPriceSymbol($tagArray)
 {
   if (in_array('Economico', $tagArray)) {

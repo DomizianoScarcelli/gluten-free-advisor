@@ -62,24 +62,10 @@ submitRestaurantButton.addEventListener('click', () => {
 		submitRestaurantButton.removeAttribute('Aria-label');
 	}
 });
-
+//Quando il form viene chiuso la pagina viene ricaricata per mostrare le info aggiornate nella home page.
 closeButton.addEventListener('click', () => {
-	// reset();
 	location.reload();
 });
-
-// restaurantName.addEventListener('keypress', (event) => {
-// 	if (event.key === 'Enter') {
-// 		sendRestaurantData();
-// 		submit();
-// 	}
-// });
-// restaurantCity.addEventListener('keypress', (event) => {
-// 	if (event.key === 'Enter') {
-// 		sendRestaurantData();
-// 		submit();
-// 	}
-// });
 
 /**
  * Mostra il messaggio di conferma aggiunta del ristorante dopo una fase di verifica.
@@ -107,20 +93,6 @@ function submit() {
     `;
 	submitRestaurantButton.value = 'Chiudi';
 	submitRestaurantButton.innerHTML = 'Chiudi';
-}
-/**
- * Resetta le componenti del form.
- * Attualmente non ricarica le componenti generate da vue.js e quindi al suo posto viene effettuato un semplice reload della schermata.
- */
-function reset() {
-	//Attende un po' prima di resettare i valori così non si vedono i cambiamenti nell'interfaccia
-	setTimeout(() => {
-		submitRestaurantButton.value = '';
-		submitRestaurantButton.innerHTML = 'Invia';
-		modalBody.innerHTML = originalHtml;
-		restaurantName.value = '';
-		restaurantCity.value = '';
-	}, 500);
 }
 /**
  * Viene triggerato quando non vengono aggiunte abbastanza informazioni nel form. Il ristorante viene aggiunto nel database in una tabella relativa ai ristoranti da

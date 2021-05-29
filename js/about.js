@@ -1,7 +1,10 @@
 // $('#form').submit(() => {
 // 	sendMail();
 // });
-
+/**
+ * Ajax per l'invio dei dati del form al database. Se l'ajax viene eseguita con successo, il form viene sostituito da un messaggio di successo.
+ * @returns
+ */
 function sendMail() {
 	formData = new FormData();
 	name = $('#name')[0].value;

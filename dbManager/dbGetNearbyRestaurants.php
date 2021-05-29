@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Codice per ottenere la griglia dei sei ristoranti vicino alla posizione attuale. 
+ */
 include 'dbConnect.php';
 include 'functions.php';
 
