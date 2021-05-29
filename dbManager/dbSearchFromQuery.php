@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Questo è il codice PHP che prende il valore della ricerca effettuata tramite la sidebar (nella pagina search-page o nella homepage) dalla querystring e inserisce le carte dei ristoranti
+ * Questo è il codice PHP che prende il valore della ricerca effettuata tramite la searchbar (nella pagina search-page o nella homepage) dalla querystring e inserisce le carte dei ristoranti
  * (nel database locale) il cui nome contiene la parola chiave cercata. 
  *  */
 
