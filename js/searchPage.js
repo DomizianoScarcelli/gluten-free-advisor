@@ -7,7 +7,7 @@ function redirectRestaurant(element) {
 	var emptyUrlParams = new URLSearchParams();
 	emptyUrlParams.append('id', element.id);
 	emptyUrlParams.append('name', element.getAttribute('value'));
-	let url = new URL(location.origin + '/ristoranti.php?' + emptyUrlParams);
+	let url = new URL(location.origin + '/restaurant.php?' + emptyUrlParams);
 	location.href = url;
 }
 /**Impedisce che venga chiamato l'evendo del div padre ed effettua la chiamata alla funzione che setta o rimuove i tag dalla querystring */

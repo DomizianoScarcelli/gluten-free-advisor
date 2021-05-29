@@ -25,7 +25,7 @@ function search() {
 		//Reindirizza in search-page.php/querystring
 		let url = new URL(location.origin + '/search-page.php?' + urlParams);
 		location.href = url;
-	} else if (location.pathname == '/ristoranti.php') {
+	} else if (location.pathname == '/restaurant.php') {
 		//Fa funzionare la ricerca anche dalla pagina del ristorante
 		urlParams.delete('id');
 		urlParams.delete('name');
